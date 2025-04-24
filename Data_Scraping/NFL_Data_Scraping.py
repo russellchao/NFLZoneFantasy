@@ -63,6 +63,13 @@ def scrape_data(data_type):
                 "RILB", "LOLB", "ROLB", "CB", "LCB", "RCB", "S", "FS", "SS", "DB"
         }
 
+    elif data_type == "kicking":
+        limit = 35
+        desired_stats = {
+            "name_display": "Player", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "fga": "FGA", "fgm": "FGM",
+            "fg_long": "Long", "xpa": "XPA", "xpm": "XPM", "kickoff": "KO", "kickoff_yds": "KOYds", "kickoff_tb": "TB"
+        }
+
 
 
     players_data = [] 
@@ -92,7 +99,6 @@ def scrape_data(data_type):
             players_data.append(player_data)
 
 
-    
     if data_type == "rushing" or data_type == "receiving":
         # Sort rushing and receiving data based on total yards
         # Pro Football Reference sorts that data based on rushing attempts/receptions by default
@@ -101,6 +107,10 @@ def scrape_data(data_type):
     elif data_type == "defense":
         # Sort defense data based on total tackles
         players_data.sort(key=lambda x: int(x["Tck"].replace(",", "")), reverse=True)
+
+    elif data_type == "kicking":
+        # Sort defense data based on total field goals made
+        players_data.sort(key=lambda x: int(x["FGM"].replace(",", "")), reverse=True)
 
 
     # Export player data to .csv file
@@ -129,13 +139,6 @@ def scrape_data(data_type):
 
 
 
-# Scrape special teams data 
-def scrape_special_teams_data(filename):
-    pass
-
-
-
-
 
 
 
@@ -145,6 +148,7 @@ if __name__ == "__main__":
     scrape_data(data_type="rushing")
     scrape_data(data_type="receiving")
     scrape_data(data_type="defense")
+    scrape_data(data_type="kicking")
 
 
     
