@@ -92,10 +92,81 @@ def scrape_data(data_type):
 
 
 
+def scrape_defense_data():
+    # Scraping defense data requires separate function due to the way the defensive stats on pro football reference are organized
 
-# Scrape defense data
-def scrape_defense_data(filename):
-    pass
+    # Send a GET request to the stats page URL
+    response = requests.get(f"https://www.pro-football-reference.com/years/{year}/defense.htm")
+    if response.status_code != 200:
+        raise Exception(f"Failed to load page ({response.status_code})")
+
+    # Parse the HTML content
+    soup = BeautifulSoup(response.content, "html.parser")
+
+    # Find the table directly
+    table = soup.find("table", id="defense")
+    if table is None:
+        raise Exception("ERROR: Couldn't find the requested table.")
+
+    # Extract player rows
+    rows = table.tbody.find_all("tr")
+
+    # Retreive player data 
+    limit = 400
+    desired_stats = {
+        "name_display": "Player", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "tackles_combined": "Tck", 
+        "tackles_solo": "Solo", "tackles_assists": "Asst", "tackles_loss": "TFL", "sacks": "Sack", "pass_defended": "PBU",
+        "def_int": "INT", "def_int_td": "INT TD", "fumbles_forced": "FF", "fumbles_rec": "FR", "fumbles_rec_td": "FRTD"
+    }
+
+    defensive_positions = {"DE", "LDE", "RDE", "DT", "LDT", "RDT", "NT", "LB", "ILB", "OLB", "LLB", "RLB", "MLB", "LILB", 
+            "RILB", "LOLB", "ROLB", "CB", "LCB", "RCB", "S", "FS", "SS", "DB"
+    }
+
+    players_data = [] 
+
+    for row in rows[:limit]:
+        if row.get("class") == ["thead"]:
+            continue
+
+        player_data = {}
+        skip_row = False
+
+        for stat_key, label in desired_stats.items():
+            cell = row.find("td", {"data-stat": stat_key})
+
+            # Skip row if a required field is missing
+            if cell is None:
+                skip_row = True  
+                break
+            
+            player_data[label] = cell.text.strip()
+
+            # Skip row if the player's position isn't a defensive position
+            if stat_key == "pos" and player_data[label] not in defensive_positions:
+                skip_row = True
+                break
+
+        if not skip_row:
+            players_data.append(player_data)
+
+
+    # Sort defense data based on total tackles
+    players_data.sort(key=lambda x: int(x["Tck"].replace(",", "")), reverse=True)
+
+
+    # Export player data to .csv file
+    filename = f"Data_Scraping/defense_stats.csv"
+
+    with open(filename, mode="w", newline="", encoding="utf-8") as file:
+        writer = csv.DictWriter(file, fieldnames=list(players_data[0].keys()))
+        writer.writeheader()                # write column headers
+        writer.writerows(players_data)      # write player rows
+
+
+    return
+
+
 
 
 
@@ -118,6 +189,7 @@ if __name__ == "__main__":
     scrape_data(data_type="passing")
     scrape_data(data_type="rushing")
     scrape_data(data_type="receiving")
+    scrape_defense_data()
 
 
     
