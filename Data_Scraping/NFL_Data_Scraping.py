@@ -119,4 +119,5 @@ if __name__ == "__main__":
     scrape_data(data_type="rushing")
     scrape_data(data_type="receiving")
 
+
     
