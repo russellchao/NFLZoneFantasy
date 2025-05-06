@@ -1,5 +1,6 @@
 package com.nfl.nfl_zone.player;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -38,6 +39,38 @@ public class PasserService {
         return passerRepository.findAll().stream()
                 .filter(passer -> passer.getPos().toLowerCase().contains(searchText.toLowerCase()))
                 .collect(Collectors.toList());
+    }
+
+    public List<Passer> getPassersByTeamAndPos(String team, String pos) {
+        return passerRepository.findAll().stream()
+                .filter(passer -> team.equals(passer.getTeam()) && pos.equals(passer.getPos()))
+                .collect(Collectors.toList());
+    }
+
+    public Passer addPasser(Passer passer) {
+        passerRepository.save(passer);
+        return passer;
+    }
+
+    public Passer updatePasser(Passer updatedPasser) {
+        Optional<Passer> existingPasser = passerRepository.findByName(updatedPasser.getName());
+
+        if (existingPasser.isPresent()) {
+            Passer passerToUpdate = existingPasser.get();
+            passerToUpdate.setName(updatedPasser.getName());
+            passerToUpdate.setPos(updatedPasser.getPos());
+            passerToUpdate.setTeam(updatedPasser.getTeam());
+
+            passerRepository.save(passerToUpdate);
+            return passerToUpdate;
+        }
+
+        return null;
+    }
+
+    @Transactional
+    public void deletePasser(String passerName) {
+        passerRepository.deleteByName(passerName);
     }
 
 }
