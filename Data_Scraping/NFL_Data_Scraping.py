@@ -70,8 +70,6 @@ def scrape_data(data_type):
             "fg_long": "Long", "xpa": "XPA", "xpm": "XPM", "kickoff": "KO", "kickoff_yds": "KOYds", "kickoff_tb": "TB"
         }
 
-
-
     players_data = [] 
 
     for row in rows[:limit]:
