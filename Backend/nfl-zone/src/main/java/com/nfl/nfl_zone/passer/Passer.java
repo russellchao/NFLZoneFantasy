@@ -18,7 +18,7 @@ public class Passer {
     private Integer gp;
     private Integer cmp;
     private Integer att;
-    private Float cmpPct;
+    private Float cmp_pct;
     private Integer yds;
     private Integer td;
     private Integer INT;
@@ -85,11 +85,11 @@ public class Passer {
     }
 
     public Float getCmpPct() {
-        return cmpPct;
+        return cmp_pct;
     }
 
-    public void setCmpPct(Float cmpPct) {
-        this.cmpPct = cmpPct;
+    public void setCmpPct(Float cmp_pct) {
+        this.cmp_pct = cmp_pct;
     }
 
     public Integer getYds() {
