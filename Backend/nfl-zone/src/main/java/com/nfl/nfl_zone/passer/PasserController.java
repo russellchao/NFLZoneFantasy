@@ -21,7 +21,7 @@ public class PasserController {
     @GetMapping
     public List<Passer> getPassers(
         @RequestParam(required = false) String team,
-        @RequestParam(required = false) String player,
+        @RequestParam(required = false) String name,
         @RequestParam(required = false) String pos) {
 
         if (team != null && pos != null) {
@@ -30,8 +30,8 @@ public class PasserController {
         else if (team != null) {
             return passerService.getPassersFromTeam(team);
         }
-        else if (player != null) {
-            return passerService.getPassersByName(player);
+        else if (name != null) {
+            return passerService.getPassersByName(name);
         }
         else if (pos != null) {
             return passerService.getPassersByPos(pos);
