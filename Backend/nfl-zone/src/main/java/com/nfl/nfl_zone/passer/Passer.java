@@ -1,12 +1,21 @@
-package com.nfl.nfl_zone.player;
+package com.nfl.nfl_zone.passer;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="passing_stats")
-public class Passer extends Player {
+@IdClass(PlayerId.class)
+public class Passer {
 
+    @Id
+    @Column(name = "name")
+    private String name;
+    @Id
+    @Column(name = "team")
+    private String team;
+    private Integer age;
+    private String pos;
+    private Integer gp;
     private Integer cmp;
     private Integer att;
     private Float cmpPct;
@@ -19,6 +28,45 @@ public class Passer extends Player {
     private Float qbr;
     private Integer sack;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getTeam() {
+        return team;
+    }
+
+    public void setTeam(String team) {
+        this.team = team;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getPos() {
+        return pos;
+    }
+
+    public void setPos(String pos) {
+        this.pos = pos;
+    }
+
+    public Integer getGp() {
+        return gp;
+    }
+
+    public void setGp(Integer gp) {
+        this.gp = gp;
+    }
 
     public Integer getCmp() {
         return cmp;

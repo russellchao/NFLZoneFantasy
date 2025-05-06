@@ -1,4 +1,4 @@
-Player,Age,Team,Pos,G,Cmp,Att,Cmp%,Yds,TD,Int,Long,Y/G,Rate,QBR,Sack
+Name,Age,Team,Pos,G,Cmp,Att,Cmp%,Yds,TD,Int,Long,Y/G,Rate,QBR,Sack
 Joe Burrow,28,CIN,QB,17,460,652,70.6,4918,43,9,70,289.3,108.5,74.7,48
 Jared Goff,30,DET,QB,17,390,539,72.4,4629,37,12,82,272.3,111.8,68.4,31
 Baker Mayfield,29,TAM,QB,17,407,570,71.4,4500,41,16,57,264.7,106.8,61.6,40

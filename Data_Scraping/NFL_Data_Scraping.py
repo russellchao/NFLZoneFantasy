@@ -33,7 +33,7 @@ def scrape_data(data_type):
     if data_type == "passing":
         limit = 60
         desired_stats = {
-            "name_display": "Player", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "pass_cmp": "Cmp", 
+            "name_display": "Name", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "pass_cmp": "Cmp", 
             "pass_att": "Att", "pass_cmp_pct": "Cmp%", "pass_yds": "Yds", "pass_td": "TD", "pass_int": "Int", "pass_long": "Long",
             "pass_yds_per_g": "Y/G", "pass_rating": "Rate", "qbr": "QBR", "pass_sacked": "Sack"
         }
@@ -41,21 +41,21 @@ def scrape_data(data_type):
     elif data_type == "rushing":
         limit = 200
         desired_stats = {
-            "name_display": "Player", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "rush_att": "Att",
+            "name_display": "Name", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "rush_att": "Att",
             "rush_yds": "Yds", "rush_td": "TD", "rush_long": "Long", "rush_yds_per_g": "Y/G", "fumbles": "Fmb"
         }
 
     elif data_type == "receiving":
         limit = 200
         desired_stats = {
-            "name_display": "Player", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "rec": "Rec",
+            "name_display": "Name", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "rec": "Rec",
             "rec_yds": "Yds", "rec_td": "TD", "rec_long": "Long", "rec_yds_per_g": "Y/G", "fumbles": "Fmb"
         }
 
     elif data_type == "defense": 
         limit = 400
         desired_stats = {
-            "name_display": "Player", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "tackles_combined": "Tck", 
+            "name_display": "Name", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "tackles_combined": "Tck", 
             "tackles_solo": "Solo", "tackles_assists": "Asst", "tackles_loss": "TFL", "sacks": "Sack", "pass_defended": "PBU",
             "def_int": "INT", "def_int_td": "INT TD", "fumbles_forced": "FF", "fumbles_rec": "FR", "fumbles_rec_td": "FRTD"
         }
@@ -66,7 +66,7 @@ def scrape_data(data_type):
     elif data_type == "kicking":
         limit = 35
         desired_stats = {
-            "name_display": "Player", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "fga": "FGA", "fgm": "FGM",
+            "name_display": "Name", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "fga": "FGA", "fgm": "FGM",
             "fg_long": "Long", "xpa": "XPA", "xpm": "XPM", "kickoff": "KO", "kickoff_yds": "KOYds", "kickoff_tb": "TB"
         }
 

@@ -1,4 +1,4 @@
-package com.nfl.nfl_zone.player;
+package com.nfl.nfl_zone.passer;
 
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
