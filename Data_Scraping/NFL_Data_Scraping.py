@@ -127,19 +127,6 @@ def scrape_data(data_type):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 if __name__ == "__main__":
 
     scrape_data(data_type="passing")
