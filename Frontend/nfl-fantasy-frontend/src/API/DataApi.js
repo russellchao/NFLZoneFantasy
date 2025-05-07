@@ -1,10 +1,5 @@
 import teamAbbr from "../components/TeamAbbreviations";
 
-// // DEBUG
-// for (let key in teamAbbr) {
-//     console.log(key + ": " + teamAbbr[key]);
-// }
-
 export const fetchPassersByTeam = async (teamName) => {
     try {
         const response = await fetch(
@@ -16,7 +11,6 @@ export const fetchPassersByTeam = async (teamName) => {
         }
 
         const data = await response.json(); 
-        console.log(data); // DEBUG
         return data; 
 
     } catch (error) {

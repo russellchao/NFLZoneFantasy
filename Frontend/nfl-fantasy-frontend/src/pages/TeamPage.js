@@ -11,10 +11,8 @@ const TeamPage = () => {
     useEffect(() => {
 
         if (teamName) {
-            console.log("Fetching for team:", teamName);  // <== Add this
             const loadPassers = async () => {
                 const passingData = await fetchPassersByTeam(teamName); 
-                console.log("Received data:", passingData);        // <== Add this
                 setPassers(passingData); 
                 setLoading(false); 
             };
