@@ -8,7 +8,7 @@ import csv
 import os
 
 
-year = 2024
+year = 2024 # In the future let the user select the year to retrieve stats
 
 
 
