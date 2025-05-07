@@ -1,4 +1,5 @@
-import React from 'react'; 
+import React, { use } from 'react'; 
+import { useNavigate } from 'react-router-dom';
 
 const nflTeams = [
     "Arizona Cardinals", "Atlanta Falcons", "Baltimore Ravens", "Buffalo Bills", "Carolina Panthers", "Chicago Bears", 
@@ -11,6 +12,12 @@ const nflTeams = [
 
 
 const TeamGrid = () => {
+    const navigate = useNavigate(); 
+
+    const handleTeamClick = (teamName) => {
+        navigate(`/teams/${teamName}`); 
+    };
+
     return (
         <div style={{
             display: 'grid', 
@@ -20,12 +27,13 @@ const TeamGrid = () => {
         }}>
             {nflTeams.map(team => (
                 <div key={team}
-                        style={{
-                            padding: '10px',
-                            backgroundColor: '#ddd',
-                            textAlign: 'center',
-                            cursor: 'pointer'
-                        }}>
+                    onClick={() => handleTeamClick(team)}
+                    style={{
+                        padding: '10px',
+                        backgroundColor: '#ddd',
+                        textAlign: 'center',
+                        cursor: 'pointer'
+                    }}>
                     {team}
                 </div>
             ))}

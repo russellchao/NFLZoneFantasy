@@ -2,6 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import Home from './pages/Home';
 import Teams from './pages/Teams';
+import TeamPage from './pages/TeamPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/teams" element={<Teams />} />
+        <Route path="/teams/:teamName" element={<TeamPage />} />
       </Routes>
 
     </Router>
@@ -22,3 +24,4 @@ function App() {
 }
 
 export default App;
+

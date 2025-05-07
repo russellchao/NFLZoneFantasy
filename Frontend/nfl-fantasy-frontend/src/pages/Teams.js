@@ -4,7 +4,7 @@ import TeamGrid from '../components/TeamGrid';
 const Teams = () => {
     return (
         <div>
-            <h2>Select a Team</h2>
+            <h1>Select a Team</h1>
             <TeamGrid />
         </div>
     );
