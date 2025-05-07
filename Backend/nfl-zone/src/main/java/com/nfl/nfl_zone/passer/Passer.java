@@ -10,9 +10,11 @@ public class Passer {
     @Id
     @Column(name = "name")
     private String name;
+
     @Id
     @Column(name = "team")
     private String team;
+
     private Integer age;
     private String pos;
     private Integer gp;
