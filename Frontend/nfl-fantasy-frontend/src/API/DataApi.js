@@ -1,9 +1,9 @@
 import teamAbbr from "../components/TeamAbbreviations";
 
-export const fetchPassersByTeam = async (teamName) => {
+export const fetchDataByTeam = async (category, teamName) => {
     try {
         const response = await fetch(
-           `http://localhost:8081/api/v1/passer?team=${encodeURIComponent(teamAbbr[teamName])}`
+           `http://localhost:8081/api/v1/${encodeURIComponent(category)}?team=${encodeURIComponent(teamAbbr[teamName])}`
         );
 
         if (!response.ok) {
@@ -14,7 +14,7 @@ export const fetchPassersByTeam = async (teamName) => {
         return data; 
 
     } catch (error) {
-        console.error("Failed to fetch passers:", error);
+        console.error("Failed to fetch data:", error);
         return []; 
     }
 };

@@ -53,7 +53,7 @@ def scrape_data(data_type):
         }
 
     elif data_type == "defense": 
-        limit = 400
+        limit = 700
         desired_stats = {
             "name_display": "Name", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "tackles_combined": "Tck", 
             "tackles_solo": "Solo", "tackles_assists": "Asst", "tackles_loss": "TFL", "sacks": "Sack", "pass_defended": "PBU",

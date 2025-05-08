@@ -1,12 +1,12 @@
-package com.nfl.nfl_zone.passer;
+package com.nfl.nfl_zone.reciever;
 
-import jakarta.persistence.*;
 import com.nfl.nfl_zone.PlayerId;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name="passing_stats")
+@Table(name="receiving_stats")
 @IdClass(PlayerId.class)
-public class Passer {
+public class Receiver {
 
     @Id
     @Column(name = "name")
@@ -19,17 +19,12 @@ public class Passer {
     private Integer age;
     private String pos;
     private Integer gp;
-    private Integer cmp;
-    private Integer att;
-    private Float cmp_pct;
+    private Integer rec;
     private Integer yds;
     private Integer td;
-    private Integer INT;
     private Integer LONG;
     private Float ypg;
-    private Float rate;
-    private Float qbr;
-    private Integer sack;
+    private Integer fmb;
 
     public String getName() {
         return name;
@@ -71,28 +66,12 @@ public class Passer {
         this.gp = gp;
     }
 
-    public Integer getCmp() {
-        return cmp;
+    public Integer getRec() {
+        return rec;
     }
 
-    public void setCmp(Integer cmp) {
-        this.cmp = cmp;
-    }
-
-    public Integer getAtt() {
-        return att;
-    }
-
-    public void setAtt(Integer att) {
-        this.att = att;
-    }
-
-    public Float getCmpPct() {
-        return cmp_pct;
-    }
-
-    public void setCmpPct(Float cmp_pct) {
-        this.cmp_pct = cmp_pct;
+    public void setRec(Integer rec) {
+        this.rec = rec;
     }
 
     public Integer getYds() {
@@ -111,14 +90,6 @@ public class Passer {
         this.td = td;
     }
 
-    public Integer getINT() {
-        return INT;
-    }
-
-    public void setINT(Integer INT) {
-        this.INT = INT;
-    }
-
     public Integer getLONG() {
         return LONG;
     }
@@ -135,27 +106,11 @@ public class Passer {
         this.ypg = ypg;
     }
 
-    public Float getRate() {
-        return rate;
+    public Integer getFmb() {
+        return fmb;
     }
 
-    public void setRate(Float rate) {
-        this.rate = rate;
-    }
-
-    public Float getQbr() {
-        return qbr;
-    }
-
-    public void setQbr(Float qbr) {
-        this.qbr = qbr;
-    }
-
-    public Integer getSack() {
-        return sack;
-    }
-
-    public void setSack(Integer sack) {
-        this.sack = sack;
+    public void setFmb(Integer fmb) {
+        this.fmb = fmb;
     }
 }

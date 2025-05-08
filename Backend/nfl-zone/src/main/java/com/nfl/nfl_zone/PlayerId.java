@@ -1,4 +1,4 @@
-package com.nfl.nfl_zone.passer;
+package com.nfl.nfl_zone;
 
 import jakarta.persistence.Embeddable;
 
