@@ -64,13 +64,15 @@ const TeamPage = () => {
 
     return (
         <div>
-            <h1>{ teamName }</h1>
+            <h1 style={{ paddingLeft: '20px' }}>{ teamName }</h1>
 
-            <h2>Passing</h2>
+            <p>&nbsp;</p>
+
+            <h2 style={{ paddingLeft: '20px' }}>Passing</h2>
             {passers.length === 0 ? (
-                <p>No passing data available for this team.</p>
+                <p style={{ paddingLeft: '20px' }}>No passing data available for this team.</p>
             ) : (
-                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse" }}>
+                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px" }}>
                     <thead>
                         <tr>
                           <th>Name</th>  
@@ -116,11 +118,13 @@ const TeamPage = () => {
                 </table>
             )}  
 
-            <h2>Rushing</h2>
+            <p>&nbsp;</p>
+
+            <h2 style={{ paddingLeft: '20px' }}>Rushing</h2>
             {rushers.length === 0 ? (
-                <p>No rushing data available for this team.</p>
+                <p style={{ paddingLeft: '20px' }}>No rushing data available for this team.</p>
             ) : (
-                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse" }}>
+                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px" }}>
                     <thead>
                         <tr>
                           <th>Name</th>  
@@ -156,11 +160,13 @@ const TeamPage = () => {
                 </table>
             )}  
 
-            <h2>Receiving</h2>
+            <p>&nbsp;</p>
+
+            <h2 style={{ paddingLeft: '20px' }}>Receiving</h2>
             {receivers.length === 0 ? (
-                <p>No receiving data available for this team.</p>
+                <p style={{ paddingLeft: '20px' }}>No receiving data available for this team.</p>
             ) : (
-                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse" }}>
+                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px" }}>
                     <thead>
                         <tr>
                           <th>Name</th>  
@@ -196,11 +202,13 @@ const TeamPage = () => {
                 </table>
             )}  
 
-            <h2>Defense</h2>
+            <p>&nbsp;</p>
+
+            <h2 style={{ paddingLeft: '20px' }}>Defense</h2>
             {defenders.length === 0 ? (
-                <p>No defense data available for this team.</p>
+                <p style={{ paddingLeft: '20px' }}>No defense data available for this team.</p>
             ) : (
-                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse" }}>
+                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px" }}>
                     <thead>
                         <tr>
                           <th>Name</th>  
@@ -246,11 +254,13 @@ const TeamPage = () => {
                 </table>
             )}  
 
-            <h2>Kicking</h2>
+            <p>&nbsp;</p>
+
+            <h2 style={{ paddingLeft: '20px' }}>Kicking</h2>
             {kickers.length === 0 ? (
-                <p>No kicking data available for this team.</p>
+                <p style={{ paddingLeft: '20px' }}>No kicking data available for this team.</p>
             ) : (
-                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse" }}>
+                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px" }}>
                     <thead>
                         <tr>
                           <th>Name</th>  
@@ -289,6 +299,10 @@ const TeamPage = () => {
                     </tbody>
                 </table>
             )}  
+
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+
         </div>
     );
 };
