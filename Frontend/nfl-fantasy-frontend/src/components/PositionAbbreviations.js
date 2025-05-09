@@ -4,7 +4,8 @@ const posAbbr = {
     "Wide Receiver":"WR",
     "Tight End":"TE", 
     "Linebacker": "LB",
-    "Defensive Back": "S" || "CB",
+    "Cornerback": "CB",
+    "Safety": "S",
     "Kicker":"K"
 };
 

@@ -152,7 +152,7 @@ const PositionPage = () => {
                     </tbody>
                 </table>
 
-            ) : JSON.stringify(positionName) === JSON.stringify("Linebacker") || JSON.stringify(positionName) === JSON.stringify("Defensive Back") ? (
+            ) : JSON.stringify(positionName) === JSON.stringify("Linebacker") || JSON.stringify(positionName) === JSON.stringify("Cornerback") || JSON.stringify(positionName) === JSON.stringify("Safety") ? (
                 <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px" }}>
                     <thead>
                         <tr>
