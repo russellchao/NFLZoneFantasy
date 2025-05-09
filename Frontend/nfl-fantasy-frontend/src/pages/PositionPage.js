@@ -80,6 +80,118 @@ const PositionPage = () => {
                     </tbody>
                 </table>
 
+            ) : JSON.stringify(positionName) === JSON.stringify("Running Back") ? (
+                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px" }}>
+                    <thead>
+                        <tr>
+                          <th>Name</th>  
+                          <th>Age</th>  
+                          <th>Team</th>  
+                          <th>Pos</th>  
+                          <th>GP</th>  
+                          <th>Att</th>  
+                          <th>Yds</th>  
+                          <th>TD</th>  
+                          <th>Long</th>  
+                          <th>Y/G</th>  
+                          <th>Fmb</th>  
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {position.map((p) => (
+                            <tr key={`${p.name}-${p.team}`}>
+                                <td>{p.name}</td>
+                                <td>{p.age}</td>
+                                <td>{p.team}</td>
+                                <td>{p.pos}</td>
+                                <td>{p.gp}</td>
+                                <td>{p.att}</td>
+                                <td>{p.yds}</td>
+                                <td>{p.td}</td>
+                                <td>{p.long}</td>
+                                <td>{p.ypg}</td>
+                                <td>{p.fmb}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+
+            ) : JSON.stringify(positionName) === JSON.stringify("Wide Receiver") || JSON.stringify(positionName) === JSON.stringify("Tight End")? (
+                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px" }}>
+                    <thead>
+                        <tr>
+                          <th>Name</th>  
+                          <th>Age</th>  
+                          <th>Team</th>  
+                          <th>Pos</th>  
+                          <th>GP</th>  
+                          <th>Rec</th>  
+                          <th>Yds</th>  
+                          <th>TD</th>  
+                          <th>Long</th>  
+                          <th>Y/G</th>  
+                          <th>Fmb</th>  
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {position.map((p) => (
+                            <tr key={`${p.name}-${p.team}`}>
+                                <td>{p.name}</td>
+                                <td>{p.age}</td>
+                                <td>{p.team}</td>
+                                <td>{p.pos}</td>
+                                <td>{p.gp}</td>
+                                <td>{p.rec}</td>
+                                <td>{p.yds}</td>
+                                <td>{p.td}</td>
+                                <td>{p.long}</td>
+                                <td>{p.ypg}</td>
+                                <td>{p.fmb}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+
+            ) : JSON.stringify(positionName) === JSON.stringify("Kicker") ? (
+                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px" }}>
+                    <thead>
+                        <tr>
+                          <th>Name</th>  
+                          <th>Age</th>  
+                          <th>Team</th>  
+                          <th>Pos</th>  
+                          <th>GP</th>  
+                          <th>FGA</th>
+                          <th>FGM</th>
+                          <th>Long</th>
+                          <th>XPA</th>
+                          <th>XPM</th>
+                          <th>KO</th>
+                          <th>KO YDS</th>
+                          <th>TB</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {position.map((p) => (
+                            <tr key={`${p.name}-${p.team}`}>
+                                <td>{p.name}</td>
+                                <td>{p.age}</td>
+                                <td>{p.team}</td>
+                                <td>{p.pos}</td>
+                                <td>{p.gp}</td>
+                                <td>{p.fga}</td>
+                                <td>{p.fgm}</td>
+                                <td>{p.long}</td>
+                                <td>{p.xpa}</td>
+                                <td>{p.xpm}</td>
+                                <td>{p.ko}</td>
+                                <td>{p.koYds}</td>
+                                <td>{p.tb}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+
             ) : (
                 <p style={{ paddingLeft: '20px' }}>Table format for {positionName} not implemented yet.</p>
             )}
