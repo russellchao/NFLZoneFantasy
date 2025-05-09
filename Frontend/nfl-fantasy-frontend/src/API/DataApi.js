@@ -29,6 +29,7 @@ export const fetchDataByPosition = async (positionName) => {
         if (positionName === "Quarterback") category = "passer";
         else if (positionName === "Running Back") category = "rusher";
         else if (positionName === "Wide Receiver" || positionName === "Tight End") category = "receiver";
+        else if (positionName === "Linebacker" || positionName === "Defensive Back") category = "defender";
         else if (positionName === "Kicker") category = "kicker";
 
         const response = await fetch(

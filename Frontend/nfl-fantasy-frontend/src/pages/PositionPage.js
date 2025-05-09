@@ -116,7 +116,7 @@ const PositionPage = () => {
                     </tbody>
                 </table>
 
-            ) : JSON.stringify(positionName) === JSON.stringify("Wide Receiver") || JSON.stringify(positionName) === JSON.stringify("Tight End")? (
+            ) : JSON.stringify(positionName) === JSON.stringify("Wide Receiver") || JSON.stringify(positionName) === JSON.stringify("Tight End") ? (
                 <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px" }}>
                     <thead>
                         <tr>
@@ -147,6 +147,52 @@ const PositionPage = () => {
                                 <td>{p.long}</td>
                                 <td>{p.ypg}</td>
                                 <td>{p.fmb}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+
+            ) : JSON.stringify(positionName) === JSON.stringify("Linebacker") || JSON.stringify(positionName) === JSON.stringify("Defensive Back") ? (
+                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px" }}>
+                    <thead>
+                        <tr>
+                          <th>Name</th>  
+                          <th>Age</th>  
+                          <th>Team</th>  
+                          <th>Pos</th>  
+                          <th>GP</th>  
+                          <th>Tck</th>
+                          <th>Solo</th>
+                          <th>Asst</th>
+                          <th>TFL</th>
+                          <th>Sack</th>
+                          <th>PBU</th>
+                          <th>INT</th>
+                          <th>INT TD</th>
+                          <th>FF</th>
+                          <th>FR</th>
+                          <th>FR TD</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {position.map((p) => (
+                            <tr key={`${p.name}-${p.team}`}>
+                                <td>{p.name}</td>
+                                <td>{p.age}</td>
+                                <td>{p.team}</td>
+                                <td>{p.pos}</td>
+                                <td>{p.gp}</td>
+                                <td>{p.tck}</td>
+                                <td>{p.solo}</td>
+                                <td>{p.asst}</td>
+                                <td>{p.tfl}</td>
+                                <td>{p.sack}</td>
+                                <td>{p.pbu}</td>
+                                <td>{p.int}</td>
+                                <td>{p.intTD}</td>
+                                <td>{p.ff}</td>
+                                <td>{p.fr}</td>
+                                <td>{p.frtd}</td>
                             </tr>
                         ))}
                     </tbody>

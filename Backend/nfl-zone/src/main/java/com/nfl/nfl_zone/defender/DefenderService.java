@@ -35,8 +35,6 @@ public class DefenderService {
     }
 
     public List<Defender> getDefendersByPos(String searchText) {
-        // NOTE: Every defender will obviously have a position of QB, but this is just for practice's sake
-
         return defenderRepository.findAll().stream()
                 .filter(defender -> defender.getPos().toLowerCase().contains(searchText.toLowerCase()))
                 .collect(Collectors.toList());
