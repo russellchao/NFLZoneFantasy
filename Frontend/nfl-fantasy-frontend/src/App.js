@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import Teams from './pages/Teams';
 import TeamPage from './pages/TeamPage';
 import Positions from './pages/Positions';
-import PositionPage from './pages/PositionPage/';
+import PositionPage from './pages/PositionPage';
 
 function App() {
   return (
