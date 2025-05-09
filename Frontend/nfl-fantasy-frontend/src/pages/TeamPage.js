@@ -72,7 +72,7 @@ const TeamPage = () => {
             {passers.length === 0 ? (
                 <p style={{ paddingLeft: '20px' }}>No passing data available for this team.</p>
             ) : (
-                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "39px" }}>
+                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px" }}>
                     <thead>
                         <tr>
                           <th>Name</th>  
