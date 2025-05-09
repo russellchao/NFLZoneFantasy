@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Teams from './pages/Teams';
 import TeamPage from './pages/TeamPage';
 import Positions from './pages/Positions';
+import PositionPage from './pages/PositionPage/';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/teams" element={<Teams />} />
         <Route path="/teams/:teamName" element={<TeamPage />} />
         <Route path="/positions" element={<Positions />} />
+        <Route path="/positions/:positionName" element={<PositionPage />} />
       </Routes>
 
     </Router>

@@ -9,8 +9,8 @@ const positionNames = [
 const PositionGrid = () => {
     const navigate = useNavigate(); 
 
-    const handleTeamClick = (teamName) => {
-        // navigate(`/teams/${teamName}`); 
+    const handleTeamClick = (positionName) => {
+        navigate(`/positions/${positionName}`); 
     };
 
     return (
