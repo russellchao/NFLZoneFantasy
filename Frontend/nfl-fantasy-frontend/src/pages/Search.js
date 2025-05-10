@@ -1,15 +1,47 @@
-import React from 'react'; 
+import React, { useState } from 'react';
+import SearchResult from '../components/SearchResult'; 
 
 
 export const Search = () => {
 
-    let name = ""; 
+    const [name, setName] = useState(""); 
+    const [searched, setSearch] = useState(false); 
+
+    const handleSubmit = (event) => {
+        event.preventDefault(); // prevents page reload
+        
+        // send a get request to spring boot backend
+        setSearch(true); 
+        <SearchResult />
+    };
 
     return (
         <div>
             <h1 style={{ paddingLeft: '20px' }}>Player Search</h1> 
-            <input type="text" placeholder="Search..." style={{ marginLeft:"25px", height:"30px", width:"500px" }}></input>
-            <button type='submit' style={{ height:"37px", width:"100px", backgroundColor:"#7FFFD4" }}>Submit</button>
+
+            <input 
+                type="text" 
+                placeholder="Search..." 
+                style={{ marginLeft:"25px", height:"30px", width:"500px" }}
+                value={name}
+                onChange={(e) => setName(e.target.value)}>
+            </input>
+
+            <button 
+                type='submit' 
+                style={{ height:"37px", width:"100px", backgroundColor:"#7FFFD4" }}
+                onClick={handleSubmit}>
+                Submit
+            </button>
+
+            <p>&nbsp;</p>
+
+            {searched == true ? (
+                <SearchResult />
+            ) : (
+                <p>&nbsp;</p>
+            )}
+
         </div>
     );
 };
