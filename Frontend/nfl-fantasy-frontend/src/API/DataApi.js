@@ -41,7 +41,6 @@ export const fetchDataByPosition = async (positionName) => {
         }
 
         const data = await response.json(); 
-        console.log(data); // DEBUG
         return data; 
 
     } catch (error) {

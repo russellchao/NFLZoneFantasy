@@ -5,6 +5,7 @@ import Teams from './pages/Teams';
 import TeamPage from './pages/TeamPage';
 import Positions from './pages/Positions';
 import PositionPage from './pages/PositionPage';
+import Search from './pages/Search';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       <nav style={{ padding: "20px", background: "#eee"}}>
         <Link to="/" style={{ marginRight: "30px" }}>Home</Link>
         <Link to="/teams" style={{ marginRight: "30px" }}>Teams</Link>
-        <Link to="/positions">Positions</Link>
+        <Link to="/positions" style={{ marginRight: "30px" }}>Positions</Link>
+        <Link to="/search" style={{ marginRight: "30px" }}>Player Search</Link>
       </nav>
 
       <Routes>
@@ -22,6 +24,7 @@ function App() {
         <Route path="/teams/:teamName" element={<TeamPage />} />
         <Route path="/positions" element={<Positions />} />
         <Route path="/positions/:positionName" element={<PositionPage />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
 
     </Router>
