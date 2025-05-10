@@ -1,18 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchResult from '../components/SearchResult'; 
 
 
 export const Search = () => {
 
     const [name, setName] = useState(""); 
+    const [nameData, setNameData] = useState([]); 
     const [searched, setSearch] = useState(false); 
+    const [loading, setLoading] = useState(true); 
 
     const handleSubmit = (event) => {
         event.preventDefault(); // prevents page reload
         
         // send a get request to spring boot backend
+        useEffect(() => {
+            if (name) {
+                const loadNameData = async () => {
+                    const getNameData = await fetchDataByName(name); 
+                    setNameData(getNameData); 
+                    setLoading(false); 
+                };
+                loadPosData(); 
+            }
+
+        }, [name]); 
+
         setSearch(true); 
-        <SearchResult />
     };
 
     return (
