@@ -7,21 +7,29 @@ export const Search = () => {
 
     const [name, setName] = useState(""); 
     const [nameData, setNameData] = useState([]); 
+    const [searched, setSearched] = useState(false); 
+    const [loading, setLoading] = useState(false); 
+
+    const HandleSubmit = (event) => {
+        event.preventDefault(); // prevents page reload
+        setSearched(true); 
+        setLoading(true); 
+    };
 
 
     useEffect(() => {
         if (name) {
             const loadNameData = async () => {
-                if (name) {
+                if (searched && name) {
                     const getNameData = await fetchDataByName(name); 
                     setNameData(getNameData); 
+                    setLoading(false); 
                 }
             };
             loadNameData(); 
         }
 
-    }, [name]); 
-
+    }, [searched, name]); 
 
 
     return (
@@ -33,12 +41,23 @@ export const Search = () => {
                 placeholder="Search..." 
                 style={{ marginLeft:"25px", height:"30px", width:"500px" }}
                 value={name}
-                onChange={
-                    (e) => [setName(e.target.value)]
-                }>
+                onChange={(e) => [setName(e.target.value), setSearched(false)]}>
             </input>
 
-            <SearchResult nameData={nameData}/>
+            <button 
+                type='submit' 
+                style={{ height:"37px", width:"100px", backgroundColor:"#7FFFD4" }}
+                onClick={HandleSubmit}>
+                Submit
+            </button>
+
+            {loading == true ? (
+                <p style ={{ paddingLeft:"20px" }}>Loading Data...</p>
+            ) : searched == true ? (
+                <SearchResult nameData={nameData}/>
+            ) : (
+                <p>&nbsp;</p>
+            )}
 
             <p>&nbsp;</p>
             <p>&nbsp;</p>
