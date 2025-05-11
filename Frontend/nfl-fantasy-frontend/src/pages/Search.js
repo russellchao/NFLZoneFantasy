@@ -1,32 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import SearchResult from '../components/SearchResult'; 
+import { fetchDataByName } from '../API/DataApi';
 
 
 export const Search = () => {
 
     const [name, setName] = useState(""); 
     const [nameData, setNameData] = useState([]); 
-    const [searched, setSearch] = useState(false); 
-    const [loading, setLoading] = useState(true); 
+    const [searched, setSearched] = useState(false); 
+    const [loading, setLoading] = useState(false); 
 
-    const handleSubmit = (event) => {
+    const HandleSubmit = (event) => {
         event.preventDefault(); // prevents page reload
-        
-        // send a get request to spring boot backend
-        useEffect(() => {
-            if (name) {
-                const loadNameData = async () => {
+        setSearched(true); 
+        setLoading(true); 
+    };
+
+
+
+    useEffect(() => {
+        if (name) {
+            const loadNameData = async () => {
+                if (searched && name) {
                     const getNameData = await fetchDataByName(name); 
                     setNameData(getNameData); 
                     setLoading(false); 
-                };
-                loadPosData(); 
-            }
+                }
+            };
+            loadNameData(); 
+        }
 
-        }, [name]); 
+    }, [searched, name]); 
 
-        setSearch(true); 
-    };
+
 
     return (
         <div>
@@ -43,17 +49,20 @@ export const Search = () => {
             <button 
                 type='submit' 
                 style={{ height:"37px", width:"100px", backgroundColor:"#7FFFD4" }}
-                onClick={handleSubmit}>
+                onClick={HandleSubmit}>
                 Submit
             </button>
 
-            <p>&nbsp;</p>
-
-            {searched == true ? (
-                <SearchResult />
+            {loading == true ? (
+                <p style ={{ paddingLeft:"20px" }}>Loading Data...</p>
+            ) : searched == true ? (
+                <SearchResult nameData={nameData}/>
             ) : (
                 <p>&nbsp;</p>
             )}
+
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
 
         </div>
     );

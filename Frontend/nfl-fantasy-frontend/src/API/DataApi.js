@@ -13,6 +13,7 @@ export const fetchDataByTeam = async (category, teamName) => {
         }
 
         const data = await response.json(); 
+        console.log(data); 
         return data; 
 
     } catch (error) {
@@ -41,6 +42,29 @@ export const fetchDataByPosition = async (positionName) => {
         }
 
         const data = await response.json(); 
+        console.log(data); 
+        return data; 
+
+    } catch (error) {
+        console.error("Failed to fetch data:", error);
+        return []; 
+    }
+};
+
+
+export const fetchDataByName = async (playerName) => {
+    try {
+
+        const response = await fetch(
+            `http://localhost:8081/api/v1?name=${encodeURIComponent(playerName)}`
+        );
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`)
+        }
+
+        const data = await response.json(); 
+        console.log(data); 
         return data; 
 
     } catch (error) {
