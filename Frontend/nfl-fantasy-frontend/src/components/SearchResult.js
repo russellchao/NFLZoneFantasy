@@ -239,7 +239,7 @@ const SearchResult = ( {nameData} ) => {
                     })}
                 </ul>
             ) : (
-                <p>No results found.</p>
+                <p>&nbsp;</p>
             )}
             
         </div>
