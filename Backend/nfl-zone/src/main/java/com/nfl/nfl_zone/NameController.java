@@ -60,37 +60,35 @@ public class NameController {
             List<Defender> defenders = defenderService.getDefendersByName(name);
             List<Kicker> kickers = kickerService.getKickersByName(name);
 
-            // Ensure that only the correct stats get implemented into each position list
-            for (Passer p : passers) {
-                if (p.getPos().equals("QB")) {
-                    names.put("Quarterbacks", passers);
-                }
-            }
+            // Ensure that only the correct stats get implemented into each position list (not necessary for QBs and Kickers)
 
+            names.put("Quarterbacks", passers);
+
+            List<Rusher> allRBs = new ArrayList<>();
             for (Rusher r : rushers) {
                 if (r.getPos().equals("RB")) {
-                    names.put("Running Backs", rushers);
+                    allRBs.add(r);
                 }
             }
+            names.put("Running Backs", allRBs);
 
+            List<Receiver> allWRsTEs = new ArrayList<>();
             for (Receiver r : receivers) {
                 if (r.getPos().equals("WR") || r.getPos().equals("TE")) {
-                    names.put("Wide Receivers and Tight Ends", receivers);
+                    allWRsTEs.add(r);
                 }
             }
+            names.put("Wide Receivers and Tight Ends", allWRsTEs);
 
+            List<Defender> allDefenders = new ArrayList<>();
             for (Defender d : defenders) {
-                if (d.getPos().contains("LB") || d.getPos().contains("CB") || d.getPos().contains("S") || d.getPos().contains("DE")) {
-                    names.put("Defenders", defenders);
+                if (d.getPos().contains("LB") || d.getPos().contains("CB") || d.getPos().contains("S") || d.getPos().contains("DE") || d.getPos().contains("DT") ) {
+                    allDefenders.add(d);
                 }
             }
+            names.put("Defenders", allDefenders);
 
-            for (Kicker k : kickers) {
-                if (k.getPos().equals("K")) {
-                    names.put("Kickers", kickers);
-                }
-            }
-
+            names.put("Kickers", kickers);
 
 
             return names;
