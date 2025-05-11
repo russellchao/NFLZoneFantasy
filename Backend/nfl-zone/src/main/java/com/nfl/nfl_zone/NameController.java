@@ -62,15 +62,36 @@ public class NameController {
 
             // Ensure that only the correct stats get implemented into each position list
             for (Passer p : passers) {
-                if ()
-                names.put("Quarterbacks", passers);
+                if (p.getPos().equals("QB")) {
+                    names.put("Quarterbacks", passers);
+                }
+            }
+
+            for (Rusher r : rushers) {
+                if (r.getPos().equals("RB")) {
+                    names.put("Running Backs", rushers);
+                }
+            }
+
+            for (Receiver r : receivers) {
+                if (r.getPos().equals("WR") || r.getPos().equals("TE")) {
+                    names.put("Wide Receivers and Tight Ends", receivers);
+                }
+            }
+
+            for (Defender d : defenders) {
+                if (d.getPos().contains("LB") || d.getPos().contains("CB") || d.getPos().contains("S") || d.getPos().contains("DE")) {
+                    names.put("Defenders", defenders);
+                }
+            }
+
+            for (Kicker k : kickers) {
+                if (k.getPos().equals("K")) {
+                    names.put("Kickers", kickers);
+                }
             }
 
 
-            names.put("Running Backs", rushers);
-            names.put("Wide Receivers and Tight Ends", receivers);
-            names.put("Defenders", defenders);
-            names.put("Kickers", kickers);
 
             return names;
 
