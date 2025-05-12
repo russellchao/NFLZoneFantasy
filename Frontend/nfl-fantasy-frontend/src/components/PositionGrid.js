@@ -2,7 +2,7 @@ import React, { use } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const positionNames = [
-    "Quarterback", "Running Back", "Wide Receiver", "Tight End", "Linebacker", "Cornerback", "Safety", "Kicker"
+    "Quarterback", "Running Back", "Wide Receiver", "Tight End", "Defensive End", "Linebacker", "Cornerback", "Safety", "Kicker"
 ];
 
 
