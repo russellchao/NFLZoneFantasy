@@ -8,6 +8,7 @@ const Positions = () => {
             <p style={{ paddingLeft: '20px' }}>
                 NOTE: For defense (and special teams) in fatasy football, you draft an entire team.
             </p>
+            <p>&nbsp;</p>
             <PositionGrid />
         </div>
     );
