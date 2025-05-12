@@ -26,7 +26,7 @@ const PositionGrid = () => {
             <h2>Offensive Positions</h2>
             <div style={{
                 display: 'grid', 
-                gridTemplateColumns: 'repeat(5, 1fr)',
+                gridTemplateColumns: 'repeat(4, 1fr)',
                 gap: '10px',
                 padding: '20px'
             }}>
@@ -47,7 +47,7 @@ const PositionGrid = () => {
             <h2>Defensive Positions</h2>
             <div style={{
                 display: 'grid', 
-                gridTemplateColumns: 'repeat(5, 1fr)',
+                gridTemplateColumns: 'repeat(4, 1fr)',
                 gap: '10px',
                 padding: '20px'
             }}>
@@ -68,7 +68,7 @@ const PositionGrid = () => {
             <h2>Special Teams Positions</h2>
             <div style={{
                 display: 'grid', 
-                gridTemplateColumns: 'repeat(5, 1fr)',
+                gridTemplateColumns: 'repeat(4, 1fr)',
                 gap: '10px',
                 padding: '20px'
             }}>
