@@ -38,20 +38,23 @@ export const Search = () => {
         <div>
             <h1 style={{ paddingLeft: '20px' }}>Player Search</h1> 
 
-            <input 
-                type="text" 
-                placeholder="Search..." 
-                style={{ marginLeft:"25px", height:"30px", width:"500px" }}
-                value={name}
-                onChange={(e) => [setName(e.target.value), setSearched(false)]}>
-            </input>
+            <form onSubmit={HandleSubmit}> 
+                <input 
+                    type="text" 
+                    placeholder="Search..." 
+                    style={{ marginLeft:"25px", height:"30px", width:"500px" }}
+                    value={name}
+                    onChange={(e) => [setName(e.target.value), setSearched(false)]}>
+                </input>
 
-            <button 
-                type='submit' 
-                style={{ height:"37px", width:"100px", backgroundColor:"#7FFFD4" }}
-                onClick={HandleSubmit}>
-                Submit
-            </button>
+                <button 
+                    type='submit' 
+                    style={{ height:"37px", width:"100px", backgroundColor:"#7FFFD4" }}
+                    // onClick={HandleSubmit}
+                    >
+                    Submit
+                </button>
+            </form>
 
             {loading == true ? (
                 <p style ={{ paddingLeft:"20px" }}>Loading Data...</p>
