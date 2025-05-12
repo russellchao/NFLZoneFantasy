@@ -54,6 +54,11 @@ public class NameController {
 
         if (name != null) {
 
+            // Remove any multiple non-leading/trailing spaces, all leading/trailing spaces and hyphens in the name
+            name = name.replaceAll("\\s+", " ");
+            name = name.trim();
+            // name = name.replaceAll("-", " ");
+
             List<Passer> passers = passerService.getPassersByName(name);
             List<Rusher> rushers = rusherService.getRushersByName(name);
             List<Receiver> receivers = receiverService.getReceiversByName(name);

@@ -11,9 +11,11 @@ export const Search = () => {
     const [loading, setLoading] = useState(false); 
 
     const HandleSubmit = (event) => {
-        event.preventDefault(); // prevents page reload
-        setSearched(true); 
-        setLoading(true); 
+        if (!searched) {
+            event.preventDefault(); // prevents page reload
+            setSearched(true); 
+            setLoading(true); 
+        };
     };
 
 

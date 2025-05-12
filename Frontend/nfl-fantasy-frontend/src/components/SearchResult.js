@@ -1,5 +1,9 @@
 import React from 'react'; 
 
+const displayOrder = [
+    "Quarterbacks", "Running Backs", "Wide Receivers and Tight Ends", "Defenders", "Kickers"
+];
+
 
 const SearchResult = ( {nameData} ) => {
 
@@ -9,7 +13,11 @@ const SearchResult = ( {nameData} ) => {
 
             {Object.keys(nameData).length > 0 ? (
                 <ul>
-                    {Object.entries(nameData).map(([key, value]) => {
+                    {Object.entries(nameData)
+                    .sort(([key1], [key2]) => {
+                        return displayOrder.indexOf(key1) - displayOrder.indexOf(key2); 
+                    })
+                    .map(([key, value]) => {
                     
                         // Only display data for positions which the player's name actually has data 
                         const isLengthValid = value && typeof value === "object" && "length" in value && value.length > 0;
