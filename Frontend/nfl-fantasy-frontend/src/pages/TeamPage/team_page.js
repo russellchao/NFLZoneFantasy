@@ -1,9 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import { useParams, BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { useParams, useLocation, BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { fetchDataByTeam } from '../../API/DataApi';
 
 const TeamPage = () => {
     const { teamName } = useParams(); 
+    const location = useLocation(); 
+    const [section, setSection] = useState("Stats"); // eventually change to Schedule Section
+
+    // For schedule section
+
+    // For player stats section
     const [passers, setPassers] = useState([]); 
     const [rushers, setRushers] = useState([]); 
     const [receivers, setReceivers] = useState([]); 
@@ -11,9 +17,22 @@ const TeamPage = () => {
     const [kickers, setKickers] = useState([]); 
     const [loading, setLoading] = useState(true); 
 
+    // For roster section
 
-    // Retrieve player data from the Spring Boot Backend
+
+   
     useEffect(() => {
+        // Update the section based on the based on the current path
+        if (location.pathname.includes("schedule")) {
+            setSection("Schedule")
+        } else if (location.pathname.includes("stats")) {
+            setSection("Stats");
+        } else if (location.pathname.includes("roster")) {
+            setSection("Roster");
+        }
+
+
+        // Retrieve player data from the Spring Boot Backend (for stats section)
         if (teamName) {
             // Fetch Passing data
             const loadPassers = async () => {
@@ -54,9 +73,9 @@ const TeamPage = () => {
                 setLoading(false); 
             };
             loadKickers(); 
-        }
+        };
 
-    }, [teamName]);
+    }, [location.pathname], [teamName]);
 
 
     if (loading) return <p style={{ paddingLeft: '20px' }}>Loading data...</p>;
@@ -66,23 +85,19 @@ const TeamPage = () => {
         <div>
             <h1 style={{ paddingLeft: '20px' }}>{ teamName }</h1>
 
-            <Router>
-                <nav style={{ padding: "20px", background: "#eee"}}>
-                    <Link to="/teams/:teamName/Schedule" style={{ marginRight: "30px" }}>Home</Link>
-                    <Link to="/teams/:teamName" style={{ marginRight: "30px" }}>Teams</Link>
-                    <Link to="/positions" style={{ marginRight: "30px" }}>Positions</Link>
-                    <Link to="/search" style={{ marginRight: "30px" }}>Player Search</Link>
-                </nav>
 
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/teams" element={<Teams />} />
-                    <Route path="/teams/:teamName" element={<TeamPage />} />
-                    <Route path="/positions" element={<Positions />} />
-                    <Route path="/positions/:positionName" element={<PositionPage />} />
-                    <Route path="/search" element={<Search />} />
-                </Routes>
-            </Router>
+            <nav style={{ padding: "20px", background: "#eee" }}>
+                <Link to="/teams/:teamName/schedule" style={{ marginRight: "30px" }}>Schedule</Link>
+                <Link to="/teams/:teamName/stats" style={{ marginRight: "30px" }}>Player Stats</Link>
+                <Link to="/teams/:teamName/roster" style={{ marginRight: "30px" }}>Roster</Link>
+            </nav>
+
+            <Routes>
+                <Route path="/teams/:teamName/schedule" element={<div>Schedule Content Here</div>} />
+                <Route path="/teams/:teamName/stats" element={<div>Stats Content Here</div>} />
+                <Route path="/teams/:teamName/roster" element={<div>Roster Content Here</div>} />
+            </Routes>
+            
 
             <p>&nbsp;</p>
 
@@ -324,5 +339,6 @@ const TeamPage = () => {
         </div>
     );
 };
+
 
 export default TeamPage; 

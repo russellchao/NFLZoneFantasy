@@ -38,7 +38,7 @@ const TeamGrid = () => {
     const navigate = useNavigate(); 
 
     const handleTeamClick = (teamName) => {
-        navigate(`/teams/${teamName}`); 
+        navigate(`/teams/${teamName}/stats`); // eventually change to schedule
     };
 
     return (
