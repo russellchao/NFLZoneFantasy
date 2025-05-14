@@ -97,7 +97,7 @@ const PositionPage = () => {
 
                         <div style={{ textAlign: 'right' }}>
                             <p style={{ display: 'inline-block' }}>
-                                Showing {numPlayersShown-9} to {numPlayersShown} of {position.length}
+                                Showing {Math.min(numPlayersShown, position.length)} of {position.length}
                             </p>
                         </div>
 
@@ -151,7 +151,7 @@ const PositionPage = () => {
 
                         <div style={{ textAlign: 'right' }}>
                             <p style={{ display: 'inline-block' }}>
-                                Showing {numPlayersShown-9} to {numPlayersShown} of {position.length}
+                                Showing {Math.min(numPlayersShown, position.length)} of {position.length}
                             </p>
                         </div>
 
@@ -204,7 +204,7 @@ const PositionPage = () => {
 
                         <div style={{ textAlign: 'right' }}>
                             <p style={{ display: 'inline-block' }}>
-                                Showing {numPlayersShown-9} to {numPlayersShown} of {position.length}
+                                Showing {Math.min(numPlayersShown, position.length)} of {position.length}
                             </p>
                         </div>
 
@@ -267,7 +267,7 @@ const PositionPage = () => {
 
                         <div style={{ textAlign: 'right' }}>
                             <p style={{ display: 'inline-block' }}>
-                                Showing {numPlayersShown-9} to {numPlayersShown} of {position.length}
+                                Showing {Math.min(numPlayersShown, position.length)} of {position.length}
                             </p>
                         </div>
 
@@ -324,7 +324,7 @@ const PositionPage = () => {
 
                         <div style={{ textAlign: 'right' }}>
                             <p style={{ display: 'inline-block' }}>
-                                Showing {numPlayersShown-9} to {numPlayersShown} of {position.length}
+                                Showing {Math.min(numPlayersShown, position.length)} of {position.length}
                             </p>
                         </div>
 
