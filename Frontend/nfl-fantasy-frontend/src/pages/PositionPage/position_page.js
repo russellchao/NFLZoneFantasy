@@ -108,7 +108,7 @@ const PositionPage = () => {
             ) : JSON.stringify(positionName) === JSON.stringify("Running Back") ? (
                 <>
                     <div style={{ marginLeft: '25px', width: '75%' }}>
-                        <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px" }}>
+                        <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", width: '100%' }}>
                             <thead>
                                 <tr>
                                 <th>Name</th>  
@@ -141,7 +141,6 @@ const PositionPage = () => {
                                     </tr>
                                 ))}
                             </tbody>
-
                         </table>
 
                         {numPlayersShown < position.length && ( // expand the table with the next 10 (or remaining) players with a button
@@ -162,7 +161,7 @@ const PositionPage = () => {
             ) : JSON.stringify(positionName) === JSON.stringify("Wide Receiver") || JSON.stringify(positionName) === JSON.stringify("Tight End") ? (
                 <>
                     <div style={{ marginLeft: '25px', width: '75%' }}>
-                        <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px" }}>
+                        <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", width: '100%' }}>
                             <thead>
                                 <tr>
                                 <th>Name</th>  
@@ -195,13 +194,6 @@ const PositionPage = () => {
                                     </tr>
                                 ))}
                             </tbody>
-
-                            {numPlayersShown < position.length && ( // expand the table with the next 10 (or remaining) players with a button
-                                <div style={{ paddingLeft: '25px', paddingBottom: '20px', marginTop: '20px' }}>
-                                    <button onClick={expandTable}>Expand</button>
-                                </div>
-                            )}
-
                         </table>
 
                         {numPlayersShown < position.length && ( // expand the table with the next 10 (or remaining) players with a button
@@ -222,7 +214,7 @@ const PositionPage = () => {
             ) : JSON.stringify(positionName) === JSON.stringify("Defensive End") || JSON.stringify(positionName) === JSON.stringify("Linebacker") || JSON.stringify(positionName) === JSON.stringify("Cornerback") || JSON.stringify(positionName) === JSON.stringify("Safety") ? (
                 <>
                     <div style={{ marginLeft: '25px', width: '75%' }}>
-                        <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px" }}>
+                        <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", width: '100%' }}>
                             <thead>
                                 <tr>
                                 <th>Name</th>  
@@ -265,13 +257,6 @@ const PositionPage = () => {
                                     </tr>
                                 ))}
                             </tbody>
-
-                            {numPlayersShown < position.length && ( // expand the table with the next 10 (or remaining) players with a button
-                                <div style={{ paddingLeft: '25px', paddingBottom: '20px', marginTop: '20px' }}>
-                                    <button onClick={expandTable}>Expand</button>
-                                </div>
-                            )}
-
                         </table>
 
                         {numPlayersShown < position.length && ( // expand the table with the next 10 (or remaining) players with a button
@@ -292,7 +277,7 @@ const PositionPage = () => {
             ) : JSON.stringify(positionName) === JSON.stringify("Kicker") ? (
                 <>
                     <div style={{ marginLeft: '25px', width: '75%' }}>
-                        <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px" }}>
+                        <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", width: '100%' }}>
                             <thead>
                                 <tr>
                                 <th>Name</th>  
@@ -329,13 +314,6 @@ const PositionPage = () => {
                                     </tr>
                                 ))}
                             </tbody>
-
-                            {numPlayersShown < position.length && ( // expand the table with the next 10 (or remaining) players with a button
-                                <div style={{ paddingLeft: '25px', paddingBottom: '20px', marginTop: '20px' }}>
-                                    <button onClick={expandTable}>Expand</button>
-                                </div>
-                            )}
-
                         </table>
 
                         {numPlayersShown < position.length && ( // expand the table with the next 10 (or remaining) players with a button
