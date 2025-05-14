@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { fetchDataByTeam } from '../../API/DataApi';
 
 const TeamPage = () => {
@@ -65,6 +65,24 @@ const TeamPage = () => {
     return (
         <div>
             <h1 style={{ paddingLeft: '20px' }}>{ teamName }</h1>
+
+            <Router>
+                <nav style={{ padding: "20px", background: "#eee"}}>
+                    <Link to="/" style={{ marginRight: "30px" }}>Home</Link>
+                    <Link to="/teams" style={{ marginRight: "30px" }}>Teams</Link>
+                    <Link to="/positions" style={{ marginRight: "30px" }}>Positions</Link>
+                    <Link to="/search" style={{ marginRight: "30px" }}>Player Search</Link>
+                </nav>
+
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/teams" element={<Teams />} />
+                    <Route path="/teams/:teamName" element={<TeamPage />} />
+                    <Route path="/positions" element={<Positions />} />
+                    <Route path="/positions/:positionName" element={<PositionPage />} />
+                    <Route path="/search" element={<Search />} />
+                </Routes>
+            </Router>
 
             <p>&nbsp;</p>
 

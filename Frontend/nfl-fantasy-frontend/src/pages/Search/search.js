@@ -11,7 +11,7 @@ export const Search = () => {
     const [loading, setLoading] = useState(false); 
 
     const HandleSubmit = (event) => {
-        if (!searched && name != "") {
+        if (!searched && name !== "") {
             event.preventDefault(); // prevents page reload
             setSearched(true); 
             setLoading(true); 
