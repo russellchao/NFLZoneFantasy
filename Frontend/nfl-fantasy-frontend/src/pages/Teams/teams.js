@@ -1,5 +1,5 @@
 import React from 'react'; 
-import TeamGrid from '../components/TeamGrid'; 
+import TeamGrid from '../../components/TeamGrid/team_grid'; 
 
 const Teams = () => {
     return (

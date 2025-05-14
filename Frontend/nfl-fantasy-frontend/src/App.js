@@ -1,11 +1,11 @@
 import React from 'react'; 
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
-import Home from './pages/Home';
-import Teams from './pages/Teams';
-import TeamPage from './pages/TeamPage';
-import Positions from './pages/Positions';
-import PositionPage from './pages/PositionPage';
-import Search from './pages/Search';
+import Home from './pages/Home/home';
+import Teams from './pages/Teams/teams';
+import TeamPage from './pages/TeamPage/team_page';
+import Positions from './pages/Positions/positions';
+import PositionPage from './pages/PositionPage/position_page';
+import Search from './pages/Search/search';
 
 function App() {
   return (

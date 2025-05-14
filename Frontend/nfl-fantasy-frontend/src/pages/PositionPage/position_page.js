@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchDataByPosition } from '../API/DataApi';
+import { fetchDataByPosition } from '../../API/DataApi';
 
 
 const PositionPage = () => {
@@ -23,7 +23,7 @@ const PositionPage = () => {
     }, [positionName]);
 
 
-    if (loading) return <p>Loading data...</p>;
+    if (loading) return <p style={{ paddingLeft: '20px' }}>Loading data...</p>;
 
 
     return (

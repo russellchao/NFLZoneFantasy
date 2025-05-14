@@ -1,5 +1,5 @@
 import React from 'react'; 
-import PositionGrid from '../components/PositionGrid';
+import PositionGrid from '../../components/PositionGrid/position_grid';
 
 const Positions = () => {
     return (

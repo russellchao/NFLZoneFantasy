@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import SearchResult from '../components/SearchResult'; 
-import { fetchDataByName } from '../API/DataApi';
+import SearchResult from '../../components/SearchResult/search_result'; 
+import { fetchDataByName } from '../../API/DataApi';
 
 
 export const Search = () => {
@@ -11,7 +11,7 @@ export const Search = () => {
     const [loading, setLoading] = useState(false); 
 
     const HandleSubmit = (event) => {
-        if (!searched) {
+        if (!searched && name != "") {
             event.preventDefault(); // prevents page reload
             setSearched(true); 
             setLoading(true); 
@@ -50,15 +50,16 @@ export const Search = () => {
                 <button 
                     type='submit' 
                     style={{ height:"37px", width:"100px", backgroundColor:"#7FFFD4" }}
-                    // onClick={HandleSubmit}
+                    // onClick={HandleSubmit}, 
+                    // using <form onSubmit={HandleSubmit}> allows user to press both enter and the submit button as a means to submit
                     >
                     Submit
                 </button>
             </form>
 
-            {loading == true ? (
+            {loading === true ? (
                 <p style ={{ paddingLeft:"20px" }}>Loading Data...</p>
-            ) : searched == true ? (
+            ) : searched === true ? (
                 <SearchResult nameData={nameData}/>
             ) : (
                 <p>&nbsp;</p>

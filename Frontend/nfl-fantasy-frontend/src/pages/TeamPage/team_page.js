@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchDataByTeam } from '../API/DataApi';
+import { fetchDataByTeam } from '../../API/DataApi';
 
 const TeamPage = () => {
     const { teamName } = useParams(); 
@@ -59,7 +59,7 @@ const TeamPage = () => {
     }, [teamName]);
 
 
-    if (loading) return <p>Loading data...</p>;
+    if (loading) return <p style={{ paddingLeft: '20px' }}>Loading data...</p>;
 
 
     return (
