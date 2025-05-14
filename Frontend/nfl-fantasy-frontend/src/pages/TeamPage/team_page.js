@@ -68,8 +68,8 @@ const TeamPage = () => {
 
             <Router>
                 <nav style={{ padding: "20px", background: "#eee"}}>
-                    <Link to="/" style={{ marginRight: "30px" }}>Home</Link>
-                    <Link to="/teams" style={{ marginRight: "30px" }}>Teams</Link>
+                    <Link to="/teams/:teamName/Schedule" style={{ marginRight: "30px" }}>Home</Link>
+                    <Link to="/teams/:teamName" style={{ marginRight: "30px" }}>Teams</Link>
                     <Link to="/positions" style={{ marginRight: "30px" }}>Positions</Link>
                     <Link to="/search" style={{ marginRight: "30px" }}>Player Search</Link>
                 </nav>
