@@ -87,15 +87,15 @@ const TeamPage = () => {
 
 
             <nav style={{ padding: "20px", background: "#eee" }}>
-                <Link to="/teams/:teamName/schedule" style={{ marginRight: "30px" }}>Schedule</Link>
+                <Link to="/teams/teamName/schedule" style={{ marginRight: "30px" }}>Schedule</Link>
                 <Link to="/teams/:teamName/stats" style={{ marginRight: "30px" }}>Player Stats</Link>
                 <Link to="/teams/:teamName/roster" style={{ marginRight: "30px" }}>Roster</Link>
             </nav>
 
             <Routes>
-                <Route path="/teams/:teamName/schedule" element={<div>Schedule Content Here</div>} />
-                <Route path="/teams/:teamName/stats" element={<div>Stats Content Here</div>} />
-                <Route path="/teams/:teamName/roster" element={<div>Roster Content Here</div>} />
+                <Route path="/teams/:teamName/schedule"  />
+                <Route path="/teams/:teamName/stats"  />
+                <Route path="/teams/:teamName/roster"  />
             </Routes>
             
 

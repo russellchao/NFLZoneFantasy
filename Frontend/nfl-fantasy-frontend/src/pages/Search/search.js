@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import SearchResult from '../../components/SearchResult/search_result'; 
+import SearchResult from './SearchResult/search_result'; 
 import { fetchDataByName } from '../../API/DataApi';
 
 

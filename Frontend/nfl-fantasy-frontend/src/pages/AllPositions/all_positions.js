@@ -1,7 +1,7 @@
 import React from 'react'; 
-import PositionGrid from '../../components/PositionGrid/position_grid';
+import PositionGrid from './PositionGrid/position_grid';
 
-const Positions = () => {
+const AllPositions = () => {
     return (
         <div>
             <h1 style={{ paddingLeft: '20px' }}>Select a Position</h1>
@@ -14,4 +14,4 @@ const Positions = () => {
     );
 };
 
-export default Positions; 
+export default AllPositions; 

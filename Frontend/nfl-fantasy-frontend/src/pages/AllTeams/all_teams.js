@@ -1,7 +1,7 @@
 import React from 'react'; 
-import TeamGrid from '../../components/TeamGrid/team_grid'; 
+import TeamGrid from './TeamGrid/team_grid'; 
 
-const Teams = () => {
+const AllTeams = () => {
     return (
         <div>
             <h1 style={{ paddingLeft: '20px' }}>Select a Team</h1>
@@ -11,4 +11,4 @@ const Teams = () => {
     );
 };
 
-export default Teams; 
+export default AllTeams; 

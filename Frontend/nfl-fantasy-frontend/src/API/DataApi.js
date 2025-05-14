@@ -1,5 +1,5 @@
-import teamAbbr from "../components/TeamAbbreviations";
-import posAbbr from "../components/PositionAbbreviations";
+import teamAbbr from "../pages/AllTeams/TeamGrid/TeamAbbreviations";
+import posAbbr from "../pages/AllPositions/PositionGrid/PositionAbbreviations";
 
 
 export const fetchDataByTeam = async (category, teamName) => {
