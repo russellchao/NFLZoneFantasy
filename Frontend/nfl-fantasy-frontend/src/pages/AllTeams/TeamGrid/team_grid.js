@@ -38,7 +38,7 @@ const TeamGrid = () => {
     const navigate = useNavigate(); 
 
     const handleTeamClick = (teamName, section) => {
-        navigate(`/teams/${teamName}/${section}`); // eventually change to schedule
+        navigate(`/all_teams/${teamName}`); 
     };
 
     return (
@@ -52,7 +52,7 @@ const TeamGrid = () => {
             }}>
                 {afcEast.map(team => (
                     <div key={team}
-                        onClick={() => handleTeamClick(team, "stats")} // eventually change to schedule
+                        onClick={() => handleTeamClick(team)} // eventually change to schedule
                         style={{
                             padding: '10px',
                             backgroundColor: '#ddd',
@@ -73,7 +73,7 @@ const TeamGrid = () => {
             }}>
                 {afcNorth.map(team => (
                     <div key={team}
-                        onClick={() => handleTeamClick(team, "stats")}
+                        onClick={() => handleTeamClick(team, "schedule")}
                         style={{
                             padding: '10px',
                             backgroundColor: '#ddd',
@@ -94,7 +94,7 @@ const TeamGrid = () => {
             }}>
                 {afcSouth.map(team => (
                     <div key={team}
-                        onClick={() => handleTeamClick(team, "stats")}
+                        onClick={() => handleTeamClick(team, "schedule")}
                         style={{
                             padding: '10px',
                             backgroundColor: '#ddd',
@@ -115,7 +115,7 @@ const TeamGrid = () => {
             }}>
                 {afcWest.map(team => (
                     <div key={team}
-                        onClick={() => handleTeamClick(team, "stats")}
+                        onClick={() => handleTeamClick(team, "schedule")}
                         style={{
                             padding: '10px',
                             backgroundColor: '#ddd',
@@ -136,7 +136,7 @@ const TeamGrid = () => {
             }}>
                 {nfcEast.map(team => (
                     <div key={team}
-                        onClick={() => handleTeamClick(team, "stats")}
+                        onClick={() => handleTeamClick(team, "schedule")}
                         style={{
                             padding: '10px',
                             backgroundColor: '#ddd',
@@ -157,7 +157,7 @@ const TeamGrid = () => {
             }}>
                 {nfcNorth.map(team => (
                     <div key={team}
-                        onClick={() => handleTeamClick(team, "stats")}
+                        onClick={() => handleTeamClick(team, "schedule")}
                         style={{
                             padding: '10px',
                             backgroundColor: '#ddd',
@@ -178,7 +178,7 @@ const TeamGrid = () => {
             }}>
                 {nfcSouth.map(team => (
                     <div key={team}
-                        onClick={() => handleTeamClick(team, "stats")}
+                        onClick={() => handleTeamClick(team, "schedule")}
                         style={{
                             padding: '10px',
                             backgroundColor: '#ddd',
@@ -199,7 +199,7 @@ const TeamGrid = () => {
             }}>
                 {nfcWest.map(team => (
                     <div key={team}
-                        onClick={() => handleTeamClick(team, "stats")}
+                        onClick={() => handleTeamClick(team, "schedule")}
                         style={{
                             padding: '10px',
                             backgroundColor: '#ddd',

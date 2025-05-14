@@ -38,6 +38,7 @@ export const Search = () => {
         <div>
             <h1 style={{ paddingLeft: '20px' }}>Player Search</h1> 
 
+            {/* using <form onSubmit={HandleSubmit}> allows user to press both enter and the submit button as a means to submit */}
             <form onSubmit={HandleSubmit}> 
                 <input 
                     type="text" 
@@ -50,8 +51,7 @@ export const Search = () => {
                 <button 
                     type='submit' 
                     style={{ height:"37px", width:"100px", backgroundColor:"#7FFFD4" }}
-                    // onClick={HandleSubmit}, 
-                    // using <form onSubmit={HandleSubmit}> allows user to press both enter and the submit button as a means to submit
+                    // onClick={HandleSubmit}
                     >
                     Submit
                 </button>

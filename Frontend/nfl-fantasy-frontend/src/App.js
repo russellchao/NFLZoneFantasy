@@ -21,9 +21,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/all_teams" element={<AllTeams />} />
-        <Route path="/teams/:teamName/:section" element={<TeamPage />} /> 
+        <Route path="/all_teams/:teamName" element={<TeamPage />} /> 
         <Route path="/all_positions" element={<AllPositions />} />
-        <Route path="/positions/:positionName" element={<PositionPage />} />
+        <Route path="/all_positions/:positionName" element={<PositionPage />} />
         <Route path="/search" element={<Search />} />
       </Routes>
 
