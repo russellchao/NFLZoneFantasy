@@ -8,6 +8,7 @@ const PositionPage = () => {
     const [position, setPosData] = useState([]); 
     const [loading, setLoading] = useState(true); 
     const [numPlayersShown, setPlayersShown] = useState(10); 
+    const [teamSeason, setSeason] = useState("2025"); 
 
 
     const expandTable = () => {
@@ -36,7 +37,27 @@ const PositionPage = () => {
         <div>
             <h1 style={{ paddingLeft: '20px' }}>{ positionName + "s"}</h1>
 
+
+            {/* Season section drop-down menu */}
+            <label for="seasons" style={{ paddingLeft: '20px' }}>Season</label>
+            <select 
+                name="seasons" 
+                id="seasons" 
+                style={{marginLeft: '5px' }}
+                value={teamSeason}
+                onChange={(e) => setSeason(e.target.value)}
+            >
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+            </select>
+            <p style={{paddingLeft: '20px' }}>DEBUG: Season Selected: {teamSeason}</p>
+            
+
             <p>&nbsp;</p>
+
+
 
             {position.length === 0 ? (
                 <p style={{ paddingLeft: '20px' }}>No data available for this position.</p>

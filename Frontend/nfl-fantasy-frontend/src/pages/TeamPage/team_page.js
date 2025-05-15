@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import { useParams, BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { fetchDataByTeam } from '../../API/DataApi';
 
 const TeamPage = () => {
     const { teamName } = useParams(); 
     const [section, setSection] = useState("Schedule"); 
     const allSections = ["Schedule", "Player Stats", "Roster"];
+    const [teamSeason, setSeason] = useState("2025"); 
+
 
     // For schedule section
 
@@ -16,7 +18,7 @@ const TeamPage = () => {
     const [defenders, setDefenders] = useState([]); 
     const [kickers, setKickers] = useState([]); 
     const [loading, setLoading] = useState(true); 
-
+  
     // For roster section
 
 
@@ -30,7 +32,6 @@ const TeamPage = () => {
     useEffect(() => {
         // Update the section based on the based on the current path
         
-
 
         // Retrieve player data from the Spring Boot Backend (for stats section)
         if (teamName) {
@@ -106,10 +107,26 @@ const TeamPage = () => {
                     </div>
                 ))}
             </div>
-    
 
+
+            {/* Season section drop-down menu */}
+            <label for="seasons" style={{ paddingLeft: '20px' }}>Season</label>
+            <select 
+                name="seasons" 
+                id="seasons" 
+                style={{marginLeft: '5px' }}
+                value={teamSeason}
+                onChange={(e) => setSeason(e.target.value)}
+            >
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+            </select>
+            <p style={{paddingLeft: '20px' }}>DEBUG: Season Selected: {teamSeason}</p>
             
-            
+
+            <p>&nbsp;</p>
 
             {section === "Schedule" ? (
                 <h2 style={{ paddingLeft: '20px' }}>Schedule</h2>
