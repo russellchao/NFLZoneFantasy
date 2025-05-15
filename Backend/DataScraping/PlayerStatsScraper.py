@@ -8,13 +8,11 @@ import csv
 import os
 
 
-year = 2024 # In the future let the user select the year to retrieve stats
 
 
-
-def scrape_data(data_type):
+def scrape_player_stats(data_type, season):
     # Send a GET request to the stats page URL
-    response = requests.get(f"https://www.pro-football-reference.com/years/{year}/{data_type}.htm")
+    response = requests.get(f"https://www.pro-football-reference.com/years/{season}/{data_type}.htm")
     if response.status_code != 200:
         raise Exception(f"Failed to load page ({response.status_code})")
 
@@ -112,7 +110,7 @@ def scrape_data(data_type):
 
 
     # Export player data to .csv file
-    filename = f"Data_Scraping/{data_type}_stats.csv"
+    filename = f"Backend/DataScraping/{data_type}_stats.csv"
 
     with open(filename, mode="w", newline="", encoding="utf-8") as file:
         writer = csv.DictWriter(file, fieldnames=list(players_data[0].keys()))
@@ -129,11 +127,13 @@ def scrape_data(data_type):
 
 if __name__ == "__main__":
 
-    scrape_data(data_type="passing")
-    scrape_data(data_type="rushing")
-    scrape_data(data_type="receiving")
-    scrape_data(data_type="defense")
-    scrape_data(data_type="kicking")
+    # Used for testing in terminal only. Will be replaced by Flask App endpoint. 
+
+    scrape_player_stats(data_type="passing", season="2024")
+    scrape_player_stats(data_type="rushing", season="2024")
+    scrape_player_stats(data_type="receiving", season="2024")
+    scrape_player_stats(data_type="defense", season="2024")
+    scrape_player_stats(data_type="kicking", season="2024")
 
 
     
