@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchDataByTeam } from '../../API/DataApi';
+import { fetchDataByTeam } from '../../API/player_data_api';
 
 const TeamPage = () => {
     const { teamName } = useParams(); 
-    const [section, setSection] = useState("Schedule"); 
+    const [section, setSection] = useState("Player Stats"); 
     const allSections = ["Schedule", "Player Stats", "Roster"];
-    const [teamSeason, setSeason] = useState("2025"); 
+    const [teamSeason, setSeason] = useState("2023"); 
 
 
     // For schedule section
@@ -37,7 +37,7 @@ const TeamPage = () => {
         if (teamName) {
             // Fetch Passing data
             const loadPassers = async () => {
-                const passingData = await fetchDataByTeam("passer", teamName); 
+                const passingData = await fetchDataByTeam("passer", teamName, teamSeason); 
                 setPassers(passingData); 
                 setLoading(false); 
             };
@@ -45,7 +45,7 @@ const TeamPage = () => {
 
             // Fetch Rushing data
             const loadRushers = async () => {
-                const rushingData = await fetchDataByTeam("rusher", teamName); 
+                const rushingData = await fetchDataByTeam("rusher", teamName, teamSeason); 
                 setRushers(rushingData); 
                 setLoading(false); 
             };
@@ -53,7 +53,7 @@ const TeamPage = () => {
 
             // Fetch Receiving data
             const loadReceivers = async () => {
-                const receivingData = await fetchDataByTeam("receiver", teamName); 
+                const receivingData = await fetchDataByTeam("receiver", teamName, teamSeason); 
                 setReceivers(receivingData); 
                 setLoading(false); 
             };
@@ -61,7 +61,7 @@ const TeamPage = () => {
 
             // Fetch Defense data
             const loadDefenders = async () => {
-                const defenseData = await fetchDataByTeam("defender", teamName); 
+                const defenseData = await fetchDataByTeam("defender", teamName, teamSeason); 
                 setDefenders(defenseData); 
                 setLoading(false); 
             };
@@ -69,7 +69,7 @@ const TeamPage = () => {
 
             // Fetch Kicking data
             const loadKickers = async () => {
-                const kickingData = await fetchDataByTeam("kicker", teamName); 
+                const kickingData = await fetchDataByTeam("kicker", teamName, teamSeason); 
                 setKickers(kickingData); 
                 setLoading(false); 
             };

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchDataByPosition } from '../../API/DataApi';
+import { fetchDataByPosition } from '../../API/player_data_api';
 
 
 const PositionPage = () => {

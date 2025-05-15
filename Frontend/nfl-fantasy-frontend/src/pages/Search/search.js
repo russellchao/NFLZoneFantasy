@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SearchResult from './SearchResult/search_result'; 
-import { fetchDataByName } from '../../API/DataApi';
+import { fetchDataByName } from '../../API/player_data_api';
 
 
 export const Search = () => {
