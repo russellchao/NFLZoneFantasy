@@ -2,19 +2,8 @@ import teamAbbr from "../pages/AllTeams/TeamGrid/TeamAbbreviations";
 import posAbbr from "../pages/AllPositions/PositionGrid/PositionAbbreviations";
 
 
-export const fetchDataByTeam = async (category, teamName, season) => {
+export const fetchDataByTeam = async (category, teamName) => {
     try {
-        // Fetch the Python Flask App to update each CSV file containing player data
-        fetch(`http://localhost:5000/playerData/${encodeURIComponent(season)}`);
-
-    } catch (error) {
-        console.error("Failed to fetch data:", error);
-        return []; 
-    }
-
-    try {
-        
-        // Fetch the Spring Boot Backend containing the updated player data in PostgresSQL 
         const response = await fetch(
            `http://localhost:8081/api/v1/${encodeURIComponent(category)}?team=${encodeURIComponent(teamAbbr[teamName])}`
         );
@@ -34,14 +23,7 @@ export const fetchDataByTeam = async (category, teamName, season) => {
 };
 
 
-export const fetchDataByPosition = async (positionName, season) => {
-    try {
-        fetch(`http://localhost:5000/playerData/${encodeURIComponent(season)}`);
-    } catch (error) {
-        console.error("Failed to fetch data:", error);
-        return []; 
-    }
-
+export const fetchDataByPosition = async (positionName) => {
     try {
         let category = ""; 
 

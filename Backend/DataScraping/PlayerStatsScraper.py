@@ -11,6 +11,9 @@ import os
 
 
 def scrape_player_stats(data_type, season):
+
+    print(f"Scraping {data_type} data for {season}")
+
     # Send a GET request to the stats page URL
     response = requests.get(f"https://www.pro-football-reference.com/years/{season}/{data_type}.htm")
     if response.status_code != 200:
@@ -68,6 +71,7 @@ def scrape_player_stats(data_type, season):
             "fg_long": "Long", "xpa": "XPA", "xpm": "XPM", "kickoff": "KO", "kickoff_yds": "KOYds", "kickoff_tb": "TB"
         }
 
+
     players_data = [] 
 
     for row in rows[:limit]:
@@ -108,14 +112,20 @@ def scrape_player_stats(data_type, season):
         # Sort defense data based on total field goals made
         players_data.sort(key=lambda x: int(x["FGM"].replace(",", "")), reverse=True)
 
-
     # Export player data to .csv file
-    filename = f"Backend/DataScraping/{data_type}_stats.csv"
+    filename = f"{data_type}_stats.csv"
 
-    with open(filename, mode="w", newline="", encoding="utf-8") as file:
-        writer = csv.DictWriter(file, fieldnames=list(players_data[0].keys()))
-        writer.writeheader()                # write column headers
-        writer.writerows(players_data)      # write player rows
+    # # DEBUG
+    # print(players_data)
+
+    try:
+        with open(filename, mode="w", newline="", encoding="utf-8") as file:
+            writer = csv.DictWriter(file, fieldnames=list(players_data[0].keys()))
+            writer.writeheader()                # write column headers
+            writer.writerows(players_data)      # write player rows
+    except Exception as e:
+        print(f"FILE WRITE ERROR ({data_type}):", e)
+
 
     return 
 
@@ -125,15 +135,15 @@ def scrape_player_stats(data_type, season):
 
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    # Used for testing in terminal only. Will be replaced by Flask App endpoint. 
+#     # Used for testing in terminal only. Will be replaced by Flask App endpoint. 
 
-    scrape_player_stats(data_type="passing", season="2024")
-    scrape_player_stats(data_type="rushing", season="2024")
-    scrape_player_stats(data_type="receiving", season="2024")
-    scrape_player_stats(data_type="defense", season="2024")
-    scrape_player_stats(data_type="kicking", season="2024")
+#     scrape_player_stats(data_type="passing", season="2024")
+#     scrape_player_stats(data_type="rushing", season="2024")
+#     scrape_player_stats(data_type="receiving", season="2024")
+#     scrape_player_stats(data_type="defense", season="2024")
+#     scrape_player_stats(data_type="kicking", season="2024")
 
 
     

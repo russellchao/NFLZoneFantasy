@@ -28,52 +28,69 @@ const TeamPage = () => {
     };
 
 
+
+    // Fetch Player Data based on season
+    async function fetchPlayerStatData() {
+        try {
+            // Call the Python Flask App to update each CSV file containing player data
+            await fetch(`http://localhost:5000/playerData/${encodeURIComponent(teamSeason)}`);
+
+        } catch (error) {
+            console.error("Failed to fetch data:", error);
+            return []; 
+        }
+    };
+
+
    
     useEffect(() => {
         // Update the section based on the based on the current path
         
+        if (section === "Player Stats") {
+            fetchPlayerStatData(); 
 
-        // Retrieve player data from the Spring Boot Backend (for stats section)
-        if (teamName) {
-            // Fetch Passing data
-            const loadPassers = async () => {
-                const passingData = await fetchDataByTeam("passer", teamName, teamSeason); 
-                setPassers(passingData); 
-                setLoading(false); 
-            };
-            loadPassers(); 
+            // Retrieve player data from the Spring Boot Backend (for stats section)
+            if (teamName) {
+                // Fetch Passing data
+                const loadPassers = async () => {
+                    const passingData = await fetchDataByTeam("passer", teamName, teamSeason); 
+                    setPassers(passingData); 
+                    setLoading(false); 
+                };
+                loadPassers(); 
 
-            // Fetch Rushing data
-            const loadRushers = async () => {
-                const rushingData = await fetchDataByTeam("rusher", teamName, teamSeason); 
-                setRushers(rushingData); 
-                setLoading(false); 
-            };
-            loadRushers(); 
+                // Fetch Rushing data
+                const loadRushers = async () => {
+                    const rushingData = await fetchDataByTeam("rusher", teamName, teamSeason); 
+                    setRushers(rushingData); 
+                    setLoading(false); 
+                };
+                loadRushers(); 
 
-            // Fetch Receiving data
-            const loadReceivers = async () => {
-                const receivingData = await fetchDataByTeam("receiver", teamName, teamSeason); 
-                setReceivers(receivingData); 
-                setLoading(false); 
-            };
-            loadReceivers(); 
+                // Fetch Receiving data
+                const loadReceivers = async () => {
+                    const receivingData = await fetchDataByTeam("receiver", teamName, teamSeason); 
+                    setReceivers(receivingData); 
+                    setLoading(false); 
+                };
+                loadReceivers(); 
 
-            // Fetch Defense data
-            const loadDefenders = async () => {
-                const defenseData = await fetchDataByTeam("defender", teamName, teamSeason); 
-                setDefenders(defenseData); 
-                setLoading(false); 
-            };
-            loadDefenders(); 
+                // Fetch Defense data
+                const loadDefenders = async () => {
+                    const defenseData = await fetchDataByTeam("defender", teamName, teamSeason); 
+                    setDefenders(defenseData); 
+                    setLoading(false); 
+                };
+                loadDefenders(); 
 
-            // Fetch Kicking data
-            const loadKickers = async () => {
-                const kickingData = await fetchDataByTeam("kicker", teamName, teamSeason); 
-                setKickers(kickingData); 
-                setLoading(false); 
+                // Fetch Kicking data
+                const loadKickers = async () => {
+                    const kickingData = await fetchDataByTeam("kicker", teamName, teamSeason); 
+                    setKickers(kickingData); 
+                    setLoading(false); 
+                };
+                loadKickers(); 
             };
-            loadKickers(); 
         };
 
     }, [teamName]);

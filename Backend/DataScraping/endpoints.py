@@ -8,7 +8,7 @@ CORS(app)
 
 @app.route("/playerData/<nflSeason>")
 def get_player_stats(nflSeason): 
-    
+
     try:
         scrape_player_stats(data_type="passing", season=nflSeason)
         scrape_player_stats(data_type="rushing", season=nflSeason)
