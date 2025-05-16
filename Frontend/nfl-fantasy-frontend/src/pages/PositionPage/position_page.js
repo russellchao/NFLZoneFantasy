@@ -11,13 +11,29 @@ const PositionPage = () => {
     const [teamSeason, setSeason] = useState("2025"); 
 
 
+    // Expand table function
     const expandTable = () => {
         setPlayersShown(prevCount => prevCount + 10); 
     };
 
 
+    // Fetch Player Data based on season
+    async function fetchPlayerStatData() {
+        try {
+            // Call the Python Flask App to update each CSV file containing player data
+            await fetch(`http://localhost:5000/playerData/${encodeURIComponent(teamSeason)}`);
+
+        } catch (error) {
+            console.error("Failed to fetch data:", error);
+            return []; 
+        }
+    };
+
+
     // Retrieve position data from the Spring Boot Backend
     useEffect(() => {
+        fetchPlayerStatData(); 
+
         if (positionName) {
             const loadPosData = async () => {
                 const posData = await fetchDataByPosition(positionName); 
@@ -27,7 +43,7 @@ const PositionPage = () => {
             loadPosData(); 
         }
 
-    }, [positionName]);
+    }, [positionName, teamSeason]);
 
 
     if (loading) return <p style={{ paddingLeft: '20px' }}>Loading data...</p>;

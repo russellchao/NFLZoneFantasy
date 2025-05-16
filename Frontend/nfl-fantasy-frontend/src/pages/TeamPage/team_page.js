@@ -6,7 +6,7 @@ const TeamPage = () => {
     const { teamName } = useParams(); 
     const [section, setSection] = useState("Player Stats"); 
     const allSections = ["Schedule", "Player Stats", "Roster"];
-    const [teamSeason, setSeason] = useState("2023"); 
+    const [teamSeason, setSeason] = useState("2024"); 
 
 
     // For schedule section
@@ -53,7 +53,7 @@ const TeamPage = () => {
             if (teamName) {
                 // Fetch Passing data
                 const loadPassers = async () => {
-                    const passingData = await fetchDataByTeam("passer", teamName, teamSeason); 
+                    const passingData = await fetchDataByTeam("passer", teamName); 
                     setPassers(passingData); 
                     setLoading(false); 
                 };
@@ -61,7 +61,7 @@ const TeamPage = () => {
 
                 // Fetch Rushing data
                 const loadRushers = async () => {
-                    const rushingData = await fetchDataByTeam("rusher", teamName, teamSeason); 
+                    const rushingData = await fetchDataByTeam("rusher", teamName); 
                     setRushers(rushingData); 
                     setLoading(false); 
                 };
@@ -69,7 +69,7 @@ const TeamPage = () => {
 
                 // Fetch Receiving data
                 const loadReceivers = async () => {
-                    const receivingData = await fetchDataByTeam("receiver", teamName, teamSeason); 
+                    const receivingData = await fetchDataByTeam("receiver", teamName); 
                     setReceivers(receivingData); 
                     setLoading(false); 
                 };
@@ -77,7 +77,7 @@ const TeamPage = () => {
 
                 // Fetch Defense data
                 const loadDefenders = async () => {
-                    const defenseData = await fetchDataByTeam("defender", teamName, teamSeason); 
+                    const defenseData = await fetchDataByTeam("defender", teamName); 
                     setDefenders(defenseData); 
                     setLoading(false); 
                 };
@@ -85,7 +85,7 @@ const TeamPage = () => {
 
                 // Fetch Kicking data
                 const loadKickers = async () => {
-                    const kickingData = await fetchDataByTeam("kicker", teamName, teamSeason); 
+                    const kickingData = await fetchDataByTeam("kicker", teamName); 
                     setKickers(kickingData); 
                     setLoading(false); 
                 };
@@ -93,7 +93,7 @@ const TeamPage = () => {
             };
         };
 
-    }, [teamName]);
+    }, [teamName, teamSeason, section]);
 
 
     if (loading) return <p style={{ paddingLeft: '20px' }}>Loading data...</p>;
