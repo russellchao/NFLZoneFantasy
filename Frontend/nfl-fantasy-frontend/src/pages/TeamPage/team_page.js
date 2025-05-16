@@ -22,11 +22,11 @@ const TeamPage = () => {
     // For roster section
 
 
+
     // Section switch
     const handleSectionChange = (section) => {
         setSection(section); 
     };
-
 
 
     // Fetch Player Data based on season
@@ -42,7 +42,6 @@ const TeamPage = () => {
     };
 
 
-   
     useEffect(() => {
         // Update the section based on the based on the current path
         

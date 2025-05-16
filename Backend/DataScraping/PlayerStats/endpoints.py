@@ -16,9 +16,11 @@ def get_player_stats(nflSeason):
         scrape_player_stats(data_type="defense", season=nflSeason)
         scrape_player_stats(data_type="kicking", season=nflSeason)
 
+        print("Success")
         return "Success"
     
     except Exception as e:
+        print("Failure")
         return "Failure"
     
 

@@ -8,7 +8,7 @@ const PositionPage = () => {
     const [position, setPosData] = useState([]); 
     const [loading, setLoading] = useState(true); 
     const [numPlayersShown, setPlayersShown] = useState(10); 
-    const [teamSeason, setSeason] = useState("2025"); 
+    const [teamSeason, setSeason] = useState("2024"); 
 
 
     // Expand table function
