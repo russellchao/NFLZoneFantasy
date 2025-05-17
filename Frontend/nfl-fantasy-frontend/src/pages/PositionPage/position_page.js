@@ -17,12 +17,11 @@ const PositionPage = () => {
     };
 
 
-    // Fetch Player Data based on season
+    // Call the Python Flask App to update each CSV file containing player data
     async function fetchPlayerStatData() {
         try {
-            // Call the Python Flask App to update each CSV file containing player data
             await fetch(`http://localhost:5000/playerData/${encodeURIComponent(teamSeason)}`);
-
+            
         } catch (error) {
             console.error("Failed to fetch data:", error);
             return []; 
