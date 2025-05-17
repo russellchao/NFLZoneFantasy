@@ -8,8 +8,6 @@ import csv
 import os
 
 
-
-
 def scrape_player_stats(data_type, season):
 
     print(f"Scraping {data_type} data for {season}")
