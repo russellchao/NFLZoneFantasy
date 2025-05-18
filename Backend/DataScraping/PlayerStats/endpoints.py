@@ -3,6 +3,8 @@ from flask_cors import CORS
 from PlayerStatsScraper import scrape_player_stats
 from StatsDBUpdater import update_player_stats_database
 
+import psycopg2
+
 
 app = Flask(__name__)
 CORS(app)
@@ -17,20 +19,10 @@ def get_player_stats(nflSeason):
         # Update each CSV
         for d in data_types:
             scrape_player_stats(data_type=d, season=nflSeason)
-        
-        # PostgreSQL DB config
-        db_config = {
-            'dbname': 'nfl_data',
-            'user': 'postgres',
-            'password': 'password',
-            'host': 'localhost',
-            'port': 5432
-        }
 
         # Update database with each CSV
         for d in data_types:
-            update_player_stats_database(d, db_config)
-
+            update_player_stats_database(data_type=d)
 
         print("Success")
         return "Success"

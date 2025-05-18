@@ -1,7 +1,8 @@
 import psycopg2
 import pandas as pd
+from db_info import hostname, database, username, pwd, port_id
  
-def update_player_stats_database(data_type, db_config):
+def update_player_stats_database(data_type):
     """
     Load a CSV file and update the corresponding PostgreSQL table.
     `data_type` is one of: passing, rushing, receiving, defense, kicking
@@ -12,12 +13,20 @@ def update_player_stats_database(data_type, db_config):
 
     try:
         df = pd.read_csv(csv_file)
+        print(f"Successfully read {csv_file}")
     except Exception as e:
         print(f"Failed to read {csv_file}: {e}")
         return
     
+    
     try:
-        conn = psycopg2.connect(**db_config)
+        conn = psycopg2.connect(
+            host = hostname,
+            dbname = database,
+            user = username,
+            password = pwd,
+            port = port_id
+        )
         cur = conn.cursor()
 
         # Truncate table before inserting new data
