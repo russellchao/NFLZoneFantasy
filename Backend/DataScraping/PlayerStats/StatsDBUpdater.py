@@ -1,6 +1,6 @@
 import psycopg2
 import pandas as pd
-from db_info import hostname, database, username, pwd, port_id
+from db_info import hostname, database, username, pwd, port_id, nameserver
  
 def update_player_stats_database(data_type):
     """
