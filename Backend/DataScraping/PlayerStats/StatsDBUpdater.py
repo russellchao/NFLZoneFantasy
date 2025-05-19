@@ -1,4 +1,4 @@
-import psycopg2
+import psycopg
 import pandas as pd
 from db_info import hostname, database, username, pwd, port_id, nameserver
  
@@ -18,13 +18,13 @@ def update_player_stats_database(data_type):
         print(f"Failed to read {csv_file}: {e}")
         return
     
-    
+
     try:
-        conn = psycopg2.connect(
-            host = hostname,
+        conn = psycopg.connect(
             dbname = database,
-            user = username,
-            password = pwd,
+            user = username, 
+            password = pwd, 
+            host = hostname,
             port = port_id
         )
         cur = conn.cursor()
