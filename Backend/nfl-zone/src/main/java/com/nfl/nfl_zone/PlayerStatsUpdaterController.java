@@ -19,6 +19,7 @@ import java.nio.file.Paths;
 public class PlayerStatsUpdaterController {
     // This endpoint updates all player stats tables in the PostgreSQL database based on the season requested
 
+
     // Functions for when parsing int or double values in the csv, ignores null values
     private Integer parseIntSafe(String s) {
        if (s == null || s.trim().isEmpty()) {
