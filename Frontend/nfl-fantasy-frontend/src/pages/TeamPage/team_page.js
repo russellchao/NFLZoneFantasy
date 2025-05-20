@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchDataByTeam } from '../../API/player_data_api';
-import PlayerStats from './PlayerStats/player_stats';
+import PlayerStats from './PlayerStats/tp_player_stats';
 
 const TeamPage = () => {
     const { teamName } = useParams(); 
@@ -69,7 +69,6 @@ const TeamPage = () => {
                     const loadPassers = async () => {
                         const passingData = await fetchDataByTeam("passer", teamName); 
                         setPassers(passingData); 
-                        //setLoading(false); 
                     };
                     loadPassers(); 
 
@@ -77,7 +76,6 @@ const TeamPage = () => {
                     const loadRushers = async () => {
                         const rushingData = await fetchDataByTeam("rusher", teamName); 
                         setRushers(rushingData); 
-                        //setLoading(false); 
                     };
                     loadRushers(); 
 
@@ -85,7 +83,6 @@ const TeamPage = () => {
                     const loadReceivers = async () => {
                         const receivingData = await fetchDataByTeam("receiver", teamName); 
                         setReceivers(receivingData); 
-                        //setLoading(false); 
                     };
                     loadReceivers(); 
 
@@ -93,7 +90,6 @@ const TeamPage = () => {
                     const loadDefenders = async () => {
                         const defenseData = await fetchDataByTeam("defender", teamName); 
                         setDefenders(defenseData); 
-                        //setLoading(false); 
                     };
                     loadDefenders(); 
 
@@ -101,7 +97,6 @@ const TeamPage = () => {
                     const loadKickers = async () => {
                         const kickingData = await fetchDataByTeam("kicker", teamName); 
                         setKickers(kickingData); 
-                        //setLoading(false); 
                     };
                     loadKickers(); 
 
@@ -117,7 +112,7 @@ const TeamPage = () => {
     // When the page is loading data
     if (loading) {
         return (
-            <p style={{ paddingLeft: '20px' }}>Loading data for the {teamName}...</p>
+            <p style={{ paddingLeft: '20px' }}>Loading {section} data for the {teamName}...</p>
         );
     }
 
