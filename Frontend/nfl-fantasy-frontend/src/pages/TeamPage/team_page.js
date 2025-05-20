@@ -31,9 +31,15 @@ const TeamPage = () => {
 
 
     // Call the Specialized Spring Boot endpoint to update the database with the updated player stats CSV file (from calling Flask endpoint)
-    async function fetchPlayerStatData() {
+    async function updatePlayerStatsDB() {
+
+        if (!loading) {
+            setLoading(true); 
+        }
+
         try { 
             await fetch(`http://localhost:8081/api/v1/updateDB?season=${encodeURIComponent(teamSeason)}`);
+            console.log("Finished updating player stats database");
 
         } catch (error) {
             console.error("Failed to fetch data:", error);
@@ -45,57 +51,75 @@ const TeamPage = () => {
     useEffect(() => {
         // Update the section based on the based on the current path
         
+
+
         if (section === "Player Stats") {
-            fetchPlayerStatData(); 
+            (async () => { 
+                /*** 
+                 * Placing this logic on an async wrapper allows us to wait for the database 
+                 * to completely update before fetching the data
+                 * */ 
 
-            // Retrieve player data from the Spring Boot Backend (for stats section)
-            if (teamName) {
-                // Fetch Passing data
-                const loadPassers = async () => {
-                    const passingData = await fetchDataByTeam("passer", teamName); 
-                    setPassers(passingData); 
+                await updatePlayerStatsDB(); 
+                console.log(`Retreiving player stats from ${teamSeason}`)
+
+                // Retrieve player data from the Spring Boot Backend (for stats section)
+                if (teamName) {
+                    // Fetch Passing data
+                    const loadPassers = async () => {
+                        const passingData = await fetchDataByTeam("passer", teamName); 
+                        setPassers(passingData); 
+                        //setLoading(false); 
+                    };
+                    loadPassers(); 
+
+                    // Fetch Rushing data
+                    const loadRushers = async () => {
+                        const rushingData = await fetchDataByTeam("rusher", teamName); 
+                        setRushers(rushingData); 
+                        //setLoading(false); 
+                    };
+                    loadRushers(); 
+
+                    // Fetch Receiving data
+                    const loadReceivers = async () => {
+                        const receivingData = await fetchDataByTeam("receiver", teamName); 
+                        setReceivers(receivingData); 
+                        //setLoading(false); 
+                    };
+                    loadReceivers(); 
+
+                    // Fetch Defense data
+                    const loadDefenders = async () => {
+                        const defenseData = await fetchDataByTeam("defender", teamName); 
+                        setDefenders(defenseData); 
+                        //setLoading(false); 
+                    };
+                    loadDefenders(); 
+
+                    // Fetch Kicking data
+                    const loadKickers = async () => {
+                        const kickingData = await fetchDataByTeam("kicker", teamName); 
+                        setKickers(kickingData); 
+                        //setLoading(false); 
+                    };
+                    loadKickers(); 
+
+
                     setLoading(false); 
                 };
-                loadPassers(); 
-
-                // Fetch Rushing data
-                const loadRushers = async () => {
-                    const rushingData = await fetchDataByTeam("rusher", teamName); 
-                    setRushers(rushingData); 
-                    setLoading(false); 
-                };
-                loadRushers(); 
-
-                // Fetch Receiving data
-                const loadReceivers = async () => {
-                    const receivingData = await fetchDataByTeam("receiver", teamName); 
-                    setReceivers(receivingData); 
-                    setLoading(false); 
-                };
-                loadReceivers(); 
-
-                // Fetch Defense data
-                const loadDefenders = async () => {
-                    const defenseData = await fetchDataByTeam("defender", teamName); 
-                    setDefenders(defenseData); 
-                    setLoading(false); 
-                };
-                loadDefenders(); 
-
-                // Fetch Kicking data
-                const loadKickers = async () => {
-                    const kickingData = await fetchDataByTeam("kicker", teamName); 
-                    setKickers(kickingData); 
-                    setLoading(false); 
-                };
-                loadKickers(); 
-            };
+            })(); 
         };
 
     }, [teamName, teamSeason, section]);
 
 
-    if (loading) return <p style={{ paddingLeft: '20px' }}>Loading data...</p>;
+    // When the page is loading data
+    if (loading) {
+        return (
+            <p style={{ paddingLeft: '20px' }}>Loading data for the {teamName}...</p>
+        );
+    }
 
 
     return (
@@ -138,7 +162,6 @@ const TeamPage = () => {
                 <option value="2024">2024</option>
                 <option value="2023">2023</option>
             </select>
-            <p style={{paddingLeft: '20px' }}>DEBUG: Season Selected: {teamSeason}</p>
             
             <p>&nbsp;</p>
 

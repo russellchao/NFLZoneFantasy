@@ -18,9 +18,15 @@ const PositionPage = () => {
 
 
     // Call the Specialized Spring Boot endpoint to update the database with the updated player stats CSV file (from calling Flask endpoint)
-    async function fetchPlayerStatData() {
+    async function updatePlayerStatsDB() {
+
+        if (!loading) {
+            setLoading(true); 
+        }
+
         try { 
             await fetch(`http://localhost:8081/api/v1/updateDB?season=${encodeURIComponent(teamSeason)}`);
+            console.log("Finished updating player stats database");
 
         } catch (error) {
             console.error("Failed to fetch data:", error);
@@ -31,21 +37,29 @@ const PositionPage = () => {
 
     // Retrieve position data from the Spring Boot Backend
     useEffect(() => {
-        fetchPlayerStatData(); 
+        (async () => {
+            await updatePlayerStatsDB(); 
 
-        if (positionName) {
-            const loadPosData = async () => {
-                const posData = await fetchDataByPosition(positionName); 
-                setPosData(posData); 
+            if (positionName) {
+                const loadPosData = async () => {
+                    const posData = await fetchDataByPosition(positionName); 
+                    setPosData(posData); 
+                };
+                loadPosData(); 
+
                 setLoading(false); 
-            };
-            loadPosData(); 
-        }
-
+            }
+        })(); 
+        
     }, [positionName, teamSeason]);
 
 
-    if (loading) return <p style={{ paddingLeft: '20px' }}>Loading data...</p>;
+    // When the page is loading data
+    if (loading) {
+        return (
+            <p style={{ paddingLeft: '20px' }}>Loading data for {positionName}s...</p>
+        );
+    }
 
 
     return (
@@ -66,7 +80,6 @@ const PositionPage = () => {
                 <option value="2024">2024</option>
                 <option value="2023">2023</option>
             </select>
-            <p style={{paddingLeft: '20px' }}>DEBUG: Season Selected: {teamSeason}</p>
 
 
             <p>&nbsp;</p>
