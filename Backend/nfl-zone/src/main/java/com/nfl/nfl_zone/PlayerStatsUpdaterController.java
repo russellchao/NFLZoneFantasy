@@ -37,7 +37,7 @@ public class PlayerStatsUpdaterController {
 
     // Call the Python Flask Endpoint to update the CSV based on the season
     @GetMapping
-    public void updateStatsCSVs(@RequestParam() String season) {
+    public String updateStatsCSVs(@RequestParam() String season) {
         String flaskURL = String.format("http://localhost:5000/playerData/%s", season);
         RestTemplate restTemplate = new RestTemplate();
 
@@ -45,16 +45,23 @@ public class PlayerStatsUpdaterController {
             String response = restTemplate.getForObject(flaskURL, String.class);
             System.out.println("Flask Response: " + response);
 
+            if (response.equals("Failure")) {
+                return "Failure updating CSVs";
+            }
+
             // Update the PostgreSQL database for each playing category
             update_database("passing");
-//            update_database("rushing");
-//            update_database("receiving");
-//            update_database("defense");
-//            update_database("kicking");
+            update_database("rushing");
+            update_database("receiving");
+            update_database("defense");
+            update_database("kicking");
 
+            System.out.println("Success");
+            return "Success updating CSVs";
 
         } catch (Exception e) {
             System.out.println("Error calling Flask: " + e);
+            return "Failure updating CSVs";
         }
     }
 
@@ -78,21 +85,53 @@ public class PlayerStatsUpdaterController {
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
 
-//                for (int i = 0; i < data.length; i++) {
-//                    System.out.println(data[i]);
-//                }
-
                 // Insert the proper data for each playing category from the updated CSV
                 if (playerCategory.equals("passing")) {
                     jdbcTemplate.update(
                             "INSERT INTO passing_stats " +
                                     "(name, age, team, pos, gp, cmp, att, cmp_pct, yds, td, int, long, ypg, rate, qbr, sack)" +
                                     " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                            data[0], parseIntSafe(data[1]), data[2], data[3], parseIntSafe(data[4]),
-                            parseIntSafe(data[5]), parseIntSafe(data[6]), parseDoubleSafe(data[7]),
-                            parseIntSafe(data[8]), parseIntSafe(data[9]), parseIntSafe(data[10]),
-                            parseIntSafe(data[11]), parseDoubleSafe(data[12]), parseDoubleSafe(data[13]),
-                            parseDoubleSafe(data[14]), parseIntSafe(data[15])
+                            data[0], parseIntSafe(data[1]), data[2], data[3], parseIntSafe(data[4]), parseIntSafe(data[5]), parseIntSafe(data[6]),
+                            parseDoubleSafe(data[7]), parseIntSafe(data[8]), parseIntSafe(data[9]), parseIntSafe(data[10]), parseIntSafe(data[11]),
+                            parseDoubleSafe(data[12]), parseDoubleSafe(data[13]), parseDoubleSafe(data[14]), parseIntSafe(data[15])
+                    );
+
+                } else if (playerCategory.equals("rushing")) {
+                    jdbcTemplate.update(
+                            "INSERT INTO rushing_stats " +
+                                    "(name, age, team, pos, gp, att, yds, td, long, ypg, fmb)" +
+                                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                            data[0], parseIntSafe(data[1]), data[2], data[3], parseIntSafe(data[4]), parseIntSafe(data[5]), parseIntSafe(data[6]),
+                            parseIntSafe(data[7]), parseIntSafe(data[8]), parseDoubleSafe(data[9]), parseIntSafe(data[10])
+                    );
+
+                } else if (playerCategory.equals("receiving")) {
+                    jdbcTemplate.update(
+                            "INSERT INTO receiving_stats " +
+                                    "(name, age, team, pos, gp, rec, yds, td, long, ypg, fmb)" +
+                                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                            data[0], parseIntSafe(data[1]), data[2], data[3], parseIntSafe(data[4]), parseIntSafe(data[5]), parseIntSafe(data[6]),
+                            parseIntSafe(data[7]), parseIntSafe(data[8]), parseDoubleSafe(data[9]), parseIntSafe(data[10])
+                    );
+
+                } else if (playerCategory.equals("defense")) {
+                    jdbcTemplate.update(
+                            "INSERT INTO defense_stats " +
+                                    "(name, age, team, pos, gp, tck, solo, asst, tfl, sack, pbu, int, inttd, ff, fr, frtd)" +
+                                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                            data[0], parseIntSafe(data[1]), data[2], data[3], parseIntSafe(data[4]), parseIntSafe(data[5]), parseIntSafe(data[6]),
+                            parseIntSafe(data[7]), parseIntSafe(data[8]), parseDoubleSafe(data[9]), parseIntSafe(data[10]), parseIntSafe(data[11]),
+                            parseIntSafe(data[12]), parseIntSafe(data[13]), parseIntSafe(data[14]), parseIntSafe(data[15])
+                    );
+
+                } else if (playerCategory.equals("kicking")) {
+                    jdbcTemplate.update(
+                            "INSERT INTO kicking_stats " +
+                                    "(name, age, team, pos, gp, fga, fgm, long, xpa, xpm, ko, ko_yds, tb)" +
+                                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                            data[0], parseIntSafe(data[1]), data[2], data[3], parseIntSafe(data[4]), parseIntSafe(data[5]), parseIntSafe(data[6]),
+                            parseIntSafe(data[7]), parseIntSafe(data[8]), parseIntSafe(data[9]), parseIntSafe(data[10]), parseIntSafe(data[11]),
+                            parseIntSafe(data[12])
                     );
                 }
 
