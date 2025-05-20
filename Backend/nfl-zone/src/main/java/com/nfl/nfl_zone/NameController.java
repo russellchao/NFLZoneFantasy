@@ -47,8 +47,7 @@ public class NameController {
 
 
     @GetMapping
-    public Map<String, Object> getNames(
-            @RequestParam() String name) {
+    public Map<String, Object> getNames(@RequestParam() String name) {
 
         Map<String, Object> names = new HashMap<>();
 

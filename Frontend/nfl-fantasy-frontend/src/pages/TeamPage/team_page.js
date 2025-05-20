@@ -30,10 +30,10 @@ const TeamPage = () => {
     };
 
 
-    // Call the Python Flask App to update each CSV file containing player data
+    // Call the Specialized Spring Boot endpoint to update the database with the updated player stats CSV file (from calling Flask endpoint)
     async function fetchPlayerStatData() {
         try { 
-            await fetch(`http://localhost:5000/playerData/${encodeURIComponent(teamSeason)}`);
+            await fetch(`http://localhost:8081/api/v1/updateDB?season=${encodeURIComponent(teamSeason)}`);
 
         } catch (error) {
             console.error("Failed to fetch data:", error);
