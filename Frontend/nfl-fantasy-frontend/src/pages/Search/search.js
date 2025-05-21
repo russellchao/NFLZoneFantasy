@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SearchResult from './SearchResult/search_result'; 
 import { fetchDataByName } from '../../API/player_data_api';
+import SeasonDropdownMenu from '../Components/season_dropdown';
 
 
 export const Search = () => {
@@ -8,7 +9,34 @@ export const Search = () => {
     const [name, setName] = useState(""); 
     const [nameData, setNameData] = useState([]); 
     const [searched, setSearched] = useState(false); 
+    const [teamSeason, setSeason] = useState("2024"); 
     const [loading, setLoading] = useState(false); 
+    const [loadError, throwLoadError] = useState(false); 
+
+
+    // Call the Specialized Spring Boot endpoint to update the database with the updated player stats CSV file (from calling Flask endpoint)
+    async function updatePlayerStatsDB() {
+
+        try { 
+            const response = await fetch(`http://localhost:8081/api/v1/updateDB?season=${encodeURIComponent(teamSeason)}`);
+            console.log("Finished updating player stats database");
+
+            const result = await response.text(); 
+            console.log(result);
+
+            // could not fetch player data for the specified season
+            if (result === "Failure updating CSVs") {
+                console.log("Error fetching player stats");
+                throwLoadError(true); 
+            } 
+
+        } catch (error) {
+            console.error("Failed to fetch data:", error);
+            return []; 
+        }
+    };
+
+
 
     const HandleSubmit = (event) => {
         if (!searched && name !== "") {
@@ -19,9 +47,15 @@ export const Search = () => {
     };
 
 
+
     useEffect(() => {
+        throwLoadError(false); // reset loadError to false on each load
+
         if (name) {
             const loadNameData = async () => {
+                await updatePlayerStatsDB(); 
+                console.log(`Retreiving player stats from ${teamSeason}`)
+
                 if (searched && name) {
                     const getNameData = await fetchDataByName(name); 
                     setNameData(getNameData); 
@@ -31,12 +65,42 @@ export const Search = () => {
             loadNameData(); 
         }
 
-    }, [searched, name]); 
+    }, [searched, name, teamSeason]); 
+
+
+    // When the player stats cannot be fetched
+    if (loadError) {
+        return (
+            <div>
+                <p style={{ paddingLeft: '20px' }}>
+                    Error, could not load data for {name} in the {teamSeason} season.
+                </p>
+
+                {/* Season section drop-down menu */}
+                <SeasonDropdownMenu
+                    teamSeason = {teamSeason}
+                    onChange = {setSeason}
+                />
+                
+            </div>
+        );
+    }
 
 
     return (
         <div>
             <h1 style={{ paddingLeft: '20px' }}>Player Search</h1> 
+
+
+            {/* Season section drop-down menu */}
+            <SeasonDropdownMenu
+                teamSeason = {teamSeason}
+                onChange = {setSeason}
+            />
+
+
+            <p>&nbsp;</p>
+
 
             {/* using <form onSubmit={HandleSubmit}> allows user to press both enter and the submit button as a means to submit */}
             <form onSubmit={HandleSubmit}> 
