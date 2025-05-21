@@ -5,7 +5,7 @@ import { fetchDataByPosition } from '../../API/player_data_api';
 
 const PositionPage = () => {
     const { positionName } = useParams(); 
-    const [position, setPosData] = useState([]); 
+    const [positionData, setPosData] = useState([]); 
     const [loading, setLoading] = useState(true); 
     const [loadError, throwLoadError] = useState(false); 
     const [numPlayersShown, setPlayersShown] = useState(10); 
@@ -36,7 +36,7 @@ const PositionPage = () => {
             if (result === "Failure updating CSVs") {
                 console.log("Error fetching player stats");
                 throwLoadError(true); 
-            }
+            } 
 
         } catch (error) {
             console.error("Failed to fetch data:", error);
@@ -71,7 +71,6 @@ const PositionPage = () => {
         );
     }
 
-    console.log(loadError); 
 
 
     // When the player stats cannot be fetched
@@ -124,7 +123,7 @@ const PositionPage = () => {
 
 
 
-            {position.length === 0 ? (
+            {positionData.length === 0 ? (
                 <p style={{ paddingLeft: '20px' }}>No data available for this position.</p>
             ) : JSON.stringify(positionName) === JSON.stringify("Quarterback") ? (
                 <>
@@ -151,7 +150,7 @@ const PositionPage = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {position.slice(0, numPlayersShown).map((p) => ( // Initially show only the first 10 players
+                                {positionData.slice(0, numPlayersShown).map((p) => ( // Initially show only the first 10 players
                                     <tr key={`${p.name}-${p.team}`}>
                                         <td>{p.name}</td>
                                         <td>{p.age}</td>
@@ -175,7 +174,7 @@ const PositionPage = () => {
 
                         </table>
 
-                        {numPlayersShown < position.length && ( // expand the table with the next 10 (or remaining) players with a button
+                        {numPlayersShown < positionData.length && ( // expand the table with the next 10 (or remaining) players with a button
                             <div style={{ marginTop: '10px' }}>
                                 <button onClick={expandTable}>Expand</button>
                             </div>
@@ -183,7 +182,7 @@ const PositionPage = () => {
 
                         <div style={{ textAlign: 'right' }}>
                             <p style={{ display: 'inline-block' }}>
-                                Showing {Math.min(numPlayersShown, position.length)} of {position.length}
+                                Showing {Math.min(numPlayersShown, positionData.length)} of {positionData.length}
                             </p>
                         </div>
 
@@ -211,7 +210,7 @@ const PositionPage = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {position.slice(0, numPlayersShown).map((p) => ( // Initially show only the first 10 players
+                                {positionData.slice(0, numPlayersShown).map((p) => ( // Initially show only the first 10 players
                                     <tr key={`${p.name}-${p.team}`}>
                                         <td>{p.name}</td>
                                         <td>{p.age}</td>
@@ -229,7 +228,7 @@ const PositionPage = () => {
                             </tbody>
                         </table>
 
-                        {numPlayersShown < position.length && ( // expand the table with the next 10 (or remaining) players with a button
+                        {numPlayersShown < positionData.length && ( // expand the table with the next 10 (or remaining) players with a button
                             <div style={{ marginTop: '10px' }}>
                                 <button onClick={expandTable}>Expand</button>
                             </div>
@@ -237,7 +236,7 @@ const PositionPage = () => {
 
                         <div style={{ textAlign: 'right' }}>
                             <p style={{ display: 'inline-block' }}>
-                                Showing {Math.min(numPlayersShown, position.length)} of {position.length}
+                                Showing {Math.min(numPlayersShown, positionData.length)} of {positionData.length}
                             </p>
                         </div>
 
@@ -264,7 +263,7 @@ const PositionPage = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {position.slice(0, numPlayersShown).map((p) => ( // Initially show only the first 10 players
+                                {positionData.slice(0, numPlayersShown).map((p) => ( // Initially show only the first 10 players
                                     <tr key={`${p.name}-${p.team}`}> 
                                         <td>{p.name}</td>
                                         <td>{p.age}</td>
@@ -282,7 +281,7 @@ const PositionPage = () => {
                             </tbody>
                         </table>
 
-                        {numPlayersShown < position.length && ( // expand the table with the next 10 (or remaining) players with a button
+                        {numPlayersShown < positionData.length && ( // expand the table with the next 10 (or remaining) players with a button
                             <div style={{ marginTop: '10px' }}>
                                 <button onClick={expandTable}>Expand</button>
                             </div>
@@ -290,7 +289,7 @@ const PositionPage = () => {
 
                         <div style={{ textAlign: 'right' }}>
                             <p style={{ display: 'inline-block' }}>
-                                Showing {Math.min(numPlayersShown, position.length)} of {position.length}
+                                Showing {Math.min(numPlayersShown, positionData.length)} of {positionData.length}
                             </p>
                         </div>
 
@@ -322,7 +321,7 @@ const PositionPage = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {position.slice(0, numPlayersShown).map((p) => ( // Initially show only the first 10 players
+                                {positionData.slice(0, numPlayersShown).map((p) => ( // Initially show only the first 10 players
                                     <tr key={`${p.name}-${p.team}`}>
                                         <td>{p.name}</td>
                                         <td>{p.age}</td>
@@ -345,7 +344,7 @@ const PositionPage = () => {
                             </tbody>
                         </table>
 
-                        {numPlayersShown < position.length && ( // expand the table with the next 10 (or remaining) players with a button
+                        {numPlayersShown < positionData.length && ( // expand the table with the next 10 (or remaining) players with a button
                             <div style={{ marginTop: '10px' }}>
                                 <button onClick={expandTable}>Expand</button>
                             </div>
@@ -353,7 +352,7 @@ const PositionPage = () => {
 
                         <div style={{ textAlign: 'right' }}>
                             <p style={{ display: 'inline-block' }}>
-                                Showing {Math.min(numPlayersShown, position.length)} of {position.length}
+                                Showing {Math.min(numPlayersShown, positionData.length)} of {positionData.length}
                             </p>
                         </div>
 
@@ -382,7 +381,7 @@ const PositionPage = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {position.slice(0, numPlayersShown).map((p) => ( // Initially show only the first 10 players
+                                {positionData.slice(0, numPlayersShown).map((p) => ( // Initially show only the first 10 players
                                     <tr key={`${p.name}-${p.team}`}>
                                         <td>{p.name}</td>
                                         <td>{p.age}</td>
@@ -402,7 +401,7 @@ const PositionPage = () => {
                             </tbody>
                         </table>
 
-                        {numPlayersShown < position.length && ( // expand the table with the next 10 (or remaining) players with a button
+                        {numPlayersShown < positionData.length && ( // expand the table with the next 10 (or remaining) players with a button
                             <div style={{ marginTop: '10px' }}>
                                 <button onClick={expandTable}>Expand</button>
                             </div>
@@ -410,7 +409,7 @@ const PositionPage = () => {
 
                         <div style={{ textAlign: 'right' }}>
                             <p style={{ display: 'inline-block' }}>
-                                Showing {Math.min(numPlayersShown, position.length)} of {position.length}
+                                Showing {Math.min(numPlayersShown, positionData.length)} of {positionData.length}
                             </p>
                         </div>
 

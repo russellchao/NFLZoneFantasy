@@ -15,6 +15,7 @@ def scrape_player_stats(data_type, season):
     # Send a GET request to the stats page URL
     response = requests.get(f"https://www.pro-football-reference.com/years/{season}/{data_type}.htm")
     if response.status_code != 200:
+        print(int(response.headers["Retry-After"]))
         raise Exception(f"Failed to load page ({response.status_code})")
 
     # Parse the HTML content

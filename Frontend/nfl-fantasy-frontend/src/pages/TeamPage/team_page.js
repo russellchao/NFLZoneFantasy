@@ -51,7 +51,7 @@ const TeamPage = () => {
             if (result === "Failure updating CSVs") {
                 console.log("Error fetching player stats");
                 throwLoadError(true); 
-            }
+            } 
 
         } catch (error) {
             console.error("Failed to fetch data:", error);
@@ -62,8 +62,6 @@ const TeamPage = () => {
 
     useEffect(() => {
         // Update the section based on the based on the current path
-        
-
 
         if (section === "Player Stats") {
             (async () => { 
@@ -127,6 +125,9 @@ const TeamPage = () => {
             <p style={{ paddingLeft: '20px' }}>Loading the {teamSeason} {section} for the {teamName}...</p>
         );
     }
+
+
+    console.log("Load error: ", loadError);
 
 
     // When the player stats cannot be fetched
