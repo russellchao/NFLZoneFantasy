@@ -47,6 +47,8 @@ const PositionPage = () => {
 
     // Retrieve position data from the Spring Boot Backend
     useEffect(() => {
+        throwLoadError(false); // reset loadError to false on each load
+
         (async () => {
             await updatePlayerStatsDB(); 
 
