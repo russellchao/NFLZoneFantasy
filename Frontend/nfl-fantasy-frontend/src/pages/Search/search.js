@@ -79,8 +79,6 @@ export const Search = () => {
         };
         loadNameData(); 
 
-        console.log(nameData); 
-
     }, [searched, name, teamSeason]); 
 
 

@@ -83,7 +83,7 @@ public class NameController {
 
             List<Defender> allDefenders = new ArrayList<>();
             for (Defender d : defenders) {
-                if (d.getPos().contains("LB") || d.getPos().contains("CB") || d.getPos().contains("S") || d.getPos().contains("DE") || d.getPos().contains("DT") ) {
+                if (d.getPos().contains("LB") || d.getPos().contains("CB") || d.getPos().contains("S") || d.getPos().contains("DE") || d.getPos().contains("DT") || d.getPos().contains("DB")) {
                     allDefenders.add(d);
                 }
             }
