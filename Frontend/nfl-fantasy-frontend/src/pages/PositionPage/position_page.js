@@ -7,6 +7,7 @@ const PositionPage = () => {
     const { positionName } = useParams(); 
     const [position, setPosData] = useState([]); 
     const [loading, setLoading] = useState(true); 
+    const [loadError, throwLoadError] = useState(false); 
     const [numPlayersShown, setPlayersShown] = useState(10); 
     const [teamSeason, setSeason] = useState("2024"); 
 
@@ -25,8 +26,17 @@ const PositionPage = () => {
         }
 
         try { 
-            await fetch(`http://localhost:8081/api/v1/updateDB?season=${encodeURIComponent(teamSeason)}`);
+            const response = await fetch(`http://localhost:8081/api/v1/updateDB?season=${encodeURIComponent(teamSeason)}`);
             console.log("Finished updating player stats database");
+
+            const result = await response.text(); 
+            console.log(result);
+
+            // could not fetch player data for the specified season
+            if (result === "Failure updating CSVs") {
+                console.log("Error fetching player stats");
+                throwLoadError(true); 
+            }
 
         } catch (error) {
             console.error("Failed to fetch data:", error);
@@ -57,11 +67,39 @@ const PositionPage = () => {
     // When the page is loading data
     if (loading) {
         return (
-            <p style={{ paddingLeft: '20px' }}>Loading data for {positionName}s...</p>
+            <p style={{ paddingLeft: '20px' }}>Loading {positionName} data for the {teamSeason} season...</p>
         );
     }
 
+    console.log(loadError); 
 
+
+    // When the player stats cannot be fetched
+    if (loadError) {
+        return (
+            <div>
+                <p style={{ paddingLeft: '20px' }}>
+                    Error, could not load {positionName}s for the {teamSeason} season.
+                </p>
+
+                {/* Season section drop-down menu */}
+                <label for="seasons" style={{ paddingLeft: '20px' }}>Season</label>
+                <select 
+                    name="seasons" 
+                    id="seasons" 
+                    style={{marginLeft: '5px' }}
+                    value={teamSeason}
+                    onChange={(e) => setSeason(e.target.value)}
+                >
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                </select>
+            </div>
+        );
+    }
+
+    
     return (
         <div>
             <h1 style={{ paddingLeft: '20px' }}>{ positionName + "s"}</h1>

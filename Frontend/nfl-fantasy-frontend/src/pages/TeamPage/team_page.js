@@ -8,18 +8,20 @@ const TeamPage = () => {
     const [section, setSection] = useState("Player Stats"); 
     const allSections = ["Schedule", "Player Stats", "Roster"];
     const [teamSeason, setSeason] = useState("2024"); 
+    const [loading, setLoading] = useState(true);
+    const [loadError, throwLoadError] = useState(false); 
 
 
     // For schedule section
 
+
     // For player stats section
-    const [loadError, throwLoadError] = useState(false); 
     const [passers, setPassers] = useState([]); 
     const [rushers, setRushers] = useState([]); 
     const [receivers, setReceivers] = useState([]); 
     const [defenders, setDefenders] = useState([]); 
     const [kickers, setKickers] = useState([]); 
-    const [loading, setLoading] = useState(true); 
+     
   
     // For roster section
 
@@ -43,7 +45,7 @@ const TeamPage = () => {
             console.log("Finished updating player stats database");
 
             const result = await response.text(); 
-            console.log(result)
+            console.log(result);
 
             // could not fetch player data for the specified season
             if (result === "Failure updating CSVs") {
@@ -127,6 +129,32 @@ const TeamPage = () => {
     }
 
 
+    // When the player stats cannot be fetched
+    if (loadError) {
+        return (
+            <div>
+                <p style={{ paddingLeft: '20px' }}>
+                    Error, could not load {section} for the {teamName}' {teamSeason} season.
+                </p>
+
+                {/* Season section drop-down menu */}
+                <label for="seasons" style={{ paddingLeft: '20px' }}>Season</label>
+                <select 
+                    name="seasons" 
+                    id="seasons" 
+                    style={{marginLeft: '5px' }}
+                    value={teamSeason}
+                    onChange={(e) => setSeason(e.target.value)}
+                >
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                </select>
+            </div>
+        );
+    }
+
+
     return (
         <div>
             <h1 style={{ paddingLeft: '20px' }}>{ teamName }</h1>
@@ -171,12 +199,7 @@ const TeamPage = () => {
             <p>&nbsp;</p>
             
 
-            {loadError == true ? (
-                <p style={{ paddingLeft: '20px' }}>
-                    Error, could not load {section} for the {teamName}' {teamSeason} season.
-                </p>
-
-            ) : section === "Schedule" ? (
+            {section === "Schedule" ? (
                 <h2 style={{ paddingLeft: '20px' }}>Schedule</h2>
 
             ) : section === "Roster" ? (
