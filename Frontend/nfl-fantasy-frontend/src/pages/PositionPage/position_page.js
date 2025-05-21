@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchDataByPosition } from '../../API/player_data_api';
+import SeasonDropdownMenu from '../Components/season_dropdown';
 
 
 const PositionPage = () => {
@@ -84,18 +85,11 @@ const PositionPage = () => {
                 </p>
 
                 {/* Season section drop-down menu */}
-                <label for="seasons" style={{ paddingLeft: '20px' }}>Season</label>
-                <select 
-                    name="seasons" 
-                    id="seasons" 
-                    style={{marginLeft: '5px' }}
-                    value={teamSeason}
-                    onChange={(e) => setSeason(e.target.value)}
-                >
-                    <option value="2025">2025</option>
-                    <option value="2024">2024</option>
-                    <option value="2023">2023</option>
-                </select>
+                <SeasonDropdownMenu
+                    teamSeason = {teamSeason}
+                    onChange = {setSeason}
+                />
+
             </div>
         );
     }
@@ -107,22 +101,13 @@ const PositionPage = () => {
 
 
             {/* Season section drop-down menu */}
-            <label for="seasons" style={{ paddingLeft: '20px' }}>Season</label>
-            <select 
-                name="seasons" 
-                id="seasons" 
-                style={{marginLeft: '5px' }}
-                value={teamSeason}
-                onChange={(e) => setSeason(e.target.value)}
-            >
-                <option value="2025">2025</option>
-                <option value="2024">2024</option>
-                <option value="2023">2023</option>
-            </select>
+            <SeasonDropdownMenu
+                teamSeason = {teamSeason}
+                onChange = {setSeason}
+            />
 
 
             <p>&nbsp;</p>
-
 
 
             {positionData.length === 0 ? (

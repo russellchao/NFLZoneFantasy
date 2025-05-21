@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchDataByTeam } from '../../API/player_data_api';
 import PlayerStats from './PlayerStats/tp_player_stats';
+import SeasonDropdownMenu from '../Components/season_dropdown';
 
 const TeamPage = () => {
     const { teamName } = useParams(); 
@@ -143,18 +144,11 @@ const TeamPage = () => {
                 </p>
 
                 {/* Season section drop-down menu */}
-                <label for="seasons" style={{ paddingLeft: '20px' }}>Season</label>
-                <select 
-                    name="seasons" 
-                    id="seasons" 
-                    style={{marginLeft: '5px' }}
-                    value={teamSeason}
-                    onChange={(e) => setSeason(e.target.value)}
-                >
-                    <option value="2025">2025</option>
-                    <option value="2024">2024</option>
-                    <option value="2023">2023</option>
-                </select>
+                <SeasonDropdownMenu
+                    teamSeason = {teamSeason}
+                    onChange = {setSeason}
+                />
+                
             </div>
         );
     }
@@ -188,18 +182,10 @@ const TeamPage = () => {
 
 
             {/* Season section drop-down menu */}
-            <label for="seasons" style={{ paddingLeft: '20px' }}>Season</label>
-            <select 
-                name="seasons" 
-                id="seasons" 
-                style={{marginLeft: '5px' }}
-                value={teamSeason}
-                onChange={(e) => setSeason(e.target.value)}
-            >
-                <option value="2025">2025</option>
-                <option value="2024">2024</option>
-                <option value="2023">2023</option>
-            </select>
+            <SeasonDropdownMenu
+                teamSeason = {teamSeason}
+                onChange = {setSeason}
+            />
             
             <p>&nbsp;</p>
             
