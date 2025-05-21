@@ -13,6 +13,7 @@ const TeamPage = () => {
     // For schedule section
 
     // For player stats section
+    const [loadError, throwLoadError] = useState(false); 
     const [passers, setPassers] = useState([]); 
     const [rushers, setRushers] = useState([]); 
     const [receivers, setReceivers] = useState([]); 
@@ -38,8 +39,17 @@ const TeamPage = () => {
         }
 
         try { 
-            await fetch(`http://localhost:8081/api/v1/updateDB?season=${encodeURIComponent(teamSeason)}`);
+            const response = await fetch(`http://localhost:8081/api/v1/updateDB?season=${encodeURIComponent(teamSeason)}`);
             console.log("Finished updating player stats database");
+
+            const result = await response.text(); 
+            console.log(result)
+
+            // could not fetch player data for the specified season
+            if (result === "Failure updating CSVs") {
+                console.log("Error fetching player stats");
+                throwLoadError(true); 
+            }
 
         } catch (error) {
             console.error("Failed to fetch data:", error);
@@ -112,7 +122,7 @@ const TeamPage = () => {
     // When the page is loading data
     if (loading) {
         return (
-            <p style={{ paddingLeft: '20px' }}>Loading {section} data for the {teamName}...</p>
+            <p style={{ paddingLeft: '20px' }}>Loading the {teamSeason} {section} for the {teamName}...</p>
         );
     }
 
@@ -159,14 +169,18 @@ const TeamPage = () => {
             </select>
             
             <p>&nbsp;</p>
+            
 
-            {section === "Schedule" ? (
+            {loadError == true ? (
+                <p style={{ paddingLeft: '20px' }}>
+                    Error, could not load {section} for the {teamName}' {teamSeason} season.
+                </p>
+
+            ) : section === "Schedule" ? (
                 <h2 style={{ paddingLeft: '20px' }}>Schedule</h2>
-
 
             ) : section === "Roster" ? (
                 <h2 style={{ paddingLeft: '20px' }}>Roster</h2>
-
 
             ) : section === "Player Stats" ? (
                 <PlayerStats 

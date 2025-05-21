@@ -45,6 +45,7 @@ public class PlayerStatsUpdaterController {
             String response = restTemplate.getForObject(flaskURL, String.class);
             System.out.println("Flask Response: " + response);
 
+            // When the user tries to retrieve player stats from a season that's not available
             if (response.equals("Failure")) {
                 return "Failure updating CSVs";
             }
