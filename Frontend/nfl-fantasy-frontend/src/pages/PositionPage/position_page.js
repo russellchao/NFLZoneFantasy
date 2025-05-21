@@ -70,7 +70,7 @@ const PositionPage = () => {
     // When the page is loading data
     if (loading) {
         return (
-            <p style={{ paddingLeft: '20px' }}>Loading {positionName} data for the {teamSeason} season...</p>
+            <p style={{ paddingLeft: '20px' }}>Loading {positionName} data for the {teamSeason} NFL season...</p>
         );
     }
 

@@ -140,7 +140,7 @@ const TeamPage = () => {
         return (
             <div>
                 <p style={{ paddingLeft: '20px' }}>
-                    Error, could not load {section} for the {teamName}' {teamSeason} season.
+                    Error, could not load {section} for the {teamName}' {teamSeason} NFL season.
                 </p>
 
                 {/* Season section drop-down menu */}
@@ -148,7 +148,7 @@ const TeamPage = () => {
                     teamSeason = {teamSeason}
                     onChange = {setSeason}
                 />
-                
+
             </div>
         );
     }

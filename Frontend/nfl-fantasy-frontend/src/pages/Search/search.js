@@ -10,12 +10,17 @@ export const Search = () => {
     const [nameData, setNameData] = useState([]); 
     const [searched, setSearched] = useState(false); 
     const [teamSeason, setSeason] = useState("2024"); 
-    const [loading, setLoading] = useState(false); 
+    const [loadingSeason, setLoadingSeason] = useState(true); 
+    const [loadingPlayer, setLoadingPlayer] = useState(false); 
     const [loadError, throwLoadError] = useState(false); 
 
 
     // Call the Specialized Spring Boot endpoint to update the database with the updated player stats CSV file (from calling Flask endpoint)
     async function updatePlayerStatsDB() {
+
+        if (!loadingSeason) {
+            setLoadingSeason(true); 
+        }
 
         try { 
             const response = await fetch(`http://localhost:8081/api/v1/updateDB?season=${encodeURIComponent(teamSeason)}`);
@@ -42,30 +47,49 @@ export const Search = () => {
         if (!searched && name !== "") {
             event.preventDefault(); // prevents page reload
             setSearched(true); 
-            setLoading(true); 
+            setLoadingPlayer(true); 
         };
     };
 
 
+    // Only used when the user changes the season
+    useEffect(() => {
+        (async () => {
+            setSearched(false); 
+            throwLoadError(false);
+            await updatePlayerStatsDB();
+            setLoadingSeason(false); 
 
+        })(); 
+    }, [teamSeason]); 
+
+
+    // Only used when the user hits submit
     useEffect(() => {
         throwLoadError(false); // reset loadError to false on each load
 
-        if (name) {
-            const loadNameData = async () => {
-                await updatePlayerStatsDB(); 
-                console.log(`Retreiving player stats from ${teamSeason}`)
+        const loadNameData = async () => {
+            console.log(`Retreiving player stats from ${teamSeason}`)
 
-                if (searched && name) {
-                    const getNameData = await fetchDataByName(name); 
-                    setNameData(getNameData); 
-                    setLoading(false); 
-                }
-            };
-            loadNameData(); 
-        }
+            if (searched && name) {
+                const getNameData = await fetchDataByName(name); 
+                setNameData(getNameData); 
+                setLoadingPlayer(false); 
+            }
+        };
+        loadNameData(); 
+
+        console.log(nameData); 
 
     }, [searched, name, teamSeason]); 
+
+
+    // When the season is loading
+    if (loadingSeason) {
+        return (
+            <p style={{ paddingLeft: '20px' }}>Loading player data for the {teamSeason} season...</p>
+        );
+    }
 
 
     // When the player stats cannot be fetched
@@ -73,13 +97,15 @@ export const Search = () => {
         return (
             <div>
                 <p style={{ paddingLeft: '20px' }}>
-                    Error, could not load data for {name} in the {teamSeason} season.
+                    Error, could not load player data for the {teamSeason} NFL season.
                 </p>
 
                 {/* Season section drop-down menu */}
                 <SeasonDropdownMenu
                     teamSeason = {teamSeason}
-                    onChange = {setSeason}
+                    onChange = {(newSeason) => {
+                        setSeason(newSeason); 
+                    }}
                 />
                 
             </div>
@@ -121,7 +147,7 @@ export const Search = () => {
                 </button>
             </form>
 
-            {loading === true ? (
+            {loadingPlayer === true ? (
                 <p style ={{ paddingLeft:"20px" }}>Loading Data...</p>
             ) : searched === true ? (
                 <SearchResult nameData={nameData}/>
