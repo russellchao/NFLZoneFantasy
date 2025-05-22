@@ -140,7 +140,7 @@ const TeamPage = () => {
         return (
             <div>
                 <p style={{ paddingLeft: '20px' }}>
-                    Error, could not load {section} for the {teamName}' {teamSeason} NFL season.
+                    Error, could not load {section} for the {teamName}' {teamSeason} season.
                 </p>
 
                 {/* Menu for each section */}

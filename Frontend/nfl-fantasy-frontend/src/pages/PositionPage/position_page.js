@@ -81,7 +81,7 @@ const PositionPage = () => {
         return (
             <div>
                 <p style={{ paddingLeft: '20px' }}>
-                    Error, could not load {positionName}s for the {teamSeason} season.
+                    Error, could not load {positionName}s for the {teamSeason} NFL season.
                 </p>
 
                 {/* Season section drop-down menu */}
