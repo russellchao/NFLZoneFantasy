@@ -143,6 +143,28 @@ const TeamPage = () => {
                     Error, could not load {section} for the {teamName}' {teamSeason} NFL season.
                 </p>
 
+                {/* Menu for each section */}
+                <div style={{
+                    display: 'grid', 
+                    gridTemplateColumns: 'repeat(3, 1fr)',
+                    gap: '10px',
+                    padding: '20px',
+                    width: '75%'
+                }}>
+                    {allSections.map(thisSection => (
+                        <div key={thisSection}
+                            onClick={() => handleSectionChange(thisSection)}
+                            style={{
+                                padding: '10px',
+                                backgroundColor: '#ddd',
+                                textAlign: 'center',
+                                cursor: 'pointer'
+                            }}>
+                            {thisSection}
+                        </div>
+                    ))}
+                </div>
+
                 {/* Season section drop-down menu */}
                 <SeasonDropdownMenu
                     teamSeason = {teamSeason}
