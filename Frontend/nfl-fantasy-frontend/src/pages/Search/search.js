@@ -42,10 +42,10 @@ export const Search = () => {
     };
 
 
-
     const HandleSubmit = (event) => {
+        event.preventDefault(); // prevents page reload
+
         if (!searched && name !== "") {
-            event.preventDefault(); // prevents page reload
             setSearched(true); 
             setLoadingPlayer(true); 
         };
