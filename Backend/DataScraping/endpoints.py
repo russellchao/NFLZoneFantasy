@@ -4,8 +4,6 @@ from PlayerStats.PlayerStatsScraper import scrape_player_stats
 
 
 
-
-
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
