@@ -35,6 +35,7 @@ const TeamPage = () => {
 
 
     // Call the Specialized Spring Boot endpoint to update the database with the updated player stats CSV file (from calling Flask endpoint)
+    // Acts as a POST request (submitting the season which we want the Flask App to scrape stats from)
     async function updatePlayerStatsDB() {
 
         if (!loading) {

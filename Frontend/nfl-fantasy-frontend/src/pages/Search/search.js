@@ -85,7 +85,7 @@ export const Search = () => {
     // When the season is loading
     if (loadingSeason) {
         return (
-            <p style={{ paddingLeft: '20px' }}>Loading player data for the {teamSeason} season...</p>
+            <p style={{ paddingLeft: '20px' }}>Loading player data for the {teamSeason} NFL season...</p>
         );
     }
 
