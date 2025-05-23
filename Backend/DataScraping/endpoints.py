@@ -1,6 +1,8 @@
 from flask import Flask
 from flask_cors import CORS
-from PlayerStatsScraper import scrape_player_stats
+from PlayerStats.PlayerStatsScraper import scrape_player_stats
+
+
 
 
 
