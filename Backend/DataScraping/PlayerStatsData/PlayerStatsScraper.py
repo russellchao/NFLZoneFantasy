@@ -112,7 +112,7 @@ def scrape_player_stats(data_type, season):
         players_data.sort(key=lambda x: int(x["FGM"].replace(",", "")), reverse=True)
 
     # Export player data to .csv file
-    filename = f"PlayerStats/{data_type}_stats.csv"
+    filename = f"PlayerStatsData/{data_type}_stats.csv"
 
     # # DEBUG
     # print(players_data)

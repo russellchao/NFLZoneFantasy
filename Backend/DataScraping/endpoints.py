@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
-from PlayerStats.PlayerStatsScraper import scrape_player_stats
-
+from PlayerStatsData.PlayerStatsScraper import scrape_player_stats
 
 
 app = Flask(__name__)
@@ -10,6 +9,7 @@ CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route("/playerData/<nflSeason>")
 def get_player_stats(nflSeason): 
+    # Endpoint called from Spring Boot App that updates the player stats CSVs
 
     data_types = ["passing", "rushing", "receiving", "defense", "kicking"]
 
@@ -18,14 +18,8 @@ def get_player_stats(nflSeason):
         for d in data_types:
             scrape_player_stats(data_type=d, season=nflSeason)
 
-        '''
-        NEWER APPROACH - since I can't seem to call the Spring Boot App from my Flask App, I will instead call the Flask endpoint from
-        Spring Boot instead of my React Frontend, and call the specialized Spring Boot endpoint from my React Frontend 
-        '''
-
         return "Success"
 
-    
     except Exception as e:
         print(f"Failure, {e}")
         return "Failure"
