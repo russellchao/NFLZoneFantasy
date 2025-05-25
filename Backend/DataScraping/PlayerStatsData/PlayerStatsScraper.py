@@ -1,11 +1,9 @@
-##importing all required libraries
 from bs4 import BeautifulSoup
 from bs4 import Comment
 import pandas as pd
 import requests 
 import time
 import csv
-import os
 
 
 def scrape_player_stats(data_type, season):
