@@ -61,12 +61,39 @@ def getGameData2024Week15():
         for matchup in gamesThisDate.get("games"):
             print(matchup.get("name"))
 
-    
-        
+
+
+def formatDate(date):
+    monthNumToName = {1: "January", 2: "February", 9: "September", 10: "October", 11: "November", 12: "December"}
+
+    theMonth = str() 
+    theDay = str() 
+    theYear = str()
+
+    for i in range(len(date)):
+        if i <= 3:
+            theYear += date[i]
+        elif 3 < i <= 5:
+            theMonth += date[i]
+        else:
+            theDay += date[i]
+
+    theMonth = monthNumToName.get(int(theMonth))
+
+    if theDay[0] == '0':
+        theDay = theDay[1] # e.g. Changes September 04 to September 4
+
+    return f"{theMonth} {theDay}, {theYear}"
+
+
+
+
+
+
 def get_schedule_data(year, week, seasonType):
 
+    # Call the unofficial ESPN API to Retrieve Schedule Data
     espn_api_url = f"https://cdn.espn.com/core/nfl/schedule?xhr=1&year={year}&week={week}&seasontype={seasonType}"
-
     response = requests.get(espn_api_url)
 
     if (response.status_code != 200):
@@ -77,6 +104,7 @@ def get_schedule_data(year, week, seasonType):
     content = data.get("content", {})
     schedule = content.get("schedule", {})
 
+    # Write the schedule to a .json file
     with open("ScheduleOutput.json", "w") as file:
         json.dump(schedule, file, indent=4)
 
@@ -92,12 +120,15 @@ def get_schedule_data(year, week, seasonType):
         seasonKeys = {1: "Wild Card Round", 2: "Divisional Round", 3: "Conference Championships", 5: "Super Bowl"}
         print(f"{seasonKeys.get(week)} {year} dates:\n")
 
-    # map month numbers to month names when extracting dates
-    monthNumToName = {1: "January", 2: "Februray", 9: "September", 10: "October", 11: "November", 12: "December"}
+    
 
     for date in schedule:
         # each "date" follows the format of something like: YYYYMMDD (e.g. 20250904)
-        print(f"Date: {date}")
+
+        # Properly format the date (e.g. 20250904 becomes September 4, 2025)
+        fullDate = formatDate(date)
+        
+        print(f"Date: {fullDate}")
 
         gamesThisDate = schedule[date]
         for matchup in gamesThisDate.get("games"):
@@ -138,4 +169,4 @@ if __name__ == "__main__":
     #   get_schedule_data(2024, 15, 2) for Week 15 of 2024, 
     #   get_schedule_data(2024, 5, 3) for Super Bowl of 2024-25 (Eagles 40, Chiefs 22)
 
-    get_schedule_data(year=2024, week=17, seasonType=2)
+    get_schedule_data(year=2024, week=5, seasonType=3)
