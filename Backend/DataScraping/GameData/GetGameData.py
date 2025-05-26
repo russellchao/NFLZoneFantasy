@@ -89,6 +89,13 @@ def formatDate(date):
 
 
 
+def write_to_csv():
+    pass
+
+
+
+
+
 
 def get_schedule_data(year, week, seasonType):
 
@@ -114,47 +121,66 @@ def get_schedule_data(year, week, seasonType):
 
 
     # Testing Output
+    playoffKeys = {1: "Wild Card Round", 2: "Divisional Round", 3: "Conference Championships", 5: "Super Bowl"}
     if seasonType == 2:
         print(f"Week {week} {year} Schedule dates:\n")
     elif seasonType == 3:
-        seasonKeys = {1: "Wild Card Round", 2: "Divisional Round", 3: "Conference Championships", 5: "Super Bowl"}
-        print(f"{seasonKeys.get(week)} {year} dates:\n")
+        print(f"{playoffKeys.get(week)} {year} dates:\n")
 
     
 
     for date in schedule:
         # each "date" follows the format of something like: YYYYMMDD (e.g. 20250904)
-
-        # Properly format the date (e.g. 20250904 becomes September 4, 2025)
-        fullDate = formatDate(date)
         
-        print(f"Date: {fullDate}")
-
         gamesThisDate = schedule[date]
+
         for matchup in gamesThisDate.get("games"):
 
-            # e.g. split "Buffalo Bills at New York Jets" to ['Buffalo Bills', 'New York Jets']
-            matchupNameSplit = matchup.get("name").split(" at ") 
+            ###### Attributes for both scheduled and finished games ######
 
-            
+            # date only (exclude start time)
+            fullDate = formatDate(date) # (e.g. 20250904 becomes September 4, 2025)
 
-
-
-
-
-            # Attributes for both scheduled and finished games
-            date = None # date only (exclude start time)
+            # home and away teams
+            matchupNameSplit = matchup.get("name").split(" at ") # e.g. split "Buffalo Bills at New York Jets" to ['Buffalo Bills', 'New York Jets']
             awayTeam = matchupNameSplit[0]
             homeTeam = matchupNameSplit[1]
-            # trying to figure out how to extract records
 
-
+            # trying to figure out how to extract records for both home and away teams
             
+            # venue info
+            stadium = matchup.get("competitions")[0].get("venue").get("fullName")
+            city = matchup.get("competitions")[0].get("venue").get("address").get("city")
+            state = matchup.get("competitions")[0].get("venue").get("address").get("state")
+            country = matchup.get("competitions")[0].get("venue").get("address").get("country")
+            fullVenue = f"{stadium}, {city}, {state}, {country}"
+
+            # week number 
+            weekNum = matchup.get("week").get("number")
+            if (seasonType == 3):
+                # if it's the playoffs, retrieve the appropriate round given the week
+                weekNum = playoffKeys.get(int(weekNum))
+
+
+            # check if the game is a scheduled or finished game (in the future I will try my best to scrape live games)
+            status = matchup.get("competitions")[0].get("status").get("type").get("description")
 
 
 
 
-        print()
+
+
+            # Test output
+            print(f"Date: {fullDate}")
+            print(f"Matchup: {awayTeam} at {homeTeam}")
+            print(f"Venue: {fullVenue}")
+            print(f"Week: {weekNum}")
+            print(f"Status: {status}\n")
+
+
+        
+
+
 
 
 
@@ -169,4 +195,4 @@ if __name__ == "__main__":
     #   get_schedule_data(2024, 15, 2) for Week 15 of 2024, 
     #   get_schedule_data(2024, 5, 3) for Super Bowl of 2024-25 (Eagles 40, Chiefs 22)
 
-    get_schedule_data(year=2024, week=5, seasonType=3)
+    get_schedule_data(year=2024, week=1, seasonType=3)
