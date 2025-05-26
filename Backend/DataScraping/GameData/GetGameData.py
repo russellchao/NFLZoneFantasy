@@ -81,12 +81,19 @@ def get_schedule_data(year, week, seasonType):
         json.dump(schedule, file, indent=4)
 
 
+
+
+
+
     # Testing Output
     if seasonType == 2:
         print(f"Week {week} {year} Schedule dates:\n")
     elif seasonType == 3:
-        seasonKeys = {"1": "Wild Card Round", "2": "Divisional Round", "3": "Conference Championships", "5": "Super Bowl"}
-        print(f"{seasonKeys.get(str(week))} {year} dates:\n")
+        seasonKeys = {1: "Wild Card Round", 2: "Divisional Round", 3: "Conference Championships", 5: "Super Bowl"}
+        print(f"{seasonKeys.get(week)} {year} dates:\n")
+
+    # map month numbers to month names when extracting dates
+    monthNumToName = {1: "January", 2: "Februray", 9: "September", 10: "October", 11: "November", 12: "December"}
 
     for date in schedule:
         # each "date" follows the format of something like: YYYYMMDD (e.g. 20250904)
@@ -94,7 +101,27 @@ def get_schedule_data(year, week, seasonType):
 
         gamesThisDate = schedule[date]
         for matchup in gamesThisDate.get("games"):
-            print(matchup.get("name"))
+
+            # e.g. split "Buffalo Bills at New York Jets" to ['Buffalo Bills', 'New York Jets']
+            matchupNameSplit = matchup.get("name").split(" at ") 
+
+            
+
+
+
+
+
+            # Attributes for both scheduled and finished games
+            date = None # date only (exclude start time)
+            awayTeam = matchupNameSplit[0]
+            homeTeam = matchupNameSplit[1]
+            # trying to figure out how to extract records
+
+
+            
+
+
+
 
         print()
 
@@ -111,4 +138,4 @@ if __name__ == "__main__":
     #   get_schedule_data(2024, 15, 2) for Week 15 of 2024, 
     #   get_schedule_data(2024, 5, 3) for Super Bowl of 2024-25 (Eagles 40, Chiefs 22)
 
-    get_schedule_data(year=2024, week=5, seasonType=3)
+    get_schedule_data(year=2024, week=17, seasonType=2)
