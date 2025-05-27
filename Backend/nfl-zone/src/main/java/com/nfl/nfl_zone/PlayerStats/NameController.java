@@ -1,15 +1,15 @@
-package com.nfl.nfl_zone;
+package com.nfl.nfl_zone.PlayerStats;
 
-import com.nfl.nfl_zone.passer.Passer;
-import com.nfl.nfl_zone.passer.PasserService;
-import com.nfl.nfl_zone.rusher.Rusher;
-import com.nfl.nfl_zone.rusher.RusherService;
-import com.nfl.nfl_zone.reciever.Receiver;
-import com.nfl.nfl_zone.reciever.ReceiverService;
-import com.nfl.nfl_zone.defender.Defender;
-import com.nfl.nfl_zone.defender.DefenderService;
-import com.nfl.nfl_zone.kicker.Kicker;
-import com.nfl.nfl_zone.kicker.KickerService;
+import com.nfl.nfl_zone.PlayerStats.passer.Passer;
+import com.nfl.nfl_zone.PlayerStats.passer.PasserService;
+import com.nfl.nfl_zone.PlayerStats.rusher.Rusher;
+import com.nfl.nfl_zone.PlayerStats.rusher.RusherService;
+import com.nfl.nfl_zone.PlayerStats.reciever.Receiver;
+import com.nfl.nfl_zone.PlayerStats.reciever.ReceiverService;
+import com.nfl.nfl_zone.PlayerStats.defender.Defender;
+import com.nfl.nfl_zone.PlayerStats.defender.DefenderService;
+import com.nfl.nfl_zone.PlayerStats.kicker.Kicker;
+import com.nfl.nfl_zone.PlayerStats.kicker.KickerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

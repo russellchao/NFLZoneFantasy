@@ -1,4 +1,4 @@
-package com.nfl.nfl_zone.defender;
+package com.nfl.nfl_zone.PlayerStats.defender;
 
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

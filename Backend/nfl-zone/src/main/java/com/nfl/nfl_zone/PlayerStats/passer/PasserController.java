@@ -1,4 +1,4 @@
-package com.nfl.nfl_zone.passer;
+package com.nfl.nfl_zone.PlayerStats.passer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

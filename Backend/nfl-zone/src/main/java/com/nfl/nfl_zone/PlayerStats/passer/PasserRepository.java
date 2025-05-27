@@ -1,6 +1,6 @@
-package com.nfl.nfl_zone.passer;
+package com.nfl.nfl_zone.PlayerStats.passer;
 
-import com.nfl.nfl_zone.PlayerId;
+import com.nfl.nfl_zone.PlayerStats.PlayerId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

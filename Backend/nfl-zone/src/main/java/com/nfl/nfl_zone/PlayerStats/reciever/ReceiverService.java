@@ -1,4 +1,4 @@
-package com.nfl.nfl_zone.reciever;
+package com.nfl.nfl_zone.PlayerStats.reciever;
 
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

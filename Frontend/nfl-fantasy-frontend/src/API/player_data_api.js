@@ -85,7 +85,6 @@ export const fetchUpdatePlayerStatsDB = async (teamSeason) => {
         if (csv_result === "Failure updating CSVs") {
             console.log("Error fetching player stats");
             return csv_result; 
-            //throwLoadError(true); 
         } 
 
     } catch (error) {

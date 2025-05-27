@@ -1,6 +1,6 @@
-package com.nfl.nfl_zone.kicker;
+package com.nfl.nfl_zone.PlayerStats.kicker;
 
-import com.nfl.nfl_zone.PlayerId;
+import com.nfl.nfl_zone.PlayerStats.PlayerId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

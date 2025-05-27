@@ -1,6 +1,6 @@
-package com.nfl.nfl_zone.rusher;
+package com.nfl.nfl_zone.PlayerStats.rusher;
 
-import com.nfl.nfl_zone.PlayerId;
+import com.nfl.nfl_zone.PlayerStats.PlayerId;
 import jakarta.persistence.*;
 
 @Entity

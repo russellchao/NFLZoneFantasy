@@ -1,12 +1,12 @@
-package com.nfl.nfl_zone.reciever;
+package com.nfl.nfl_zone.PlayerStats.passer;
 
-import com.nfl.nfl_zone.PlayerId;
 import jakarta.persistence.*;
+import com.nfl.nfl_zone.PlayerStats.PlayerId;
 
 @Entity
-@Table(name="receiving_stats")
+@Table(name="passing_stats")
 @IdClass(PlayerId.class)
-public class Receiver {
+public class Passer {
 
     @Id
     @Column(name = "name")
@@ -19,12 +19,17 @@ public class Receiver {
     private Integer age;
     private String pos;
     private Integer gp;
-    private Integer rec;
+    private Integer cmp;
+    private Integer att;
+    private Float cmp_pct;
     private Integer yds;
     private Integer td;
+    private Integer INT;
     private Integer LONG;
     private Float ypg;
-    private Integer fmb;
+    private Float rate;
+    private Float qbr;
+    private Integer sack;
 
     public String getName() {
         return name;
@@ -66,12 +71,28 @@ public class Receiver {
         this.gp = gp;
     }
 
-    public Integer getRec() {
-        return rec;
+    public Integer getCmp() {
+        return cmp;
     }
 
-    public void setRec(Integer rec) {
-        this.rec = rec;
+    public void setCmp(Integer cmp) {
+        this.cmp = cmp;
+    }
+
+    public Integer getAtt() {
+        return att;
+    }
+
+    public void setAtt(Integer att) {
+        this.att = att;
+    }
+
+    public Float getCmpPct() {
+        return cmp_pct;
+    }
+
+    public void setCmpPct(Float cmp_pct) {
+        this.cmp_pct = cmp_pct;
     }
 
     public Integer getYds() {
@@ -90,6 +111,14 @@ public class Receiver {
         this.td = td;
     }
 
+    public Integer getINT() {
+        return INT;
+    }
+
+    public void setINT(Integer INT) {
+        this.INT = INT;
+    }
+
     public Integer getLONG() {
         return LONG;
     }
@@ -106,11 +135,27 @@ public class Receiver {
         this.ypg = ypg;
     }
 
-    public Integer getFmb() {
-        return fmb;
+    public Float getRate() {
+        return rate;
     }
 
-    public void setFmb(Integer fmb) {
-        this.fmb = fmb;
+    public void setRate(Float rate) {
+        this.rate = rate;
+    }
+
+    public Float getQbr() {
+        return qbr;
+    }
+
+    public void setQbr(Float qbr) {
+        this.qbr = qbr;
+    }
+
+    public Integer getSack() {
+        return sack;
+    }
+
+    public void setSack(Integer sack) {
+        this.sack = sack;
     }
 }

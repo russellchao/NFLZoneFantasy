@@ -1,4 +1,4 @@
-package com.nfl.nfl_zone.kicker;
+package com.nfl.nfl_zone.PlayerStats.kicker;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.nfl.nfl_zone.rusher;
+package com.nfl.nfl_zone.PlayerStats.rusher;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.nfl.nfl_zone.rusher;
+package com.nfl.nfl_zone.PlayerStats.rusher;
 
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

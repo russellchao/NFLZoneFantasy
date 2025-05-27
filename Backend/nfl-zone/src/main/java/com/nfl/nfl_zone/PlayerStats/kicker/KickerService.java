@@ -1,4 +1,4 @@
-package com.nfl.nfl_zone.kicker;
+package com.nfl.nfl_zone.PlayerStats.kicker;
 
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.nfl.nfl_zone;
+package com.nfl.nfl_zone.PlayerStats;
 
 import jakarta.persistence.Embeddable;
 
