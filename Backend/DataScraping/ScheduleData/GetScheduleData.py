@@ -163,32 +163,43 @@ def get_schedule_data(year, week, seasonType):
 
 
             # venue info
-            stadium = matchup.get("competitions")[0].get("venue").get("fullName")
-            city = matchup.get("competitions")[0].get("venue").get("address").get("city")
-            state = matchup.get("competitions")[0].get("venue").get("address").get("state")
-            country = matchup.get("competitions")[0].get("venue").get("address").get("country")
-            fullVenue = f"{stadium}, {city}, {state}, {country}"
+            if (matchup.get("competitions")[0].get("venue") == None):
+                # namely used for playoff games that are TBD
+                fullVenue = "TBD"
+            else:
+                stadium = matchup.get("competitions")[0].get("venue").get("fullName")
+                city = matchup.get("competitions")[0].get("venue").get("address").get("city")
+                state = matchup.get("competitions")[0].get("venue").get("address").get("state")
+                country = matchup.get("competitions")[0].get("venue").get("address").get("country")
+                fullVenue = f"{stadium}, {city}, {state}, {country}"
+
+            
+            # broadcast channel
+            broadcast = matchup.get("competitions")[0].get("broadcast")
+            if broadcast == "":
+                broadcast = "TBD"
 
             
             # Test output
             print(f"Date: {fullDate}")
+            print(f"Week: {weekNum}")
             print(f"Matchup: {awayTeam} ({awayTeamRecord}) at {homeTeam} ({homeTeamRecord})")
             print(f"Venue: {fullVenue}")
-            print(f"Week: {weekNum}")
+            print(f"Broadcast: {broadcast}")
             print(f"Status: {status}\n")
 
 
             # Add this matchup to the matchups this week list
-            matchup_data = {'Date': fullDate, 'WeekNum': weekNum, 'Status': status, 'AwayTeam': awayTeam, 'HomeTeam': homeTeam,
-                            'AwayTeamRecord': awayTeamRecord, 'HomeTeamRecord': homeTeamRecord, 'Venue': fullVenue,
-                            'SeasonType': seasonType, 'WeekId': week}
+            matchup_data = {'Date': fullDate, 'WeekNum': weekNum, 'Status': status, 'AwayTeam': awayTeam, 
+                            'AwayTeamRecord': awayTeamRecord, 'HomeTeam': homeTeam, 'HomeTeamRecord': homeTeamRecord, 
+                            'Venue': fullVenue, 'Broadcast': broadcast, 'SeasonType': seasonType, 'WeekId': week}
             allMatchupsThisWk.append(matchup_data)
             
 
 
     # Write the header to the .csv file
     csvFilename = "schedule_data.csv"
-    header = ['Date', 'WeekNum', 'Status', 'AwayTeam', 'HomeTeam', 'AwayTeamRecord', 'HomeTeamRecord', 'Venue', 'SeasonType', 'WeekId']
+    header = ['Date', 'WeekNum', 'Status', 'AwayTeam', 'AwayTeamRecord', 'HomeTeam', 'HomeTeamRecord', 'Venue', 'Broadcast', 'SeasonType', 'WeekId']
     try:
         with open(csvFilename, mode="w", newline="", encoding="utf-8") as file:
             writer = csv.DictWriter(file, fieldnames=header)
@@ -211,4 +222,4 @@ if __name__ == "__main__":
     #   get_schedule_data(2024, 15, 2) for Week 15 of 2024, 
     #   get_schedule_data(2024, 5, 3) for Super Bowl of 2024-25 (Eagles 40, Chiefs 22)
 
-    get_schedule_data(year=2025, week=3, seasonType=3)
+    get_schedule_data(year=2024, week=5, seasonType=3)
