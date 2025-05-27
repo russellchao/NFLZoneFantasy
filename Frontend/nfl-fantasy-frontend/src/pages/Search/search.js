@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SearchResult from './SearchResult/search_result'; 
-import { fetchDataByName } from '../../API/player_data_api';
+import { fetchDataByName, fetchUpdatePlayerStatsDB } from '../../API/player_data_api';
 import SeasonDropdownMenu from '../Components/season_dropdown';
 
 
@@ -17,28 +17,14 @@ export const Search = () => {
 
     // Call the Specialized Spring Boot endpoint to update the database with the updated player stats CSV file (from calling Flask endpoint)
     async function updatePlayerStatsDB() {
-
         if (!loadingSeason) {
             setLoadingSeason(true); 
         }
 
-        try { 
-            const response = await fetch(`http://localhost:8081/api/v1/updateDB?season=${encodeURIComponent(teamSeason)}`);
-            console.log("Finished updating player stats database");
+        // In case updating the player stats CSV is unsuccessful, the function will return such a response
+        const csv_result = await fetchUpdatePlayerStatsDB(teamSeason); 
 
-            const result = await response.text(); 
-            console.log(result);
-
-            // could not fetch player data for the specified season
-            if (result === "Failure updating CSVs") {
-                console.log("Error fetching player stats");
-                throwLoadError(true); 
-            } 
-
-        } catch (error) {
-            console.error("Failed to fetch data:", error);
-            return []; 
-        }
+        if (csv_result === "Failure updating CSVs") { throwLoadError(true); }
     };
 
 

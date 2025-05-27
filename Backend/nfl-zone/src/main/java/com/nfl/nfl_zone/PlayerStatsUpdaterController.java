@@ -46,7 +46,7 @@ public class PlayerStatsUpdaterController {
             System.out.println("Flask Response: " + response);
 
             // When the user tries to retrieve player stats from a season that's not available
-            if (response.equals("Failure")) {
+            if (response.equals("Failure updating player stats data")) {
                 return "Failure updating CSVs";
             }
 

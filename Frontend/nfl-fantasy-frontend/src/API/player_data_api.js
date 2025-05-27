@@ -54,7 +54,6 @@ export const fetchDataByPosition = async (positionName) => {
 
 export const fetchDataByName = async (playerName) => {
     try {
-
         const response = await fetch(
             `http://localhost:8081/api/v1?name=${encodeURIComponent(playerName)}`
         );
@@ -66,6 +65,28 @@ export const fetchDataByName = async (playerName) => {
         const data = await response.json(); 
         console.log(data); 
         return data; 
+
+    } catch (error) {
+        console.error("Failed to fetch data:", error);
+        return []; 
+    }
+};
+
+
+export const fetchUpdatePlayerStatsDB = async (teamSeason) => {
+    try { 
+        const response = await fetch(`http://localhost:8081/api/v1/updateDB?season=${encodeURIComponent(teamSeason)}`);
+        console.log("Finished updating player stats database");
+
+        const csv_result = await response.text(); 
+        console.log(csv_result);
+
+        // could not fetch player data for the specified season
+        if (csv_result === "Failure updating CSVs") {
+            console.log("Error fetching player stats");
+            return csv_result; 
+            //throwLoadError(true); 
+        } 
 
     } catch (error) {
         console.error("Failed to fetch data:", error);
