@@ -24,7 +24,6 @@ If the game's Status is Final, fetch the ESPN API URL again using the year, week
 2. Box score
 3. Team stats 
 4. Individual stats 
-5. Results of odds
 
 
 

@@ -1,32 +1,700 @@
 {
-    "20250209": {
+    "20260110": {
         "games": [
             {
-                "date": "2025-02-09T23:30Z",
-                "uid": "s:20~l:28~e:401671889",
+                "date": "2026-01-10T05:00Z",
+                "uid": "s:20~l:28~e:401772976",
                 "week": {
-                    "number": 5
+                    "number": 1
                 },
-                "name": "Kansas City Chiefs at Philadelphia Eagles",
+                "name": "TBD TBD at TBD TBD",
                 "competitions": [
                     {
-                        "date": "2025-02-09T23:30Z",
-                        "broadcast": "FOX",
-                        "venue": {
-                            "address": {
-                                "country": "USA",
-                                "city": "New Orleans",
-                                "state": "LA"
-                            },
-                            "fullName": "Caesars Superdome",
-                            "indoor": true,
-                            "id": "3493"
-                        },
+                        "date": "2026-01-10T05:00Z",
+                        "broadcast": "",
                         "conferenceCompetition": false,
                         "notes": [
                             {
                                 "type": "event",
-                                "headline": "Super Bowl LIX"
+                                "headline": "Wild Card Playoffs"
+                            }
+                        ],
+                        "timeValid": false,
+                        "geoBroadcasts": [],
+                        "format": {
+                            "regulation": {
+                                "periods": 4
+                            }
+                        },
+                        "broadcasts": [],
+                        "playByPlayAvailable": false,
+                        "type": {
+                            "id": "1",
+                            "abbreviation": "STD"
+                        },
+                        "uid": "s:20~l:28~e:401772976~c:401772976",
+                        "competitors": [
+                            {
+                                "uid": "s:20~l:28~t:-1",
+                                "homeAway": "home",
+                                "score": "0",
+                                "id": "-1",
+                                "team": {
+                                    "shortDisplayName": "TBD",
+                                    "uid": "s:20~l:28~t:-1",
+                                    "displayName": "TBD",
+                                    "name": "TBD",
+                                    "location": "TBD",
+                                    "links": [],
+                                    "id": "-1",
+                                    "abbreviation": "TBD",
+                                    "isActive": false
+                                },
+                                "type": "team",
+                                "order": 0,
+                                "statistics": []
+                            },
+                            {
+                                "uid": "s:20~l:28~t:-2",
+                                "homeAway": "away",
+                                "score": "0",
+                                "id": "-2",
+                                "team": {
+                                    "shortDisplayName": "TBD",
+                                    "uid": "s:20~l:28~t:-2",
+                                    "displayName": "TBD",
+                                    "name": "TBD",
+                                    "location": "TBD",
+                                    "links": [],
+                                    "id": "-2",
+                                    "abbreviation": "TBD",
+                                    "isActive": false
+                                },
+                                "type": "team",
+                                "order": 1,
+                                "statistics": []
+                            }
+                        ],
+                        "highlights": [],
+                        "id": "401772976",
+                        "neutralSite": false,
+                        "recent": false,
+                        "attendance": 0,
+                        "startDate": "2026-01-10T05:00Z",
+                        "status": {
+                            "period": 0,
+                            "displayClock": "0:00",
+                            "isTBDFlex": false,
+                            "clock": 0,
+                            "type": {
+                                "name": "STATUS_SCHEDULED",
+                                "description": "Scheduled",
+                                "id": "1",
+                                "state": "pre",
+                                "completed": false,
+                                "detail": "1/10 - TBD",
+                                "shortDetail": "TBD"
+                            }
+                        }
+                    }
+                ],
+                "season": {
+                    "year": 2025,
+                    "type": 3,
+                    "slug": "post-season"
+                },
+                "links": [
+                    {
+                        "isExternal": false,
+                        "shortText": "Gamecast",
+                        "rel": [
+                            "summary",
+                            "desktop",
+                            "event"
+                        ],
+                        "language": "en-US",
+                        "href": "https://www.espn.com/nfl/game/_/gameId/401772976/tbd-tbd",
+                        "text": "Gamecast",
+                        "isPremium": false
+                    }
+                ],
+                "id": "401772976",
+                "shortName": "TBD @ TBD",
+                "status": {
+                    "period": 0,
+                    "displayClock": "0:00",
+                    "clock": 0,
+                    "type": {
+                        "name": "STATUS_SCHEDULED",
+                        "description": "Scheduled",
+                        "id": "1",
+                        "state": "pre",
+                        "completed": false,
+                        "detail": "1/10 - TBD",
+                        "shortDetail": "TBD"
+                    }
+                }
+            },
+            {
+                "date": "2026-01-10T05:00Z",
+                "uid": "s:20~l:28~e:401772977",
+                "week": {
+                    "number": 1
+                },
+                "name": "TBD TBD at TBD TBD",
+                "competitions": [
+                    {
+                        "date": "2026-01-10T05:00Z",
+                        "broadcast": "",
+                        "conferenceCompetition": false,
+                        "notes": [
+                            {
+                                "type": "event",
+                                "headline": "Wild Card Playoffs"
+                            }
+                        ],
+                        "timeValid": false,
+                        "geoBroadcasts": [],
+                        "format": {
+                            "regulation": {
+                                "periods": 4
+                            }
+                        },
+                        "broadcasts": [],
+                        "playByPlayAvailable": false,
+                        "type": {
+                            "id": "1",
+                            "abbreviation": "STD"
+                        },
+                        "uid": "s:20~l:28~e:401772977~c:401772977",
+                        "competitors": [
+                            {
+                                "uid": "s:20~l:28~t:-1",
+                                "homeAway": "home",
+                                "score": "0",
+                                "id": "-1",
+                                "team": {
+                                    "shortDisplayName": "TBD",
+                                    "uid": "s:20~l:28~t:-1",
+                                    "displayName": "TBD",
+                                    "name": "TBD",
+                                    "location": "TBD",
+                                    "links": [],
+                                    "id": "-1",
+                                    "abbreviation": "TBD",
+                                    "isActive": false
+                                },
+                                "type": "team",
+                                "order": 0,
+                                "statistics": []
+                            },
+                            {
+                                "uid": "s:20~l:28~t:-2",
+                                "homeAway": "away",
+                                "score": "0",
+                                "id": "-2",
+                                "team": {
+                                    "shortDisplayName": "TBD",
+                                    "uid": "s:20~l:28~t:-2",
+                                    "displayName": "TBD",
+                                    "name": "TBD",
+                                    "location": "TBD",
+                                    "links": [],
+                                    "id": "-2",
+                                    "abbreviation": "TBD",
+                                    "isActive": false
+                                },
+                                "type": "team",
+                                "order": 1,
+                                "statistics": []
+                            }
+                        ],
+                        "highlights": [],
+                        "id": "401772977",
+                        "neutralSite": false,
+                        "recent": false,
+                        "attendance": 0,
+                        "startDate": "2026-01-10T05:00Z",
+                        "status": {
+                            "period": 0,
+                            "displayClock": "0:00",
+                            "isTBDFlex": false,
+                            "clock": 0,
+                            "type": {
+                                "name": "STATUS_SCHEDULED",
+                                "description": "Scheduled",
+                                "id": "1",
+                                "state": "pre",
+                                "completed": false,
+                                "detail": "1/10 - TBD",
+                                "shortDetail": "TBD"
+                            }
+                        }
+                    }
+                ],
+                "season": {
+                    "year": 2025,
+                    "type": 3,
+                    "slug": "post-season"
+                },
+                "links": [
+                    {
+                        "isExternal": false,
+                        "shortText": "Gamecast",
+                        "rel": [
+                            "summary",
+                            "desktop",
+                            "event"
+                        ],
+                        "language": "en-US",
+                        "href": "https://www.espn.com/nfl/game/_/gameId/401772977/tbd-tbd",
+                        "text": "Gamecast",
+                        "isPremium": false
+                    }
+                ],
+                "id": "401772977",
+                "shortName": "TBD @ TBD",
+                "status": {
+                    "period": 0,
+                    "displayClock": "0:00",
+                    "clock": 0,
+                    "type": {
+                        "name": "STATUS_SCHEDULED",
+                        "description": "Scheduled",
+                        "id": "1",
+                        "state": "pre",
+                        "completed": false,
+                        "detail": "1/10 - TBD",
+                        "shortDetail": "TBD"
+                    }
+                }
+            }
+        ]
+    },
+    "20260111": {
+        "games": [
+            {
+                "date": "2026-01-11T05:00Z",
+                "uid": "s:20~l:28~e:401772978",
+                "week": {
+                    "number": 1
+                },
+                "name": "TBD TBD at TBD TBD",
+                "competitions": [
+                    {
+                        "date": "2026-01-11T05:00Z",
+                        "broadcast": "",
+                        "conferenceCompetition": false,
+                        "notes": [
+                            {
+                                "type": "event",
+                                "headline": "Wild Card Playoffs"
+                            }
+                        ],
+                        "timeValid": false,
+                        "geoBroadcasts": [],
+                        "format": {
+                            "regulation": {
+                                "periods": 4
+                            }
+                        },
+                        "broadcasts": [],
+                        "playByPlayAvailable": false,
+                        "type": {
+                            "id": "1",
+                            "abbreviation": "STD"
+                        },
+                        "uid": "s:20~l:28~e:401772978~c:401772978",
+                        "competitors": [
+                            {
+                                "uid": "s:20~l:28~t:-1",
+                                "homeAway": "home",
+                                "score": "0",
+                                "id": "-1",
+                                "team": {
+                                    "shortDisplayName": "TBD",
+                                    "uid": "s:20~l:28~t:-1",
+                                    "displayName": "TBD",
+                                    "name": "TBD",
+                                    "location": "TBD",
+                                    "links": [],
+                                    "id": "-1",
+                                    "abbreviation": "TBD",
+                                    "isActive": false
+                                },
+                                "type": "team",
+                                "order": 0,
+                                "statistics": []
+                            },
+                            {
+                                "uid": "s:20~l:28~t:-2",
+                                "homeAway": "away",
+                                "score": "0",
+                                "id": "-2",
+                                "team": {
+                                    "shortDisplayName": "TBD",
+                                    "uid": "s:20~l:28~t:-2",
+                                    "displayName": "TBD",
+                                    "name": "TBD",
+                                    "location": "TBD",
+                                    "links": [],
+                                    "id": "-2",
+                                    "abbreviation": "TBD",
+                                    "isActive": false
+                                },
+                                "type": "team",
+                                "order": 1,
+                                "statistics": []
+                            }
+                        ],
+                        "highlights": [],
+                        "id": "401772978",
+                        "neutralSite": false,
+                        "recent": false,
+                        "attendance": 0,
+                        "startDate": "2026-01-11T05:00Z",
+                        "status": {
+                            "period": 0,
+                            "displayClock": "0:00",
+                            "isTBDFlex": false,
+                            "clock": 0,
+                            "type": {
+                                "name": "STATUS_SCHEDULED",
+                                "description": "Scheduled",
+                                "id": "1",
+                                "state": "pre",
+                                "completed": false,
+                                "detail": "1/11 - TBD",
+                                "shortDetail": "TBD"
+                            }
+                        }
+                    }
+                ],
+                "season": {
+                    "year": 2025,
+                    "type": 3,
+                    "slug": "post-season"
+                },
+                "links": [
+                    {
+                        "isExternal": false,
+                        "shortText": "Gamecast",
+                        "rel": [
+                            "summary",
+                            "desktop",
+                            "event"
+                        ],
+                        "language": "en-US",
+                        "href": "https://www.espn.com/nfl/game/_/gameId/401772978/tbd-tbd",
+                        "text": "Gamecast",
+                        "isPremium": false
+                    }
+                ],
+                "id": "401772978",
+                "shortName": "TBD @ TBD",
+                "status": {
+                    "period": 0,
+                    "displayClock": "0:00",
+                    "clock": 0,
+                    "type": {
+                        "name": "STATUS_SCHEDULED",
+                        "description": "Scheduled",
+                        "id": "1",
+                        "state": "pre",
+                        "completed": false,
+                        "detail": "1/11 - TBD",
+                        "shortDetail": "TBD"
+                    }
+                }
+            },
+            {
+                "date": "2026-01-11T05:00Z",
+                "uid": "s:20~l:28~e:401772979",
+                "week": {
+                    "number": 1
+                },
+                "name": "TBD TBD at TBD TBD",
+                "competitions": [
+                    {
+                        "date": "2026-01-11T05:00Z",
+                        "broadcast": "",
+                        "conferenceCompetition": false,
+                        "notes": [
+                            {
+                                "type": "event",
+                                "headline": "Wild Card Playoffs"
+                            }
+                        ],
+                        "timeValid": false,
+                        "geoBroadcasts": [],
+                        "format": {
+                            "regulation": {
+                                "periods": 4
+                            }
+                        },
+                        "broadcasts": [],
+                        "playByPlayAvailable": false,
+                        "type": {
+                            "id": "1",
+                            "abbreviation": "STD"
+                        },
+                        "uid": "s:20~l:28~e:401772979~c:401772979",
+                        "competitors": [
+                            {
+                                "uid": "s:20~l:28~t:-1",
+                                "homeAway": "home",
+                                "score": "0",
+                                "id": "-1",
+                                "team": {
+                                    "shortDisplayName": "TBD",
+                                    "uid": "s:20~l:28~t:-1",
+                                    "displayName": "TBD",
+                                    "name": "TBD",
+                                    "location": "TBD",
+                                    "links": [],
+                                    "id": "-1",
+                                    "abbreviation": "TBD",
+                                    "isActive": false
+                                },
+                                "type": "team",
+                                "order": 0,
+                                "statistics": []
+                            },
+                            {
+                                "uid": "s:20~l:28~t:-2",
+                                "homeAway": "away",
+                                "score": "0",
+                                "id": "-2",
+                                "team": {
+                                    "shortDisplayName": "TBD",
+                                    "uid": "s:20~l:28~t:-2",
+                                    "displayName": "TBD",
+                                    "name": "TBD",
+                                    "location": "TBD",
+                                    "links": [],
+                                    "id": "-2",
+                                    "abbreviation": "TBD",
+                                    "isActive": false
+                                },
+                                "type": "team",
+                                "order": 1,
+                                "statistics": []
+                            }
+                        ],
+                        "highlights": [],
+                        "id": "401772979",
+                        "neutralSite": false,
+                        "recent": false,
+                        "attendance": 0,
+                        "startDate": "2026-01-11T05:00Z",
+                        "status": {
+                            "period": 0,
+                            "displayClock": "0:00",
+                            "isTBDFlex": false,
+                            "clock": 0,
+                            "type": {
+                                "name": "STATUS_SCHEDULED",
+                                "description": "Scheduled",
+                                "id": "1",
+                                "state": "pre",
+                                "completed": false,
+                                "detail": "1/11 - TBD",
+                                "shortDetail": "TBD"
+                            }
+                        }
+                    }
+                ],
+                "season": {
+                    "year": 2025,
+                    "type": 3,
+                    "slug": "post-season"
+                },
+                "links": [
+                    {
+                        "isExternal": false,
+                        "shortText": "Gamecast",
+                        "rel": [
+                            "summary",
+                            "desktop",
+                            "event"
+                        ],
+                        "language": "en-US",
+                        "href": "https://www.espn.com/nfl/game/_/gameId/401772979/tbd-tbd",
+                        "text": "Gamecast",
+                        "isPremium": false
+                    }
+                ],
+                "id": "401772979",
+                "shortName": "TBD @ TBD",
+                "status": {
+                    "period": 0,
+                    "displayClock": "0:00",
+                    "clock": 0,
+                    "type": {
+                        "name": "STATUS_SCHEDULED",
+                        "description": "Scheduled",
+                        "id": "1",
+                        "state": "pre",
+                        "completed": false,
+                        "detail": "1/11 - TBD",
+                        "shortDetail": "TBD"
+                    }
+                }
+            },
+            {
+                "date": "2026-01-11T05:00Z",
+                "uid": "s:20~l:28~e:401772980",
+                "week": {
+                    "number": 1
+                },
+                "name": "TBD TBD at TBD TBD",
+                "competitions": [
+                    {
+                        "date": "2026-01-11T05:00Z",
+                        "broadcast": "",
+                        "conferenceCompetition": false,
+                        "notes": [
+                            {
+                                "type": "event",
+                                "headline": "Wild Card Playoffs"
+                            }
+                        ],
+                        "timeValid": false,
+                        "geoBroadcasts": [],
+                        "format": {
+                            "regulation": {
+                                "periods": 4
+                            }
+                        },
+                        "broadcasts": [],
+                        "playByPlayAvailable": false,
+                        "type": {
+                            "id": "1",
+                            "abbreviation": "STD"
+                        },
+                        "uid": "s:20~l:28~e:401772980~c:401772980",
+                        "competitors": [
+                            {
+                                "uid": "s:20~l:28~t:-1",
+                                "homeAway": "home",
+                                "score": "0",
+                                "id": "-1",
+                                "team": {
+                                    "shortDisplayName": "TBD",
+                                    "uid": "s:20~l:28~t:-1",
+                                    "displayName": "TBD",
+                                    "name": "TBD",
+                                    "location": "TBD",
+                                    "links": [],
+                                    "id": "-1",
+                                    "abbreviation": "TBD",
+                                    "isActive": false
+                                },
+                                "type": "team",
+                                "order": 0,
+                                "statistics": []
+                            },
+                            {
+                                "uid": "s:20~l:28~t:-2",
+                                "homeAway": "away",
+                                "score": "0",
+                                "id": "-2",
+                                "team": {
+                                    "shortDisplayName": "TBD",
+                                    "uid": "s:20~l:28~t:-2",
+                                    "displayName": "TBD",
+                                    "name": "TBD",
+                                    "location": "TBD",
+                                    "links": [],
+                                    "id": "-2",
+                                    "abbreviation": "TBD",
+                                    "isActive": false
+                                },
+                                "type": "team",
+                                "order": 1,
+                                "statistics": []
+                            }
+                        ],
+                        "highlights": [],
+                        "id": "401772980",
+                        "neutralSite": false,
+                        "recent": false,
+                        "attendance": 0,
+                        "startDate": "2026-01-11T05:00Z",
+                        "status": {
+                            "period": 0,
+                            "displayClock": "0:00",
+                            "isTBDFlex": false,
+                            "clock": 0,
+                            "type": {
+                                "name": "STATUS_SCHEDULED",
+                                "description": "Scheduled",
+                                "id": "1",
+                                "state": "pre",
+                                "completed": false,
+                                "detail": "1/11 - TBD",
+                                "shortDetail": "TBD"
+                            }
+                        }
+                    }
+                ],
+                "season": {
+                    "year": 2025,
+                    "type": 3,
+                    "slug": "post-season"
+                },
+                "links": [
+                    {
+                        "isExternal": false,
+                        "shortText": "Gamecast",
+                        "rel": [
+                            "summary",
+                            "desktop",
+                            "event"
+                        ],
+                        "language": "en-US",
+                        "href": "https://www.espn.com/nfl/game/_/gameId/401772980/tbd-tbd",
+                        "text": "Gamecast",
+                        "isPremium": false
+                    }
+                ],
+                "id": "401772980",
+                "shortName": "TBD @ TBD",
+                "status": {
+                    "period": 0,
+                    "displayClock": "0:00",
+                    "clock": 0,
+                    "type": {
+                        "name": "STATUS_SCHEDULED",
+                        "description": "Scheduled",
+                        "id": "1",
+                        "state": "pre",
+                        "completed": false,
+                        "detail": "1/11 - TBD",
+                        "shortDetail": "TBD"
+                    }
+                }
+            }
+        ]
+    },
+    "20260112": {
+        "games": [
+            {
+                "date": "2026-01-13T01:15Z",
+                "uid": "s:20~l:28~e:401772981",
+                "week": {
+                    "number": 1
+                },
+                "name": "TBD TBD at TBD TBD",
+                "competitions": [
+                    {
+                        "date": "2026-01-13T01:15Z",
+                        "broadcast": "ESPN/ABC",
+                        "conferenceCompetition": false,
+                        "notes": [
+                            {
+                                "type": "event",
+                                "headline": "Wild Card Playoffs"
                             }
                         ],
                         "timeValid": true,
@@ -37,7 +705,26 @@
                                     "type": "National"
                                 },
                                 "media": {
-                                    "shortName": "FOX"
+                                    "darkLogo": "",
+                                    "logo": "https://a.espncdn.com/guid/335fd2d2-97b9-336b-81ee-573eb6bdcffc/logos/default.png",
+                                    "shortName": "ESPN"
+                                },
+                                "type": {
+                                    "id": "1",
+                                    "shortName": "TV"
+                                },
+                                "lang": "en",
+                                "region": "us"
+                            },
+                            {
+                                "market": {
+                                    "id": "1",
+                                    "type": "National"
+                                },
+                                "media": {
+                                    "darkLogo": "https://a.espncdn.com/guid/2acff74d-269f-36ac-96eb-9c66f8ba52ff/logos/default-dark.png",
+                                    "logo": "https://a.espncdn.com/guid/2acff74d-269f-36ac-96eb-9c66f8ba52ff/logos/default.png",
+                                    "shortName": "ABC"
                                 },
                                 "type": {
                                     "id": "1",
@@ -56,396 +743,84 @@
                             {
                                 "market": "national",
                                 "names": [
-                                    "FOX"
+                                    "ESPN",
+                                    "ABC"
                                 ]
                             }
                         ],
-                        "playByPlayAvailable": true,
-                        "leaders": [
-                            {
-                                "shortDisplayName": "PASS",
-                                "displayName": "Passing Leader",
-                                "name": "passingYards",
-                                "leaders": [
-                                    {
-                                        "displayValue": "21/32, 257 YDS, 3 TD, 2 INT",
-                                        "athlete": {
-                                            "displayName": "Patrick Mahomes",
-                                            "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3139477.png",
-                                            "jersey": "15",
-                                            "fullName": "Patrick Mahomes",
-                                            "active": true,
-                                            "links": [
-                                                {
-                                                    "rel": [
-                                                        "playercard",
-                                                        "desktop",
-                                                        "athlete"
-                                                    ],
-                                                    "href": "https://www.espn.com/nfl/player/_/id/3139477/patrick-mahomes"
-                                                }
-                                            ],
-                                            "id": "3139477",
-                                            "position": {
-                                                "abbreviation": "QB"
-                                            },
-                                            "team": {
-                                                "id": "12"
-                                            },
-                                            "shortName": "P. Mahomes"
-                                        },
-                                        "team": {
-                                            "id": "12"
-                                        },
-                                        "value": 257
-                                    }
-                                ],
-                                "abbreviation": "PYDS"
-                            },
-                            {
-                                "shortDisplayName": "RUSH",
-                                "displayName": "Rushing Leader",
-                                "name": "rushingYards",
-                                "leaders": [
-                                    {
-                                        "displayValue": "11 CAR, 72 YDS, 1 TD",
-                                        "athlete": {
-                                            "displayName": "Jalen Hurts",
-                                            "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4040715.png",
-                                            "jersey": "1",
-                                            "fullName": "Jalen Hurts",
-                                            "active": true,
-                                            "links": [
-                                                {
-                                                    "rel": [
-                                                        "playercard",
-                                                        "desktop",
-                                                        "athlete"
-                                                    ],
-                                                    "href": "https://www.espn.com/nfl/player/_/id/4040715/jalen-hurts"
-                                                }
-                                            ],
-                                            "id": "4040715",
-                                            "position": {
-                                                "abbreviation": "QB"
-                                            },
-                                            "team": {
-                                                "id": "21"
-                                            },
-                                            "shortName": "J. Hurts"
-                                        },
-                                        "team": {
-                                            "id": "21"
-                                        },
-                                        "value": 72
-                                    }
-                                ],
-                                "abbreviation": "RYDS"
-                            },
-                            {
-                                "shortDisplayName": "REC",
-                                "displayName": "Receiving Leader",
-                                "name": "receivingYards",
-                                "leaders": [
-                                    {
-                                        "displayValue": "8 REC, 157 YDS, 2 TD",
-                                        "athlete": {
-                                            "displayName": "Xavier Worthy",
-                                            "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4683062.png",
-                                            "jersey": "1",
-                                            "fullName": "Xavier Worthy",
-                                            "active": true,
-                                            "links": [
-                                                {
-                                                    "rel": [
-                                                        "playercard",
-                                                        "desktop",
-                                                        "athlete"
-                                                    ],
-                                                    "href": "https://www.espn.com/nfl/player/_/id/4683062/xavier-worthy"
-                                                }
-                                            ],
-                                            "id": "4683062",
-                                            "position": {
-                                                "abbreviation": "WR"
-                                            },
-                                            "team": {
-                                                "id": "12"
-                                            },
-                                            "shortName": "X. Worthy"
-                                        },
-                                        "team": {
-                                            "id": "12"
-                                        },
-                                        "value": 157
-                                    }
-                                ],
-                                "abbreviation": "RECYDS"
-                            }
-                        ],
+                        "playByPlayAvailable": false,
                         "type": {
                             "id": "1",
                             "abbreviation": "STD"
                         },
-                        "uid": "s:20~l:28~e:401671889~c:401671889",
+                        "uid": "s:20~l:28~e:401772981~c:401772981",
                         "competitors": [
                             {
-                                "uid": "s:20~l:28~t:21",
+                                "uid": "s:20~l:28~t:-1",
                                 "homeAway": "home",
-                                "score": "40",
-                                "winner": true,
-                                "records": [
-                                    {
-                                        "summary": "14-3",
-                                        "name": "overall",
-                                        "abbreviation": "Any",
-                                        "type": "total"
-                                    },
-                                    {
-                                        "summary": "8-1",
-                                        "name": "Home",
-                                        "type": "home"
-                                    },
-                                    {
-                                        "summary": "6-2",
-                                        "name": "Road",
-                                        "type": "road"
-                                    }
-                                ],
-                                "id": "21",
+                                "score": "0",
+                                "id": "-1",
                                 "team": {
-                                    "alternateColor": "000000",
-                                    "venue": {
-                                        "id": "3806"
-                                    },
-                                    "color": "06424d",
-                                    "displayName": "Philadelphia Eagles",
-                                    "abbreviation": "PHI",
-                                    "isActive": true,
-                                    "shortDisplayName": "Eagles",
-                                    "uid": "s:20~l:28~t:21",
-                                    "name": "Eagles",
-                                    "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/phi.png",
-                                    "location": "Philadelphia",
-                                    "links": [
-                                        {
-                                            "isExternal": false,
-                                            "rel": [
-                                                "clubhouse",
-                                                "desktop",
-                                                "team"
-                                            ],
-                                            "href": "https://www.espn.com/nfl/team/_/name/phi/philadelphia-eagles",
-                                            "text": "Clubhouse",
-                                            "isPremium": false
-                                        },
-                                        {
-                                            "isExternal": false,
-                                            "rel": [
-                                                "roster",
-                                                "desktop",
-                                                "team"
-                                            ],
-                                            "href": "https://www.espn.com/nfl/team/roster/_/name/phi/philadelphia-eagles",
-                                            "text": "Roster",
-                                            "isPremium": false
-                                        },
-                                        {
-                                            "isExternal": false,
-                                            "rel": [
-                                                "stats",
-                                                "desktop",
-                                                "team"
-                                            ],
-                                            "href": "https://www.espn.com/nfl/team/stats/_/name/phi/philadelphia-eagles",
-                                            "text": "Statistics",
-                                            "isPremium": false
-                                        },
-                                        {
-                                            "isExternal": false,
-                                            "rel": [
-                                                "schedule",
-                                                "desktop",
-                                                "team"
-                                            ],
-                                            "href": "https://www.espn.com/nfl/team/schedule/_/name/phi",
-                                            "text": "Schedule",
-                                            "isPremium": false
-                                        }
-                                    ],
-                                    "id": "21"
+                                    "shortDisplayName": "TBD",
+                                    "uid": "s:20~l:28~t:-1",
+                                    "displayName": "TBD",
+                                    "name": "TBD",
+                                    "location": "TBD",
+                                    "links": [],
+                                    "id": "-1",
+                                    "abbreviation": "TBD",
+                                    "isActive": false
                                 },
                                 "type": "team",
-                                "linescores": [
-                                    {
-                                        "displayValue": "7",
-                                        "period": 1,
-                                        "value": 7
-                                    },
-                                    {
-                                        "displayValue": "17",
-                                        "period": 2,
-                                        "value": 17
-                                    },
-                                    {
-                                        "displayValue": "10",
-                                        "period": 3,
-                                        "value": 10
-                                    },
-                                    {
-                                        "displayValue": "6",
-                                        "period": 4,
-                                        "value": 6
-                                    }
-                                ],
                                 "order": 0,
                                 "statistics": []
                             },
                             {
-                                "uid": "s:20~l:28~t:12",
+                                "uid": "s:20~l:28~t:-2",
                                 "homeAway": "away",
-                                "score": "22",
-                                "winner": false,
-                                "records": [
-                                    {
-                                        "summary": "15-2",
-                                        "name": "overall",
-                                        "abbreviation": "Any",
-                                        "type": "total"
-                                    },
-                                    {
-                                        "summary": "8-0",
-                                        "name": "Home",
-                                        "type": "home"
-                                    },
-                                    {
-                                        "summary": "7-2",
-                                        "name": "Road",
-                                        "type": "road"
-                                    }
-                                ],
-                                "id": "12",
+                                "score": "0",
+                                "id": "-2",
                                 "team": {
-                                    "alternateColor": "ffb612",
-                                    "venue": {
-                                        "id": "3622"
-                                    },
-                                    "color": "e31837",
-                                    "displayName": "Kansas City Chiefs",
-                                    "abbreviation": "KC",
-                                    "isActive": true,
-                                    "shortDisplayName": "Chiefs",
-                                    "uid": "s:20~l:28~t:12",
-                                    "name": "Chiefs",
-                                    "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/kc.png",
-                                    "location": "Kansas City",
-                                    "links": [
-                                        {
-                                            "isExternal": false,
-                                            "rel": [
-                                                "clubhouse",
-                                                "desktop",
-                                                "team"
-                                            ],
-                                            "href": "https://www.espn.com/nfl/team/_/name/kc/kansas-city-chiefs",
-                                            "text": "Clubhouse",
-                                            "isPremium": false
-                                        },
-                                        {
-                                            "isExternal": false,
-                                            "rel": [
-                                                "roster",
-                                                "desktop",
-                                                "team"
-                                            ],
-                                            "href": "https://www.espn.com/nfl/team/roster/_/name/kc/kansas-city-chiefs",
-                                            "text": "Roster",
-                                            "isPremium": false
-                                        },
-                                        {
-                                            "isExternal": false,
-                                            "rel": [
-                                                "stats",
-                                                "desktop",
-                                                "team"
-                                            ],
-                                            "href": "https://www.espn.com/nfl/team/stats/_/name/kc/kansas-city-chiefs",
-                                            "text": "Statistics",
-                                            "isPremium": false
-                                        },
-                                        {
-                                            "isExternal": false,
-                                            "rel": [
-                                                "schedule",
-                                                "desktop",
-                                                "team"
-                                            ],
-                                            "href": "https://www.espn.com/nfl/team/schedule/_/name/kc",
-                                            "text": "Schedule",
-                                            "isPremium": false
-                                        }
-                                    ],
-                                    "id": "12"
+                                    "shortDisplayName": "TBD",
+                                    "uid": "s:20~l:28~t:-2",
+                                    "displayName": "TBD",
+                                    "name": "TBD",
+                                    "location": "TBD",
+                                    "links": [],
+                                    "id": "-2",
+                                    "abbreviation": "TBD",
+                                    "isActive": false
                                 },
                                 "type": "team",
-                                "linescores": [
-                                    {
-                                        "displayValue": "0",
-                                        "period": 1,
-                                        "value": 0
-                                    },
-                                    {
-                                        "displayValue": "0",
-                                        "period": 2,
-                                        "value": 0
-                                    },
-                                    {
-                                        "displayValue": "6",
-                                        "period": 3,
-                                        "value": 6
-                                    },
-                                    {
-                                        "displayValue": "16",
-                                        "period": 4,
-                                        "value": 16
-                                    }
-                                ],
                                 "order": 1,
                                 "statistics": []
                             }
                         ],
                         "highlights": [],
-                        "headlines": [
-                            {
-                                "description": "\u2014 Cooper DeJean, Josh Sweat and the Philadelphia Eagles\u2019 ferocious defense denied Patrick Mahomes, Travis Kelce and the Kansas City Chiefs a Super Bowl three-peat.",
-                                "type": "Recap",
-                                "shortLinkText": "Eagles deny the Chiefs a Super Bowl three-peat with dominant defense in a 40-22 rout"
-                            }
-                        ],
-                        "id": "401671889",
-                        "neutralSite": true,
+                        "id": "401772981",
+                        "neutralSite": false,
                         "recent": false,
-                        "attendance": 65719,
-                        "startDate": "2025-02-09T23:30Z",
+                        "attendance": 0,
+                        "startDate": "2026-01-13T01:15Z",
                         "status": {
-                            "period": 4,
+                            "period": 0,
                             "displayClock": "0:00",
                             "isTBDFlex": false,
                             "clock": 0,
                             "type": {
-                                "name": "STATUS_FINAL",
-                                "description": "Final",
-                                "id": "3",
-                                "state": "post",
-                                "completed": true,
-                                "detail": "Final",
-                                "shortDetail": "Final"
+                                "name": "STATUS_SCHEDULED",
+                                "description": "Scheduled",
+                                "id": "1",
+                                "state": "pre",
+                                "completed": false,
+                                "detail": "Mon, January 12th at 8:15 PM EST",
+                                "shortDetail": "1/12 - 8:15 PM EST"
                             }
                         }
                     }
                 ],
                 "season": {
-                    "year": 2024,
+                    "year": 2025,
                     "type": 3,
                     "slug": "post-season"
                 },
@@ -459,64 +834,25 @@
                             "event"
                         ],
                         "language": "en-US",
-                        "href": "https://www.espn.com/nfl/game/_/gameId/401671889/chiefs-eagles",
+                        "href": "https://www.espn.com/nfl/game/_/gameId/401772981/tbd-tbd",
                         "text": "Gamecast",
-                        "isPremium": false
-                    },
-                    {
-                        "isExternal": false,
-                        "shortText": "Box Score",
-                        "rel": [
-                            "boxscore",
-                            "desktop",
-                            "event"
-                        ],
-                        "language": "en-US",
-                        "href": "https://www.espn.com/nfl/boxscore/_/gameId/401671889",
-                        "text": "Box Score",
-                        "isPremium": false
-                    },
-                    {
-                        "isExternal": false,
-                        "shortText": "Play-by-Play",
-                        "rel": [
-                            "pbp",
-                            "desktop",
-                            "event"
-                        ],
-                        "language": "en-US",
-                        "href": "https://www.espn.com/nfl/playbyplay/_/gameId/401671889",
-                        "text": "Play-by-Play",
-                        "isPremium": false
-                    },
-                    {
-                        "isExternal": false,
-                        "shortText": "Recap",
-                        "rel": [
-                            "recap",
-                            "desktop",
-                            "event"
-                        ],
-                        "language": "en-US",
-                        "href": "https://www.espn.com/nfl/recap?gameId=401671889",
-                        "text": "Recap",
                         "isPremium": false
                     }
                 ],
-                "id": "401671889",
-                "shortName": "KC VS PHI",
+                "id": "401772981",
+                "shortName": "TBD @ TBD",
                 "status": {
-                    "period": 4,
+                    "period": 0,
                     "displayClock": "0:00",
                     "clock": 0,
                     "type": {
-                        "name": "STATUS_FINAL",
-                        "description": "Final",
-                        "id": "3",
-                        "state": "post",
-                        "completed": true,
-                        "detail": "Final",
-                        "shortDetail": "Final"
+                        "name": "STATUS_SCHEDULED",
+                        "description": "Scheduled",
+                        "id": "1",
+                        "state": "pre",
+                        "completed": false,
+                        "detail": "Mon, January 12th at 8:15 PM EST",
+                        "shortDetail": "1/12 - 8:15 PM EST"
                     }
                 }
             }

@@ -7,62 +7,6 @@ import time
 import csv
 
 
-def getGameData2025Week1():
-
-    #EXAMPLE: Extracting the Week 1 Schedule for the 2025-26 NFL Season using an unofficial ESPN API
-    espn_api_url = "https://cdn.espn.com/core/nfl/schedule?xhr=1&year=2025&week=1"
-
-    response = requests.get(espn_api_url)
-
-    if (response.status_code != 200):
-        print(int(response.headers["Retry-After"]))
-        raise Exception(f"Failed to load ESPN page ({response.status_code})")
-    
-    data = response.json()
-    content = data.get("content", {})
-    schedule = content.get("schedule", {})
-
-    with open("Week1_2025.json", "w") as file:
-        json.dump(schedule, file, indent=4)
-
-    print("Week 1 2025 Schedule dates:")
-    for date in schedule:
-        # each "date" follows the format of something like: YYYYMMDD (e.g. 20250904)
-        print(f"Date: {date}")
-
-        gamesThisDate = schedule[date]
-        for matchup in gamesThisDate.get("games"):
-            print(matchup.get("name"))
-
-def getGameData2024Week15():
-
-    #EXAMPLE: Extracting the Week 15 Schedule for the 2024-25 NFL Season using an unofficial ESPN API
-    espn_api_url = "https://cdn.espn.com/core/nfl/schedule?xhr=1&year=2024&week=15"
-
-    response = requests.get(espn_api_url)
-
-    if (response.status_code != 200):
-        print(int(response.headers["Retry-After"]))
-        raise Exception(f"Failed to load ESPN page ({response.status_code})")
-
-    data = response.json()
-    content = data.get("content", {})
-    schedule = content.get("schedule", {})
-
-    with open("Week15_2024.json", "w") as file:
-        json.dump(schedule, file, indent=4)
-
-    print("Week 15 2024 Schedule dates:")
-    for date in schedule:
-        # each "date" follows the format of something like: YYYYMMDD (e.g. 20250904)
-        print(f"Date: {date}")
-
-        gamesThisDate = schedule[date]
-        for matchup in gamesThisDate.get("games"):
-            print(matchup.get("name"))
-
-
-
 def formatDate(date):
     monthNumToName = {1: "January", 2: "February", 9: "September", 10: "October", 11: "November", 12: "December"}
 
@@ -84,7 +28,6 @@ def formatDate(date):
         theDay = theDay[1] # e.g. Changes September 04 to September 4
 
     return f"{theMonth} {theDay}, {theYear}"
-
 
 
 
@@ -118,7 +61,6 @@ def get_schedule_data(year, week, seasonType):
         print(f"{playoffKeys.get(week)} {year} dates:\n")
 
 
-    
     # Loop through the .json output to retreieve each matchup for the given week
     # each "date" follows the format of something like: YYYYMMDD (e.g. 20250904)
     allMatchupsThisWk = []
@@ -196,10 +138,10 @@ def get_schedule_data(year, week, seasonType):
             allMatchupsThisWk.append(matchup_data)
             
 
-
     # Write the header to the .csv file
     csvFilename = "schedule_data.csv"
-    header = ['Date', 'WeekNum', 'Status', 'AwayTeam', 'AwayTeamRecord', 'HomeTeam', 'HomeTeamRecord', 'Venue', 'Broadcast', 'SeasonType', 'WeekId']
+    header = ['Date', 'WeekNum', 'Status', 'AwayTeam', 'AwayTeamRecord', 'HomeTeam', 'HomeTeamRecord', 
+              'Venue', 'Broadcast', 'SeasonType', 'WeekId']
     try:
         with open(csvFilename, mode="w", newline="", encoding="utf-8") as file:
             writer = csv.DictWriter(file, fieldnames=header)
@@ -214,12 +156,12 @@ def get_schedule_data(year, week, seasonType):
 
 
     
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    # Test examples extracting the schedule (for seasonType: 1=preseason, 2=regular season, 3=playoffs) but idc about preseason
-    # e.g. 
-    #   get_schedule_data(2025, 1, 2) for Week 1 of 2025, 
-    #   get_schedule_data(2024, 15, 2) for Week 15 of 2024, 
-    #   get_schedule_data(2024, 5, 3) for Super Bowl of 2024-25 (Eagles 40, Chiefs 22)
+#     # Test examples extracting the schedule (for seasonType: 1=preseason, 2=regular season, 3=playoffs) but idc about preseason
+#     # e.g. 
+#     #   get_schedule_data(2025, 1, 2) for Week 1 of 2025, 
+#     #   get_schedule_data(2024, 15, 2) for Week 15 of 2024, 
+#     #   get_schedule_data(2024, 5, 3) for Super Bowl of 2024-25 (Eagles 40, Chiefs 22)
 
-    get_schedule_data(year=2024, week=5, seasonType=3)
+#     get_schedule_data(year=2025, week=1, seasonType=3)
