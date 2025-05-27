@@ -116,10 +116,6 @@ def get_schedule_data(year, week, seasonType):
         json.dump(schedule, file, indent=4)
 
 
-
-
-
-
     # Testing Output
     playoffKeys = {1: "Wild Card Round", 2: "Divisional Round", 3: "Conference Championships", 5: "Super Bowl"}
     if seasonType == 2:
@@ -136,17 +132,38 @@ def get_schedule_data(year, week, seasonType):
 
         for matchup in gamesThisDate.get("games"):
 
-            ###### Attributes for both scheduled and finished games (live games too in the future) ######
+            ###### Attributes for games ######
 
             # date only (exclude start time)
             fullDate = formatDate(date) # (e.g. 20250904 becomes September 4, 2025)
+
+            # week number 
+            weekNum = matchup.get("week").get("number")
+            if seasonType == 3:
+                # if it's the playoffs, retrieve the appropriate round given the week
+                weekNum = playoffKeys.get(int(weekNum))
+
+            # check if the status of a game is scheduled or finished (in the future I will try my best to scrape live games)
+            status = matchup.get("competitions")[0].get("status").get("type").get("description")
 
             # home and away teams
             matchupNameSplit = matchup.get("name").split(" at ") # e.g. split "Buffalo Bills at New York Jets" to ['Buffalo Bills', 'New York Jets']
             awayTeam = matchupNameSplit[0]
             homeTeam = matchupNameSplit[1]
 
-            # trying to figure out how to extract records for both home and away teams
+            # home and away team's regular season records 
+            #NOTE: in the offseason, ESPN does not count records for teams, so the record will be defaulted to 0-0
+            # I think once the regular season starts, each team's records will be available in Scheduled games
+            awayTeamRecord = "0-0"
+            homeTeamRecord = "0-0"
+
+            if status == "Final":
+                awayTeamRecord = matchup.get("competitions")[0].get("competitors")[1].get("records")[0].get("summary")
+                homeTeamRecord = matchup.get("competitions")[0].get("competitors")[0].get("records")[0].get("summary")
+
+
+
+
             
             # venue info
             stadium = matchup.get("competitions")[0].get("venue").get("fullName")
@@ -155,16 +172,10 @@ def get_schedule_data(year, week, seasonType):
             country = matchup.get("competitions")[0].get("venue").get("address").get("country")
             fullVenue = f"{stadium}, {city}, {state}, {country}"
 
-            # week number 
-            weekNum = matchup.get("week").get("number")
-            if (seasonType == 3):
-                # if it's the playoffs, retrieve the appropriate round given the week
-                weekNum = playoffKeys.get(int(weekNum))
+            
 
 
-            # check if the game is a scheduled or finished game (in the future I will try my best to scrape live games)
-            status = matchup.get("competitions")[0].get("status").get("type").get("description")
-
+            
 
 
 
@@ -172,7 +183,7 @@ def get_schedule_data(year, week, seasonType):
 
             # Test output
             print(f"Date: {fullDate}")
-            print(f"Matchup: {awayTeam} at {homeTeam}")
+            print(f"Matchup: {awayTeam} ({awayTeamRecord}) at {homeTeam} ({homeTeamRecord})")
             print(f"Venue: {fullVenue}")
             print(f"Week: {weekNum}")
             print(f"Status: {status}\n")
@@ -195,4 +206,4 @@ if __name__ == "__main__":
     #   get_schedule_data(2024, 15, 2) for Week 15 of 2024, 
     #   get_schedule_data(2024, 5, 3) for Super Bowl of 2024-25 (Eagles 40, Chiefs 22)
 
-    get_schedule_data(year=2024, week=1, seasonType=3)
+    get_schedule_data(year=2025, week=4, seasonType=2)

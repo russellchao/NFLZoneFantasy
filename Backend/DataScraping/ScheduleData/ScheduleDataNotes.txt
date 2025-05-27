@@ -1,0 +1,31 @@
+The game relational schema in PostgreSQL will have the following attributes
+1. Date
+2. Week number (must be varchar)
+3. Status (Scheduled, Final, Live)
+4. Away team
+5. Home team
+6. Away team's record
+7. Home team's record
+8. Venue 
+9. Season Type (2 for regular season, 3 for playoffs)
+10. Week ID (Same as week number for regular season, and for playoffs, 1=wc rd, 2=div rd, 3=cc, 5=super bowl)
+
+
+
+If the game's Status is Scheduled, fetch the ESPN API URL again using the year, week, and seasonType (create an endpoint in Flask App) to retreive the following data to display to the frontend:
+1. Broadcasting channel 
+2. Start time (in eastern time)
+3. Odds (spread, over/under) (I will exclude moneyline because I don't want to use money for the app's betting system)
+
+
+
+If the game's Status is Final, fetch the ESPN API URL again using the year, week, and seasonType (create an endpoint in Flask App) to retreive the following data to display to the frontend:
+1. Final score
+2. Box score
+3. Team stats 
+4. Individual stats 
+5. Results of odds
+
+
+
+If the game's Status is Live, idk. 
