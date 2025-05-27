@@ -121,7 +121,7 @@ def scrape_player_stats(data_type, season):
             writer.writeheader()                # write column headers
             writer.writerows(players_data)      # write player rows
     except Exception as e:
-        print(f"FILE WRITE ERROR ({data_type}):", e)
+        print(f"PLAYER STATS DATA FILE WRITE ERROR ({data_type}):", e)
 
 
     return 
