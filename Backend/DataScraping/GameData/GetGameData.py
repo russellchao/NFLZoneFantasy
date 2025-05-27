@@ -136,7 +136,7 @@ def get_schedule_data(year, week, seasonType):
 
         for matchup in gamesThisDate.get("games"):
 
-            ###### Attributes for both scheduled and finished games ######
+            ###### Attributes for both scheduled and finished games (live games too in the future) ######
 
             # date only (exclude start time)
             fullDate = formatDate(date) # (e.g. 20250904 becomes September 4, 2025)
