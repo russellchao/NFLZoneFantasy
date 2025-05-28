@@ -1,6 +1,8 @@
 package com.nfl.nfl_zone.Schedule;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,5 +21,9 @@ public class Schedule {
     private Integer seasonType;
     private Integer weekId;
 
-    
+    @Id
+    @Column(name = "game_id")
+    private String gameId;
+
+
 }

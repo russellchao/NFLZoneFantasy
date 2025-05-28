@@ -1,7 +1,7 @@
-Date,WeekNum,Status,AwayTeam,AwayTeamRecord,HomeTeam,HomeTeamRecord,Venue,Broadcast,SeasonType,WeekId
-"January 10, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,1
-"January 10, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,1
-"January 11, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,1
-"January 11, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,1
-"January 11, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,1
-"January 12, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,ESPN/ABC,3,1
+Date,WeekNum,Status,AwayTeam,AwayTeamRecord,HomeTeam,HomeTeamRecord,Venue,Broadcast,SeasonType,WeekId,GameId
+"January 11, 2025",Wild Card Round,Final,Los Angeles Chargers,11-6,Houston Texans,10-7,"NRG Stadium, Houston, TX, USA",CBS/Paramount+,3,1,401671878
+"January 11, 2025",Wild Card Round,Final,Pittsburgh Steelers,10-7,Baltimore Ravens,12-5,"M&T Bank Stadium, Baltimore, MD, USA",Prime Video,3,1,401671879
+"January 12, 2025",Wild Card Round,Final,Denver Broncos,10-7,Buffalo Bills,13-4,"Highmark Stadium, Orchard Park, NY, USA",CBS/Paramount+,3,1,401671881
+"January 12, 2025",Wild Card Round,Final,Green Bay Packers,11-6,Philadelphia Eagles,14-3,"Lincoln Financial Field, Philadelphia, PA, USA",FOX,3,1,401671880
+"January 12, 2025",Wild Card Round,Final,Washington Commanders,12-5,Tampa Bay Buccaneers,10-7,"Raymond James Stadium, Tampa, FL, USA",NBC/Peacock,3,1,401671883
+"January 13, 2025",Wild Card Round,Final,Minnesota Vikings,14-3,Los Angeles Rams,10-7,"State Farm Stadium, Glendale, AZ, USA",ESPN/ABC/ESPN+,3,1,401671882

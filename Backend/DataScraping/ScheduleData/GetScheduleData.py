@@ -118,6 +118,10 @@ def get_schedule_data(year, week, seasonType):
             if broadcast == "":
                 broadcast = "TBD"
 
+
+            # game ID (for Java Entity Primary Key)
+            gameId = matchup.get("competitions")[0].get("id")
+
             
             # Test output
             print(f"Date: {fullDate}")
@@ -131,14 +135,14 @@ def get_schedule_data(year, week, seasonType):
             # Add this matchup to the matchups this week list
             matchup_data = {'Date': fullDate, 'WeekNum': weekNum, 'Status': status, 'AwayTeam': awayTeam, 
                             'AwayTeamRecord': awayTeamRecord, 'HomeTeam': homeTeam, 'HomeTeamRecord': homeTeamRecord, 
-                            'Venue': fullVenue, 'Broadcast': broadcast, 'SeasonType': seasonType, 'WeekId': week}
+                            'Venue': fullVenue, 'Broadcast': broadcast, 'SeasonType': seasonType, 'WeekId': week, 'GameId': gameId} 
             allMatchupsThisWk.append(matchup_data)
             
 
     # Write the header to the .csv file
     csvFilename = "schedule_data.csv"
     header = ['Date', 'WeekNum', 'Status', 'AwayTeam', 'AwayTeamRecord', 'HomeTeam', 'HomeTeamRecord', 
-              'Venue', 'Broadcast', 'SeasonType', 'WeekId']
+              'Venue', 'Broadcast', 'SeasonType', 'WeekId', 'GameId']
     try:
         with open(csvFilename, mode="w", newline="", encoding="utf-8") as file:
             writer = csv.DictWriter(file, fieldnames=header)
@@ -153,12 +157,12 @@ def get_schedule_data(year, week, seasonType):
 
 
     
-# if __name__ == "__main__":
+if __name__ == "__main__":
 
-#     # Test examples extracting the schedule (for seasonType: 1=preseason, 2=regular season, 3=playoffs) but idc about preseason
-#     # e.g. 
-#     #   get_schedule_data(2025, 1, 2) for Week 1 of 2025, 
-#     #   get_schedule_data(2024, 15, 2) for Week 15 of 2024, 
-#     #   get_schedule_data(2024, 5, 3) for Super Bowl of 2024-25 (Eagles 40, Chiefs 22)
+    # Test examples extracting the schedule (for seasonType: 1=preseason, 2=regular season, 3=playoffs) but idc about preseason
+    # e.g. 
+    #   get_schedule_data(2025, 1, 2) for Week 1 of 2025, 
+    #   get_schedule_data(2024, 15, 2) for Week 15 of 2024, 
+    #   get_schedule_data(2024, 5, 3) for Super Bowl of 2024-25 (Eagles 40, Chiefs 22)
 
-#     get_schedule_data(year=2025, week=1, seasonType=3)
+    get_schedule_data(year=2024, week=1, seasonType=3)
