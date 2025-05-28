@@ -127,13 +127,9 @@ public class Defender {
         this.INT = INT;
     }
 
-    public Integer getIntTD() {
-        return inttd;
-    }
+    public Integer getIntTD() { return inttd; }
 
-    public void setIntTD(Integer inttd) {
-        this.inttd = inttd;
-    }
+    public void setIntTD(Integer inttd) { this.inttd = inttd; }
 
     public Integer getFf() {
         return ff;

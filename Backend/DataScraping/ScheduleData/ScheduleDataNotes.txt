@@ -3,8 +3,8 @@ The game relational schema in PostgreSQL will have the following attributes
 2. Week number (must be varchar)
 3. Status (Scheduled, Final, Live)
 4. Away team
-5. Home team
-6. Away team's record
+5. Away team's record
+6. Home team
 7. Home team's record
 8. Venue 
 9. Broadcasting channel 
