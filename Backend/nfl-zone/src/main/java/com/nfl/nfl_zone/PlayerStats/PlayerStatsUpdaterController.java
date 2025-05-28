@@ -35,9 +35,10 @@ public class PlayerStatsUpdaterController {
     }
 
 
-    // Call the Python Flask Endpoint to update the CSV based on the season
     @GetMapping
     public String updateStatsCSVs(@RequestParam() String season) {
+        // Call the Python Flask Endpoint to update the CSV based on the season
+
         String flaskURL = String.format("http://localhost:5000/playerData/%s", season);
         RestTemplate restTemplate = new RestTemplate();
 

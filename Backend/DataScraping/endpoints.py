@@ -27,7 +27,7 @@ def update_player_stats(nflSeason):
 
 
 
-@app.route("/schedule/<year>/<week>/<seasonType>")
+@app.route("/scheduleData/<year>/<week>/<seasonType>")
 def update_schedule(year, week, seasonType):
     # Updates the schedule CSV based on the provided year, week and season type (2 for reg season, 3 for playoffs)
 
