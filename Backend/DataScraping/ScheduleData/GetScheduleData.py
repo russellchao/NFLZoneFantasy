@@ -157,12 +157,12 @@ def get_schedule_data(year, week, seasonType):
 
 
     
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    # Test examples extracting the schedule (for seasonType: 1=preseason, 2=regular season, 3=playoffs) but idc about preseason
-    # e.g. 
-    #   get_schedule_data(2025, 1, 2) for Week 1 of 2025, 
-    #   get_schedule_data(2024, 15, 2) for Week 15 of 2024, 
-    #   get_schedule_data(2024, 5, 3) for Super Bowl of 2024-25 (Eagles 40, Chiefs 22)
+#     # Test examples extracting the schedule (for seasonType: 1=preseason, 2=regular season, 3=playoffs) but idc about preseason
+#     # e.g. 
+#     #   get_schedule_data(2025, 1, 2) for Week 1 of 2025, 
+#     #   get_schedule_data(2024, 15, 2) for Week 15 of 2024, 
+#     #   get_schedule_data(2024, 5, 3) for Super Bowl of 2024-25 (Eagles 40, Chiefs 22)
 
-    get_schedule_data(year=2024, week=1, seasonType=3)
+#     get_schedule_data(year=2024, week=1, seasonType=3)
