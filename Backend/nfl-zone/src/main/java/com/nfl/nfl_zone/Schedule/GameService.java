@@ -30,8 +30,11 @@ public class GameService {
                 .collect(Collectors.toList());
     }
 
-    // Add a function that gets games by matchup (both home and away team)
-
+    public List<Game> getSpecificMatchup(String team1, String team2) {
+        return gameRepository.findAll().stream()
+                .filter(schedule -> team1.equals(schedule.getAwayTeam()) && team2.equals(schedule.getHomeTeam()) || team2.equals(schedule.getAwayTeam()) && team1.equals(schedule.getHomeTeam()))
+                .collect(Collectors.toList());
+    }
 
 
 }
