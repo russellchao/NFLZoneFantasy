@@ -18,11 +18,6 @@ public class GameService {
 
     public List<Game> getAllGames() {
         // Returns all games in a given week of an NFL season
-
-        // DEBUG
-        List<Game> allGamesThisWeek = gameRepository.findAll();
-        System.out.println("Debug: Size of game array: " + allGamesThisWeek.size());
-
         return gameRepository.findAll();
     }
 
@@ -32,7 +27,6 @@ public class GameService {
                 .filter(schedule -> teamName.equals(schedule.getAwayTeam()) || teamName.equals(schedule.getHomeTeam()))
                 .collect(Collectors.toList());
     }
-
 
 
 

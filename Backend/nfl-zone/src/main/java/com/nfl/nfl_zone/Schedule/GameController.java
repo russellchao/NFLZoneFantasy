@@ -56,7 +56,7 @@ public class GameController {
 
 
         for (int i=1; i<24; i++) {
-            // There are a total of 23 weeks in an NFL season (excluding preseason), where week 23 overall is the Super Bowl
+            // There are a total of 23 weeks in an NFL season (including playoffs, excluding preseason), where week 23 overall is the Super Bowl
 
             if (i == 22) {
                 // Week 22 is the Pro Bowl, which we do not need to extract game data from

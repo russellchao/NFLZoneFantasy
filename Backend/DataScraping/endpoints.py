@@ -32,7 +32,7 @@ def update_schedule(year, week, seasonType):
     # Updates the schedule CSV based on the provided year, week and season type (2 for reg season, 3 for playoffs)
 
     try:
-        get_schedule_data(year, week, seasonType)
+        get_schedule_data(year, week, int(seasonType)) # cast to int bc when called via URL browser, seasonType is a string
         return "Success updating schedule data"
     
     except Exception as e:
