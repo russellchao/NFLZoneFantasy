@@ -6,8 +6,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="schedule_data")
-public class Schedule {
+@Table(name="schedule")
+public class Game {
 
     private String date;
     private String weekNum;

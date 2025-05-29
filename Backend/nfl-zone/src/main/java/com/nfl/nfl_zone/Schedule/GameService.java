@@ -7,31 +7,32 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class ScheduleService {
+public class GameService {
 
-    private final ScheduleRepository scheduleRepository;
+    private final GameRepository gameRepository;
 
     @Autowired
-    public ScheduleService(ScheduleRepository scheduleRepository) {
-        this.scheduleRepository = scheduleRepository;
+    public GameService(GameRepository gameRepository) {
+        this.gameRepository = gameRepository;
     }
 
-    public List<Schedule> getAllGames() {
+    public List<Game> getAllGames() {
         // Returns all games in a given week of an NFL season
 
-        for (Schedule schedule : scheduleRepository.findAll()) {
-            System.out.println(schedule);
-        }
+        // DEBUG
+        List<Game> allGamesThisWeek = gameRepository.findAll();
+        System.out.println("Debug: Size of game array: " + allGamesThisWeek.size());
 
-        return scheduleRepository.findAll();
+        return gameRepository.findAll();
     }
 
-    public List<Schedule> getGameByTeam(String teamName) {
+    public List<Game> getGameByTeam(String teamName) {
         // Returns the game that contains the requested team in a given week of an NFL season
-        return scheduleRepository.findAll().stream()
+        return gameRepository.findAll().stream()
                 .filter(schedule -> teamName.equals(schedule.getAwayTeam()) || teamName.equals(schedule.getHomeTeam()))
                 .collect(Collectors.toList());
     }
+
 
 
 

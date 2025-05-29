@@ -1,6 +1,5 @@
 package com.nfl.nfl_zone.Schedule;
 
-import org.hibernate.sql.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,12 +11,12 @@ import java.util.*;
 
 @RestController
 @RequestMapping(path = "api/v1/schedule")
-public class ScheduleController {
+public class GameController {
 
-    private final ScheduleService scheduleService;
+    private final GameService gameService;
 
-    public ScheduleController(ScheduleService scheduleService) {
-        this.scheduleService = scheduleService;
+    public GameController(GameService gameService) {
+        this.gameService = gameService;
     }
 
 
@@ -26,7 +25,7 @@ public class ScheduleController {
 
 
     @GetMapping(path = "/byWeek")
-    public List<Schedule> getGamesByWeek(
+    public List<Game> getGamesByWeek(
             @RequestParam() String year,
             @RequestParam() String week,
             @RequestParam() String seasonType) {
@@ -42,18 +41,18 @@ public class ScheduleController {
 
 
         // Retrieve all the games in that given week
-        return scheduleService.getAllGames();
+        return gameService.getAllGames();
     }
 
 
 
     @GetMapping(path = "/byTeam")
-    public List<Schedule> getGamesByTeam(
+    public List<Game> getGamesByTeam(
             @RequestParam() String teamName,
             @RequestParam() String year) {
 
         // This endpoint returns all matchups for a specific team from every week of a single season, including playoffs if applicable
-        List<Schedule> allGamesThisTeam = new ArrayList<>();
+        List<Game> allGamesThisTeam = new ArrayList<>();
 
 
         for (int i=1; i<24; i++) {
@@ -84,7 +83,7 @@ public class ScheduleController {
             updateSchedule.updateScheduleDB();
 
             // Retrieve the matchup containing the requested team from every week played of a season
-            allGamesThisTeam.addAll(scheduleService.getGameByTeam(teamName));
+            allGamesThisTeam.addAll(gameService.getGameByTeam(teamName));
 
         }
 

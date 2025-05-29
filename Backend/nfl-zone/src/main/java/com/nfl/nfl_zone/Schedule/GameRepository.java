@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface ScheduleRepository extends JpaRepository<Schedule, String> {
+public interface GameRepository extends JpaRepository<Game, String> {
     void deleteByGameId(String gameId);
-    Optional<Schedule> findByGameId(String gameId);
+    Optional<Game> findByGameId(String gameId);
 }
