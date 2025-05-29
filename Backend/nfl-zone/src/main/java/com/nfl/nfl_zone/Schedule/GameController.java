@@ -1,6 +1,5 @@
 package com.nfl.nfl_zone.Schedule;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,11 +20,10 @@ public class GameController {
     }
 
 
-
     @GetMapping
-    public List<Game> getGamesByWeek(
-            @RequestParam(required = false) String weekNum,
-            @RequestParam(required = false) String teamName) {
+    public List<Game> getGames(
+        @RequestParam(required = false) String weekNum,
+        @RequestParam(required = false) String teamName) {
 
 
         if (weekNum != null && teamName == null) {
@@ -39,6 +37,19 @@ public class GameController {
         } else {
             return null;
 
+        }
+    }
+
+
+    @GetMapping("/specific")
+    public List<Game> getSpecificGames(
+        @RequestParam() String team1,
+        @RequestParam() String team2) {
+
+        if (team1 != null && team2 != null) {
+            return gameService.getSpecificMatchup(team1, team2);
+        } else {
+            return null;
         }
     }
 
