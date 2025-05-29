@@ -28,6 +28,23 @@ def formatDate(date):
 
 
 
+def write_schedule_csv(allMatchups):
+    csvFilename = f"ScheduleData/schedule_data.csv"
+    header = ['Date', 'WeekNum', 'Status', 'AwayTeam', 'AwayTeamRecord', 'HomeTeam', 'HomeTeamRecord', 
+              'Venue', 'Broadcast', 'SeasonType', 'WeekId', 'GameId']
+    try:
+        with open(csvFilename, mode="w", newline="", encoding="utf-8") as file:
+            writer = csv.DictWriter(file, fieldnames=header)
+            writer.writeheader()
+            writer.writerows(allMatchups)     
+    except Exception as e:
+        print(f"SCHEDULE DATA FILE WRITE ERROR:", e)
+
+
+
+
+
+
 def get_schedule_data(year, week, seasonType):
 
     # Call the unofficial ESPN API to Retrieve Schedule Data
@@ -49,13 +66,6 @@ def get_schedule_data(year, week, seasonType):
 
     # Week numbers mapped to their respective rounds for the playoffs
     playoffKeys = {1: "Wild Card Round", 2: "Divisional Round", 3: "Conference Championships", 5: "Super Bowl"}
-
-
-    # Testing Output
-    if seasonType == 2:
-        print(f"Week {week} {year} Schedule dates:\n")
-    elif seasonType == 3:
-        print(f"{playoffKeys.get(week)} {year} dates:\n")
 
 
     # Loop through the .json output to retreieve each matchup for the given week
@@ -122,15 +132,6 @@ def get_schedule_data(year, week, seasonType):
             # game ID (for Java Entity Primary Key)
             gameId = matchup.get("competitions")[0].get("id")
 
-            
-            # Test output
-            print(f"Date: {fullDate}")
-            print(f"Week: {weekNum}")
-            print(f"Matchup: {awayTeam} ({awayTeamRecord}) at {homeTeam} ({homeTeamRecord})")
-            print(f"Venue: {fullVenue}")
-            print(f"Broadcast: {broadcast}")
-            print(f"Status: {status}\n")
-
 
             # Add this matchup to the matchups this week list
             matchup_data = {'Date': fullDate, 'WeekNum': weekNum, 'Status': status, 'AwayTeam': awayTeam, 
@@ -139,18 +140,9 @@ def get_schedule_data(year, week, seasonType):
             allMatchupsThisWk.append(matchup_data)
             
 
-    # Write the header to the .csv file
-    csvFilename = f"ScheduleData/schedule_data.csv"
-    header = ['Date', 'WeekNum', 'Status', 'AwayTeam', 'AwayTeamRecord', 'HomeTeam', 'HomeTeamRecord', 
-              'Venue', 'Broadcast', 'SeasonType', 'WeekId', 'GameId']
-    try:
-        with open(csvFilename, mode="w", newline="", encoding="utf-8") as file:
-            writer = csv.DictWriter(file, fieldnames=header)
-            writer.writeheader()
-            writer.writerows(allMatchupsThisWk)
-    except Exception as e:
-        print(f"SCHEDULE DATA FILE WRITE ERROR:", e)
-        
+    # Return each matchup from this week to the schedule CSV file
+    return allMatchupsThisWk
+    
 
 
 

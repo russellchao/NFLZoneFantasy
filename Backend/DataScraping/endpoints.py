@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
 from PlayerStatsData.PlayerStatsScraper import scrape_player_stats
-from ScheduleData.GetScheduleData import get_schedule_data
+from ScheduleData.GetScheduleData import get_schedule_data, write_schedule_csv
 
 
 app = Flask(__name__)
@@ -31,6 +31,8 @@ def update_player_stats(nflSeason):
 def update_schedule(year):
     # Retrieves all regular season and playoff matches of the given year 
     # schedule_csv.data should contain 285 rows (272 reg season + 13 playoff games) (excluding header) 
+
+    all_matchups = []
     
     try:
         for i in range(1,24):
@@ -48,7 +50,11 @@ def update_schedule(year):
                 week -= 18
                 seasonType = 3
 
-            get_schedule_data(year, week, seasonType)
+            all_matchups += get_schedule_data(year, week, seasonType)
+
+
+        # Write all matchups to the schedule CSV file
+        write_schedule_csv(all_matchups)
         
         
         return "Success updating schedule data"

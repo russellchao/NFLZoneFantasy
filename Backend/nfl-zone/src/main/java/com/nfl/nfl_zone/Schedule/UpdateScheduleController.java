@@ -36,8 +36,11 @@ public class UpdateScheduleController {
             }
 
             System.out.println("Success");
-            return "Success updating CSVs";
 
+            // Update the schedule table in PostgreSQL
+            updateScheduleDB();
+
+            return "Success updating CSVs";
 
         } catch (Exception e) {
             System.out.println("Error calling Flask: " + e);

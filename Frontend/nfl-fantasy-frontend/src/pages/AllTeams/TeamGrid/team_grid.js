@@ -37,7 +37,7 @@ const nfcWest = [
 const TeamGrid = () => {
     const navigate = useNavigate(); 
 
-    const handleTeamClick = (teamName, section) => {
+    const handleTeamClick = (teamName) => {
         navigate(`/all_teams/${teamName}`); 
     };
 
