@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.BufferedReader;
+import com.opencsv.CSVReader;
 import java.io.FileReader;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 
 @RestController
@@ -79,13 +80,14 @@ public class PlayerStatsUpdaterController {
             Path csvFilePath = basePath.resolve("../DataScraping/PlayerStatsData/" + playerCategory + "_stats.csv").normalize(); // normalize() resolves '..'
             String tableName = playerCategory + "_stats";
 
-            BufferedReader reader = new BufferedReader(new FileReader(csvFilePath.toFile()));
+            CSVReader reader = new CSVReader(new FileReader(csvFilePath.toFile()));
             jdbcTemplate.execute("TRUNCATE TABLE " + tableName);
-            String line;
-            reader.readLine(); // Skip header
 
-            while ((line = reader.readLine()) != null) {
-                String[] data = line.split(",");
+            List<String[]> rows = reader.readAll();
+
+            // Set i=1 so it skips header (first row)
+            for (int i=1; i<rows.size(); i++) {
+                String[] data = rows.get(i);
 
                 // Insert the proper data for each playing category from the updated CSV
                 if (playerCategory.equals("passing")) {
