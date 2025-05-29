@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchDataByPosition, fetchUpdatePlayerStatsDB } from '../../API/player_data_api';
-import SeasonDropdownMenu from '../Components/season_dropdown';
+import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
 
 
 const PositionPage = () => {

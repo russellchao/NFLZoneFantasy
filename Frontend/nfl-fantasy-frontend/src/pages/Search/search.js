@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SearchResult from './SearchResult/search_result'; 
 import { fetchDataByName, fetchUpdatePlayerStatsDB } from '../../API/player_data_api';
-import SeasonDropdownMenu from '../Components/season_dropdown';
+import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
 
 
 export const Search = () => {

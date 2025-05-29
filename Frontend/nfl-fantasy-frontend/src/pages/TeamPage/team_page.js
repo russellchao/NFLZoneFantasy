@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchDataByTeam, fetchUpdatePlayerStatsDB } from '../../API/player_data_api';
 import PlayerStats from './PlayerStats/tp_player_stats';
-import SeasonDropdownMenu from '../Components/season_dropdown';
+import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
 
 const TeamPage = () => {
     const { teamName } = useParams(); 

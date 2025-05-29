@@ -16,7 +16,7 @@ function App() {
         <Link to="/" style={{ marginRight: "30px" }}>Home</Link>
         <Link to="/full_schedule" style={{ marginRight: "30px" }}>Schedule</Link>
         <Link to="/all_teams" style={{ marginRight: "30px" }}>Teams</Link>
-        <Link to="/all_positions" style={{ marginRight: "30px" }}>Positions</Link>
+        <Link to="/all_positions" style={{ marginRight: "30px" }}>Stats by Positions</Link>
         <Link to="/search" style={{ marginRight: "30px" }}>Player Search</Link>
       </nav>
 
