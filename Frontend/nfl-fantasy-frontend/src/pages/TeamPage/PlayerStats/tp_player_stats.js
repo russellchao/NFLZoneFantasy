@@ -1,6 +1,4 @@
 // Player Stats component for team page
-import React from 'react'; 
-
 
 const PlayerStats = ({ passers, rushers, receivers, defenders, kickers }) => {
 

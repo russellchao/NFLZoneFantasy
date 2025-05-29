@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchDataByPosition, fetchUpdatePlayerStatsDB } from '../../API/player_data_api';
+import { fetchPlayerDataByPosition, fetchUpdatePlayerStatsDB } from '../../API/player_data_api';
 import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
 
 
@@ -41,7 +41,7 @@ const PositionPage = () => {
 
             if (positionName) {
                 const loadPosData = async () => {
-                    const posData = await fetchDataByPosition(positionName); 
+                    const posData = await fetchPlayerDataByPosition(positionName); 
                     setPosData(posData); 
                 };
                 loadPosData(); 

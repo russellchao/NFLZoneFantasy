@@ -2,7 +2,7 @@ import teamAbbr from "../pages/AllTeams/TeamGrid/TeamAbbreviations";
 import posAbbr from "../pages/AllPositions/PositionGrid/PositionAbbreviations";
 
 
-export const fetchDataByTeam = async (category, teamName) => {
+export const fetchPlayerDataByTeam = async (category, teamName) => {
     try {
         const response = await fetch(
            `http://localhost:8081/api/v1/${encodeURIComponent(category)}?team=${encodeURIComponent(teamAbbr[teamName])}`
@@ -23,7 +23,7 @@ export const fetchDataByTeam = async (category, teamName) => {
 };
 
 
-export const fetchDataByPosition = async (positionName) => {
+export const fetchPlayerDataByPosition = async (positionName) => {
     try {
         let category = ""; 
 
@@ -52,7 +52,7 @@ export const fetchDataByPosition = async (positionName) => {
 };
 
 
-export const fetchDataByName = async (playerName) => {
+export const fetchPlayerDataByName = async (playerName) => {
     try {
         const response = await fetch(
             `http://localhost:8081/api/v1?name=${encodeURIComponent(playerName)}`
