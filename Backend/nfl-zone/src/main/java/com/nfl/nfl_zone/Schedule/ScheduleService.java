@@ -18,6 +18,11 @@ public class ScheduleService {
 
     public List<Schedule> getAllGames() {
         // Returns all games in a given week of an NFL season
+
+        for (Schedule schedule : scheduleRepository.findAll()) {
+            System.out.println(schedule);
+        }
+
         return scheduleRepository.findAll();
     }
 

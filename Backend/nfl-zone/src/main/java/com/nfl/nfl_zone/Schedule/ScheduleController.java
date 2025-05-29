@@ -1,6 +1,7 @@
 package com.nfl.nfl_zone.Schedule;
 
 import org.hibernate.sql.Update;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,10 +20,12 @@ public class ScheduleController {
         this.scheduleService = scheduleService;
     }
 
-    UpdateSchedule updateSchedule = new UpdateSchedule();
+
+    @Autowired
+    private UpdateSchedule updateSchedule;
 
 
-    @GetMapping
+    @GetMapping(path = "/byWeek")
     public List<Schedule> getGamesByWeek(
             @RequestParam() String year,
             @RequestParam() String week,
@@ -44,7 +47,7 @@ public class ScheduleController {
 
 
 
-    @GetMapping
+    @GetMapping(path = "/byTeam")
     public List<Schedule> getGamesByTeam(
             @RequestParam() String teamName,
             @RequestParam() String year) {

@@ -1,7 +1,17 @@
 Date,WeekNum,Status,AwayTeam,AwayTeamRecord,HomeTeam,HomeTeamRecord,Venue,Broadcast,SeasonType,WeekId,GameId
-"January 11, 2025",Wild Card Round,Final,Los Angeles Chargers,11-6,Houston Texans,10-7,"NRG Stadium, Houston, TX, USA",CBS/Paramount+,3,1,401671878
-"January 11, 2025",Wild Card Round,Final,Pittsburgh Steelers,10-7,Baltimore Ravens,12-5,"M&T Bank Stadium, Baltimore, MD, USA",Prime Video,3,1,401671879
-"January 12, 2025",Wild Card Round,Final,Denver Broncos,10-7,Buffalo Bills,13-4,"Highmark Stadium, Orchard Park, NY, USA",CBS/Paramount+,3,1,401671881
-"January 12, 2025",Wild Card Round,Final,Green Bay Packers,11-6,Philadelphia Eagles,14-3,"Lincoln Financial Field, Philadelphia, PA, USA",FOX,3,1,401671880
-"January 12, 2025",Wild Card Round,Final,Washington Commanders,12-5,Tampa Bay Buccaneers,10-7,"Raymond James Stadium, Tampa, FL, USA",NBC/Peacock,3,1,401671883
-"January 13, 2025",Wild Card Round,Final,Minnesota Vikings,14-3,Los Angeles Rams,10-7,"State Farm Stadium, Glendale, AZ, USA",ESPN/ABC/ESPN+,3,1,401671882
+"December 12, 2024",15,Final,Los Angeles Rams,8-6,San Francisco 49ers,6-8,"Levi's Stadium, Santa Clara, CA, USA",Prime Video,2,15,401671818
+"December 15, 2024",15,Final,Kansas City Chiefs,13-1,Cleveland Browns,3-11,"Huntington Bank Field, Cleveland, OH, USA",CBS,2,15,401671854
+"December 15, 2024",15,Final,Cincinnati Bengals,6-8,Tennessee Titans,3-11,"Nissan Stadium, Nashville, TN, USA",FOX,2,15,401671825
+"December 15, 2024",15,Final,Washington Commanders,9-5,New Orleans Saints,5-9,"Caesars Superdome, New Orleans, LA, USA",FOX,2,15,401671737
+"December 15, 2024",15,Final,Baltimore Ravens,9-5,New York Giants,2-12,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,15,401671639
+"December 15, 2024",15,Final,Dallas Cowboys,6-8,Carolina Panthers,3-11,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,15,401671731
+"December 15, 2024",15,Final,New York Jets,4-10,Jacksonville Jaguars,3-11,"EverBank Stadium, Jacksonville, FL, USA",FOX,2,15,401671706
+"December 15, 2024",15,Final,Miami Dolphins,6-8,Houston Texans,9-5,"NRG Stadium, Houston, TX, USA",CBS,2,15,401671860
+"December 15, 2024",15,Final,Indianapolis Colts,6-8,Denver Broncos,9-5,"Empower Field at Mile High, Denver, CO, USA",CBS,2,15,401671669
+"December 15, 2024",15,Final,Buffalo Bills,11-3,Detroit Lions,12-2,"Ford Field, Detroit, MI, USA",CBS,2,15,401671681
+"December 15, 2024",15,Final,Pittsburgh Steelers,10-4,Philadelphia Eagles,12-2,"Lincoln Financial Field, Philadelphia, PA, USA",FOX,2,15,401671766
+"December 15, 2024",15,Final,New England Patriots,3-11,Arizona Cardinals,7-7,"State Farm Stadium, Glendale, AZ, USA",CBS,2,15,401671677
+"December 15, 2024",15,Final,Tampa Bay Buccaneers,8-6,Los Angeles Chargers,8-6,"SoFi Stadium, Inglewood, CA, USA",FOX,2,15,401671762
+"December 15, 2024",15,Final,Green Bay Packers,10-4,Seattle Seahawks,8-6,"Lumen Field, Seattle, WA, USA",NBC/Peacock,2,15,401671796
+"December 16, 2024",15,Final,Chicago Bears,4-10,Minnesota Vikings,12-2,"U.S. Bank Stadium, Minneapolis, MN, USA",ABC/ESPN+,2,15,401671489
+"December 16, 2024",15,Final,Atlanta Falcons,7-7,Las Vegas Raiders,2-12,"Allegiant Stadium, Las Vegas, NV, USA",ESPN,2,15,401671697

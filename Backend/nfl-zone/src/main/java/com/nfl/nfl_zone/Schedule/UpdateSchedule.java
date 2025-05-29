@@ -2,13 +2,16 @@ package com.nfl.nfl_zone.Schedule;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.BufferedReader;
+import com.opencsv.CSVReader;
 import java.io.FileReader;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
+@Component
 public class UpdateSchedule {
 
     public String updateScheduleCSVs(String year, String week, String seasonType) {
@@ -38,7 +41,7 @@ public class UpdateSchedule {
 
 
 
-
+    @Autowired
     private JdbcTemplate jdbcTemplate;
 
     public void updateScheduleDB() {
@@ -47,51 +50,29 @@ public class UpdateSchedule {
         try {
             Path basePath = Paths.get(System.getProperty("user.dir"));
             Path csvFilePath = basePath.resolve("../DataScraping/ScheduleData/schedule_data.csv").normalize(); // normalize() resolves '..'
-            String tableName = "schedule";
 
-            BufferedReader reader = new BufferedReader(new FileReader(csvFilePath.toFile()));
-            jdbcTemplate.execute("TRUNCATE TABLE " + tableName);
-            String line;
-            reader.readLine();
+            CSVReader reader = new CSVReader(new FileReader(csvFilePath.toFile()));
+            jdbcTemplate.execute("TRUNCATE TABLE schedule");
 
-            while ((line = reader.readLine()) != null) {
-                String[] data = line.split(",");
+            List<String[]> rows = reader.readAll();
+
+            // Set i=1 so it skips header (first row)
+            for (int i=1; i<rows.size(); i++) {
+                String[] data = rows.get(i);
 
                 jdbcTemplate.update(
-                        "INSERT INTO rushing_stats " +
+                        "INSERT INTO schedule " +
                                 "(date, week_num, status, away_team, away_team_record, home_team, home_team_record, venue, broadcast, season_type, week_id, game_id)" +
-                                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                        data[0], data[1], data[2], data[3],data[4], data[5], data[6], data[7], data[8], Integer.parseInt(data[9]), Integer.parseInt(data[10]), data[11]);
+                                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                        data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], Integer.parseInt(data[9]), Integer.parseInt(data[10]), data[11]);
             }
+
 
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

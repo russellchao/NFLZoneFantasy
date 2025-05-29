@@ -140,7 +140,7 @@ def get_schedule_data(year, week, seasonType):
             
 
     # Write the header to the .csv file
-    csvFilename = "schedule_data.csv"
+    csvFilename = f"ScheduleData/schedule_data.csv"
     header = ['Date', 'WeekNum', 'Status', 'AwayTeam', 'AwayTeamRecord', 'HomeTeam', 'HomeTeamRecord', 
               'Venue', 'Broadcast', 'SeasonType', 'WeekId', 'GameId']
     try:
