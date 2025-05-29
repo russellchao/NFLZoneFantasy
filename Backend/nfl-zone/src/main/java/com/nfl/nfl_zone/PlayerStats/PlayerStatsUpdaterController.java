@@ -15,7 +15,7 @@ import java.nio.file.Paths;
 
 
 @RestController
-@RequestMapping(path="api/v1/updateDB")
+@RequestMapping(path="api/v1/updatePlayerStats")
 public class PlayerStatsUpdaterController {
     // This endpoint updates all player stats tables in the PostgreSQL database based on the season requested
 

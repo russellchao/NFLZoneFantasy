@@ -27,12 +27,30 @@ def update_player_stats(nflSeason):
 
 
 
-@app.route("/scheduleData/<year>/<week>/<seasonType>")
-def update_schedule(year, week, seasonType):
-    # Updates the schedule CSV based on the provided year, week and season type (2 for reg season, 3 for playoffs)
-
+@app.route("/scheduleData/<year>")
+def update_schedule(year):
+    # Retrieves all regular season and playoff matches of the given year 
+    # schedule_csv.data should contain 285 rows (272 reg season + 13 playoff games) (excluding header) 
+    
     try:
-        get_schedule_data(year, week, int(seasonType)) # cast to int bc when called via URL browser, seasonType is a string
+        for i in range(1,24):
+            # There are a total of 23 weeks (excluding preseason) in an NFL season, with week 23 being the Super Bowl
+
+            week = i
+            seasonType = 2
+
+            if (week == 22):
+                # Week 22 is the Pro Bowl so no need to extract game data from that week
+                continue
+
+            if (week > 18): 
+                # This if statement obtains the proper week number when retrieving playoff games
+                week -= 18
+                seasonType = 3
+
+            get_schedule_data(year, week, seasonType)
+        
+        
         return "Success updating schedule data"
     
     except Exception as e:

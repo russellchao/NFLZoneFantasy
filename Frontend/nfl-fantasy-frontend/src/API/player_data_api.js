@@ -75,7 +75,7 @@ export const fetchDataByName = async (playerName) => {
 
 export const fetchUpdatePlayerStatsDB = async (teamSeason) => {
     try { 
-        const response = await fetch(`http://localhost:8081/api/v1/updateDB?season=${encodeURIComponent(teamSeason)}`);
+        const response = await fetch(`http://localhost:8081/api/v1/updatePlayerStats?season=${encodeURIComponent(teamSeason)}`);
         console.log("Finished updating player stats database");
 
         const csv_result = await response.text(); 

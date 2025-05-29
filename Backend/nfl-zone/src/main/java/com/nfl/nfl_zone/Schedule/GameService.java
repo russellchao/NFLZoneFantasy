@@ -16,17 +16,21 @@ public class GameService {
         this.gameRepository = gameRepository;
     }
 
-    public List<Game> getAllGames() {
+    public List<Game> getGamesByWeek(String weekNum) {
         // Returns all games in a given week of an NFL season
-        return gameRepository.findAll();
+        return gameRepository.findAll().stream()
+                .filter(schedule -> weekNum.equals(schedule.getWeekNum()))
+                .collect(Collectors.toList());
     }
 
-    public List<Game> getGameByTeam(String teamName) {
+    public List<Game> getGamesByTeam(String teamName) {
         // Returns the game that contains the requested team in a given week of an NFL season
         return gameRepository.findAll().stream()
                 .filter(schedule -> teamName.equals(schedule.getAwayTeam()) || teamName.equals(schedule.getHomeTeam()))
                 .collect(Collectors.toList());
     }
+
+    // Add a function that gets games by matchup (both home and away team)
 
 
 

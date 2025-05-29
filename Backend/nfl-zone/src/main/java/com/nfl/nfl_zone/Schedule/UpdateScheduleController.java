@@ -3,6 +3,10 @@ package com.nfl.nfl_zone.Schedule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.opencsv.CSVReader;
@@ -11,13 +15,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-@Component
-public class UpdateSchedule {
+@RestController
+@RequestMapping(path="api/v1/updateSchedule")
+public class UpdateScheduleController {
 
-    public String updateScheduleCSVs(String year, String week, String seasonType) {
+    @GetMapping
+    public String updateScheduleCSVs(@RequestParam() String year) {
         // Call the Python Flask Endpoint to Update the CSV file containing the matchups from the given week, year, and season type
 
-        String flaskURL = String.format("http://localhost:5000/scheduleData/%s/%s/%s", year, week, seasonType);
+        String flaskURL = String.format("http://localhost:5000/scheduleData/%s", year);
         RestTemplate restTemplate = new RestTemplate();
 
         try {
@@ -66,7 +72,6 @@ public class UpdateSchedule {
                                 " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                         data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], Integer.parseInt(data[9]), Integer.parseInt(data[10]), data[11]);
             }
-
 
 
         } catch (Exception e) {
