@@ -10,7 +10,7 @@ const boxStyle = {
     alignItems: 'stretch',
     padding: '16px 0',
     boxSizing: 'border-box',
-    fontFamily: 'Roboto Mono, sans-serif',
+    fontFamily: 'Segoe UI, sans-serif',
 };
 
 const rowStyle = {
@@ -25,7 +25,7 @@ const topRowStyle = {
     justifyContent: 'space-between',
     fontWeight: 'bold',
     fontSize: '1.1em',
-    marginBottom: '60px',
+    marginBottom: '40px',
 };
 
 const teamsRowStyle = {
@@ -46,6 +46,18 @@ const recordsRowStyle = {
     marginBottom: '18px',
 };
 
+const scoresRowStyle = {
+     width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: '2.5em',
+    fontWeight: 'bold',
+    gap: '200px',  
+    marginBottom: '12px',
+    padding: '0 16px', 
+};
+
 const statusRowStyle = {
     width: '100%',
     display: 'flex',
@@ -53,6 +65,11 @@ const statusRowStyle = {
     fontWeight: 'bold',
     fontSize: '1.3em',
 };
+
+const losingStyle = {
+    color: '#666666'
+};
+
 
 
 const Schedule = ({ schedule }) => {
@@ -72,12 +89,32 @@ const Schedule = ({ schedule }) => {
                         <span style={{ marginRight: 16 }}>{game.venue}</span>
                     </div>
                     <div style={teamsRowStyle}>
-                        <span style={{ marginLeft: 16 }}>{game.awayTeam}</span>
-                        <span style={{ marginRight: 16 }}>{game.homeTeam}</span>
+                        <span style={{ 
+                            marginLeft: 16,
+                            ...(game.status === 'Final' && parseInt(game.awayTeamScore) < parseInt(game.homeTeamScore) ? losingStyle : {})
+                        }}>{game.awayTeam}</span>
+                        <span style={{ 
+                            marginRight: 16,
+                            ...(game.status === 'Final' && parseInt(game.homeTeamScore) < parseInt(game.awayTeamScore) ? losingStyle : {})
+                        }}>{game.homeTeam}</span>
                     </div>
                     <div style={recordsRowStyle}>
-                        <span style={{ marginLeft: 16 }}>({game.awayTeamRecord})</span>
-                        <span style={{ marginRight: 16 }}>({game.homeTeamRecord})</span>
+                        <span style={{ 
+                            marginLeft: 16,
+                            ...(game.status === 'Final' && parseInt(game.awayTeamScore) < parseInt(game.homeTeamScore) ? losingStyle : {})
+                        }}>({game.awayTeamRecord})</span>
+                        <span style={{ 
+                            marginRight: 16,
+                            ...(game.status === 'Final' && parseInt(game.homeTeamScore) < parseInt(game.awayTeamScore) ? losingStyle : {})
+                        }}>({game.homeTeamRecord})</span>
+                    </div>
+                    <div style={scoresRowStyle}>
+                        <span style={game.status === 'Final' && parseInt(game.awayTeamScore) < parseInt(game.homeTeamScore) ? losingStyle : {}}>
+                            {game.awayTeamScore}
+                        </span>
+                        <span style={game.status === 'Final' && parseInt(game.homeTeamScore) < parseInt(game.awayTeamScore) ? losingStyle : {}}>
+                            {game.homeTeamScore}
+                        </span>
                     </div>
                         <div style={statusRowStyle}>
                             {game.status && game.status.toUpperCase()}
@@ -89,10 +126,6 @@ const Schedule = ({ schedule }) => {
 
             <p>&nbsp;</p>
             <p>&nbsp;</p>
-
-
-
-
 
 
 

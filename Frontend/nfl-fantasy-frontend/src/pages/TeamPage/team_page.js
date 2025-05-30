@@ -72,8 +72,6 @@ const TeamPage = () => {
     useEffect(() => {
         throwLoadError(false); // reset loadError to false on each load
 
-
-
         // Update the section based on the based on the current path
         if (section === "Schedule") {
             (async () => {
