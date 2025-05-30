@@ -1,7 +1,7 @@
 import React from 'react';
 
 const boxStyle = {
-    background: '#bdbdbd',
+    background: '#b3cccc',
     margin: '1%',
     width: '48%',
     minWidth: '350px',
@@ -65,7 +65,7 @@ const GameScheduled = ({ game }) => {
                 <span style={{ marginRight: 16 }}>({game.homeTeamRecord})</span>
             </div>
             <div style={statusRowStyle}>
-                {game.status.toUpperCase()}
+                {`${game.status.toUpperCase()} • ${game.startTime} • ${game.broadcast}`} 
             </div>
         </div>
     );

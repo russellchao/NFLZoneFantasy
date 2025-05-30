@@ -31,7 +31,7 @@ def formatDate(date):
 def write_schedule_csv(allMatchups):
     csvFilename = f"ScheduleData/schedule_data.csv"
     header = ['Date', 'WeekNum', 'Status', 'AwayTeam', 'AwayTeamRecord', 'HomeTeam', 'HomeTeamRecord', 
-              'Venue', 'Broadcast', 'SeasonType', 'WeekId', 'GameId', 'AwayTeamScore', 'HomeTeamScore', 'Overtime']
+              'Venue', 'Broadcast', 'SeasonType', 'WeekId', 'GameId', 'AwayTeamScore', 'HomeTeamScore', 'Overtime', 'StartTime']
     try:
         with open(csvFilename, mode="w", newline="", encoding="utf-8") as file:
             writer = csv.DictWriter(file, fieldnames=header)
@@ -147,11 +147,22 @@ def get_schedule_data(year, week, seasonType):
                 overtime = "true"
 
 
+            # add the game's start time if the game's status is "Scheduled
+            start_time = "N/A"
+            if status == "Scheduled":
+                start_time_detail = matchup.get("status").get("type").get("detail").split(" ") 
+                #print(start_time_detail)
+                if start_time_detail[2] == "TBD":
+                    start_time = "TBD"
+                else:
+                    start_time = start_time_detail[4] + " " + start_time_detail[5] + " " + start_time_detail[6]
+
+
             # Add this matchup to the matchups this week list
             matchup_data = {'Date': fullDate, 'WeekNum': weekNum, 'Status': status, 'AwayTeam': awayTeam, 
                             'AwayTeamRecord': awayTeamRecord, 'HomeTeam': homeTeam, 'HomeTeamRecord': homeTeamRecord, 
                             'Venue': fullVenue, 'Broadcast': broadcast, 'SeasonType': seasonType, 'WeekId': week, 'GameId': gameId,
-                            'AwayTeamScore': awayTeamScore, 'HomeTeamScore': homeTeamScore, 'Overtime': overtime} 
+                            'AwayTeamScore': awayTeamScore, 'HomeTeamScore': homeTeamScore, 'Overtime': overtime, 'StartTime': start_time} 
             allMatchupsThisWk.append(matchup_data)
             
 
