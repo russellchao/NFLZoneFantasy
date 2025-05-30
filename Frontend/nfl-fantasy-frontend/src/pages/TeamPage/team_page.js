@@ -239,7 +239,9 @@ const TeamPage = () => {
             
 
             {section === "Schedule" ? (
-                <Schedule />
+                <Schedule 
+                    schedule = {schedule}
+                />
 
             ) : section === "Roster" ? (
                 <h2 style={{ paddingLeft: '20px' }}>Roster</h2>
@@ -253,7 +255,7 @@ const TeamPage = () => {
                     kickers = {kickers}
                 />
 
-            ) : null}; 
+            ) : null}
 
         </div>
     );

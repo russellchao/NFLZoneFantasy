@@ -84,10 +84,11 @@ def get_schedule_data(year, week, seasonType):
 
 
             # week number 
-            weekNum = matchup.get("week").get("number")
+            weekInText = matchup.get("week").get("number")
+            weekNum = "Week " + str(weekInText)
             if seasonType == 3:
                 # if it's the playoffs, retrieve the appropriate round given the week
-                weekNum = playoffKeys.get(int(weekNum))
+                weekNum = playoffKeys.get(int(weekInText), f"Week {weekInText}")
 
 
             # check if the status of a game is scheduled or finished (in the future I will try my best to scrape live games)
