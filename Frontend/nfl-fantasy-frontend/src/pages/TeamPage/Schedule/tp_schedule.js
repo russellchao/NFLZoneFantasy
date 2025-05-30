@@ -117,7 +117,10 @@ const Schedule = ({ schedule }) => {
                         </span>
                     </div>
                         <div style={statusRowStyle}>
-                            {game.status && game.status.toUpperCase()}
+                            {game.status && (game.overtime === true
+                                ? `${game.status.toUpperCase()}/OT`
+                                : game.status.toUpperCase()
+                            )}
                         </div>
                     </div>
                 ))}

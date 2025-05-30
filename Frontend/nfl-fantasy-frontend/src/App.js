@@ -12,7 +12,16 @@ function App() {
   return (
     <Router>
 
-      <nav style={{ padding: "20px", background: "#eee"}}>
+      <nav style={{ 
+        padding: "20px", 
+        background: "#eee",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1000,
+        width: "100%"
+      }}>
         <Link to="/" style={{ marginRight: "30px" }}>Home</Link>
         <Link to="/full_schedule" style={{ marginRight: "30px" }}>Schedule</Link>
         <Link to="/all_teams" style={{ marginRight: "30px" }}>Teams</Link>
@@ -20,15 +29,17 @@ function App() {
         <Link to="/search" style={{ marginRight: "30px" }}>Player Search</Link>
       </nav>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/all_teams" element={<AllTeams />} />
-        <Route path="/all_teams/:teamName" element={<TeamPage />} /> 
-        <Route path="/all_positions" element={<AllPositions />} />
-        <Route path="/all_positions/:positionName" element={<PositionPage />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/full_schedule" element={<FullSchedule />} />
-      </Routes>
+      <div style={{ paddingTop: "60px" }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/all_teams" element={<AllTeams />} />
+          <Route path="/all_teams/:teamName" element={<TeamPage />} /> 
+          <Route path="/all_positions" element={<AllPositions />} />
+          <Route path="/all_positions/:positionName" element={<PositionPage />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/full_schedule" element={<FullSchedule />} />
+        </Routes>
+      </div>
 
     </Router>
   );

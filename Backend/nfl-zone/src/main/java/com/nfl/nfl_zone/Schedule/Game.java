@@ -27,6 +27,7 @@ public class Game {
 
     private Integer awayTeamScore;
     private Integer homeTeamScore;
+    private Boolean overtime;
 
 
     public String getDate() {
@@ -139,5 +140,13 @@ public class Game {
 
     public void setHomeTeamScore(Integer homeTeamScore) {
         this.homeTeamScore = homeTeamScore;
+    }
+
+    public Boolean getOvertime() {
+        return overtime;
+    }
+
+    public void setOvertime(Boolean overtime) {
+        this.overtime = overtime;
     }
 }

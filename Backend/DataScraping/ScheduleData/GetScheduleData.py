@@ -31,7 +31,7 @@ def formatDate(date):
 def write_schedule_csv(allMatchups):
     csvFilename = f"ScheduleData/schedule_data.csv"
     header = ['Date', 'WeekNum', 'Status', 'AwayTeam', 'AwayTeamRecord', 'HomeTeam', 'HomeTeamRecord', 
-              'Venue', 'Broadcast', 'SeasonType', 'WeekId', 'GameId', 'AwayTeamScore', 'HomeTeamScore']
+              'Venue', 'Broadcast', 'SeasonType', 'WeekId', 'GameId', 'AwayTeamScore', 'HomeTeamScore', 'Overtime']
     try:
         with open(csvFilename, mode="w", newline="", encoding="utf-8") as file:
             writer = csv.DictWriter(file, fieldnames=header)
@@ -141,11 +141,17 @@ def get_schedule_data(year, week, seasonType):
                 homeTeamScore = int(matchup.get("competitions")[0].get("competitors")[0].get("score"))
 
 
+            # check if a finished game went into overtime (need to use lowercase "true" or "false" for Java)
+            overtime = "false"
+            if status == "Final" and matchup.get("competitions")[0].get("status").get("type").get("detail") == "Final/OT":
+                overtime = "true"
+
+
             # Add this matchup to the matchups this week list
             matchup_data = {'Date': fullDate, 'WeekNum': weekNum, 'Status': status, 'AwayTeam': awayTeam, 
                             'AwayTeamRecord': awayTeamRecord, 'HomeTeam': homeTeam, 'HomeTeamRecord': homeTeamRecord, 
                             'Venue': fullVenue, 'Broadcast': broadcast, 'SeasonType': seasonType, 'WeekId': week, 'GameId': gameId,
-                            'AwayTeamScore': awayTeamScore, 'HomeTeamScore': homeTeamScore} 
+                            'AwayTeamScore': awayTeamScore, 'HomeTeamScore': homeTeamScore, 'Overtime': overtime} 
             allMatchupsThisWk.append(matchup_data)
             
 
@@ -166,4 +172,4 @@ def get_schedule_data(year, week, seasonType):
 #     #   get_schedule_data(2024, 15, 2) for Week 15 of 2024, 
 #     #   get_schedule_data(2024, 5, 3) for Super Bowl of 2024-25 (Eagles 40, Chiefs 22)
 
-#     get_schedule_data(year=2024, week=1, seasonType=3)
+#     get_schedule_data(year=2024, week=1, seasonType=2)

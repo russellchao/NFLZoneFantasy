@@ -71,10 +71,10 @@ public class UpdateScheduleController {
 
                 jdbcTemplate.update(
                         "INSERT INTO schedule " +
-                                "(date, week_num, status, away_team, away_team_record, home_team, home_team_record, venue, broadcast, season_type, week_id, game_id, away_team_score, home_team_score)" +
-                                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                                "(date, week_num, status, away_team, away_team_record, home_team, home_team_record, venue, broadcast, season_type, week_id, game_id, away_team_score, home_team_score, overtime)" +
+                                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                         data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], Integer.parseInt(data[9]), Integer.parseInt(data[10]),
-                        data[11], Integer.parseInt(data[12]), Integer.parseInt(data[13]));
+                        data[11], Integer.parseInt(data[12]), Integer.parseInt(data[13]), Boolean.parseBoolean(data[14]));
             }
 
 
