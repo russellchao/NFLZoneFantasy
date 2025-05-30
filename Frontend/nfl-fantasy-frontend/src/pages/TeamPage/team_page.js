@@ -9,7 +9,7 @@ import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
 
 const TeamPage = () => {
     const { teamName } = useParams(); 
-    const [section, setSection] = useState("Player Stats"); 
+    const [section, setSection] = useState("Schedule"); // Default section is Schedule
     const allSections = ["Schedule", "Player Stats", "Roster"];
     const [teamSeason, setSeason] = useState("2024"); 
     const [loading, setLoading] = useState(true);

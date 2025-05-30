@@ -25,6 +25,9 @@ public class Game {
     @Column(name = "game_id")
     private String gameId;
 
+    private Integer awayTeamScore;
+    private Integer homeTeamScore;
+
 
     public String getDate() {
         return date;
@@ -120,5 +123,21 @@ public class Game {
 
     public void setGameId(String gameId) {
         this.gameId = gameId;
+    }
+
+    public Integer getAwayTeamScore() {
+        return awayTeamScore;
+    }
+
+    public void setAwayTeamScore(Integer awayTeamScore) {
+        this.awayTeamScore = awayTeamScore;
+    }
+
+    public Integer getHomeTeamScore() {
+        return homeTeamScore;
+    }
+
+    public void setHomeTeamScore(Integer homeTeamScore) {
+        this.homeTeamScore = homeTeamScore;
     }
 }

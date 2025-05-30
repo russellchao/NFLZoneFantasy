@@ -31,7 +31,7 @@ def formatDate(date):
 def write_schedule_csv(allMatchups):
     csvFilename = f"ScheduleData/schedule_data.csv"
     header = ['Date', 'WeekNum', 'Status', 'AwayTeam', 'AwayTeamRecord', 'HomeTeam', 'HomeTeamRecord', 
-              'Venue', 'Broadcast', 'SeasonType', 'WeekId', 'GameId']
+              'Venue', 'Broadcast', 'SeasonType', 'WeekId', 'GameId', 'AwayTeamScore', 'HomeTeamScore']
     try:
         with open(csvFilename, mode="w", newline="", encoding="utf-8") as file:
             writer = csv.DictWriter(file, fieldnames=header)
@@ -133,11 +133,19 @@ def get_schedule_data(year, week, seasonType):
             # game ID (for Java Entity Primary Key)
             gameId = matchup.get("competitions")[0].get("id")
 
+            # away team and home team scores (for Final games only)
+            awayTeamScore = -1
+            homeTeamScore = -1
+            if status == "Final":
+                awayTeamScore = int(matchup.get("competitions")[0].get("competitors")[1].get("score"))
+                homeTeamScore = int(matchup.get("competitions")[0].get("competitors")[0].get("score"))
+
 
             # Add this matchup to the matchups this week list
             matchup_data = {'Date': fullDate, 'WeekNum': weekNum, 'Status': status, 'AwayTeam': awayTeam, 
                             'AwayTeamRecord': awayTeamRecord, 'HomeTeam': homeTeam, 'HomeTeamRecord': homeTeamRecord, 
-                            'Venue': fullVenue, 'Broadcast': broadcast, 'SeasonType': seasonType, 'WeekId': week, 'GameId': gameId} 
+                            'Venue': fullVenue, 'Broadcast': broadcast, 'SeasonType': seasonType, 'WeekId': week, 'GameId': gameId,
+                            'AwayTeamScore': awayTeamScore, 'HomeTeamScore': homeTeamScore} 
             allMatchupsThisWk.append(matchup_data)
             
 
