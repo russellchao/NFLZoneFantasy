@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const boxStyle = {
     background: '#b3cccc',
     margin: '1%',
