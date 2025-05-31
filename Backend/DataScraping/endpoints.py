@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
-from PlayerStatsData.PlayerStatsScraper import scrape_player_stats
+from PlayerStatsData.PlayerStatsScraper import scrape_player_stats, scrape_player_stats_by_team
 from ScheduleData.GetScheduleData import get_schedule_data, write_schedule_csv
 
 
@@ -24,6 +24,38 @@ def update_player_stats(nflSeason):
     except Exception as e:
         print(f"Failure, {e}")
         return "Failure updating player stats data"
+
+
+
+# ENDPOINTS FOR OPTIMIZATTION 
+
+@app.route("/playerData/<nflSeason>/<teamName>")
+def update_player_stats_by_team(nflSeason, teamName): 
+    # Endpoint called from Spring Boot App that updates the player stats CSVs based on team name
+
+    data_types = ["passing", "rushing", "receiving", "defense", "kicking"]
+
+    try:
+        # Update each CSV
+        for d in data_types:
+            scrape_player_stats_by_team(data_type=d, season=nflSeason, team_name=teamName)
+
+        return "Success updating player stats data"
+
+    except Exception as e:
+        print(f"Failure, {e}")
+        return "Failure updating player stats data"
+
+
+
+
+
+
+
+
+
+
+
 
 
 

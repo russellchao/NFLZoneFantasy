@@ -130,17 +130,185 @@ def scrape_player_stats(data_type, season):
 
 
 
+def get_desired_stats(data_type):
+    """Helper function to return the desired stats dictionary based on data type"""
+    stats = {
+        "passing": {
+            "name_display": "Name", "age": "Age", "team_name_abbr": "Team", "pos": "Pos",
+            "games": "G", "pass_cmp": "Cmp", "pass_att": "Att", "pass_cmp_pct": "Cmp%",
+            "pass_yds": "Yds", "pass_td": "TD", "pass_int": "Int", "pass_long": "Long",
+            "pass_yds_per_g": "Y/G", "pass_rating": "Rate", "qbr": "QBR", "pass_sacked": "Sack"
+        },
+
+        "rushing": {
+            "name_display": "Name", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "rush_att": "Att",
+            "rush_yds": "Yds", "rush_td": "TD", "rush_long": "Long", "rush_yds_per_g": "Y/G", "fumbles": "Fmb"
+        },
+        
+        "receiving": {
+            "name_display": "Name", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "rec": "Rec",
+            "rec_yds": "Yds", "rec_td": "TD", "rec_long": "Long", "rec_yds_per_g": "Y/G", "fumbles": "Fmb"
+        },
+
+        "defense": {
+            "name_display": "Name", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "tackles_combined": "Tck", 
+            "tackles_solo": "Solo", "tackles_assists": "Asst", "tackles_loss": "TFL", "sacks": "Sack", "pass_defended": "PBU",
+            "def_int": "INT", "def_int_td": "INT TD", "fumbles_forced": "FF", "fumbles_rec": "FR", "fumbles_rec_td": "FRTD"
+        }, 
+
+        "kicking": {
+            "name_display": "Name", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "fga": "FGA", "fgm": "FGM",
+            "fg_long": "Long", "xpa": "XPA", "xpm": "XPM", "kickoff": "KO", "kickoff_yds": "KOYds", "kickoff_tb": "TB"
+        }
+    }
+    return stats.get(data_type, {})
 
 
-# if __name__ == "__main__":
 
-#     # Used for testing in terminal only. Will be replaced by Flask App endpoint. 
 
-#     scrape_player_stats(data_type="passing", season="2024")
-#     scrape_player_stats(data_type="rushing", season="2024")
-#     scrape_player_stats(data_type="receiving", season="2024")
-#     scrape_player_stats(data_type="defense", season="2024")
-#     scrape_player_stats(data_type="kicking", season="2024")
+def get_defensive_positions():
+    defensive_positions = {"DE", "LDE", "RDE", "DT", "LDT", "RDT", "NT", "LB", "ILB", "OLB", "LLB", "RLB", "MLB", "LILB", 
+                "RILB", "LOLB", "ROLB", "CB", "LCB", "RCB", "S", "FS", "SS", "DB", "EDGE"
+            }
+    
+    return defensive_positions
+
+
+
+
+
+
+def sort_player_data(players_data, data_type):
+    """Helper function to sort player data based on data type"""
+    if data_type in ["rushing", "receiving"]:
+        players_data.sort(key=lambda x: int(x["Yds"].replace(",", "")), reverse=True)
+    elif data_type == "defense":
+        players_data.sort(key=lambda x: int(x["Tck"].replace(",", "")), reverse=True)
+    elif data_type == "kicking":
+        players_data.sort(key=lambda x: int(x["FGM"].replace(",", "")), reverse=True)
+
+
+
+
+
+def scrape_player_stats_by_team(data_type, season, team_name):
+
+    print(f"Scraping {data_type} data for {season} for team {team_name}")
+
+    # Send a GET request to the stats page URL
+    response = requests.get(f"https://www.pro-football-reference.com/years/{season}/{data_type}.htm")
+    if response.status_code != 200:
+        print(int(response.headers["Retry-After"]))
+        raise Exception(f"Failed to load page ({response.status_code})")
+
+    # Parse the HTML content
+    soup = BeautifulSoup(response.content, "html.parser")
+
+    # Find the table directly
+    table = soup.find("table", id=data_type)
+    if table is None:
+        raise Exception("ERROR: Couldn't find the requested table.")
+    
+    # Debug: Print total rows before filtering
+    all_rows = table.tbody.find_all("tr")
+    print(f"Total rows before filtering: {len(all_rows)}")
+
+    # First filter rows by team to reduce processing
+    rows = [row for row in table.tbody.find_all("tr") 
+            if row.get("class") != ["thead"] 
+            and row.find("td", {"data-stat": "team_name_abbr"}) 
+            and row.find("td", {"data-stat": "team_name_abbr"}).text.strip() == team_name]
+
+    # Debug: Print filtered rows
+    print(f"Rows after team filtering: {len(rows)}")
+    
+    # Debug: Print team names found for verification
+    teams_found = set(row.find("td", {"data-stat": "team_name_abbr"}).text.strip() 
+                     for row in table.tbody.find_all("tr") 
+                     if row.find("td", {"data-stat": "team_name_abbr"}))
+    print(f"Teams found in data: {sorted(teams_found)}")
+    print(f"Looking for team: {team_name}")
+
+    # Set smaller limits since we're only looking at one team
+    position_limits = {
+        "passing": 4,    # Most teams only have 2-3 QBs
+        "rushing": 8,    # Running backs and occasional QB/WR rushers
+        "receiving": 12, # Main receivers and tight ends
+        "defense": 30,   # Main defensive players
+        "kicking": 2     # Usually 1 kicker per team
+    }
+    limit = position_limits.get(data_type, 30)
+
+    # Retreive player data with pre-filtered rows
+    desired_stats = get_desired_stats(data_type)
+    defensive_positions = get_defensive_positions() if data_type == "defense" else None
+
+    players_data = []
+    for row in rows[:limit]:
+        player_data = {}
+        skip_row = False
+
+        for stat_key, label in desired_stats.items():
+            cell = row.find("td", {"data-stat": stat_key})
+            if cell is None:
+                skip_row = True
+                break
+            player_data[label] = cell.text.strip()
+
+            if (data_type == "defense" and 
+                stat_key == "pos" and 
+                player_data[label] not in defensive_positions):
+                skip_row = True
+                break
+
+        if not skip_row:
+            players_data.append(player_data)
+
+    if not players_data:
+        print(f"No {data_type} data found for {team_name}")
+        return
+
+    # Sort data based on type
+    sort_player_data(players_data, data_type)
+
+    # Export player data to .csv file
+    filename = f"PlayerStatsData/{data_type}_stats.csv"
+    
+    try:
+        with open(filename, mode="w", newline="", encoding="utf-8") as file:
+            writer = csv.DictWriter(file, fieldnames=list(players_data[0].keys()))
+            writer.writeheader()
+            writer.writerows(players_data)
+    except Exception as e:
+        print(f"PLAYER STATS DATA FILE WRITE ERROR ({data_type}):", e)
+
+
+    return 
+
+
+
+
+
+
+
+
+
+
+
+
+
+if __name__ == "__main__":
+
+    # Used for testing in terminal only. Will be replaced by Flask App endpoint. 
+
+    data_types = ["passing", "rushing", "receiving", "defense", "kicking"]
+
+    for d in data_types:
+
+        # scrape_player_stats(data_type=d, season="2024")
+
+        # Optimized function - only scrapes player stats for a specific team (e.g., BUF)
+        scrape_player_stats_by_team(data_type=d, season="2024", team_name="BUF")
 
 
     
