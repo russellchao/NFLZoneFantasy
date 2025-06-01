@@ -130,69 +130,6 @@ def scrape_player_stats(data_type, season):
 
 
 
-def get_desired_stats(data_type):
-    """Helper function to return the desired stats dictionary based on data type"""
-    stats = {
-        "passing": {
-            "name_display": "Name", "age": "Age", "team_name_abbr": "Team", "pos": "Pos",
-            "games": "G", "pass_cmp": "Cmp", "pass_att": "Att", "pass_cmp_pct": "Cmp%",
-            "pass_yds": "Yds", "pass_td": "TD", "pass_int": "Int", "pass_long": "Long",
-            "pass_yds_per_g": "Y/G", "pass_rating": "Rate", "qbr": "QBR", "pass_sacked": "Sack"
-        },
-
-        "rushing": {
-            "name_display": "Name", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "rush_att": "Att",
-            "rush_yds": "Yds", "rush_td": "TD", "rush_long": "Long", "rush_yds_per_g": "Y/G", "fumbles": "Fmb"
-        },
-        
-        "receiving": {
-            "name_display": "Name", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "rec": "Rec",
-            "rec_yds": "Yds", "rec_td": "TD", "rec_long": "Long", "rec_yds_per_g": "Y/G", "fumbles": "Fmb"
-        },
-
-        "defense": {
-            "name_display": "Name", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "tackles_combined": "Tck", 
-            "tackles_solo": "Solo", "tackles_assists": "Asst", "tackles_loss": "TFL", "sacks": "Sack", "pass_defended": "PBU",
-            "def_int": "INT", "def_int_td": "INT TD", "fumbles_forced": "FF", "fumbles_rec": "FR", "fumbles_rec_td": "FRTD"
-        }, 
-
-        "kicking": {
-            "name_display": "Name", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "fga": "FGA", "fgm": "FGM",
-            "fg_long": "Long", "xpa": "XPA", "xpm": "XPM", "kickoff": "KO", "kickoff_yds": "KOYds", "kickoff_tb": "TB"
-        }
-    }
-    return stats.get(data_type, {})
-
-
-
-
-def get_defensive_positions():
-    defensive_positions = {"DE", "LDE", "RDE", "DT", "LDT", "RDT", "NT", "LB", "ILB", "OLB", "LLB", "RLB", "MLB", "LILB", 
-                "RILB", "LOLB", "ROLB", "CB", "LCB", "RCB", "S", "FS", "SS", "DB", "EDGE"
-            }
-    
-    return defensive_positions
-
-
-
-
-
-
-def sort_player_data(players_data, data_type):
-    """Helper function to sort player data based on data type"""
-    if data_type in ["rushing", "receiving"]:
-        players_data.sort(key=lambda x: int(x["Yds"].replace(",", "")), reverse=True)
-    elif data_type == "defense":
-        players_data.sort(key=lambda x: int(x["Tck"].replace(",", "")), reverse=True)
-    elif data_type == "kicking":
-        players_data.sort(key=lambda x: int(x["FGM"].replace(",", "")), reverse=True)
-
-
-
-
-
-def scrape_player_stats_by_team(data_type, season, team_name):
-
     print(f"Scraping {data_type} data for {season} for team {team_name}")
 
     # Send a GET request to the stats page URL
@@ -290,25 +227,17 @@ def scrape_player_stats_by_team(data_type, season, team_name):
 
 
 
+# if __name__ == "__main__":
 
+#     # Used for testing in terminal only. Will be replaced by Flask App endpoint. 
 
+#     data_types = ["passing", "rushing", "receiving", "defense", "kicking"]
 
+#     for d in data_types:
 
+#         # scrape_player_stats(data_type=d, season="2024")
 
-
-
-if __name__ == "__main__":
-
-    # Used for testing in terminal only. Will be replaced by Flask App endpoint. 
-
-    data_types = ["passing", "rushing", "receiving", "defense", "kicking"]
-
-    for d in data_types:
-
-        # scrape_player_stats(data_type=d, season="2024")
-
-        # Optimized function - only scrapes player stats for a specific team (e.g., BUF)
-        scrape_player_stats_by_team(data_type=d, season="2024", team_name="BUF")
+    
 
 
     

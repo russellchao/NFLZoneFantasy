@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
-from PlayerStatsData.PlayerStatsScraper import scrape_player_stats, scrape_player_stats_by_team
-from ScheduleData.GetScheduleData import get_schedule_data, get_schedule_data_by_week, get_schedule_data_by_team, write_schedule_csv
+from PlayerStatsData.PlayerStatsScraper import scrape_player_stats
+from ScheduleData.GetScheduleData import get_schedule_data, write_schedule_csv
 
 
 app = Flask(__name__)
@@ -24,33 +24,6 @@ def update_player_stats(nflSeason):
     except Exception as e:
         print(f"Failure, {e}")
         return "Failure updating player stats data"
-
-
-
-# PLAYER DATA ENDPOINTS FOR OPTIMIZATTION 
-
-@app.route("/playerData/<nflSeason>/<teamName>")
-def update_player_stats_by_team(nflSeason, teamName): 
-    # Endpoint called from Spring Boot App that updates the player stats CSVs based on team name
-
-    data_types = ["passing", "rushing", "receiving", "defense", "kicking"]
-
-    try:
-        # Update each CSV
-        for d in data_types:
-            scrape_player_stats_by_team(data_type=d, season=nflSeason, team_name=teamName)
-
-        return "Success updating player stats data"
-
-    except Exception as e:
-        print(f"Failure, {e}")
-        return "Failure updating player stats data"
-
-
-
-
-
-
 
 
 
@@ -93,58 +66,6 @@ def update_schedule(year):
         
 
 
-
-# SCHEDULE DATA ENDPOINTS FOR OPTIMIZATION
-
-@app.route("/scheduleData/<year>/<week>/<seasonType>")
-def update_schedule_by_week(year, week, seasonType):
-    # Retrieves all matches of the given week for a specific year and season type (2 for regular season, 3 for playoffs)
-
-    try:
-        get_schedule_data_by_week(year, week, seasonType)
-        
-        return "Success updating schedule data"
-    
-    except Exception as e:
-        print(f"Failure, {e}")
-        return "Failure updating schedule data"
-    
-
-
-@app.route("/scheduleData/<year>/<teamName>/<seasonType>")
-def update_schedule(year):
-    # Retrieves all regular season and playoff matches (if applicable) of the given year for a specific team
-
-    all_matchups = []
-    
-    try:
-        for i in range(1,24):
-            # There are a total of 23 weeks (excluding preseason) in an NFL season, with week 23 being the Super Bowl
-
-            week = i
-            seasonType = 2
-
-            if (week == 22):
-                # Week 22 is the Pro Bowl so no need to extract game data from that week
-                continue
-
-            if (week > 18): 
-                # This if statement obtains the proper week number when retrieving playoff games
-                week -= 18
-                seasonType = 3
-
-            all_matchups += get_schedule_data_by_team(year, week, seasonType)
-
-
-        # Write all matchups to the schedule CSV file
-        write_schedule_csv(all_matchups)
-        
-        
-        return "Success updating schedule data"
-    
-    except Exception as e:
-        print(f"Failure, {e}")
-        return "Failure updating schedule data"
 
 
 
