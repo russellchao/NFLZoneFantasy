@@ -32,6 +32,7 @@ const FullSchedule = () => {
 
     useEffect(() => {
         // Fetch the full schedule for the selected season
+        throwLoadError(false);
 
         (async () => {
             await updateScheduleDB(); 
@@ -53,6 +54,7 @@ const FullSchedule = () => {
 
     useEffect(() => {
         // Get the matchups for the selected week
+        throwLoadError(false);
 
         console.log(`Changed week to ${week}`);
 
@@ -107,6 +109,7 @@ const FullSchedule = () => {
                 onChange = {setWeek}
             />
             
+            
             <p>&nbsp;</p>
 
             {/* Display all matchups for each date in the selected week */}
@@ -136,6 +139,9 @@ const FullSchedule = () => {
                     
                 )}
             </div>
+
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
 
 
         </div>
