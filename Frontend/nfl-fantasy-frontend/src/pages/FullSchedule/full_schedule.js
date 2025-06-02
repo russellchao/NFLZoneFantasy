@@ -9,8 +9,7 @@ import WeekDropdownMenu from '../Components/WeekDropdown/week_dropdown';
 const FullSchedule = () => {
     const [schedule, setSchedule] = useState([]);
     const [teamSeason, setSeason] = useState("2025"); 
-    const [matchups, setMatchups] = useState([]); // matchyups for the selected week
-    const [week, setWeek] = useState("1");
+    const [week, setWeek] = useState("Week 1");
     const [loading, setLoading] = useState(true); 
     const [loadError, throwLoadError] = useState(false); // Error state for loading data
     const [datesThisWeek, setDatesThisWeek] = useState([]); // Dates for the selected week
@@ -21,6 +20,8 @@ const FullSchedule = () => {
         if (!loading) {
             setLoading(true); 
         }
+
+        console.log(`Database Loading: ${loading}`);
 
         // In case updating the schedule CSV is unsuccessful, the function will return such a response
         const csv_result = await fetchUpdateScheduleDB(teamSeason); 
@@ -61,13 +62,9 @@ const FullSchedule = () => {
         (async () => {  
             const schedule_data = await fetchScheduleByWeek(week); 
             setSchedule(schedule_data);
-
-            setLoading(false);
-
         })(); 
 
     }, [week]);
-
 
 
 
@@ -92,6 +89,33 @@ const FullSchedule = () => {
 
 
 
+    // When the page is loading schedule data
+    if (loading) {
+        return (
+            <p style={{ paddingLeft: '20px' }}>Loading the {teamSeason} NFL schedule...</p>
+        );
+    }
+
+
+
+    // When the schedule data could not be loaded
+    if (loadError) {
+        return (
+            <div>
+                <p style={{ paddingLeft: '20px' }}>
+                    Error, could not load the schedule for the {teamSeason} season.
+                </p>
+
+                {/* Season section drop-down menu */}
+                <SeasonDropdownMenu
+                    teamSeason = {teamSeason}
+                    onChange = {setSeason}
+                />
+            </div>
+        );
+    }
+
+
 
     return (
         <div>
@@ -114,30 +138,22 @@ const FullSchedule = () => {
 
             {/* Display all matchups for each date in the selected week */}
             <div style={{ paddingLeft: '20px' }}>
-                {loading ? (
-                    <p>Loading...</p>
-                ) : loadError ? (
-                    <p>Error loading schedule data. Please try again later.</p>
-                ) : (
-                    
-                    datesThisWeek.map((date, idx) => (
-                        <div key={idx}>
-                            <h2>{date}</h2>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
-                                {schedule.filter(game => game.date === date).map((game, gameIdx) => (
-                                    game.status === 'Final' ? (
-                                        <GameFinal key={game.gameId || gameIdx} game={game} />
-                                    ) : game.status === 'Scheduled' ? (
-                                        <GameScheduled key={game.gameId || gameIdx} game={game} />
-                                    ) : (
-                                        <></>
-                                    )
-                                ))}
-                            </div>
+                {datesThisWeek.map((date, idx) => (
+                    <div key={idx}>
+                        <h2>{date}</h2>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
+                            {schedule.filter(game => game.date === date).map((game, gameIdx) => (
+                                game.status === 'Final' ? (
+                                    <GameFinal key={game.gameId || gameIdx} game={game} />
+                                ) : game.status === 'Scheduled' ? (
+                                    <GameScheduled key={game.gameId || gameIdx} game={game} />
+                                ) : (
+                                    <></>
+                                )
+                            ))}
                         </div>
-                    ))
-                    
-                )}
+                    </div>
+                ))}       
             </div>
 
             <p>&nbsp;</p>
