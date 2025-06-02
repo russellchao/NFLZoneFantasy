@@ -13,6 +13,7 @@ const FullSchedule = () => {
     const [week, setWeek] = useState("1");
     const [loading, setLoading] = useState(true); 
     const [loadError, throwLoadError] = useState(false); // Error state for loading data
+    const datesThisWeek = []; // Dates for the selected week
 
 
     // Update the schedule database to retrieve the latest schedule data
@@ -66,11 +67,22 @@ const FullSchedule = () => {
     }, [week]);
 
 
-    
+
 
     useEffect(() => {
         // Log the updated schedule whenever it changes
         console.log('Updated schedule:', schedule);
+
+        // Set the dates for the selected week
+        for (let i = 0; i < schedule.length; i++) {
+            const game = schedule[i];
+            if (game.date && !datesThisWeek.includes(game.date)) {
+                datesThisWeek.push(game.date);
+            }
+        }
+
+        console.log('Updated dates:', datesThisWeek);
+
     }, [schedule]);
 
 
