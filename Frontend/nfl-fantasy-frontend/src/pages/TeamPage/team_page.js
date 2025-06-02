@@ -11,13 +11,12 @@ const TeamPage = () => {
     const { teamName } = useParams(); 
     const [section, setSection] = useState("Schedule"); // Default section is Schedule
     const allSections = ["Schedule", "Player Stats", "Roster"];
-    const [teamSeason, setSeason] = useState("2024"); 
+    const [teamSeason, setSeason] = useState("2025"); 
     const [loading, setLoading] = useState(true);
     const [loadError, throwLoadError] = useState(false); 
 
 
     // For schedule section
-    const [week, setWeek] = useState("1")
     const [schedule, setSchedule] = useState([]); 
 
 

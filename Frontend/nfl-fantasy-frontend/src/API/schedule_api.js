@@ -1,3 +1,5 @@
+import { type } from "@testing-library/user-event/dist/type";
+
 export const fetchScheduleByTeam = async (teamName) => {
     try {
         const response = await fetch(
@@ -22,7 +24,38 @@ export const fetchScheduleByTeam = async (teamName) => {
 
 
 export const fetchScheduleByWeek = async (weekNum) => {
+    try {
 
+        let weekNumStr; 
+
+        if (typeof weekNum === "number") {
+            weekNumStr = `Week ${weekNum}`; 
+        }
+
+        if (weekNum === "Wild Card" || weekNum === "Divisional") {
+            weekNumStr = `${weekNum} Round`; 
+        }
+
+        if (weekNum === "Conference") {
+            weekNumStr = "Conference Championships"; 
+        }
+
+        const response = await fetch(
+            `http://localhost:8081/api/v1/schedule?weekNum=${encodeURIComponent(weekNum)}`
+        );
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`)
+        }
+
+        const data = await response.json(); 
+        console.log(data); 
+        return data; 
+
+    } catch (error) {
+        console.error("Failed to fetch data:", error);
+        return []; 
+    }
 };
 
 
