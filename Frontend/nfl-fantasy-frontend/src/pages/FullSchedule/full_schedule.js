@@ -13,7 +13,7 @@ const FullSchedule = () => {
     const [week, setWeek] = useState("1");
     const [loading, setLoading] = useState(true); 
     const [loadError, throwLoadError] = useState(false); // Error state for loading data
-    const datesThisWeek = []; // Dates for the selected week
+    const [datesThisWeek, setDatesThisWeek] = useState([]); // Dates for the selected week
 
 
     // Update the schedule database to retrieve the latest schedule data
@@ -74,12 +74,15 @@ const FullSchedule = () => {
         console.log('Updated schedule:', schedule);
 
         // Set the dates for the selected week
+        const newDatesThisWeek = [];
         for (let i = 0; i < schedule.length; i++) {
             const game = schedule[i];
-            if (game.date && !datesThisWeek.includes(game.date)) {
-                datesThisWeek.push(game.date);
+            if (game.date && !newDatesThisWeek.includes(game.date)) {
+                newDatesThisWeek.push(game.date);
             }
         }
+
+        setDatesThisWeek(newDatesThisWeek); 
 
         console.log('Updated dates:', datesThisWeek);
 
@@ -104,8 +107,35 @@ const FullSchedule = () => {
                 onChange = {setWeek}
             />
             
-            
             <p>&nbsp;</p>
+
+            {/* Display all matchups for each date in the selected week */}
+            <div style={{ paddingLeft: '20px' }}>
+                {loading ? (
+                    <p>Loading...</p>
+                ) : loadError ? (
+                    <p>Error loading schedule data. Please try again later.</p>
+                ) : (
+                    
+                    datesThisWeek.map((date, idx) => (
+                        <div key={idx}>
+                            <h2>{date}</h2>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
+                                {schedule.filter(game => game.date === date).map((game, gameIdx) => (
+                                    game.status === 'Final' ? (
+                                        <GameFinal key={game.gameId || gameIdx} game={game} />
+                                    ) : game.status === 'Scheduled' ? (
+                                        <GameScheduled key={game.gameId || gameIdx} game={game} />
+                                    ) : (
+                                        <></>
+                                    )
+                                ))}
+                            </div>
+                        </div>
+                    ))
+                    
+                )}
+            </div>
 
 
         </div>
