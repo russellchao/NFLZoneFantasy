@@ -3,6 +3,7 @@ import { fetchScheduleByWeek, fetchUpdateScheduleDB } from '../../API/schedule_a
 import GameFinal from '../Components/Schedule/game_final';
 import GameScheduled from '../Components/Schedule/game_scheduled';
 import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
+import WeekDropdownMenu from '../Components/WeekDropdown/week_dropdown';
 
 
 const FullSchedule = () => {
@@ -52,16 +53,25 @@ const FullSchedule = () => {
     useEffect(() => {
         // Get the matchups for the selected week
 
+        console.log(`Changed week to ${week}`);
+
         (async () => {  
             const schedule_data = await fetchScheduleByWeek(week); 
             setSchedule(schedule_data);
 
             setLoading(false);
 
-            console.log(schedule);
         })(); 
 
     }, [week]);
+
+
+    
+
+    useEffect(() => {
+        // Log the updated schedule whenever it changes
+        console.log('Updated schedule:', schedule);
+    }, [schedule]);
 
 
 
@@ -77,37 +87,10 @@ const FullSchedule = () => {
             />
 
             {/* Week selection dropdown menu */}
-            <label for="weeks" style={{ paddingLeft: '30px' }}>Week</label>
-            <select 
-                name="weeks" 
-                id="weeks" 
-                style={{marginLeft: '5px' }}
-                value={week}
-                onChange={(e) => setWeek(e.target.value)}
-            >
-                <option value="Week 1">1</option>
-                <option value="Week 2">2</option>
-                <option value="Week 3">3</option>
-                <option value="Week 4">4</option>
-                <option value="Week 5">5</option>
-                <option value="Week 6">6</option>
-                <option value="Week 7">7</option>
-                <option value="Week 8">8</option>
-                <option value="Week 9">9</option>
-                <option value="Week 10">10</option>
-                <option value="Week 11">11</option>
-                <option value="Week 12">12</option>
-                <option value="Week 13">13</option>
-                <option value="Week 14">14</option>
-                <option value="Week 15">15</option>
-                <option value="Week 16">16</option>
-                <option value="Week 17">17</option>
-                <option value="Week 18">18</option>
-                <option value="Wild Card Round">Wild Card</option>
-                <option value="Divisional Round">Divisional</option>
-                <option value="Conference Championships">Conference</option>
-                <option value="Super Bowl">Super Bowl</option>
-            </select>
+            <WeekDropdownMenu
+                week = {week}
+                onChange = {setWeek}
+            />
             
             
             <p>&nbsp;</p>

@@ -25,21 +25,6 @@ export const fetchScheduleByTeam = async (teamName) => {
 
 export const fetchScheduleByWeek = async (weekNum) => {
     try {
-
-        let weekNumStr; 
-
-        if (typeof weekNum === "number") {
-            weekNumStr = `Week ${weekNum}`; 
-        }
-
-        if (weekNum === "Wild Card" || weekNum === "Divisional") {
-            weekNumStr = `${weekNum} Round`; 
-        }
-
-        if (weekNum === "Conference") {
-            weekNumStr = "Conference Championships"; 
-        }
-
         const response = await fetch(
             `http://localhost:8081/api/v1/schedule?weekNum=${encodeURIComponent(weekNum)}`
         );
