@@ -4,6 +4,7 @@ import GameFinal from '../Components/Schedule/game_final';
 import GameScheduled from '../Components/Schedule/game_scheduled';
 import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
 import WeekDropdownMenu from '../Components/WeekDropdown/week_dropdown';
+import TeamDropdownMenu from '../Components/TeamDropdown/team_dropdown';
 
 
 const FullSchedule = () => {
@@ -13,9 +14,14 @@ const FullSchedule = () => {
     const [loading, setLoading] = useState(true); 
     const [loadError, throwLoadError] = useState(false); // Error state for loading data
     const [datesThisWeek, setDatesThisWeek] = useState([]); // Dates for the selected week
+    
+    // Variables for finding specific matchups
+    const [specificTeam1, setSpecificTeam1] = useState("");
+    const [specificTeam2, setSpecificTeam2] = useState("");
 
     // Track if initial fetch has been done
     const initialFetchRef = useRef(false);
+    const [yearChanged, setYearChanged] = useState(false); // Track if the year has changed so we can re-fetch data
 
 
     // Update the schedule database to retrieve the latest schedule data
@@ -35,11 +41,8 @@ const FullSchedule = () => {
 
 
     useEffect(() => {
-        console.log(`First time load 1: ${initialFetchRef.current}`); // DEBUG
-
-        // Skip if we've already done the initial fetch
         if (initialFetchRef.current) {
-            return;
+            return; // Skip if we've already done the initial fetch
         } else {
             initialFetchRef.current = true; // Mark that we've done the initial fetch
         }
@@ -66,8 +69,6 @@ const FullSchedule = () => {
 
 
     useEffect(() => {
-        console.log(`First time load 2: ${initialFetchRef.current}`);  // DEBUG
-
         // Skip week changes during initial load
         if (!initialFetchRef.current) {
             return;
@@ -134,7 +135,10 @@ const FullSchedule = () => {
                 {/* Season section drop-down menu */}
                 <SeasonDropdownMenu
                     teamSeason = {teamSeason}
-                    onChange = {setSeason}
+                    onChange={(newSeason) => {
+                        setSeason(newSeason);
+                        setYearChanged(true);
+                    }}
                 />
             </div>
         );
@@ -146,10 +150,10 @@ const FullSchedule = () => {
         <div>
             <h1 style={{ paddingLeft:'20px' }}>Full Schedule</h1>
 
-            {/* Season selection drop-down menu */}
+            {/* Season selection drop-down menu (re-fetch schedule data if changed) */}
             <SeasonDropdownMenu
                 teamSeason = {teamSeason}
-                onChange = {setSeason}
+                onChange = {setSeason, setYearChanged(true)}
             />
 
             {/* Week selection dropdown menu */}
@@ -157,6 +161,16 @@ const FullSchedule = () => {
                 week = {week}
                 onChange = {setWeek}
             />
+
+            {/* Specific matchup finder option */}
+            <span style={{ marginLeft: '200px' }}>Find a matchup: </span>
+            <TeamDropdownMenu
+                team={specificTeam1}
+            ></TeamDropdownMenu>
+            <span style={{ marginLeft: '25px' }}>vs.</span>
+            <TeamDropdownMenu
+                team={specificTeam2}
+            ></TeamDropdownMenu>
             
             
             <p>&nbsp;</p>
