@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 import { fetchScheduleByWeek, fetchUpdateScheduleDB } from '../../API/schedule_api';
 import GameFinal from '../Components/Schedule/game_final';
 import GameScheduled from '../Components/Schedule/game_scheduled';
@@ -13,7 +13,9 @@ const FullSchedule = () => {
     const [loading, setLoading] = useState(true); 
     const [loadError, throwLoadError] = useState(false); // Error state for loading data
     const [datesThisWeek, setDatesThisWeek] = useState([]); // Dates for the selected week
-    const [firstTimeLoad, setFirstTimeLoad] = useState(true); 
+
+    // Track if initial fetch has been done
+    const initialFetchRef = useRef(false);
 
 
     // Update the schedule database to retrieve the latest schedule data
@@ -33,6 +35,15 @@ const FullSchedule = () => {
 
 
     useEffect(() => {
+        console.log(`First time load 1: ${initialFetchRef.current}`); // DEBUG
+
+        // Skip if we've already done the initial fetch
+        if (initialFetchRef.current) {
+            return;
+        } else {
+            initialFetchRef.current = true; // Mark that we've done the initial fetch
+        }
+
         // Fetch the full schedule for the selected season
         throwLoadError(false);
 
@@ -47,8 +58,6 @@ const FullSchedule = () => {
             setLoading(false);
 
             console.log(schedule);
-
-            console.log(`First time load 1: ${firstTimeLoad}`); // DEBUG
         })();
 
     }, [teamSeason]);
@@ -57,28 +66,34 @@ const FullSchedule = () => {
 
 
     useEffect(() => {
-        console.log(`First time load 2: ${firstTimeLoad}`);  // DEBUG
+        console.log(`First time load 2: ${initialFetchRef.current}`);  // DEBUG
 
-        if (!firstTimeLoad) {
-            // Get the matchups for the selected week
-            throwLoadError(false);
-
-            console.log(`Changed week to ${week}`);
-
-            (async () => {  
-                const schedule_data = await fetchScheduleByWeek(week); 
-                setSchedule(schedule_data);
-            })(); 
-        } else {
-            // Set the first time load variable to false after the first load to prevent resetting the schedule
-            setFirstTimeLoad(false);
+        // Skip week changes during initial load
+        if (!initialFetchRef.current) {
+            return;
         }
+
+        // Get the matchups for the selected week
+        throwLoadError(false);
+
+        console.log(`Changed week to ${week}`);
+
+        (async () => {  
+            const schedule_data = await fetchScheduleByWeek(week); 
+            setSchedule(schedule_data);
+        })(); 
+        
 
     }, [week]);
 
 
 
     useEffect(() => {
+        // Skip week changes during initial load
+        if (!initialFetchRef.current) {
+            return;
+        }
+
         // Log the updated schedule whenever it changes
         console.log('Updated schedule:', schedule);
 
