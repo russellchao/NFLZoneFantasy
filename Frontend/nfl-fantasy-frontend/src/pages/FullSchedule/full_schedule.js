@@ -213,6 +213,9 @@ const FullSchedule = () => {
                     <p>Week 12: MIA, DEN, LAC, WAS</p>
                     <p>Week 14: NYG, NE, CAR, SF</p>
                 </div>
+            ) : teamSeason === "2022" && week === "Week 17" ?  (
+                // If viewing the 2022 schedule, indicate the cancelled Bills vs. Bengals game
+                <p style={{ paddingLeft: '20px' }}>The Buffalo Bills vs. Cincinnati Bengals week 17 game was cancelled due to a medical emergency involving Bills Safety Damar Hamlin.</p>
             ) : (
                 <></>
             )}

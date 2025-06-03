@@ -1,286 +1,286 @@
 Date,WeekNum,Status,AwayTeam,AwayTeamRecord,HomeTeam,HomeTeamRecord,Venue,Broadcast,SeasonType,WeekId,GameId,AwayTeamScore,HomeTeamScore,Overtime,StartTime
-"September 4, 2025",Week 1,Scheduled,Dallas Cowboys,0-0,Philadelphia Eagles,0-0,"Lincoln Financial Field, Philadelphia, PA, USA",NBC/Peacock,2,1,401772510,-1,-1,false,8:20 PM EDT
-"September 5, 2025",Week 1,Scheduled,Kansas City Chiefs,0-0,Los Angeles Chargers,0-0,"Corinthians Arena, Sao Paulo, None, Brazil",YouTube,2,1,401772714,-1,-1,false,8:00 PM EDT
-"September 7, 2025",Week 1,Scheduled,Tampa Bay Buccaneers,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",FOX,2,1,401772830,-1,-1,false,1:00 PM EDT
-"September 7, 2025",Week 1,Scheduled,Cincinnati Bengals,0-0,Cleveland Browns,0-0,"Huntington Bank Field, Cleveland, OH, USA",FOX,2,1,401772829,-1,-1,false,1:00 PM EDT
-"September 7, 2025",Week 1,Scheduled,Miami Dolphins,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",CBS,2,1,401772719,-1,-1,false,1:00 PM EDT
-"September 7, 2025",Week 1,Scheduled,Las Vegas Raiders,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",CBS,2,1,401772720,-1,-1,false,1:00 PM EDT
-"September 7, 2025",Week 1,Scheduled,Arizona Cardinals,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",CBS,2,1,401772718,-1,-1,false,1:00 PM EDT
-"September 7, 2025",Week 1,Scheduled,Pittsburgh Steelers,0-0,New York Jets,0-0,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,1,401772721,-1,-1,false,1:00 PM EDT
-"September 7, 2025",Week 1,Scheduled,New York Giants,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",FOX,2,1,401772827,-1,-1,false,1:00 PM EDT
-"September 7, 2025",Week 1,Scheduled,Carolina Panthers,0-0,Jacksonville Jaguars,0-0,"EverBank Stadium, Jacksonville, FL, USA",FOX,2,1,401772828,-1,-1,false,1:00 PM EDT
-"September 7, 2025",Week 1,Scheduled,Tennessee Titans,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",FOX,2,1,401772832,-1,-1,false,4:05 PM EDT
-"September 7, 2025",Week 1,Scheduled,San Francisco 49ers,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",FOX,2,1,401772831,-1,-1,false,4:05 PM EDT
-"September 7, 2025",Week 1,Scheduled,Detroit Lions,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",CBS,2,1,401772722,-1,-1,false,4:25 PM EDT
-"September 7, 2025",Week 1,Scheduled,Houston Texans,0-0,Los Angeles Rams,0-0,"SoFi Stadium, Inglewood, CA, USA",CBS,2,1,401772723,-1,-1,false,4:25 PM EDT
-"September 7, 2025",Week 1,Scheduled,Baltimore Ravens,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",NBC,2,1,401772918,-1,-1,false,8:20 PM EDT
-"September 8, 2025",Week 1,Scheduled,Minnesota Vikings,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",ABC/ESPN,2,1,401772810,-1,-1,false,8:15 PM EDT
-"September 11, 2025",Week 2,Scheduled,Washington Commanders,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",Prime Video,2,2,401772936,-1,-1,false,8:15 PM EDT
-"September 14, 2025",Week 2,Scheduled,Jacksonville Jaguars,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",CBS,2,2,401772725,-1,-1,false,1:00 PM EDT
-"September 14, 2025",Week 2,Scheduled,New York Giants,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",FOX,2,2,401772834,-1,-1,false,1:00 PM EDT
-"September 14, 2025",Week 2,Scheduled,Chicago Bears,0-0,Detroit Lions,0-0,"Ford Field, Detroit, MI, USA",FOX,2,2,401772835,-1,-1,false,1:00 PM EDT
-"September 14, 2025",Week 2,Scheduled,Los Angeles Rams,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",CBS,2,2,401772724,-1,-1,false,1:00 PM EDT
-"September 14, 2025",Week 2,Scheduled,New England Patriots,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",CBS,2,2,401772728,-1,-1,false,1:00 PM EDT
-"September 14, 2025",Week 2,Scheduled,San Francisco 49ers,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",FOX,2,2,401772833,-1,-1,false,1:00 PM EDT
-"September 14, 2025",Week 2,Scheduled,Buffalo Bills,0-0,New York Jets,0-0,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,2,401772727,-1,-1,false,1:00 PM EDT
-"September 14, 2025",Week 2,Scheduled,Seattle Seahawks,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",FOX,2,2,401772836,-1,-1,false,1:00 PM EDT
-"September 14, 2025",Week 2,Scheduled,Cleveland Browns,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",CBS,2,2,401772726,-1,-1,false,1:00 PM EDT
-"September 14, 2025",Week 2,Scheduled,Denver Broncos,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",CBS,2,2,401772729,-1,-1,false,4:05 PM EDT
-"September 14, 2025",Week 2,Scheduled,Carolina Panthers,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",CBS,2,2,401772730,-1,-1,false,4:05 PM EDT
-"September 14, 2025",Week 2,Scheduled,Philadelphia Eagles,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",FOX,2,2,401772837,-1,-1,false,4:25 PM EDT
-"September 14, 2025",Week 2,Scheduled,Atlanta Falcons,0-0,Minnesota Vikings,0-0,"U.S. Bank Stadium, Minneapolis, MN, USA",NBC,2,2,401772919,-1,-1,false,8:20 PM EDT
-"September 15, 2025",Week 2,Scheduled,Tampa Bay Buccaneers,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",ABC/ESPN,2,2,401772715,-1,-1,false,7:00 PM EDT
-"September 15, 2025",Week 2,Scheduled,Los Angeles Chargers,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",ESPN,2,2,401772811,-1,-1,false,10:00 PM EDT
-"September 18, 2025",Week 3,Scheduled,Miami Dolphins,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",Prime Video,2,3,401772937,-1,-1,false,8:15 PM EDT
-"September 21, 2025",Week 3,Scheduled,Green Bay Packers,0-0,Cleveland Browns,0-0,"Huntington Bank Field, Cleveland, OH, USA",FOX,2,3,401772842,-1,-1,false,1:00 PM EDT
-"September 21, 2025",Week 3,Scheduled,Indianapolis Colts,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",CBS,2,3,401772733,-1,-1,false,1:00 PM EDT
-"September 21, 2025",Week 3,Scheduled,Cincinnati Bengals,0-0,Minnesota Vikings,0-0,"U.S. Bank Stadium, Minneapolis, MN, USA",CBS,2,3,401772731,-1,-1,false,1:00 PM EDT
-"September 21, 2025",Week 3,Scheduled,Pittsburgh Steelers,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",CBS,2,3,401772732,-1,-1,false,1:00 PM EDT
-"September 21, 2025",Week 3,Scheduled,Los Angeles Rams,0-0,Philadelphia Eagles,0-0,"Lincoln Financial Field, Philadelphia, PA, USA",FOX,2,3,401772839,-1,-1,false,1:00 PM EDT
-"September 21, 2025",Week 3,Scheduled,New York Jets,0-0,Tampa Bay Buccaneers,0-0,"Raymond James Stadium, Tampa, FL, USA",FOX,2,3,401772840,-1,-1,false,1:00 PM EDT
-"September 21, 2025",Week 3,Scheduled,Las Vegas Raiders,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",FOX,2,3,401772841,-1,-1,false,1:00 PM EDT
-"September 21, 2025",Week 3,Scheduled,Atlanta Falcons,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,3,401772838,-1,-1,false,1:00 PM EDT
-"September 21, 2025",Week 3,Scheduled,Houston Texans,0-0,Jacksonville Jaguars,0-0,"EverBank Stadium, Jacksonville, FL, USA",CBS,2,3,401772734,-1,-1,false,1:00 PM EDT
-"September 21, 2025",Week 3,Scheduled,Denver Broncos,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",CBS,2,3,401772735,-1,-1,false,4:05 PM EDT
-"September 21, 2025",Week 3,Scheduled,New Orleans Saints,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",CBS,2,3,401772736,-1,-1,false,4:05 PM EDT
-"September 21, 2025",Week 3,Scheduled,Dallas Cowboys,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",FOX,2,3,401772844,-1,-1,false,4:25 PM EDT
-"September 21, 2025",Week 3,Scheduled,Arizona Cardinals,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",FOX,2,3,401772843,-1,-1,false,4:25 PM EDT
-"September 21, 2025",Week 3,Scheduled,Kansas City Chiefs,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",NBC,2,3,401772920,-1,-1,false,8:20 PM EDT
-"September 22, 2025",Week 3,Scheduled,Detroit Lions,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",ABC/ESPN,2,3,401772812,-1,-1,false,8:15 PM EDT
-"September 25, 2025",Week 4,Scheduled,Seattle Seahawks,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",Prime Video,2,4,401772938,-1,-1,false,8:15 PM EDT
-"September 28, 2025",Week 4,Scheduled,Minnesota Vikings,0-0,Pittsburgh Steelers,0-0,"Croke Park, Dublin, None, Ireland",NFL Net/NFL+,2,4,401772632,-1,-1,false,9:30 AM EDT
-"September 28, 2025",Week 4,Scheduled,Washington Commanders,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",CBS,2,4,401772739,-1,-1,false,1:00 PM EDT
-"September 28, 2025",Week 4,Scheduled,New Orleans Saints,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",CBS,2,4,401772740,-1,-1,false,1:00 PM EDT
-"September 28, 2025",Week 4,Scheduled,Cleveland Browns,0-0,Detroit Lions,0-0,"Ford Field, Detroit, MI, USA",FOX,2,4,401772846,-1,-1,false,1:00 PM EDT
-"September 28, 2025",Week 4,Scheduled,Carolina Panthers,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",FOX,2,4,401772847,-1,-1,false,1:00 PM EDT
-"September 28, 2025",Week 4,Scheduled,Los Angeles Chargers,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,4,401772737,-1,-1,false,1:00 PM EDT
-"September 28, 2025",Week 4,Scheduled,Philadelphia Eagles,0-0,Tampa Bay Buccaneers,0-0,"Raymond James Stadium, Tampa, FL, USA",FOX,2,4,401772845,-1,-1,false,1:00 PM EDT
-"September 28, 2025",Week 4,Scheduled,Tennessee Titans,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",CBS,2,4,401772738,-1,-1,false,1:00 PM EDT
-"September 28, 2025",Week 4,Scheduled,Indianapolis Colts,0-0,Los Angeles Rams,0-0,"SoFi Stadium, Inglewood, CA, USA",FOX,2,4,401772849,-1,-1,false,4:05 PM EDT
-"September 28, 2025",Week 4,Scheduled,Jacksonville Jaguars,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",FOX,2,4,401772848,-1,-1,false,4:05 PM EDT
-"September 28, 2025",Week 4,Scheduled,Baltimore Ravens,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",CBS,2,4,401772741,-1,-1,false,4:25 PM EDT
-"September 28, 2025",Week 4,Scheduled,Chicago Bears,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",CBS,2,4,401772742,-1,-1,false,4:25 PM EDT
-"September 28, 2025",Week 4,Scheduled,Green Bay Packers,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",NBC,2,4,401772921,-1,-1,false,8:20 PM EDT
-"September 29, 2025",Week 4,Scheduled,New York Jets,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",ESPN,2,4,401772813,-1,-1,false,7:15 PM EDT
-"September 29, 2025",Week 4,Scheduled,Cincinnati Bengals,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",ABC,2,4,401772716,-1,-1,false,8:15 PM EDT
-"October 2, 2025",Week 5,Scheduled,San Francisco 49ers,0-0,Los Angeles Rams,0-0,"SoFi Stadium, Inglewood, CA, USA",Prime Video,2,5,401772939,-1,-1,false,8:15 PM EDT
-"October 5, 2025",Week 5,Scheduled,Minnesota Vikings,0-0,Cleveland Browns,0-0,"Tottenham Hotspur Stadium, London, None, England",NFL Net/NFL+,2,5,401772633,-1,-1,false,9:30 AM EDT
-"October 5, 2025",Week 5,Scheduled,Las Vegas Raiders,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",FOX,2,5,401772851,-1,-1,false,1:00 PM EDT
-"October 5, 2025",Week 5,Scheduled,New York Giants,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",CBS,2,5,401772744,-1,-1,false,1:00 PM EDT
-"October 5, 2025",Week 5,Scheduled,Dallas Cowboys,0-0,New York Jets,0-0,"MetLife Stadium, East Rutherford, NJ, USA",FOX,2,5,401772850,-1,-1,false,1:00 PM EDT
-"October 5, 2025",Week 5,Scheduled,Denver Broncos,0-0,Philadelphia Eagles,0-0,"Lincoln Financial Field, Philadelphia, PA, USA",CBS,2,5,401772745,-1,-1,false,1:00 PM EDT
-"October 5, 2025",Week 5,Scheduled,Miami Dolphins,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,5,401772852,-1,-1,false,1:00 PM EDT
-"October 5, 2025",Week 5,Scheduled,Houston Texans,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",CBS,2,5,401772743,-1,-1,false,1:00 PM EDT
-"October 5, 2025",Week 5,Scheduled,Tennessee Titans,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",CBS,2,5,401772747,-1,-1,false,4:05 PM EDT
-"October 5, 2025",Week 5,Scheduled,Tampa Bay Buccaneers,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",CBS,2,5,401772746,-1,-1,false,4:05 PM EDT
-"October 5, 2025",Week 5,Scheduled,Detroit Lions,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",FOX,2,5,401772854,-1,-1,false,4:25 PM EDT
-"October 5, 2025",Week 5,Scheduled,Washington Commanders,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",FOX,2,5,401772853,-1,-1,false,4:25 PM EDT
-"October 5, 2025",Week 5,Scheduled,New England Patriots,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",NBC,2,5,401772922,-1,-1,false,8:20 PM EDT
-"October 6, 2025",Week 5,Scheduled,Kansas City Chiefs,0-0,Jacksonville Jaguars,0-0,"EverBank Stadium, Jacksonville, FL, USA",ABC/ESPN,2,5,401772814,-1,-1,false,8:15 PM EDT
-"October 9, 2025",Week 6,Scheduled,Philadelphia Eagles,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",Prime Video,2,6,401772940,-1,-1,false,8:15 PM EDT
-"October 12, 2025",Week 6,Scheduled,Denver Broncos,0-0,New York Jets,0-0,"Tottenham Hotspur Stadium, London, None, England",NFL Net/NFL+,2,6,401772634,-1,-1,false,9:30 AM EDT
-"October 12, 2025",Week 6,Scheduled,Arizona Cardinals,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",FOX,2,6,401772856,-1,-1,false,1:00 PM EDT
-"October 12, 2025",Week 6,Scheduled,Los Angeles Chargers,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",CBS,2,6,401772750,-1,-1,false,1:00 PM EDT
-"October 12, 2025",Week 6,Scheduled,Cleveland Browns,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",CBS,2,6,401772748,-1,-1,false,1:00 PM EDT
-"October 12, 2025",Week 6,Scheduled,San Francisco 49ers,0-0,Tampa Bay Buccaneers,0-0,"Raymond James Stadium, Tampa, FL, USA",CBS,2,6,401772749,-1,-1,false,1:00 PM EDT
-"October 12, 2025",Week 6,Scheduled,Dallas Cowboys,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,6,401772858,-1,-1,false,1:00 PM EDT
-"October 12, 2025",Week 6,Scheduled,Seattle Seahawks,0-0,Jacksonville Jaguars,0-0,"EverBank Stadium, Jacksonville, FL, USA",FOX,2,6,401772857,-1,-1,false,1:00 PM EDT
-"October 12, 2025",Week 6,Scheduled,Los Angeles Rams,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",FOX,2,6,401772855,-1,-1,false,1:00 PM EDT
-"October 12, 2025",Week 6,Scheduled,Tennessee Titans,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",FOX,2,6,401772859,-1,-1,false,4:05 PM EDT
-"October 12, 2025",Week 6,Scheduled,Cincinnati Bengals,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",CBS,2,6,401772752,-1,-1,false,4:25 PM EDT
-"October 12, 2025",Week 6,Scheduled,New England Patriots,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",CBS,2,6,401772751,-1,-1,false,4:25 PM EDT
-"October 12, 2025",Week 6,Scheduled,Detroit Lions,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",NBC,2,6,401772923,-1,-1,false,8:20 PM EDT
-"October 13, 2025",Week 6,Scheduled,Buffalo Bills,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",ESPN,2,6,401772815,-1,-1,false,7:15 PM EDT
-"October 13, 2025",Week 6,Scheduled,Chicago Bears,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",ABC,2,6,401772717,-1,-1,false,8:15 PM EDT
-"October 16, 2025",Week 7,Scheduled,Pittsburgh Steelers,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",Prime Video,2,7,401772941,-1,-1,false,8:15 PM EDT
-"October 19, 2025",Week 7,Scheduled,Los Angeles Rams,0-0,Jacksonville Jaguars,0-0,"Wembley Stadium, London, None, England",NFL Net/NFL+,2,7,401772635,-1,-1,false,9:30 AM EDT
-"October 19, 2025",Week 7,Scheduled,New Orleans Saints,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",FOX,2,7,401772861,-1,-1,false,1:00 PM EDT
-"October 19, 2025",Week 7,Scheduled,Miami Dolphins,0-0,Cleveland Browns,0-0,"Huntington Bank Field, Cleveland, OH, USA",CBS,2,7,401772754,-1,-1,false,1:00 PM EDT
-"October 19, 2025",Week 7,Scheduled,New England Patriots,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",CBS,2,7,401772755,-1,-1,false,1:00 PM EDT
-"October 19, 2025",Week 7,Scheduled,Las Vegas Raiders,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",CBS,2,7,401772753,-1,-1,false,1:00 PM EDT
-"October 19, 2025",Week 7,Scheduled,Philadelphia Eagles,0-0,Minnesota Vikings,0-0,"U.S. Bank Stadium, Minneapolis, MN, USA",FOX,2,7,401772862,-1,-1,false,1:00 PM EDT
-"October 19, 2025",Week 7,Scheduled,Carolina Panthers,0-0,New York Jets,0-0,"MetLife Stadium, East Rutherford, NJ, USA",FOX,2,7,401772860,-1,-1,false,1:00 PM EDT
-"October 19, 2025",Week 7,Scheduled,New York Giants,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",CBS,2,7,401772757,-1,-1,false,4:05 PM EDT
-"October 19, 2025",Week 7,Scheduled,Indianapolis Colts,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",CBS,2,7,401772756,-1,-1,false,4:05 PM EDT
-"October 19, 2025",Week 7,Scheduled,Washington Commanders,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",FOX,2,7,401772864,-1,-1,false,4:25 PM EDT
-"October 19, 2025",Week 7,Scheduled,Green Bay Packers,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",FOX,2,7,401772863,-1,-1,false,4:25 PM EDT
-"October 19, 2025",Week 7,Scheduled,Atlanta Falcons,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",NBC,2,7,401772924,-1,-1,false,8:20 PM EDT
-"October 20, 2025",Week 7,Scheduled,Tampa Bay Buccaneers,0-0,Detroit Lions,0-0,"Ford Field, Detroit, MI, USA",ABC/ESPN,2,7,401772816,-1,-1,false,7:00 PM EDT
-"October 20, 2025",Week 7,Scheduled,Houston Texans,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",ESPN+,2,7,401772826,-1,-1,false,10:00 PM EDT
-"October 23, 2025",Week 8,Scheduled,Minnesota Vikings,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",Prime Video,2,8,401772942,-1,-1,false,8:15 PM EDT
-"October 26, 2025",Week 8,Scheduled,Miami Dolphins,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",CBS,2,8,401772760,-1,-1,false,1:00 PM EDT
-"October 26, 2025",Week 8,Scheduled,New York Jets,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",CBS,2,8,401772758,-1,-1,false,1:00 PM EDT
-"October 26, 2025",Week 8,Scheduled,Cleveland Browns,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",FOX,2,8,401772868,-1,-1,false,1:00 PM EDT
-"October 26, 2025",Week 8,Scheduled,New York Giants,0-0,Philadelphia Eagles,0-0,"Lincoln Financial Field, Philadelphia, PA, USA",FOX,2,8,401772867,-1,-1,false,1:00 PM EDT
-"October 26, 2025",Week 8,Scheduled,Buffalo Bills,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,8,401772865,-1,-1,false,1:00 PM EDT
-"October 26, 2025",Week 8,Scheduled,Chicago Bears,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",CBS,2,8,401772759,-1,-1,false,1:00 PM EDT
-"October 26, 2025",Week 8,Scheduled,San Francisco 49ers,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",FOX,2,8,401772866,-1,-1,false,1:00 PM EDT
-"October 26, 2025",Week 8,Scheduled,Tampa Bay Buccaneers,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",FOX,2,8,401772869,-1,-1,false,4:05 PM EDT
-"October 26, 2025",Week 8,Scheduled,Dallas Cowboys,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",CBS,2,8,401772762,-1,-1,false,4:25 PM EDT
-"October 26, 2025",Week 8,Scheduled,Tennessee Titans,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",CBS,2,8,401772761,-1,-1,false,4:25 PM EDT
-"October 26, 2025",Week 8,Scheduled,Green Bay Packers,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",NBC,2,8,401772925,-1,-1,false,8:20 PM EDT
-"October 27, 2025",Week 8,Scheduled,Washington Commanders,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",ABC/ESPN,2,8,401772817,-1,-1,false,8:15 PM EDT
-"October 30, 2025",Week 9,Scheduled,Baltimore Ravens,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",Prime Video,2,9,401772943,-1,-1,false,8:15 PM EDT
-"November 2, 2025",Week 9,Scheduled,Chicago Bears,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",CBS,2,9,401772765,-1,-1,false,1:00 PM EST
-"November 2, 2025",Week 9,Scheduled,Minnesota Vikings,0-0,Detroit Lions,0-0,"Ford Field, Detroit, MI, USA",FOX,2,9,401772871,-1,-1,false,1:00 PM EST
-"November 2, 2025",Week 9,Scheduled,Carolina Panthers,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",FOX,2,9,401772872,-1,-1,false,1:00 PM EST
-"November 2, 2025",Week 9,Scheduled,Los Angeles Chargers,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",CBS,2,9,401772764,-1,-1,false,1:00 PM EST
-"November 2, 2025",Week 9,Scheduled,Atlanta Falcons,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",CBS,2,9,401772763,-1,-1,false,1:00 PM EST
-"November 2, 2025",Week 9,Scheduled,San Francisco 49ers,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,9,401772767,-1,-1,false,1:00 PM EST
-"November 2, 2025",Week 9,Scheduled,Indianapolis Colts,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",CBS,2,9,401772766,-1,-1,false,1:00 PM EST
-"November 2, 2025",Week 9,Scheduled,Denver Broncos,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",FOX,2,9,401772870,-1,-1,false,1:00 PM EST
-"November 2, 2025",Week 9,Scheduled,Jacksonville Jaguars,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",FOX,2,9,401772873,-1,-1,false,4:05 PM EST
-"November 2, 2025",Week 9,Scheduled,New Orleans Saints,0-0,Los Angeles Rams,0-0,"SoFi Stadium, Inglewood, CA, USA",FOX,2,9,401772874,-1,-1,false,4:05 PM EST
-"November 2, 2025",Week 9,Scheduled,Kansas City Chiefs,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",CBS,2,9,401772768,-1,-1,false,4:25 PM EST
-"November 2, 2025",Week 9,Scheduled,Seattle Seahawks,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",NBC,2,9,401772926,-1,-1,false,8:20 PM EST
-"November 3, 2025",Week 9,Scheduled,Arizona Cardinals,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",ABC/ESPN,2,9,401772818,-1,-1,false,8:15 PM EST
-"November 6, 2025",Week 10,Scheduled,Las Vegas Raiders,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",Prime Video,2,10,401772944,-1,-1,false,8:15 PM EST
-"November 9, 2025",Week 10,Scheduled,Atlanta Falcons,0-0,Indianapolis Colts,0-0,"Olympic Stadium Berlin, Berlin, None, Germany",NFL Net/NFL+,2,10,401772636,-1,-1,false,9:30 AM EST
-"November 9, 2025",Week 10,Scheduled,New York Giants,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",FOX,2,10,401772875,-1,-1,false,1:00 PM EST
-"November 9, 2025",Week 10,Scheduled,Buffalo Bills,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",CBS,2,10,401772771,-1,-1,false,1:00 PM EST
-"November 9, 2025",Week 10,Scheduled,Baltimore Ravens,0-0,Minnesota Vikings,0-0,"U.S. Bank Stadium, Minneapolis, MN, USA",FOX,2,10,401772876,-1,-1,false,1:00 PM EST
-"November 9, 2025",Week 10,Scheduled,Cleveland Browns,0-0,New York Jets,0-0,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,10,401772769,-1,-1,false,1:00 PM EST
-"November 9, 2025",Week 10,Scheduled,New England Patriots,0-0,Tampa Bay Buccaneers,0-0,"Raymond James Stadium, Tampa, FL, USA",CBS,2,10,401772772,-1,-1,false,1:00 PM EST
-"November 9, 2025",Week 10,Scheduled,New Orleans Saints,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,10,401772877,-1,-1,false,1:00 PM EST
-"November 9, 2025",Week 10,Scheduled,Jacksonville Jaguars,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",CBS,2,10,401772770,-1,-1,false,1:00 PM EST
-"November 9, 2025",Week 10,Scheduled,Arizona Cardinals,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",CBS,2,10,401772773,-1,-1,false,4:05 PM EST
-"November 9, 2025",Week 10,Scheduled,Los Angeles Rams,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",FOX,2,10,401772879,-1,-1,false,4:25 PM EST
-"November 9, 2025",Week 10,Scheduled,Detroit Lions,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",FOX,2,10,401772878,-1,-1,false,4:25 PM EST
-"November 9, 2025",Week 10,Scheduled,Pittsburgh Steelers,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",NBC,2,10,401772927,-1,-1,false,8:20 PM EST
-"November 10, 2025",Week 10,Scheduled,Philadelphia Eagles,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",ABC/ESPN,2,10,401772630,-1,-1,false,8:15 PM EST
-"November 13, 2025",Week 11,Scheduled,New York Jets,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",Prime Video,2,11,401772945,-1,-1,false,8:15 PM EST
-"November 16, 2025",Week 11,Scheduled,Washington Commanders,0-0,Miami Dolphins,0-0,"Santiago Bernabéu, Madrid, None, Spain",NFL Net/NFL+,2,11,401772631,-1,-1,false,9:30 AM EST
-"November 16, 2025",Week 11,Scheduled,Carolina Panthers,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",FOX,2,11,401772882,-1,-1,false,1:00 PM EST
-"November 16, 2025",Week 11,Scheduled,Tampa Bay Buccaneers,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",CBS,2,11,401772776,-1,-1,false,1:00 PM EST
-"November 16, 2025",Week 11,Scheduled,Houston Texans,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",FOX,2,11,401772881,-1,-1,false,1:00 PM EST
-"November 16, 2025",Week 11,Scheduled,Chicago Bears,0-0,Minnesota Vikings,0-0,"U.S. Bank Stadium, Minneapolis, MN, USA",FOX,2,11,401772880,-1,-1,false,1:00 PM EST
-"November 16, 2025",Week 11,Scheduled,Green Bay Packers,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",FOX,2,11,401772883,-1,-1,false,1:00 PM EST
-"November 16, 2025",Week 11,Scheduled,Cincinnati Bengals,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",CBS,2,11,401772774,-1,-1,false,1:00 PM EST
-"November 16, 2025",Week 11,Scheduled,Los Angeles Chargers,0-0,Jacksonville Jaguars,0-0,"EverBank Stadium, Jacksonville, FL, USA",CBS,2,11,401772775,-1,-1,false,1:00 PM EST
-"November 16, 2025",Week 11,Scheduled,Seattle Seahawks,0-0,Los Angeles Rams,0-0,"SoFi Stadium, Inglewood, CA, USA",FOX,2,11,401772884,-1,-1,false,4:05 PM EST
-"November 16, 2025",Week 11,Scheduled,San Francisco 49ers,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",FOX,2,11,401772885,-1,-1,false,4:05 PM EST
-"November 16, 2025",Week 11,Scheduled,Baltimore Ravens,0-0,Cleveland Browns,0-0,"Huntington Bank Field, Cleveland, OH, USA",CBS,2,11,401772777,-1,-1,false,4:25 PM EST
-"November 16, 2025",Week 11,Scheduled,Kansas City Chiefs,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",CBS,2,11,401772778,-1,-1,false,4:25 PM EST
-"November 16, 2025",Week 11,Scheduled,Detroit Lions,0-0,Philadelphia Eagles,0-0,"Lincoln Financial Field, Philadelphia, PA, USA",NBC,2,11,401772928,-1,-1,false,8:20 PM EST
-"November 17, 2025",Week 11,Scheduled,Dallas Cowboys,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",ABC/ESPN,2,11,401772819,-1,-1,false,8:15 PM EST
-"November 20, 2025",Week 12,Scheduled,Buffalo Bills,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",Prime Video,2,12,401772946,-1,-1,false,8:15 PM EST
-"November 23, 2025",Week 12,Scheduled,Pittsburgh Steelers,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",CBS,2,12,401772780,-1,-1,false,1:00 PM EST
-"November 23, 2025",Week 12,Scheduled,New England Patriots,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",CBS,2,12,401772781,-1,-1,false,1:00 PM EST
-"November 23, 2025",Week 12,Scheduled,New York Giants,0-0,Detroit Lions,0-0,"Ford Field, Detroit, MI, USA",FOX,2,12,401772888,-1,-1,false,1:00 PM EST
-"November 23, 2025",Week 12,Scheduled,Minnesota Vikings,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",FOX,2,12,401772887,-1,-1,false,1:00 PM EST
-"November 23, 2025",Week 12,Scheduled,Seattle Seahawks,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",FOX,2,12,401772886,-1,-1,false,1:00 PM EST
-"November 23, 2025",Week 12,Scheduled,Indianapolis Colts,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",CBS,2,12,401772779,-1,-1,false,1:00 PM EST
-"November 23, 2025",Week 12,Scheduled,New York Jets,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",CBS,2,12,401772782,-1,-1,false,1:00 PM EST
-"November 23, 2025",Week 12,Scheduled,Cleveland Browns,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",CBS,2,12,401772784,-1,-1,false,4:05 PM EST
-"November 23, 2025",Week 12,Scheduled,Jacksonville Jaguars,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",CBS,2,12,401772783,-1,-1,false,4:05 PM EST
-"November 23, 2025",Week 12,Scheduled,Philadelphia Eagles,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",FOX,2,12,401772890,-1,-1,false,4:25 PM EST
-"November 23, 2025",Week 12,Scheduled,Atlanta Falcons,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",FOX,2,12,401772889,-1,-1,false,4:25 PM EST
-"November 23, 2025",Week 12,Scheduled,Tampa Bay Buccaneers,0-0,Los Angeles Rams,0-0,"SoFi Stadium, Inglewood, CA, USA",NBC,2,12,401772929,-1,-1,false,8:20 PM EST
-"November 24, 2025",Week 12,Scheduled,Carolina Panthers,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",ESPN,2,12,401772820,-1,-1,false,8:15 PM EST
-"November 27, 2025",Week 13,Scheduled,Green Bay Packers,0-0,Detroit Lions,0-0,"Ford Field, Detroit, MI, USA",FOX,2,13,401772891,-1,-1,false,1:00 PM EST
-"November 27, 2025",Week 13,Scheduled,Kansas City Chiefs,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",CBS/Paramount+,2,13,401772694,-1,-1,false,4:30 PM EST
-"November 27, 2025",Week 13,Scheduled,Cincinnati Bengals,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",NBC,2,13,401772930,-1,-1,false,8:20 PM EST
-"November 28, 2025",Week 13,Scheduled,Chicago Bears,0-0,Philadelphia Eagles,0-0,"Lincoln Financial Field, Philadelphia, PA, USA",Prime Video,2,13,401772621,-1,-1,false,3:00 PM EST
-"November 30, 2025",Week 13,Scheduled,San Francisco 49ers,0-0,Cleveland Browns,0-0,"Huntington Bank Field, Cleveland, OH, USA",CBS,2,13,401772785,-1,-1,false,1:00 PM EST
-"November 30, 2025",Week 13,Scheduled,Jacksonville Jaguars,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",CBS,2,13,401772786,-1,-1,false,1:00 PM EST
-"November 30, 2025",Week 13,Scheduled,Houston Texans,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",CBS,2,13,401772787,-1,-1,false,1:00 PM EST
-"November 30, 2025",Week 13,Scheduled,New Orleans Saints,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",FOX,2,13,401772892,-1,-1,false,1:00 PM EST
-"November 30, 2025",Week 13,Scheduled,Atlanta Falcons,0-0,New York Jets,0-0,"MetLife Stadium, East Rutherford, NJ, USA",FOX,2,13,401772893,-1,-1,false,1:00 PM EST
-"November 30, 2025",Week 13,Scheduled,Arizona Cardinals,0-0,Tampa Bay Buccaneers,0-0,"Raymond James Stadium, Tampa, FL, USA",FOX,2,13,401772895,-1,-1,false,1:00 PM EST
-"November 30, 2025",Week 13,Scheduled,Los Angeles Rams,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,13,401772894,-1,-1,false,1:00 PM EST
-"November 30, 2025",Week 13,Scheduled,Minnesota Vikings,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",FOX,2,13,401772896,-1,-1,false,4:05 PM EST
-"November 30, 2025",Week 13,Scheduled,Buffalo Bills,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",CBS,2,13,401772789,-1,-1,false,4:25 PM EST
-"November 30, 2025",Week 13,Scheduled,Las Vegas Raiders,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",CBS,2,13,401772788,-1,-1,false,4:25 PM EST
-"November 30, 2025",Week 13,Scheduled,Denver Broncos,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",NBC,2,13,401772931,-1,-1,false,8:20 PM EST
-"December 1, 2025",Week 13,Scheduled,New York Giants,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",ESPN,2,13,401772821,-1,-1,false,8:15 PM EST
-"December 4, 2025",Week 14,Scheduled,Dallas Cowboys,0-0,Detroit Lions,0-0,"Ford Field, Detroit, MI, USA",Prime Video,2,14,401772947,-1,-1,false,8:15 PM EST
-"December 7, 2025",Week 14,Scheduled,Seattle Seahawks,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",FOX,2,14,401772900,-1,-1,false,1:00 PM EST
-"December 7, 2025",Week 14,Scheduled,Tennessee Titans,0-0,Cleveland Browns,0-0,"Huntington Bank Field, Cleveland, OH, USA",FOX,2,14,401772898,-1,-1,false,1:00 PM EST
-"December 7, 2025",Week 14,Scheduled,Chicago Bears,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",FOX,2,14,401772897,-1,-1,false,1:00 PM EST
-"December 7, 2025",Week 14,Scheduled,Washington Commanders,0-0,Minnesota Vikings,0-0,"U.S. Bank Stadium, Minneapolis, MN, USA",FOX,2,14,401772899,-1,-1,false,1:00 PM EST
-"December 7, 2025",Week 14,Scheduled,Miami Dolphins,0-0,New York Jets,0-0,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,14,401772790,-1,-1,false,1:00 PM EST
-"December 7, 2025",Week 14,Scheduled,New Orleans Saints,0-0,Tampa Bay Buccaneers,0-0,"Raymond James Stadium, Tampa, FL, USA",CBS,2,14,401772792,-1,-1,false,1:00 PM EST
-"December 7, 2025",Week 14,Scheduled,Indianapolis Colts,0-0,Jacksonville Jaguars,0-0,"EverBank Stadium, Jacksonville, FL, USA",CBS,2,14,401772793,-1,-1,false,1:00 PM EST
-"December 7, 2025",Week 14,Scheduled,Pittsburgh Steelers,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",CBS,2,14,401772791,-1,-1,false,1:00 PM EST
-"December 7, 2025",Week 14,Scheduled,Denver Broncos,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",CBS,2,14,401772794,-1,-1,false,4:05 PM EST
-"December 7, 2025",Week 14,Scheduled,Cincinnati Bengals,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",FOX,2,14,401772902,-1,-1,false,4:25 PM EST
-"December 7, 2025",Week 14,Scheduled,Los Angeles Rams,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",FOX,2,14,401772901,-1,-1,false,4:25 PM EST
-"December 7, 2025",Week 14,Scheduled,Houston Texans,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",NBC,2,14,401772932,-1,-1,false,8:20 PM EST
-"December 8, 2025",Week 14,Scheduled,Philadelphia Eagles,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",ABC/ESPN,2,14,401772822,-1,-1,false,8:15 PM EST
-"December 11, 2025",Week 15,Scheduled,Atlanta Falcons,0-0,Tampa Bay Buccaneers,0-0,"Raymond James Stadium, Tampa, FL, USA",Prime Video,2,15,401772948,-1,-1,false,8:15 PM EST
-"December 14, 2025",Week 15,Scheduled,Cleveland Browns,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",FOX,2,15,401772904,-1,-1,false,1:00 PM EST
-"December 14, 2025",Week 15,Scheduled,Baltimore Ravens,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",CBS,2,15,401772796,-1,-1,false,1:00 PM EST
-"December 14, 2025",Week 15,Scheduled,Los Angeles Chargers,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",CBS,2,15,401772798,-1,-1,false,1:00 PM EST
-"December 14, 2025",Week 15,Scheduled,Buffalo Bills,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",CBS,2,15,401772795,-1,-1,false,1:00 PM EST
-"December 14, 2025",Week 15,Scheduled,Washington Commanders,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",FOX,2,15,401772905,-1,-1,false,1:00 PM EST
-"December 14, 2025",Week 15,Scheduled,Las Vegas Raiders,0-0,Philadelphia Eagles,0-0,"Lincoln Financial Field, Philadelphia, PA, USA",FOX,2,15,401772906,-1,-1,false,1:00 PM EST
-"December 14, 2025",Week 15,Scheduled,New York Jets,0-0,Jacksonville Jaguars,0-0,"EverBank Stadium, Jacksonville, FL, USA",CBS,2,15,401772797,-1,-1,false,1:00 PM EST
-"December 14, 2025",Week 15,Scheduled,Arizona Cardinals,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",FOX,2,15,401772903,-1,-1,false,1:00 PM EST
-"December 14, 2025",Week 15,Scheduled,Green Bay Packers,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",CBS,2,15,401772800,-1,-1,false,4:25 PM EST
-"December 14, 2025",Week 15,Scheduled,Detroit Lions,0-0,Los Angeles Rams,0-0,"SoFi Stadium, Inglewood, CA, USA",FOX,2,15,401772909,-1,-1,false,4:25 PM EST
-"December 14, 2025",Week 15,Scheduled,Carolina Panthers,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",FOX,2,15,401772908,-1,-1,false,4:25 PM EST
-"December 14, 2025",Week 15,Scheduled,Tennessee Titans,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",FOX,2,15,401772907,-1,-1,false,4:25 PM EST
-"December 14, 2025",Week 15,Scheduled,Indianapolis Colts,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",CBS,2,15,401772799,-1,-1,false,4:25 PM EST
-"December 14, 2025",Week 15,Scheduled,Minnesota Vikings,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",NBC,2,15,401772933,-1,-1,false,8:20 PM EST
-"December 15, 2025",Week 15,Scheduled,Miami Dolphins,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",ESPN,2,15,401772823,-1,-1,false,8:15 PM EST
-"December 18, 2025",Week 16,Scheduled,Los Angeles Rams,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",Prime Video,2,16,401772949,-1,-1,false,8:15 PM EST
-"December 20, 2025",Week 16,Scheduled,Green Bay Packers,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",FOX,2,16,401772613,-1,-1,false,TBD
-"December 20, 2025",Week 16,Scheduled,Philadelphia Eagles,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",FOX,2,16,401772612,-1,-1,false,TBD
-"December 21, 2025",Week 16,Scheduled,Buffalo Bills,0-0,Cleveland Browns,0-0,"Huntington Bank Field, Cleveland, OH, USA",CBS,2,16,401772802,-1,-1,false,1:00 PM EST
-"December 21, 2025",Week 16,Scheduled,Los Angeles Chargers,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",FOX,2,16,401772910,-1,-1,false,1:00 PM EST
-"December 21, 2025",Week 16,Scheduled,Kansas City Chiefs,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",CBS,2,16,401772803,-1,-1,false,1:00 PM EST
-"December 21, 2025",Week 16,Scheduled,New York Jets,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",CBS,2,16,401772801,-1,-1,false,1:00 PM EST
-"December 21, 2025",Week 16,Scheduled,Minnesota Vikings,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",FOX,2,16,401772911,-1,-1,false,1:00 PM EST
-"December 21, 2025",Week 16,Scheduled,Tampa Bay Buccaneers,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,16,401772912,-1,-1,false,1:00 PM EST
-"December 21, 2025",Week 16,Scheduled,New England Patriots,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",CBS,2,16,401772804,-1,-1,false,1:00 PM EST
-"December 21, 2025",Week 16,Scheduled,Jacksonville Jaguars,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",FOX,2,16,401772913,-1,-1,false,4:05 PM EST
-"December 21, 2025",Week 16,Scheduled,Atlanta Falcons,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",FOX,2,16,401772914,-1,-1,false,4:05 PM EST
-"December 21, 2025",Week 16,Scheduled,Pittsburgh Steelers,0-0,Detroit Lions,0-0,"Ford Field, Detroit, MI, USA",CBS,2,16,401772806,-1,-1,false,4:25 PM EST
-"December 21, 2025",Week 16,Scheduled,Las Vegas Raiders,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",CBS,2,16,401772805,-1,-1,false,4:25 PM EST
-"December 21, 2025",Week 16,Scheduled,Cincinnati Bengals,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",NBC,2,16,401772934,-1,-1,false,8:20 PM EST
-"December 22, 2025",Week 16,Scheduled,San Francisco 49ers,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",ESPN,2,16,401772824,-1,-1,false,8:15 PM EST
-"December 25, 2025",Week 17,Scheduled,Dallas Cowboys,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",Netflix,2,17,401772710,-1,-1,false,1:00 PM EST
-"December 25, 2025",Week 17,Scheduled,Detroit Lions,0-0,Minnesota Vikings,0-0,"U.S. Bank Stadium, Minneapolis, MN, USA",Netflix,2,17,401772711,-1,-1,false,4:30 PM EST
-"December 25, 2025",Week 17,Scheduled,Denver Broncos,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",Prime Video,2,17,401772622,-1,-1,false,8:15 PM EST
-"December 27, 2025",Week 17,Scheduled,Arizona Cardinals,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",TBD,2,17,401772954,-1,-1,false,TBD
-"December 27, 2025",Week 17,Scheduled,Baltimore Ravens,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",TBD,2,17,401772953,-1,-1,false,TBD
-"December 27, 2025",Week 17,Scheduled,New York Giants,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",TBD,2,17,401772950,-1,-1,false,TBD
-"December 27, 2025",Week 17,Scheduled,Houston Texans,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",TBD,2,17,401772951,-1,-1,false,TBD
-"December 27, 2025",Week 17,Scheduled,Seattle Seahawks,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",TBD,2,17,401772952,-1,-1,false,TBD
-"December 28, 2025",Week 17,Scheduled,Pittsburgh Steelers,0-0,Cleveland Browns,0-0,"Huntington Bank Field, Cleveland, OH, USA",CBS,2,17,401772807,-1,-1,false,1:00 PM EST
-"December 28, 2025",Week 17,Scheduled,New Orleans Saints,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",CBS,2,17,401772809,-1,-1,false,1:00 PM EST
-"December 28, 2025",Week 17,Scheduled,Jacksonville Jaguars,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",FOX,2,17,401772915,-1,-1,false,1:00 PM EST
-"December 28, 2025",Week 17,Scheduled,Tampa Bay Buccaneers,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",FOX,2,17,401772916,-1,-1,false,1:00 PM EST
-"December 28, 2025",Week 17,Scheduled,New England Patriots,0-0,New York Jets,0-0,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,17,401772808,-1,-1,false,1:00 PM EST
-"December 28, 2025",Week 17,Scheduled,Philadelphia Eagles,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",FOX,2,17,401772917,-1,-1,false,4:25 PM EST
-"December 28, 2025",Week 17,Scheduled,Chicago Bears,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",NBC,2,17,401772935,-1,-1,false,8:20 PM EST
-"December 29, 2025",Week 17,Scheduled,Los Angeles Rams,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",ESPN,2,17,401772825,-1,-1,false,8:15 PM EST
-"January 4, 2026",Week 18,Scheduled,New Orleans Saints,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",TBD,2,18,401772966,-1,-1,false,TBD
-"January 4, 2026",Week 18,Scheduled,New York Jets,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",TBD,2,18,401772967,-1,-1,false,TBD
-"January 4, 2026",Week 18,Scheduled,Detroit Lions,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",TBD,2,18,401772965,-1,-1,false,TBD
-"January 4, 2026",Week 18,Scheduled,Cleveland Browns,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",TBD,2,18,401772964,-1,-1,false,TBD
-"January 4, 2026",Week 18,Scheduled,Los Angeles Chargers,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",TBD,2,18,401772956,-1,-1,false,TBD
-"January 4, 2026",Week 18,Scheduled,Kansas City Chiefs,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",TBD,2,18,401772957,-1,-1,false,TBD
-"January 4, 2026",Week 18,Scheduled,Arizona Cardinals,0-0,Los Angeles Rams,0-0,"SoFi Stadium, Inglewood, CA, USA",TBD,2,18,401772955,-1,-1,false,TBD
-"January 4, 2026",Week 18,Scheduled,Green Bay Packers,0-0,Minnesota Vikings,0-0,"U.S. Bank Stadium, Minneapolis, MN, USA",TBD,2,18,401772968,-1,-1,false,TBD
-"January 4, 2026",Week 18,Scheduled,Miami Dolphins,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",TBD,2,18,401772958,-1,-1,false,TBD
-"January 4, 2026",Week 18,Scheduled,Dallas Cowboys,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",TBD,2,18,401772963,-1,-1,false,TBD
-"January 4, 2026",Week 18,Scheduled,Washington Commanders,0-0,Philadelphia Eagles,0-0,"Lincoln Financial Field, Philadelphia, PA, USA",TBD,2,18,401772959,-1,-1,false,TBD
-"January 4, 2026",Week 18,Scheduled,Baltimore Ravens,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",TBD,2,18,401772960,-1,-1,false,TBD
-"January 4, 2026",Week 18,Scheduled,Seattle Seahawks,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",TBD,2,18,401772961,-1,-1,false,TBD
-"January 4, 2026",Week 18,Scheduled,Carolina Panthers,0-0,Tampa Bay Buccaneers,0-0,"Raymond James Stadium, Tampa, FL, USA",TBD,2,18,401772969,-1,-1,false,TBD
-"January 4, 2026",Week 18,Scheduled,Tennessee Titans,0-0,Jacksonville Jaguars,0-0,"EverBank Stadium, Jacksonville, FL, USA",TBD,2,18,401772970,-1,-1,false,TBD
-"January 4, 2026",Week 18,Scheduled,Indianapolis Colts,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",TBD,2,18,401772962,-1,-1,false,TBD
-"January 10, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,1,401772976,-1,-1,false,TBD
-"January 10, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,1,401772977,-1,-1,false,TBD
-"January 11, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,1,401772978,-1,-1,false,TBD
-"January 11, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,1,401772979,-1,-1,false,TBD
-"January 11, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,1,401772980,-1,-1,false,TBD
-"January 12, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,ESPN/ABC,3,1,401772981,-1,-1,false,8:15 PM EST
-"January 17, 2026",Divisional Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,2,401772982,-1,-1,false,TBD
-"January 17, 2026",Divisional Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,2,401772983,-1,-1,false,TBD
-"January 18, 2026",Divisional Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,2,401772984,-1,-1,false,TBD
-"January 18, 2026",Divisional Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,2,401772985,-1,-1,false,TBD
-"January 25, 2026",Conference Championships,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,3,401772986,-1,-1,false,TBD
-"January 25, 2026",Conference Championships,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,3,401772987,-1,-1,false,TBD
-"February 8, 2026",Super Bowl,Scheduled,TBD TBD,0-0,TBD TBD,0-0,"Levi's Stadium, Santa Clara, CA, USA",NBC,3,5,401772988,-1,-1,false,TBD
+"September 8, 2022",Week 1,Final,Buffalo Bills,1-0,Los Angeles Rams,0-1,"SoFi Stadium, Inglewood, CA, USA",NBC,2,1,401437654,31,10,false,N/A
+"September 11, 2022",Week 1,Final,New Orleans Saints,1-0,Atlanta Falcons,0-1,"Mercedes-Benz Stadium, Atlanta, GA, USA",FOX,2,1,401437650,27,26,false,N/A
+"September 11, 2022",Week 1,Final,San Francisco 49ers,0-1,Chicago Bears,1-0,"Soldier Field, Chicago, IL, USA",FOX,2,1,401437647,10,19,false,N/A
+"September 11, 2022",Week 1,Final,Pittsburgh Steelers,1-0,Cincinnati Bengals,0-1,"Paycor Stadium, Cincinnati, OH, USA",CBS,2,1,401437634,23,20,true,N/A
+"September 11, 2022",Week 1,Final,Philadelphia Eagles,1-0,Detroit Lions,0-1,"Ford Field, Detroit, MI, USA",FOX,2,1,401437648,38,35,false,N/A
+"September 11, 2022",Week 1,Final,New England Patriots,0-1,Miami Dolphins,1-0,"Hard Rock Stadium, Miami Gardens, FL, USA",CBS,2,1,401437630,7,20,false,N/A
+"September 11, 2022",Week 1,Final,Baltimore Ravens,1-0,New York Jets,0-1,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,1,401437632,24,9,false,N/A
+"September 11, 2022",Week 1,Final,Jacksonville Jaguars,0-1,Washington Commanders,1-0,"Northwest Stadium, Landover, MD, USA",FOX,2,1,401437646,22,28,false,N/A
+"September 11, 2022",Week 1,Final,Cleveland Browns,1-0,Carolina Panthers,0-1,"Bank of America Stadium, Charlotte, NC, USA",CBS,2,1,401437651,26,24,false,N/A
+"September 11, 2022",Week 1,Final,Indianapolis Colts,0-0-1,Houston Texans,0-0-1,"NRG Stadium, Houston, TX, USA",CBS,2,1,401437637,20,20,true,N/A
+"September 11, 2022",Week 1,Final,New York Giants,1-0,Tennessee Titans,0-1,"Nissan Stadium, Nashville, TN, USA",FOX,2,1,401437640,21,20,false,N/A
+"September 11, 2022",Week 1,Final,Green Bay Packers,0-1,Minnesota Vikings,1-0,"U.S. Bank Stadium, Minneapolis, MN, USA",FOX,2,1,401437649,7,23,false,N/A
+"September 11, 2022",Week 1,Final,Kansas City Chiefs,1-0,Arizona Cardinals,0-1,"State Farm Stadium, Glendale, AZ, USA",CBS,2,1,401437653,44,21,false,N/A
+"September 11, 2022",Week 1,Final,Las Vegas Raiders,0-1,Los Angeles Chargers,1-0,"SoFi Stadium, Inglewood, CA, USA",CBS,2,1,401437643,19,24,false,N/A
+"September 11, 2022",Week 1,Final,Tampa Bay Buccaneers,1-0,Dallas Cowboys,0-1,"AT&T Stadium, Arlington, TX, USA",NBC,2,1,401437644,19,3,false,N/A
+"September 12, 2022",Week 1,Final,Denver Broncos,0-1,Seattle Seahawks,1-0,"Lumen Field, Seattle, WA, USA",ESPN/ABC/ESPN+,2,1,401437655,16,17,false,N/A
+"September 15, 2022",Week 2,Final,Los Angeles Chargers,1-1,Kansas City Chiefs,2-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",Prime Video,2,2,401434030,24,27,false,N/A
+"September 18, 2022",Week 2,Final,New York Jets,1-1,Cleveland Browns,1-1,"Huntington Bank Field, Cleveland, OH, USA",CBS,2,2,401437635,31,30,false,N/A
+"September 18, 2022",Week 2,Final,Washington Commanders,1-1,Detroit Lions,1-1,"Ford Field, Detroit, MI, USA",FOX,2,2,401437732,27,36,false,N/A
+"September 18, 2022",Week 2,Final,Tampa Bay Buccaneers,2-0,New Orleans Saints,1-1,"Caesars Superdome, New Orleans, LA, USA",FOX,2,2,401437652,20,10,false,N/A
+"September 18, 2022",Week 2,Final,Carolina Panthers,0-2,New York Giants,2-0,"MetLife Stadium, East Rutherford, NJ, USA",FOX,2,2,401437645,16,19,false,N/A
+"September 18, 2022",Week 2,Final,New England Patriots,1-1,Pittsburgh Steelers,1-1,"Acrisure Stadium, Pittsburgh, PA, USA",CBS,2,2,401437636,17,14,false,N/A
+"September 18, 2022",Week 2,Final,Indianapolis Colts,0-1-1,Jacksonville Jaguars,1-1,"EverBank Stadium, Jacksonville, FL, USA",CBS,2,2,401437639,0,24,false,N/A
+"September 18, 2022",Week 2,Final,Miami Dolphins,2-0,Baltimore Ravens,1-1,"M&T Bank Stadium, Baltimore, MD, USA",CBS,2,2,401437633,42,38,false,N/A
+"September 18, 2022",Week 2,Final,Atlanta Falcons,0-2,Los Angeles Rams,1-1,"SoFi Stadium, Inglewood, CA, USA",FOX,2,2,401437733,27,31,false,N/A
+"September 18, 2022",Week 2,Final,Seattle Seahawks,1-1,San Francisco 49ers,1-1,"Levi's Stadium, Santa Clara, CA, USA",FOX,2,2,401437605,7,27,false,N/A
+"September 18, 2022",Week 2,Final,Cincinnati Bengals,0-2,Dallas Cowboys,1-1,"AT&T Stadium, Arlington, TX, USA",CBS,2,2,401437734,17,20,false,N/A
+"September 18, 2022",Week 2,Final,Houston Texans,0-1-1,Denver Broncos,1-1,"Empower Field at Mile High, Denver, CO, USA",CBS,2,2,401437641,9,16,false,N/A
+"September 18, 2022",Week 2,Final,Arizona Cardinals,1-1,Las Vegas Raiders,0-2,"Allegiant Stadium, Las Vegas, NV, USA",CBS,2,2,401437642,29,23,true,N/A
+"September 18, 2022",Week 2,Final,Chicago Bears,1-1,Green Bay Packers,1-1,"Lambeau Field, Green Bay, WI, USA",NBC,2,2,401437606,10,27,false,N/A
+"September 19, 2022",Week 2,Final,Tennessee Titans,0-2,Buffalo Bills,2-0,"Highmark Stadium, Orchard Park, NY, USA",ESPN/ESPN2,2,2,401436831,7,41,false,N/A
+"September 19, 2022",Week 2,Final,Minnesota Vikings,1-1,Philadelphia Eagles,2-0,"Lincoln Financial Field, Philadelphia, PA, USA",ABC/ESPN+,2,2,401436832,7,24,false,N/A
+"September 22, 2022",Week 3,Final,Pittsburgh Steelers,1-2,Cleveland Browns,2-1,"Huntington Bank Field, Cleveland, OH, USA",Prime Video,2,3,401437735,17,29,false,N/A
+"September 25, 2022",Week 3,Final,Houston Texans,0-2-1,Chicago Bears,2-1,"Soldier Field, Chicago, IL, USA",CBS,2,3,401437737,20,23,false,N/A
+"September 25, 2022",Week 3,Final,Las Vegas Raiders,0-3,Tennessee Titans,1-2,"Nissan Stadium, Nashville, TN, USA",FOX,2,3,401437741,22,24,false,N/A
+"September 25, 2022",Week 3,Final,Kansas City Chiefs,2-1,Indianapolis Colts,1-1-1,"Lucas Oil Stadium, Indianapolis, IN, USA",CBS,2,3,401437638,17,20,false,N/A
+"September 25, 2022",Week 3,Final,Buffalo Bills,2-1,Miami Dolphins,3-0,"Hard Rock Stadium, Miami Gardens, FL, USA",CBS,2,3,401437738,19,21,false,N/A
+"September 25, 2022",Week 3,Final,Detroit Lions,1-2,Minnesota Vikings,2-1,"U.S. Bank Stadium, Minneapolis, MN, USA",FOX,2,3,401437739,24,28,false,N/A
+"September 25, 2022",Week 3,Final,Baltimore Ravens,2-1,New England Patriots,1-2,"Gillette Stadium, Foxborough, MA, USA",FOX,2,3,401437631,37,26,false,N/A
+"September 25, 2022",Week 3,Final,Cincinnati Bengals,1-2,New York Jets,1-2,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,3,401437740,27,12,false,N/A
+"September 25, 2022",Week 3,Final,Philadelphia Eagles,3-0,Washington Commanders,1-2,"Northwest Stadium, Landover, MD, USA",FOX,2,3,401437742,24,8,false,N/A
+"September 25, 2022",Week 3,Final,New Orleans Saints,1-2,Carolina Panthers,1-2,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,3,401437736,14,22,false,N/A
+"September 25, 2022",Week 3,Final,Jacksonville Jaguars,2-1,Los Angeles Chargers,1-2,"SoFi Stadium, Inglewood, CA, USA",CBS,2,3,401437743,38,10,false,N/A
+"September 25, 2022",Week 3,Final,Los Angeles Rams,2-1,Arizona Cardinals,1-2,"State Farm Stadium, Glendale, AZ, USA",FOX,2,3,401437744,20,12,false,N/A
+"September 25, 2022",Week 3,Final,Atlanta Falcons,1-2,Seattle Seahawks,1-2,"Lumen Field, Seattle, WA, USA",FOX,2,3,401437745,27,23,false,N/A
+"September 25, 2022",Week 3,Final,Green Bay Packers,2-1,Tampa Bay Buccaneers,2-1,"Raymond James Stadium, Tampa, FL, USA",FOX,2,3,401437607,14,12,false,N/A
+"September 25, 2022",Week 3,Final,San Francisco 49ers,1-2,Denver Broncos,2-1,"Empower Field at Mile High, Denver, CO, USA",NBC,2,3,401437746,10,11,false,N/A
+"September 26, 2022",Week 3,Final,Dallas Cowboys,2-1,New York Giants,2-1,"MetLife Stadium, East Rutherford, NJ, USA",ESPN/ABC/ESPN+,2,3,401437747,23,16,false,N/A
+"September 29, 2022",Week 4,Final,Miami Dolphins,3-1,Cincinnati Bengals,2-2,"Paycor Stadium, Cincinnati, OH, USA",Prime Video,2,4,401437748,15,27,false,N/A
+"October 2, 2022",Week 4,Final,Minnesota Vikings,3-1,New Orleans Saints,1-3,"Tottenham Hotspur Stadium, London, None, England",NFL Net,2,4,401435639,28,25,false,N/A
+"October 2, 2022",Week 4,Final,Cleveland Browns,2-2,Atlanta Falcons,2-2,"Mercedes-Benz Stadium, Atlanta, GA, USA",CBS,2,4,401437749,20,23,false,N/A
+"October 2, 2022",Week 4,Final,Washington Commanders,1-3,Dallas Cowboys,3-1,"AT&T Stadium, Arlington, TX, USA",FOX,2,4,401437751,10,25,false,N/A
+"October 2, 2022",Week 4,Final,Seattle Seahawks,2-2,Detroit Lions,1-3,"Ford Field, Detroit, MI, USA",FOX,2,4,401437752,48,45,false,N/A
+"October 2, 2022",Week 4,Final,Tennessee Titans,2-2,Indianapolis Colts,1-2-1,"Lucas Oil Stadium, Indianapolis, IN, USA",FOX,2,4,401437754,24,17,false,N/A
+"October 2, 2022",Week 4,Final,Chicago Bears,2-2,New York Giants,3-1,"MetLife Stadium, East Rutherford, NJ, USA",FOX,2,4,401437755,12,20,false,N/A
+"October 2, 2022",Week 4,Final,Jacksonville Jaguars,2-2,Philadelphia Eagles,4-0,"Lincoln Financial Field, Philadelphia, PA, USA",CBS,2,4,401437756,21,29,false,N/A
+"October 2, 2022",Week 4,Final,New York Jets,2-2,Pittsburgh Steelers,1-3,"Acrisure Stadium, Pittsburgh, PA, USA",CBS,2,4,401437757,24,20,false,N/A
+"October 2, 2022",Week 4,Final,Buffalo Bills,3-1,Baltimore Ravens,2-2,"M&T Bank Stadium, Baltimore, MD, USA",CBS,2,4,401437750,23,20,false,N/A
+"October 2, 2022",Week 4,Final,Los Angeles Chargers,2-2,Houston Texans,0-3-1,"NRG Stadium, Houston, TX, USA",CBS,2,4,401437753,34,24,false,N/A
+"October 2, 2022",Week 4,Final,Arizona Cardinals,2-2,Carolina Panthers,1-3,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,4,401437758,26,16,false,N/A
+"October 2, 2022",Week 4,Final,New England Patriots,1-3,Green Bay Packers,3-1,"Lambeau Field, Green Bay, WI, USA",CBS,2,4,401437759,24,27,true,N/A
+"October 2, 2022",Week 4,Final,Denver Broncos,2-2,Las Vegas Raiders,1-3,"Allegiant Stadium, Las Vegas, NV, USA",CBS,2,4,401437760,23,32,false,N/A
+"October 2, 2022",Week 4,Final,Kansas City Chiefs,3-1,Tampa Bay Buccaneers,2-2,"Raymond James Stadium, Tampa, FL, USA",NBC,2,4,401437470,41,31,false,N/A
+"October 3, 2022",Week 4,Final,Los Angeles Rams,2-2,San Francisco 49ers,2-2,"Levi's Stadium, Santa Clara, CA, USA",ESPN,2,4,401437761,9,24,false,N/A
+"October 6, 2022",Week 5,Final,Indianapolis Colts,2-2-1,Denver Broncos,2-3,"Empower Field at Mile High, Denver, CO, USA",Prime Video,2,5,401437762,12,9,true,N/A
+"October 9, 2022",Week 5,Final,New York Giants,4-1,Green Bay Packers,3-2,"Tottenham Hotspur Stadium, London, None, England",NFL Net,2,5,401435640,27,22,false,N/A
+"October 9, 2022",Week 5,Final,Pittsburgh Steelers,1-4,Buffalo Bills,4-1,"Highmark Stadium, Orchard Park, NY, USA",CBS,2,5,401437763,3,38,false,N/A
+"October 9, 2022",Week 5,Final,Los Angeles Chargers,3-2,Cleveland Browns,2-3,"Huntington Bank Field, Cleveland, OH, USA",CBS,2,5,401437764,30,28,false,N/A
+"October 9, 2022",Week 5,Final,Chicago Bears,2-3,Minnesota Vikings,4-1,"U.S. Bank Stadium, Minneapolis, MN, USA",FOX,2,5,401437766,22,29,false,N/A
+"October 9, 2022",Week 5,Final,Detroit Lions,1-4,New England Patriots,2-3,"Gillette Stadium, Foxborough, MA, USA",FOX,2,5,401437767,0,29,false,N/A
+"October 9, 2022",Week 5,Final,Seattle Seahawks,2-3,New Orleans Saints,2-3,"Caesars Superdome, New Orleans, LA, USA",FOX,2,5,401437768,32,39,false,N/A
+"October 9, 2022",Week 5,Final,Miami Dolphins,3-2,New York Jets,3-2,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,5,401437769,17,40,false,N/A
+"October 9, 2022",Week 5,Final,Atlanta Falcons,2-3,Tampa Bay Buccaneers,3-2,"Raymond James Stadium, Tampa, FL, USA",FOX,2,5,401437770,15,21,false,N/A
+"October 9, 2022",Week 5,Final,Tennessee Titans,3-2,Washington Commanders,1-4,"Northwest Stadium, Landover, MD, USA",CBS,2,5,401437771,21,17,false,N/A
+"October 9, 2022",Week 5,Final,Houston Texans,1-3-1,Jacksonville Jaguars,2-3,"EverBank Stadium, Jacksonville, FL, USA",CBS,2,5,401437765,13,6,false,N/A
+"October 9, 2022",Week 5,Final,San Francisco 49ers,3-2,Carolina Panthers,1-4,"Bank of America Stadium, Charlotte, NC, USA",CBS,2,5,401437772,37,15,false,N/A
+"October 9, 2022",Week 5,Final,Dallas Cowboys,4-1,Los Angeles Rams,2-3,"SoFi Stadium, Inglewood, CA, USA",FOX,2,5,401437774,22,10,false,N/A
+"October 9, 2022",Week 5,Final,Philadelphia Eagles,5-0,Arizona Cardinals,2-3,"State Farm Stadium, Glendale, AZ, USA",FOX,2,5,401437773,20,17,false,N/A
+"October 9, 2022",Week 5,Final,Cincinnati Bengals,2-3,Baltimore Ravens,3-2,"M&T Bank Stadium, Baltimore, MD, USA",NBC,2,5,401437775,17,19,false,N/A
+"October 10, 2022",Week 5,Final,Las Vegas Raiders,1-4,Kansas City Chiefs,4-1,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",ESPN,2,5,401437776,29,30,false,N/A
+"October 13, 2022",Week 6,Final,Washington Commanders,2-4,Chicago Bears,2-4,"Soldier Field, Chicago, IL, USA",Prime Video,2,6,401437777,12,7,false,N/A
+"October 16, 2022",Week 6,Final,San Francisco 49ers,3-3,Atlanta Falcons,3-3,"Mercedes-Benz Stadium, Atlanta, GA, USA",FOX,2,6,401437778,14,28,false,N/A
+"October 16, 2022",Week 6,Final,New England Patriots,3-3,Cleveland Browns,2-4,"Huntington Bank Field, Cleveland, OH, USA",CBS,2,6,401437779,38,15,false,N/A
+"October 16, 2022",Week 6,Final,New York Jets,4-2,Green Bay Packers,3-3,"Lambeau Field, Green Bay, WI, USA",FOX,2,6,401437780,27,10,false,N/A
+"October 16, 2022",Week 6,Final,Jacksonville Jaguars,2-4,Indianapolis Colts,3-2-1,"Lucas Oil Stadium, Indianapolis, IN, USA",CBS,2,6,401437781,27,34,false,N/A
+"October 16, 2022",Week 6,Final,Minnesota Vikings,5-1,Miami Dolphins,3-3,"Hard Rock Stadium, Miami Gardens, FL, USA",FOX,2,6,401437782,24,16,false,N/A
+"October 16, 2022",Week 6,Final,Cincinnati Bengals,3-3,New Orleans Saints,2-4,"Caesars Superdome, New Orleans, LA, USA",CBS,2,6,401437783,30,26,false,N/A
+"October 16, 2022",Week 6,Final,Baltimore Ravens,3-3,New York Giants,5-1,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,6,401437784,20,24,false,N/A
+"October 16, 2022",Week 6,Final,Tampa Bay Buccaneers,3-3,Pittsburgh Steelers,2-4,"Acrisure Stadium, Pittsburgh, PA, USA",FOX,2,6,401437785,18,20,false,N/A
+"October 16, 2022",Week 6,Final,Carolina Panthers,1-5,Los Angeles Rams,3-3,"SoFi Stadium, Inglewood, CA, USA",FOX,2,6,401437786,10,24,false,N/A
+"October 16, 2022",Week 6,Final,Arizona Cardinals,2-4,Seattle Seahawks,3-3,"Lumen Field, Seattle, WA, USA",FOX,2,6,401437787,9,19,false,N/A
+"October 16, 2022",Week 6,Final,Buffalo Bills,5-1,Kansas City Chiefs,4-2,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",CBS,2,6,401437788,24,20,false,N/A
+"October 16, 2022",Week 6,Final,Dallas Cowboys,4-2,Philadelphia Eagles,6-0,"Lincoln Financial Field, Philadelphia, PA, USA",NBC,2,6,401437789,17,26,false,N/A
+"October 17, 2022",Week 6,Final,Denver Broncos,2-4,Los Angeles Chargers,4-2,"SoFi Stadium, Inglewood, CA, USA",ESPN,2,6,401437790,16,19,true,N/A
+"October 20, 2022",Week 7,Final,New Orleans Saints,2-5,Arizona Cardinals,3-4,"State Farm Stadium, Glendale, AZ, USA",Prime Video,2,7,401437791,34,42,false,N/A
+"October 23, 2022",Week 7,Final,Atlanta Falcons,3-4,Cincinnati Bengals,4-3,"Paycor Stadium, Cincinnati, OH, USA",FOX,2,7,401437794,17,35,false,N/A
+"October 23, 2022",Week 7,Final,Detroit Lions,1-5,Dallas Cowboys,5-2,"AT&T Stadium, Arlington, TX, USA",CBS,2,7,401437795,6,24,false,N/A
+"October 23, 2022",Week 7,Final,Indianapolis Colts,3-3-1,Tennessee Titans,4-2,"Nissan Stadium, Nashville, TN, USA",CBS,2,7,401437797,10,19,false,N/A
+"October 23, 2022",Week 7,Final,Green Bay Packers,3-4,Washington Commanders,3-4,"Northwest Stadium, Landover, MD, USA",FOX,2,7,401437798,21,23,false,N/A
+"October 23, 2022",Week 7,Final,Tampa Bay Buccaneers,3-4,Carolina Panthers,2-5,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,7,401437793,3,21,false,N/A
+"October 23, 2022",Week 7,Final,New York Giants,6-1,Jacksonville Jaguars,2-5,"EverBank Stadium, Jacksonville, FL, USA",FOX,2,7,401437796,23,17,false,N/A
+"October 23, 2022",Week 7,Final,Cleveland Browns,2-5,Baltimore Ravens,4-3,"M&T Bank Stadium, Baltimore, MD, USA",CBS,2,7,401437792,20,23,false,N/A
+"October 23, 2022",Week 7,Final,New York Jets,5-2,Denver Broncos,2-5,"Empower Field at Mile High, Denver, CO, USA",CBS,2,7,401437799,16,9,false,N/A
+"October 23, 2022",Week 7,Final,Houston Texans,1-4-1,Las Vegas Raiders,2-4,"Allegiant Stadium, Las Vegas, NV, USA",CBS,2,7,401437800,20,38,false,N/A
+"October 23, 2022",Week 7,Final,Seattle Seahawks,4-3,Los Angeles Chargers,4-3,"SoFi Stadium, Inglewood, CA, USA",FOX,2,7,401437801,37,23,false,N/A
+"October 23, 2022",Week 7,Final,Kansas City Chiefs,5-2,San Francisco 49ers,3-4,"Levi's Stadium, Santa Clara, CA, USA",FOX,2,7,401437802,44,23,false,N/A
+"October 23, 2022",Week 7,Final,Pittsburgh Steelers,2-5,Miami Dolphins,4-3,"Hard Rock Stadium, Miami Gardens, FL, USA",NBC,2,7,401437803,10,16,false,N/A
+"October 24, 2022",Week 7,Final,Chicago Bears,3-4,New England Patriots,3-4,"Gillette Stadium, Foxborough, MA, USA",ESPN,2,7,401437804,33,14,false,N/A
+"October 27, 2022",Week 8,Final,Baltimore Ravens,5-3,Tampa Bay Buccaneers,3-5,"Raymond James Stadium, Tampa, FL, USA",Prime Video,2,8,401437805,27,22,false,N/A
+"October 30, 2022",Week 8,Final,Denver Broncos,3-5,Jacksonville Jaguars,2-6,"Wembley Stadium, London, None, England",ESPN+,2,8,401435641,21,17,false,N/A
+"October 30, 2022",Week 8,Final,Carolina Panthers,2-6,Atlanta Falcons,4-4,"Mercedes-Benz Stadium, Atlanta, GA, USA",FOX,2,8,401437806,34,37,true,N/A
+"October 30, 2022",Week 8,Final,Chicago Bears,3-5,Dallas Cowboys,6-2,"AT&T Stadium, Arlington, TX, USA",FOX,2,8,401437807,29,49,false,N/A
+"October 30, 2022",Week 8,Final,Miami Dolphins,5-3,Detroit Lions,1-6,"Ford Field, Detroit, MI, USA",CBS,2,8,401437808,31,27,false,N/A
+"October 30, 2022",Week 8,Final,Arizona Cardinals,3-5,Minnesota Vikings,6-1,"U.S. Bank Stadium, Minneapolis, MN, USA",FOX,2,8,401437809,26,34,false,N/A
+"October 30, 2022",Week 8,Final,Las Vegas Raiders,2-5,New Orleans Saints,3-5,"Caesars Superdome, New Orleans, LA, USA",CBS,2,8,401437810,0,24,false,N/A
+"October 30, 2022",Week 8,Final,New England Patriots,4-4,New York Jets,5-3,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,8,401437811,22,17,false,N/A
+"October 30, 2022",Week 8,Final,Pittsburgh Steelers,2-6,Philadelphia Eagles,7-0,"Lincoln Financial Field, Philadelphia, PA, USA",CBS,2,8,401437812,13,35,false,N/A
+"October 30, 2022",Week 8,Final,Tennessee Titans,5-2,Houston Texans,1-5-1,"NRG Stadium, Houston, TX, USA",CBS,2,8,401437813,17,10,false,N/A
+"October 30, 2022",Week 8,Final,Washington Commanders,4-4,Indianapolis Colts,3-4-1,"Lucas Oil Stadium, Indianapolis, IN, USA",FOX,2,8,401437814,17,16,false,N/A
+"October 30, 2022",Week 8,Final,San Francisco 49ers,4-4,Los Angeles Rams,3-4,"SoFi Stadium, Inglewood, CA, USA",FOX,2,8,401437815,31,14,false,N/A
+"October 30, 2022",Week 8,Final,New York Giants,6-2,Seattle Seahawks,5-3,"Lumen Field, Seattle, WA, USA",FOX,2,8,401437816,13,27,false,N/A
+"October 30, 2022",Week 8,Final,Green Bay Packers,3-5,Buffalo Bills,6-1,"Highmark Stadium, Orchard Park, NY, USA",NBC,2,8,401437817,17,27,false,N/A
+"October 31, 2022",Week 8,Final,Cincinnati Bengals,4-4,Cleveland Browns,3-5,"Huntington Bank Field, Cleveland, OH, USA",ESPN,2,8,401437818,13,32,false,N/A
+"November 3, 2022",Week 9,Final,Philadelphia Eagles,8-0,Houston Texans,1-6-1,"NRG Stadium, Houston, TX, USA",Prime Video,2,9,401437819,29,17,false,N/A
+"November 6, 2022",Week 9,Final,Los Angeles Chargers,5-3,Atlanta Falcons,4-5,"Mercedes-Benz Stadium, Atlanta, GA, USA",FOX,2,9,401437820,20,17,false,N/A
+"November 6, 2022",Week 9,Final,Miami Dolphins,6-3,Chicago Bears,3-6,"Soldier Field, Chicago, IL, USA",CBS,2,9,401437821,35,32,false,N/A
+"November 6, 2022",Week 9,Final,Carolina Panthers,2-7,Cincinnati Bengals,5-4,"Paycor Stadium, Cincinnati, OH, USA",FOX,2,9,401437822,21,42,false,N/A
+"November 6, 2022",Week 9,Final,Green Bay Packers,3-6,Detroit Lions,2-6,"Ford Field, Detroit, MI, USA",FOX,2,9,401437823,9,15,false,N/A
+"November 6, 2022",Week 9,Final,Indianapolis Colts,3-5-1,New England Patriots,5-4,"Gillette Stadium, Foxborough, MA, USA",CBS,2,9,401437825,3,26,false,N/A
+"November 6, 2022",Week 9,Final,Buffalo Bills,6-2,New York Jets,6-3,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,9,401437826,17,20,false,N/A
+"November 6, 2022",Week 9,Final,Minnesota Vikings,7-1,Washington Commanders,4-5,"Northwest Stadium, Landover, MD, USA",FOX,2,9,401437827,20,17,false,N/A
+"November 6, 2022",Week 9,Final,Las Vegas Raiders,2-6,Jacksonville Jaguars,3-6,"EverBank Stadium, Jacksonville, FL, USA",CBS,2,9,401437824,20,27,false,N/A
+"November 6, 2022",Week 9,Final,Seattle Seahawks,6-3,Arizona Cardinals,3-6,"State Farm Stadium, Glendale, AZ, USA",FOX,2,9,401437828,31,21,false,N/A
+"November 6, 2022",Week 9,Final,Los Angeles Rams,3-5,Tampa Bay Buccaneers,4-5,"Raymond James Stadium, Tampa, FL, USA",CBS,2,9,401437829,13,16,false,N/A
+"November 6, 2022",Week 9,Final,Tennessee Titans,5-3,Kansas City Chiefs,6-2,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",NBC,2,9,401437830,17,20,true,N/A
+"November 7, 2022",Week 9,Final,Baltimore Ravens,6-3,New Orleans Saints,3-6,"Caesars Superdome, New Orleans, LA, USA",ESPN,2,9,401437831,27,13,false,N/A
+"November 10, 2022",Week 10,Final,Atlanta Falcons,4-6,Carolina Panthers,3-7,"Bank of America Stadium, Charlotte, NC, USA",Prime Video,2,10,401437832,15,25,false,N/A
+"November 13, 2022",Week 10,Final,Seattle Seahawks,6-4,Tampa Bay Buccaneers,5-5,"Allianz Arena, Munich, None, Germany",NFL Net,2,10,401435638,16,21,false,N/A
+"November 13, 2022",Week 10,Final,Minnesota Vikings,8-1,Buffalo Bills,6-3,"Highmark Stadium, Orchard Park, NY, USA",FOX,2,10,401437833,33,30,true,N/A
+"November 13, 2022",Week 10,Final,Detroit Lions,3-6,Chicago Bears,3-7,"Soldier Field, Chicago, IL, USA",FOX,2,10,401437834,31,30,false,N/A
+"November 13, 2022",Week 10,Final,Denver Broncos,3-6,Tennessee Titans,6-3,"Nissan Stadium, Nashville, TN, USA",CBS,2,10,401437839,10,17,false,N/A
+"November 13, 2022",Week 10,Final,Jacksonville Jaguars,3-7,Kansas City Chiefs,7-2,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",CBS,2,10,401437835,17,27,false,N/A
+"November 13, 2022",Week 10,Final,Cleveland Browns,3-6,Miami Dolphins,7-3,"Hard Rock Stadium, Miami Gardens, FL, USA",CBS,2,10,401437836,17,39,false,N/A
+"November 13, 2022",Week 10,Final,Houston Texans,1-7-1,New York Giants,7-2,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,10,401437837,16,24,false,N/A
+"November 13, 2022",Week 10,Final,New Orleans Saints,3-7,Pittsburgh Steelers,3-6,"Acrisure Stadium, Pittsburgh, PA, USA",FOX,2,10,401437838,10,20,false,N/A
+"November 13, 2022",Week 10,Final,Indianapolis Colts,4-5-1,Las Vegas Raiders,2-7,"Allegiant Stadium, Las Vegas, NV, USA",CBS,2,10,401437840,25,20,false,N/A
+"November 13, 2022",Week 10,Final,Dallas Cowboys,6-3,Green Bay Packers,4-6,"Lambeau Field, Green Bay, WI, USA",FOX,2,10,401437131,28,31,true,N/A
+"November 13, 2022",Week 10,Final,Arizona Cardinals,4-6,Los Angeles Rams,3-6,"SoFi Stadium, Inglewood, CA, USA",FOX,2,10,401437841,27,17,false,N/A
+"November 13, 2022",Week 10,Final,Los Angeles Chargers,5-4,San Francisco 49ers,5-4,"Levi's Stadium, Santa Clara, CA, USA",NBC,2,10,401437842,16,22,false,N/A
+"November 14, 2022",Week 10,Final,Washington Commanders,5-5,Philadelphia Eagles,8-1,"Lincoln Financial Field, Philadelphia, PA, USA",ESPN,2,10,401437843,32,21,false,N/A
+"November 17, 2022",Week 11,Final,Tennessee Titans,7-3,Green Bay Packers,4-7,"Lambeau Field, Green Bay, WI, USA",Prime Video,2,11,401437844,27,17,false,N/A
+"November 20, 2022",Week 11,Final,Chicago Bears,3-8,Atlanta Falcons,5-6,"Mercedes-Benz Stadium, Atlanta, GA, USA",FOX,2,11,401437845,24,27,false,N/A
+"November 20, 2022",Week 11,Final,Cleveland Browns,3-7,Buffalo Bills,7-3,"Ford Field, Detroit, MI, USA",CBS,2,11,401437847,23,31,false,N/A
+"November 20, 2022",Week 11,Final,Philadelphia Eagles,9-1,Indianapolis Colts,4-6-1,"Lucas Oil Stadium, Indianapolis, IN, USA",CBS,2,11,401437849,17,16,false,N/A
+"November 20, 2022",Week 11,Final,New York Jets,6-4,New England Patriots,6-4,"Gillette Stadium, Foxborough, MA, USA",CBS,2,11,401437850,3,10,false,N/A
+"November 20, 2022",Week 11,Final,Los Angeles Rams,3-7,New Orleans Saints,4-7,"Caesars Superdome, New Orleans, LA, USA",FOX,2,11,401437851,20,27,false,N/A
+"November 20, 2022",Week 11,Final,Detroit Lions,4-6,New York Giants,7-3,"MetLife Stadium, East Rutherford, NJ, USA",FOX,2,11,401437852,31,18,false,N/A
+"November 20, 2022",Week 11,Final,Carolina Panthers,3-8,Baltimore Ravens,7-3,"M&T Bank Stadium, Baltimore, MD, USA",FOX,2,11,401437846,3,13,false,N/A
+"November 20, 2022",Week 11,Final,Washington Commanders,6-5,Houston Texans,1-8-1,"NRG Stadium, Houston, TX, USA",FOX,2,11,401437848,23,10,false,N/A
+"November 20, 2022",Week 11,Final,Las Vegas Raiders,3-7,Denver Broncos,3-7,"Empower Field at Mile High, Denver, CO, USA",FOX,2,11,401437853,22,16,true,N/A
+"November 20, 2022",Week 11,Final,Dallas Cowboys,7-3,Minnesota Vikings,8-2,"U.S. Bank Stadium, Minneapolis, MN, USA",CBS,2,11,401437855,40,3,false,N/A
+"November 20, 2022",Week 11,Final,Cincinnati Bengals,6-4,Pittsburgh Steelers,3-7,"Acrisure Stadium, Pittsburgh, PA, USA",CBS,2,11,401437856,37,30,false,N/A
+"November 20, 2022",Week 11,Final,Kansas City Chiefs,8-2,Los Angeles Chargers,5-5,"SoFi Stadium, Inglewood, CA, USA",NBC,2,11,401437854,30,27,false,N/A
+"November 21, 2022",Week 11,Final,San Francisco 49ers,6-4,Arizona Cardinals,4-7,"Estadio Azteca, Mexico City, None, Mexico",ESPN,2,11,401435642,38,10,false,N/A
+"November 24, 2022",Week 12,Final,Buffalo Bills,8-3,Detroit Lions,4-7,"Ford Field, Detroit, MI, USA",CBS,2,12,401437857,28,25,false,N/A
+"November 24, 2022",Week 12,Final,New York Giants,7-4,Dallas Cowboys,8-3,"AT&T Stadium, Arlington, TX, USA",FOX,2,12,401437858,20,28,false,N/A
+"November 24, 2022",Week 12,Final,New England Patriots,6-5,Minnesota Vikings,9-2,"U.S. Bank Stadium, Minneapolis, MN, USA",NBC,2,12,401437859,26,33,false,N/A
+"November 27, 2022",Week 12,Final,Tampa Bay Buccaneers,5-6,Cleveland Browns,4-7,"Huntington Bank Field, Cleveland, OH, USA",FOX,2,12,401437861,17,23,true,N/A
+"November 27, 2022",Week 12,Final,Cincinnati Bengals,7-4,Tennessee Titans,7-4,"Nissan Stadium, Nashville, TN, USA",CBS,2,12,401437865,20,16,false,N/A
+"November 27, 2022",Week 12,Final,Houston Texans,1-9-1,Miami Dolphins,8-3,"Hard Rock Stadium, Miami Gardens, FL, USA",CBS,2,12,401437863,15,30,false,N/A
+"November 27, 2022",Week 12,Final,Chicago Bears,3-9,New York Jets,7-4,"MetLife Stadium, East Rutherford, NJ, USA",FOX,2,12,401437864,10,31,false,N/A
+"November 27, 2022",Week 12,Final,Atlanta Falcons,5-7,Washington Commanders,7-5,"Northwest Stadium, Landover, MD, USA",FOX,2,12,401437866,13,19,false,N/A
+"November 27, 2022",Week 12,Final,Denver Broncos,3-8,Carolina Panthers,4-8,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,12,401437860,10,23,false,N/A
+"November 27, 2022",Week 12,Final,Baltimore Ravens,7-4,Jacksonville Jaguars,4-7,"EverBank Stadium, Jacksonville, FL, USA",CBS,2,12,401437862,27,28,false,N/A
+"November 27, 2022",Week 12,Final,Los Angeles Chargers,6-5,Arizona Cardinals,4-8,"State Farm Stadium, Glendale, AZ, USA",CBS,2,12,401437867,25,24,false,N/A
+"November 27, 2022",Week 12,Final,Las Vegas Raiders,4-7,Seattle Seahawks,6-5,"Lumen Field, Seattle, WA, USA",CBS,2,12,401437868,40,34,true,N/A
+"November 27, 2022",Week 12,Final,Los Angeles Rams,3-8,Kansas City Chiefs,9-2,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",FOX,2,12,401437869,10,26,false,N/A
+"November 27, 2022",Week 12,Final,New Orleans Saints,4-8,San Francisco 49ers,7-4,"Levi's Stadium, Santa Clara, CA, USA",FOX,2,12,401437870,0,13,false,N/A
+"November 27, 2022",Week 12,Final,Green Bay Packers,4-8,Philadelphia Eagles,10-1,"Lincoln Financial Field, Philadelphia, PA, USA",NBC,2,12,401437871,33,40,false,N/A
+"November 28, 2022",Week 12,Final,Pittsburgh Steelers,4-7,Indianapolis Colts,4-7-1,"Lucas Oil Stadium, Indianapolis, IN, USA",ESPN,2,12,401437872,24,17,false,N/A
+"December 1, 2022",Week 13,Final,Buffalo Bills,9-3,New England Patriots,6-6,"Gillette Stadium, Foxborough, MA, USA",Prime Video,2,13,401437873,24,10,false,N/A
+"December 4, 2022",Week 13,Final,Pittsburgh Steelers,5-7,Atlanta Falcons,5-8,"Mercedes-Benz Stadium, Atlanta, GA, USA",CBS,2,13,401437874,19,16,false,N/A
+"December 4, 2022",Week 13,Final,Green Bay Packers,5-8,Chicago Bears,3-10,"Soldier Field, Chicago, IL, USA",FOX,2,13,401437876,28,19,false,N/A
+"December 4, 2022",Week 13,Final,Jacksonville Jaguars,4-8,Detroit Lions,5-7,"Ford Field, Detroit, MI, USA",FOX,2,13,401437877,14,40,false,N/A
+"December 4, 2022",Week 13,Final,New York Jets,7-5,Minnesota Vikings,10-2,"U.S. Bank Stadium, Minneapolis, MN, USA",CBS,2,13,401437879,22,27,false,N/A
+"December 4, 2022",Week 13,Final,Washington Commanders,7-5-1,New York Giants,7-4-1,"MetLife Stadium, East Rutherford, NJ, USA",FOX,2,13,401437880,20,20,true,N/A
+"December 4, 2022",Week 13,Final,Tennessee Titans,7-5,Philadelphia Eagles,11-1,"Lincoln Financial Field, Philadelphia, PA, USA",FOX,2,13,401437881,10,35,false,N/A
+"December 4, 2022",Week 13,Final,Denver Broncos,3-9,Baltimore Ravens,8-4,"M&T Bank Stadium, Baltimore, MD, USA",CBS,2,13,401437875,9,10,false,N/A
+"December 4, 2022",Week 13,Final,Cleveland Browns,5-7,Houston Texans,1-10-1,"NRG Stadium, Houston, TX, USA",CBS,2,13,401437878,27,14,false,N/A
+"December 4, 2022",Week 13,Final,Seattle Seahawks,7-5,Los Angeles Rams,3-9,"SoFi Stadium, Inglewood, CA, USA",FOX,2,13,401437882,27,23,false,N/A
+"December 4, 2022",Week 13,Final,Miami Dolphins,8-4,San Francisco 49ers,8-4,"Levi's Stadium, Santa Clara, CA, USA",FOX,2,13,401437883,17,33,false,N/A
+"December 4, 2022",Week 13,Final,Kansas City Chiefs,9-3,Cincinnati Bengals,8-4,"Paycor Stadium, Cincinnati, OH, USA",CBS,2,13,401437884,24,27,false,N/A
+"December 4, 2022",Week 13,Final,Los Angeles Chargers,6-6,Las Vegas Raiders,5-7,"Allegiant Stadium, Las Vegas, NV, USA",CBS,2,13,401437885,20,27,false,N/A
+"December 4, 2022",Week 13,Final,Indianapolis Colts,4-8-1,Dallas Cowboys,9-3,"AT&T Stadium, Arlington, TX, USA",NBC,2,13,401437886,19,54,false,N/A
+"December 5, 2022",Week 13,Final,New Orleans Saints,4-9,Tampa Bay Buccaneers,6-6,"Raymond James Stadium, Tampa, FL, USA",ESPN,2,13,401437887,16,17,false,N/A
+"December 8, 2022",Week 14,Final,Las Vegas Raiders,5-8,Los Angeles Rams,4-9,"SoFi Stadium, Inglewood, CA, USA",Prime Video,2,14,401437888,16,17,false,N/A
+"December 11, 2022",Week 14,Final,New York Jets,7-6,Buffalo Bills,10-3,"Highmark Stadium, Orchard Park, NY, USA",CBS,2,14,401437889,12,20,false,N/A
+"December 11, 2022",Week 14,Final,Cleveland Browns,5-8,Cincinnati Bengals,9-4,"Paycor Stadium, Cincinnati, OH, USA",CBS,2,14,401437890,10,23,false,N/A
+"December 11, 2022",Week 14,Final,Houston Texans,1-11-1,Dallas Cowboys,10-3,"AT&T Stadium, Arlington, TX, USA",FOX,2,14,401437891,23,27,false,N/A
+"December 11, 2022",Week 14,Final,Minnesota Vikings,10-3,Detroit Lions,6-7,"Ford Field, Detroit, MI, USA",FOX,2,14,401437892,23,34,false,N/A
+"December 11, 2022",Week 14,Final,Jacksonville Jaguars,5-8,Tennessee Titans,7-6,"Nissan Stadium, Nashville, TN, USA",CBS,2,14,401437895,36,22,false,N/A
+"December 11, 2022",Week 14,Final,Philadelphia Eagles,12-1,New York Giants,7-5-1,"MetLife Stadium, East Rutherford, NJ, USA",FOX,2,14,401437893,48,22,false,N/A
+"December 11, 2022",Week 14,Final,Baltimore Ravens,9-4,Pittsburgh Steelers,5-8,"Acrisure Stadium, Pittsburgh, PA, USA",CBS,2,14,401437894,16,14,false,N/A
+"December 11, 2022",Week 14,Final,Kansas City Chiefs,10-3,Denver Broncos,3-10,"Empower Field at Mile High, Denver, CO, USA",CBS,2,14,401437899,34,28,false,N/A
+"December 11, 2022",Week 14,Final,Tampa Bay Buccaneers,6-7,San Francisco 49ers,9-4,"Levi's Stadium, Santa Clara, CA, USA",FOX,2,14,401437897,7,35,false,N/A
+"December 11, 2022",Week 14,Final,Carolina Panthers,5-8,Seattle Seahawks,7-6,"Lumen Field, Seattle, WA, USA",FOX,2,14,401437898,30,24,false,N/A
+"December 11, 2022",Week 14,Final,Miami Dolphins,8-5,Los Angeles Chargers,7-6,"SoFi Stadium, Inglewood, CA, USA",NBC,2,14,401437896,17,23,false,N/A
+"December 12, 2022",Week 14,Final,New England Patriots,7-6,Arizona Cardinals,4-9,"State Farm Stadium, Glendale, AZ, USA",ESPN,2,14,401437900,27,13,false,N/A
+"December 15, 2022",Week 15,Final,San Francisco 49ers,10-4,Seattle Seahawks,7-7,"Lumen Field, Seattle, WA, USA",Prime Video,2,15,401437901,21,13,false,N/A
+"December 17, 2022",Week 15,Final,Indianapolis Colts,4-9-1,Minnesota Vikings,11-3,"U.S. Bank Stadium, Minneapolis, MN, USA",NFL Net,2,15,401437904,36,39,true,N/A
+"December 17, 2022",Week 15,Final,Baltimore Ravens,9-5,Cleveland Browns,6-8,"Huntington Bank Field, Cleveland, OH, USA",NFL Net,2,15,401437903,3,13,false,N/A
+"December 17, 2022",Week 15,Final,Miami Dolphins,8-6,Buffalo Bills,11-3,"Highmark Stadium, Orchard Park, NY, USA",NFL Net,2,15,401437902,29,32,false,N/A
+"December 18, 2022",Week 15,Final,Philadelphia Eagles,13-1,Chicago Bears,3-11,"Soldier Field, Chicago, IL, USA",FOX,2,15,401437908,25,20,false,N/A
+"December 18, 2022",Week 15,Final,Atlanta Falcons,5-9,New Orleans Saints,5-9,"Caesars Superdome, New Orleans, LA, USA",FOX,2,15,401437905,18,21,false,N/A
+"December 18, 2022",Week 15,Final,Detroit Lions,7-7,New York Jets,7-7,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,15,401437911,20,17,false,N/A
+"December 18, 2022",Week 15,Final,Pittsburgh Steelers,6-8,Carolina Panthers,5-9,"Bank of America Stadium, Charlotte, NC, USA",CBS,2,15,401437907,24,16,false,N/A
+"December 18, 2022",Week 15,Final,Dallas Cowboys,10-4,Jacksonville Jaguars,6-8,"EverBank Stadium, Jacksonville, FL, USA",FOX,2,15,401437910,34,40,true,N/A
+"December 18, 2022",Week 15,Final,Kansas City Chiefs,11-3,Houston Texans,1-12-1,"NRG Stadium, Houston, TX, USA",CBS,2,15,401437909,30,24,true,N/A
+"December 18, 2022",Week 15,Final,Arizona Cardinals,4-10,Denver Broncos,4-10,"Empower Field at Mile High, Denver, CO, USA",FOX,2,15,401437912,15,24,false,N/A
+"December 18, 2022",Week 15,Final,New England Patriots,7-7,Las Vegas Raiders,6-8,"Allegiant Stadium, Las Vegas, NV, USA",FOX,2,15,401437915,24,30,false,N/A
+"December 18, 2022",Week 15,Final,Tennessee Titans,7-7,Los Angeles Chargers,8-6,"SoFi Stadium, Inglewood, CA, USA",CBS,2,15,401437913,14,17,false,N/A
+"December 18, 2022",Week 15,Final,Cincinnati Bengals,10-4,Tampa Bay Buccaneers,6-8,"Raymond James Stadium, Tampa, FL, USA",CBS,2,15,401437914,34,23,false,N/A
+"December 18, 2022",Week 15,Final,New York Giants,8-5-1,Washington Commanders,7-6-1,"Northwest Stadium, Landover, MD, USA",NBC,2,15,401437906,20,12,false,N/A
+"December 19, 2022",Week 15,Final,Los Angeles Rams,4-10,Green Bay Packers,6-8,"Lambeau Field, Green Bay, WI, USA",ESPN/ABC/ESPN+,2,15,401437916,12,24,false,N/A
+"December 22, 2022",Week 16,Final,Jacksonville Jaguars,7-8,New York Jets,7-8,"MetLife Stadium, East Rutherford, NJ, USA",Prime Video,2,16,401437917,19,3,false,N/A
+"December 24, 2022",Week 16,Final,Buffalo Bills,12-3,Chicago Bears,3-12,"Soldier Field, Chicago, IL, USA",CBS,2,16,401437920,35,13,false,N/A
+"December 24, 2022",Week 16,Final,New Orleans Saints,6-9,Cleveland Browns,6-9,"Huntington Bank Field, Cleveland, OH, USA",CBS,2,16,401437921,17,10,false,N/A
+"December 24, 2022",Week 16,Final,Seattle Seahawks,7-8,Kansas City Chiefs,12-3,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",FOX,2,16,401437922,10,24,false,N/A
+"December 24, 2022",Week 16,Final,New York Giants,8-6-1,Minnesota Vikings,12-3,"U.S. Bank Stadium, Minneapolis, MN, USA",FOX,2,16,401437923,24,27,false,N/A
+"December 24, 2022",Week 16,Final,Cincinnati Bengals,11-4,New England Patriots,7-8,"Gillette Stadium, Foxborough, MA, USA",CBS,2,16,401437924,22,18,false,N/A
+"December 24, 2022",Week 16,Final,Detroit Lions,7-8,Carolina Panthers,6-9,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,16,401437919,23,37,false,N/A
+"December 24, 2022",Week 16,Final,Atlanta Falcons,5-10,Baltimore Ravens,10-5,"M&T Bank Stadium, Baltimore, MD, USA",FOX,2,16,401437918,9,17,false,N/A
+"December 24, 2022",Week 16,Final,Houston Texans,2-12-1,Tennessee Titans,7-8,"Nissan Stadium, Nashville, TN, USA",CBS,2,16,401437925,19,14,false,N/A
+"December 24, 2022",Week 16,Final,Washington Commanders,7-7-1,San Francisco 49ers,11-4,"Levi's Stadium, Santa Clara, CA, USA",CBS,2,16,401437926,20,37,false,N/A
+"December 24, 2022",Week 16,Final,Philadelphia Eagles,13-2,Dallas Cowboys,11-4,"AT&T Stadium, Arlington, TX, USA",FOX,2,16,401437927,34,40,false,N/A
+"December 24, 2022",Week 16,Final,Las Vegas Raiders,6-9,Pittsburgh Steelers,7-8,"Acrisure Stadium, Pittsburgh, PA, USA",NFL Net,2,16,401437928,10,13,false,N/A
+"December 25, 2022",Week 16,Final,Green Bay Packers,7-8,Miami Dolphins,8-7,"Hard Rock Stadium, Miami Gardens, FL, USA",FOX,2,16,401437929,26,20,false,N/A
+"December 25, 2022",Week 16,Final,Denver Broncos,4-11,Los Angeles Rams,5-10,"SoFi Stadium, Inglewood, CA, USA",CBS,2,16,401436983,14,51,false,N/A
+"December 25, 2022",Week 16,Final,Tampa Bay Buccaneers,7-8,Arizona Cardinals,4-11,"State Farm Stadium, Glendale, AZ, USA",NBC,2,16,401437930,19,16,true,N/A
+"December 26, 2022",Week 16,Final,Los Angeles Chargers,9-6,Indianapolis Colts,4-10-1,"Lucas Oil Stadium, Indianapolis, IN, USA",ESPN,2,16,401437931,20,3,false,N/A
+"December 29, 2022",Week 17,Final,Dallas Cowboys,12-4,Tennessee Titans,7-9,"Nissan Stadium, Nashville, TN, USA",Prime Video,2,17,401437932,27,13,false,N/A
+"January 1, 2023",Week 17,Final,Arizona Cardinals,4-12,Atlanta Falcons,6-10,"Mercedes-Benz Stadium, Atlanta, GA, USA",FOX,2,17,401437933,19,20,false,N/A
+"January 1, 2023",Week 17,Final,Chicago Bears,3-13,Detroit Lions,8-8,"Ford Field, Detroit, MI, USA",FOX,2,17,401437935,10,41,false,N/A
+"January 1, 2023",Week 17,Final,Denver Broncos,4-12,Kansas City Chiefs,13-3,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",CBS,2,17,401437937,24,27,false,N/A
+"January 1, 2023",Week 17,Final,Miami Dolphins,8-8,New England Patriots,8-8,"Gillette Stadium, Foxborough, MA, USA",CBS,2,17,401437938,21,23,false,N/A
+"January 1, 2023",Week 17,Final,Indianapolis Colts,4-11-1,New York Giants,9-6-1,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,17,401437939,10,38,false,N/A
+"January 1, 2023",Week 17,Final,New Orleans Saints,7-9,Philadelphia Eagles,13-3,"Lincoln Financial Field, Philadelphia, PA, USA",FOX,2,17,401437940,20,10,false,N/A
+"January 1, 2023",Week 17,Final,Carolina Panthers,6-10,Tampa Bay Buccaneers,8-8,"Raymond James Stadium, Tampa, FL, USA",FOX,2,17,401437941,24,30,false,N/A
+"January 1, 2023",Week 17,Final,Cleveland Browns,7-9,Washington Commanders,7-8-1,"Northwest Stadium, Landover, MD, USA",FOX,2,17,401437942,24,10,false,N/A
+"January 1, 2023",Week 17,Final,Jacksonville Jaguars,8-8,Houston Texans,2-13-1,"NRG Stadium, Houston, TX, USA",CBS,2,17,401437936,31,3,false,N/A
+"January 1, 2023",Week 17,Final,San Francisco 49ers,12-4,Las Vegas Raiders,6-10,"Allegiant Stadium, Las Vegas, NV, USA",FOX,2,17,401437943,37,34,true,N/A
+"January 1, 2023",Week 17,Final,New York Jets,7-9,Seattle Seahawks,8-8,"Lumen Field, Seattle, WA, USA",FOX,2,17,401437944,6,23,false,N/A
+"January 1, 2023",Week 17,Final,Minnesota Vikings,12-4,Green Bay Packers,8-8,"Lambeau Field, Green Bay, WI, USA",CBS,2,17,401437945,17,41,false,N/A
+"January 1, 2023",Week 17,Final,Los Angeles Rams,5-11,Los Angeles Chargers,10-6,"SoFi Stadium, Inglewood, CA, USA",CBS,2,17,401437946,10,31,false,N/A
+"January 1, 2023",Week 17,Final,Pittsburgh Steelers,8-8,Baltimore Ravens,10-6,"M&T Bank Stadium, Baltimore, MD, USA",NBC,2,17,401437934,16,13,false,N/A
+"January 2, 2023",Week 17,Canceled,Buffalo Bills,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",TBD,2,17,401437947,-1,-1,false,N/A
+"January 7, 2023",Week 18,Final,Kansas City Chiefs,14-3,Las Vegas Raiders,6-11,"Allegiant Stadium, Las Vegas, NV, USA",ESPN/ABC/ESPN+,2,18,401437961,31,13,false,N/A
+"January 7, 2023",Week 18,Final,Tennessee Titans,7-10,Jacksonville Jaguars,9-8,"EverBank Stadium, Jacksonville, FL, USA",ESPN/ABC/ESPN+,2,18,401437954,16,20,false,N/A
+"January 8, 2023",Week 18,Final,Tampa Bay Buccaneers,8-9,Atlanta Falcons,7-10,"Mercedes-Benz Stadium, Atlanta, GA, USA",FOX,2,18,401437948,17,30,false,N/A
+"January 8, 2023",Week 18,Final,New England Patriots,8-9,Buffalo Bills,13-3,"Highmark Stadium, Orchard Park, NY, USA",CBS,2,18,401437949,23,35,false,N/A
+"January 8, 2023",Week 18,Final,Minnesota Vikings,13-4,Chicago Bears,3-14,"Soldier Field, Chicago, IL, USA",FOX,2,18,401437950,29,13,false,N/A
+"January 8, 2023",Week 18,Final,Baltimore Ravens,10-7,Cincinnati Bengals,12-4,"Paycor Stadium, Cincinnati, OH, USA",CBS,2,18,401437951,16,27,false,N/A
+"January 8, 2023",Week 18,Final,Houston Texans,3-13-1,Indianapolis Colts,4-12-1,"Lucas Oil Stadium, Indianapolis, IN, USA",CBS,2,18,401437953,32,31,false,N/A
+"January 8, 2023",Week 18,Final,New York Jets,7-10,Miami Dolphins,9-8,"Hard Rock Stadium, Miami Gardens, FL, USA",FOX,2,18,401437955,6,11,false,N/A
+"January 8, 2023",Week 18,Final,Carolina Panthers,7-10,New Orleans Saints,7-10,"Caesars Superdome, New Orleans, LA, USA",FOX,2,18,401437956,10,7,false,N/A
+"January 8, 2023",Week 18,Final,Cleveland Browns,7-10,Pittsburgh Steelers,9-8,"Acrisure Stadium, Pittsburgh, PA, USA",CBS,2,18,401437958,14,28,false,N/A
+"January 8, 2023",Week 18,Final,Los Angeles Chargers,10-7,Denver Broncos,5-12,"Empower Field at Mile High, Denver, CO, USA",CBS,2,18,401437960,28,31,false,N/A
+"January 8, 2023",Week 18,Final,New York Giants,9-7-1,Philadelphia Eagles,14-3,"Lincoln Financial Field, Philadelphia, PA, USA",CBS,2,18,401437957,16,22,false,N/A
+"January 8, 2023",Week 18,Final,Arizona Cardinals,4-13,San Francisco 49ers,13-4,"Levi's Stadium, Santa Clara, CA, USA",FOX,2,18,401437962,13,38,false,N/A
+"January 8, 2023",Week 18,Final,Los Angeles Rams,5-12,Seattle Seahawks,9-8,"Lumen Field, Seattle, WA, USA",FOX,2,18,401437963,16,19,true,N/A
+"January 8, 2023",Week 18,Final,Dallas Cowboys,12-5,Washington Commanders,8-8-1,"Northwest Stadium, Landover, MD, USA",FOX,2,18,401437959,6,26,false,N/A
+"January 8, 2023",Week 18,Final,Detroit Lions,9-8,Green Bay Packers,8-9,"Lambeau Field, Green Bay, WI, USA",NBC,2,18,401437952,20,16,false,N/A
+"January 14, 2023",Wild Card Round,Final,Seattle Seahawks,9-8,San Francisco 49ers,13-4,"Levi's Stadium, Santa Clara, CA, USA",FOX,3,1,401438000,23,41,false,N/A
+"January 14, 2023",Wild Card Round,Final,Los Angeles Chargers,10-7,Jacksonville Jaguars,9-8,"EverBank Stadium, Jacksonville, FL, USA",NBC,3,1,401437998,30,31,false,N/A
+"January 15, 2023",Wild Card Round,Final,Miami Dolphins,9-8,Buffalo Bills,13-3,"Highmark Stadium, Orchard Park, NY, USA",CBS,3,1,401438002,31,34,false,N/A
+"January 15, 2023",Wild Card Round,Final,New York Giants,9-7-1,Minnesota Vikings,13-4,"U.S. Bank Stadium, Minneapolis, MN, USA",FOX,3,1,401438001,31,24,false,N/A
+"January 15, 2023",Wild Card Round,Final,Baltimore Ravens,10-7,Cincinnati Bengals,12-4,"Paycor Stadium, Cincinnati, OH, USA",NBC,3,1,401437999,17,24,false,N/A
+"January 16, 2023",Wild Card Round,Final,Dallas Cowboys,12-5,Tampa Bay Buccaneers,8-9,"Raymond James Stadium, Tampa, FL, USA",ESPN/ABC/ESPN+,3,1,401438003,31,14,false,N/A
+"January 21, 2023",Divisional Round,Final,Jacksonville Jaguars,9-8,Kansas City Chiefs,14-3,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",NBC,3,2,401438005,20,27,false,N/A
+"January 21, 2023",Divisional Round,Final,New York Giants,9-7-1,Philadelphia Eagles,14-3,"Lincoln Financial Field, Philadelphia, PA, USA",FOX,3,2,401438004,7,38,false,N/A
+"January 22, 2023",Divisional Round,Final,Cincinnati Bengals,12-4,Buffalo Bills,13-3,"Highmark Stadium, Orchard Park, NY, USA",CBS,3,2,401438007,27,10,false,N/A
+"January 22, 2023",Divisional Round,Final,Dallas Cowboys,12-5,San Francisco 49ers,13-4,"Levi's Stadium, Santa Clara, CA, USA",FOX,3,2,401438006,12,19,false,N/A
+"January 29, 2023",Conference Championships,Final,San Francisco 49ers,13-4,Philadelphia Eagles,14-3,"Lincoln Financial Field, Philadelphia, PA, USA",FOX,3,3,401438009,7,31,false,N/A
+"January 29, 2023",Conference Championships,Final,Cincinnati Bengals,12-4,Kansas City Chiefs,14-3,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",CBS,3,3,401438008,20,23,false,N/A
+"February 12, 2023",Super Bowl,Final,Kansas City Chiefs,14-3,Philadelphia Eagles,14-3,"State Farm Stadium, Glendale, AZ, USA",FOX,3,5,401438030,38,35,false,N/A
