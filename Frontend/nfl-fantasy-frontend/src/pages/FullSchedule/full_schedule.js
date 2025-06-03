@@ -21,7 +21,6 @@ const FullSchedule = () => {
 
     // Track if initial fetch has been done
     const initialFetchRef = useRef(false);
-    const [yearChanged, setYearChanged] = useState(false); // Track if the year has changed so we can re-fetch data
 
 
     // Update the schedule database to retrieve the latest schedule data
@@ -132,12 +131,12 @@ const FullSchedule = () => {
                     Error, could not load the schedule for the {teamSeason} season.
                 </p>
 
-                {/* Season section drop-down menu */}
+                {/* Season section drop-down menu (re-fetch schedule data if changed) */}
                 <SeasonDropdownMenu
                     teamSeason = {teamSeason}
                     onChange={(newSeason) => {
                         setSeason(newSeason);
-                        setYearChanged(true);
+                        initialFetchRef.current = false;
                     }}
                 />
             </div>
@@ -153,7 +152,10 @@ const FullSchedule = () => {
             {/* Season selection drop-down menu (re-fetch schedule data if changed) */}
             <SeasonDropdownMenu
                 teamSeason = {teamSeason}
-                onChange = {setSeason, setYearChanged(true)}
+                onChange={(newSeason) => {
+                    setSeason(newSeason);
+                    initialFetchRef.current = false;
+                }}
             />
 
             {/* Week selection dropdown menu */}
