@@ -13,6 +13,7 @@ const FullSchedule = () => {
     const [loading, setLoading] = useState(true); 
     const [loadError, throwLoadError] = useState(false); // Error state for loading data
     const [datesThisWeek, setDatesThisWeek] = useState([]); // Dates for the selected week
+    const [firstTimeLoad, setFirstTimeLoad] = useState(true); 
 
 
     // Update the schedule database to retrieve the latest schedule data
@@ -46,6 +47,8 @@ const FullSchedule = () => {
             setLoading(false);
 
             console.log(schedule);
+
+            console.log(`First time load 1: ${firstTimeLoad}`); // DEBUG
         })();
 
     }, [teamSeason]);
@@ -54,15 +57,22 @@ const FullSchedule = () => {
 
 
     useEffect(() => {
-        // Get the matchups for the selected week
-        throwLoadError(false);
+        console.log(`First time load 2: ${firstTimeLoad}`);  // DEBUG
 
-        console.log(`Changed week to ${week}`);
+        if (!firstTimeLoad) {
+            // Get the matchups for the selected week
+            throwLoadError(false);
 
-        (async () => {  
-            const schedule_data = await fetchScheduleByWeek(week); 
-            setSchedule(schedule_data);
-        })(); 
+            console.log(`Changed week to ${week}`);
+
+            (async () => {  
+                const schedule_data = await fetchScheduleByWeek(week); 
+                setSchedule(schedule_data);
+            })(); 
+        } else {
+            // Set the first time load variable to false after the first load to prevent resetting the schedule
+            setFirstTimeLoad(false);
+        }
 
     }, [week]);
 
@@ -158,7 +168,7 @@ const FullSchedule = () => {
 
             <p>&nbsp;</p>
 
-            {/* Display each team's bye weeks */}
+            {/* Display each team's bye weeks (can hard-code since all bye weeks are finalized) */}
             {teamSeason === "2025" ? (
                 <div style={{ paddingLeft: '20px' }}>
                     <h2>2025 Bye Weeks</h2>
