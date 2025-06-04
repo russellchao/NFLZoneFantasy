@@ -39,6 +39,10 @@ const PositionPage = () => {
 
     // Call the Specialized Spring Boot endpoint to update the database with the updated player stats CSV file (from calling Flask endpoint)
     async function updatePlayerStatsDB() {
+        if (!loading) {
+            setLoading(true); 
+        };
+
         // In case updating the player stats CSV is unsuccessful, the function will return such a response
         const csv_result = await fetchUpdatePlayerStatsDB(teamSeason); 
 
@@ -50,26 +54,26 @@ const PositionPage = () => {
     // Only update the player stats database in this useEffect hook (on initial load or if the season changes) 
     // The actual position data will be fetched in the next useEffect hook
     useEffect(() => {
-        if (!loading) {
-            setLoading(true); 
-        };
-
+        console.log(`Season changed to: ${teamSeason}`);
         console.log(`Initial fetch: ${initialFetchRef.current}`);
-        
+
         if (initialFetchRef.current) {
             return; // Skip if we've already done the initial fetch
         } else {
             initialFetchRef.current = true; // Mark that we've done the initial fetch
         }
-            
+        
         throwLoadError(false); // reset loadError to false on each load
 
         (async () => {
             await updatePlayerStatsDB(); 
 
-            if (loading) {
-                setLoading(false); 
+            if (positionName != "") {
+                const posData = await fetchPlayerDataByPosition(positionName); 
+                setPosData(posData); 
             }
+
+            setLoading(false);
         })(); 
     }, [teamSeason]);
 
@@ -77,7 +81,14 @@ const PositionPage = () => {
     
     // This useEffect hook is used exclusively to re-fetch the player stats data when the position changes (doesn't update database)
     useEffect(() => {
+        // Skip this hook on the during initial load (NOTE: ALWAYS USE THIS CHECK IN EVERY useEffect HOOK THAT'S NOT THE FIRST ONE)
+        if (!initialFetchRef.current) {
+            return;
+        }
+
         console.log(`Position changed to: ${positionName}`);
+
+        throwLoadError(false);
         
         (async () => {
             if (positionName != "") {
@@ -85,6 +96,8 @@ const PositionPage = () => {
                 setPosData(posData); 
             }
         })(); 
+
+        console.log(`Loading: ${loading}`);
 
     }, [positionName]); 
 

@@ -68,7 +68,7 @@ const FullSchedule = () => {
 
 
     useEffect(() => {
-        // Skip week changes during initial load
+        // Skip week changes during initial load (NOTE: ALWAYS USE THIS CHECK IN EVERY useEffect HOOK THAT'S NOT THE FIRST ONE)
         if (!initialFetchRef.current) {
             return;
         }
@@ -89,7 +89,7 @@ const FullSchedule = () => {
 
 
     useEffect(() => {
-        // Skip week changes during initial load
+        // Skip date changes during initial load (NOTE: ALWAYS USE THIS CHECK IN EVERY useEffect HOOK THAT'S NOT THE FIRST ONE)
         if (!initialFetchRef.current) {
             return;
         }
