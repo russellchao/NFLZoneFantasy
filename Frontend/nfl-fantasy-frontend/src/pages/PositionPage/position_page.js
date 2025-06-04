@@ -11,7 +11,6 @@ const allPositions = [
 
 
 const PositionPage = () => {
-    
     const [positionName, setPositionName] = useState(""); 
     const [positionData, setPosData] = useState([]); 
     const [loading, setLoading] = useState(true); 
@@ -40,10 +39,6 @@ const PositionPage = () => {
 
     // Call the Specialized Spring Boot endpoint to update the database with the updated player stats CSV file (from calling Flask endpoint)
     async function updatePlayerStatsDB() {
-        if (!loading) {
-            setLoading(true); 
-        }
-
         // In case updating the player stats CSV is unsuccessful, the function will return such a response
         const csv_result = await fetchUpdatePlayerStatsDB(teamSeason); 
 
@@ -51,57 +46,47 @@ const PositionPage = () => {
     };
 
 
-    // Fetch player data by position from the Spring Boot Backend
-    async function fetchPosData(positionName) {
-        await updatePlayerStatsDB(); 
 
-        if (positionName) {
-            const loadPosData = async () => {
-                const posData = await fetchPlayerDataByPosition(positionName); 
-                setPosData(posData); 
-            };
-            loadPosData(); 
-
-            if (!initialFetchRef.current) {
-                initialFetchRef.current = true; // Mark that we've done the initial fetch
-            }
-
-            if (loading) {
-                setLoading(false); 
-            }
-        }
-    }
-
-
-
+    // Only update the player stats database in this useEffect hook (on initial load or if the season changes) 
+    // The actual position data will be fetched in the next useEffect hook
     useEffect(() => {
+        if (!loading) {
+            setLoading(true); 
+        }
+
         console.log(`Initial fetch: ${initialFetchRef.current}`);
         
         if (initialFetchRef.current) {
             return; // Skip if we've already done the initial fetch
+        } else {
+            initialFetchRef.current = true; // Mark that we've done the initial fetch
         }
             
         throwLoadError(false); // reset loadError to false on each load
 
         (async () => {
-            await fetchPosData(positionName); // fetch the position data 
+            await updatePlayerStatsDB(); 
+
+            if (loading) {
+                setLoading(false); 
+            }
         })(); 
-        
     }, [teamSeason]);
 
 
-
+    
+    // This useEffect hook is used exclusively to re-fetch the player stats data when the position changes (doesn't update database)
     useEffect(() => {
-        // This useEffect hook is used exclusively to re-fetch the player stats data when the position changes
-
         console.log(`Position changed to: ${positionName}`);
-
+        
         (async () => {
-            await fetchPosData(positionName); // fetch the position data 
+            if (positionName != "") {
+                const posData = await fetchPlayerDataByPosition(positionName); 
+                setPosData(posData); 
+            }
         })(); 
 
     }, [positionName]); 
-
 
 
 
@@ -111,7 +96,6 @@ const PositionPage = () => {
             <p style={{ paddingLeft: '20px' }}>Loading {positionName} data for the {teamSeason} NFL season...</p>
         );
     }
-
 
 
     // When the player stats cannot be fetched
