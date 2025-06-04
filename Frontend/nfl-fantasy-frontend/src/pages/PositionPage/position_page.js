@@ -31,14 +31,7 @@ const PositionPage = () => {
     // Track if the initial fetch has been done
     const initialFetchRef = useRef(false);
 
-
-    // Navigate to the team page when a position from the mini-menu is clicked
-    const navigate = useNavigate(); 
-    const handleClick = (positionName) => {
-        navigate(`/all_positions/${positionName}`); 
-    };
-
-
+    
     // Expand table function
     const expandTable = () => {
         setPlayersShown(prevCount => prevCount + 10); 
@@ -58,10 +51,32 @@ const PositionPage = () => {
     };
 
 
-    // Retrieve position data from the Spring Boot Backend
+    // Fetch player data by position from the Spring Boot Backend
+    async function fetchPosData(positionName) {
+        await updatePlayerStatsDB(); 
+
+        if (positionName) {
+            const loadPosData = async () => {
+                const posData = await fetchPlayerDataByPosition(positionName); 
+                setPosData(posData); 
+            };
+            loadPosData(); 
+
+            if (!initialFetchRef.current) {
+                initialFetchRef.current = true; // Mark that we've done the initial fetch
+            }
+
+            if (loading) {
+                setLoading(false); 
+            }
+        }
+    }
+
+
+
     useEffect(() => {
         console.log(`Initial fetch: ${initialFetchRef.current}`);
-
+        
         if (initialFetchRef.current) {
             return; // Skip if we've already done the initial fetch
         }
@@ -69,22 +84,25 @@ const PositionPage = () => {
         throwLoadError(false); // reset loadError to false on each load
 
         (async () => {
-            await updatePlayerStatsDB(); 
-
-            if (positionName) {
-                const loadPosData = async () => {
-                    const posData = await fetchPlayerDataByPosition(positionName); 
-                    setPosData(posData); 
-                };
-                loadPosData(); 
-
-                initialFetchRef.current = true; // Mark that we've done the initial fetch
-
-                setLoading(false); 
-            }
+            await fetchPosData(positionName); // fetch the position data 
         })(); 
         
-    }, [positionName, teamSeason]);
+    }, [teamSeason]);
+
+
+
+    useEffect(() => {
+        // This useEffect hook is used exclusively to re-fetch the player stats data when the position changes
+
+        console.log(`Position changed to: ${positionName}`);
+
+        (async () => {
+            await fetchPosData(positionName); // fetch the position data 
+        })(); 
+
+    }, [positionName]); 
+
+
 
 
     // When the page is loading data
