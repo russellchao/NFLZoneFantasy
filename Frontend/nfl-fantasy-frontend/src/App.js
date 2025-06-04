@@ -35,7 +35,7 @@ function App() {
           <Route path="/all_teams" element={<AllTeams />} />
           <Route path="/all_teams/:teamName" element={<TeamPage />} /> 
           <Route path="/all_positions" element={<AllPositions />} />
-          <Route path="/all_positions/:positionName" element={<PositionPage />} />
+          <Route path="/position_page" element={<PositionPage />} />
           <Route path="/search" element={<Search />} />
           <Route path="/full_schedule" element={<FullSchedule />} />
         </Routes>

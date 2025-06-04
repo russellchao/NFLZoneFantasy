@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, {useEffect, useState, useRef } from 'react';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { fetchPlayerDataByPosition, fetchUpdatePlayerStatsDB } from '../../API/player_data_api';
 import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
 
@@ -11,17 +11,30 @@ const allPositions = [
 
 
 const PositionPage = () => {
-    const { positionName } = useParams(); 
+    
+    const [positionName, setPositionName] = useState(""); 
     const [positionData, setPosData] = useState([]); 
     const [loading, setLoading] = useState(true); 
     const [loadError, throwLoadError] = useState(false); 
     const [numPlayersShown, setPlayersShown] = useState(10); 
     const [teamSeason, setSeason] = useState("2024"); 
 
+    // Get position from navigation state
+    const location = useLocation();
+    useEffect(() => {
+        if (location.state?.position) {
+            setPositionName(location.state.position);
+        }
+    }, [location]);
+
+
+    // Track if the initial fetch has been done
+    const initialFetchRef = useRef(false);
+
 
     // Navigate to the team page when a position from the mini-menu is clicked
     const navigate = useNavigate(); 
-    const handleTeamClick = (positionName) => {
+    const handleClick = (positionName) => {
         navigate(`/all_positions/${positionName}`); 
     };
 
@@ -47,6 +60,12 @@ const PositionPage = () => {
 
     // Retrieve position data from the Spring Boot Backend
     useEffect(() => {
+        console.log(`Initial fetch: ${initialFetchRef.current}`);
+
+        if (initialFetchRef.current) {
+            return; // Skip if we've already done the initial fetch
+        }
+            
         throwLoadError(false); // reset loadError to false on each load
 
         (async () => {
@@ -58,6 +77,8 @@ const PositionPage = () => {
                     setPosData(posData); 
                 };
                 loadPosData(); 
+
+                initialFetchRef.current = true; // Mark that we've done the initial fetch
 
                 setLoading(false); 
             }
@@ -83,10 +104,13 @@ const PositionPage = () => {
                     Error, could not load {positionName}s for the {teamSeason} NFL season.
                 </p>
 
-                {/* Season section drop-down menu */}
+                {/* Season section drop-down menu (re-fetch player stats data if changed) */}
                 <SeasonDropdownMenu
                     teamSeason = {teamSeason}
-                    onChange = {setSeason}
+                    onChange={(newSeason) => {
+                        setSeason(newSeason);
+                        initialFetchRef.current = false;
+                    }}
                 />
 
             </div>
@@ -105,7 +129,7 @@ const PositionPage = () => {
             }}>
                 {allPositions.map(position => (
                     <div key={position}
-                        onClick={() => handleTeamClick(position)}
+                        onClick={() => setPositionName(position)}
                         style={{
                             padding: '10px',
                             backgroundColor: '#ddd',
@@ -123,7 +147,10 @@ const PositionPage = () => {
             {/* Season section drop-down menu */}
             <SeasonDropdownMenu
                 teamSeason = {teamSeason}
-                onChange = {setSeason}
+                onChange={(newSeason) => {
+                    setSeason(newSeason);
+                    initialFetchRef.current = false;
+                }}
             />
 
 

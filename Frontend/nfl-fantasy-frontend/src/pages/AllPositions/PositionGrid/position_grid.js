@@ -17,8 +17,8 @@ const specialPositions = [
 const PositionGrid = () => {
     const navigate = useNavigate(); 
 
-    const handleTeamClick = (positionName) => {
-        navigate(`/all_positions/${positionName}`); 
+    const handleClick = (positionName) => {
+        navigate(`/position_page`, { state: { position: positionName } }); 
     };
 
     return (
@@ -32,7 +32,7 @@ const PositionGrid = () => {
             }}>
                 {offensivePositions.map(position => (
                     <div key={position}
-                        onClick={() => handleTeamClick(position)}
+                        onClick={() => handleClick(position)}
                         style={{
                             padding: '10px',
                             backgroundColor: '#ddd',
@@ -53,7 +53,7 @@ const PositionGrid = () => {
             }}>
                 {defensivePositions.map(position => (
                     <div key={position}
-                        onClick={() => handleTeamClick(position)}
+                        onClick={() => handleClick(position)}
                         style={{
                             padding: '10px',
                             backgroundColor: '#ddd',
@@ -74,7 +74,7 @@ const PositionGrid = () => {
             }}>
                 {specialPositions.map(position => (
                     <div key={position}
-                        onClick={() => handleTeamClick(position)}
+                        onClick={() => handleClick(position)}
                         style={{
                             padding: '10px',
                             backgroundColor: '#ddd',
