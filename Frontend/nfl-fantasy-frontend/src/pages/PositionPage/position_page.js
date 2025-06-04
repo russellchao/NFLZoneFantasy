@@ -52,7 +52,7 @@ const PositionPage = () => {
     useEffect(() => {
         if (!loading) {
             setLoading(true); 
-        }
+        };
 
         console.log(`Initial fetch: ${initialFetchRef.current}`);
         
