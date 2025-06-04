@@ -1,7 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { fetchPlayerDataByPosition, fetchUpdatePlayerStatsDB } from '../../API/player_data_api';
 import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
+
+
+const allPositions = [
+    "Quarterback", "Running Back", "Wide Receiver", "Tight End", 
+    "Defensive End", "Linebacker", "Cornerback", "Safety", "Kicker"
+];
 
 
 const PositionPage = () => {
@@ -11,6 +17,13 @@ const PositionPage = () => {
     const [loadError, throwLoadError] = useState(false); 
     const [numPlayersShown, setPlayersShown] = useState(10); 
     const [teamSeason, setSeason] = useState("2024"); 
+
+
+    // Navigate to the team page when a position from the mini-menu is clicked
+    const navigate = useNavigate(); 
+    const handleTeamClick = (positionName) => {
+        navigate(`/all_positions/${positionName}`); 
+    };
 
 
     // Expand table function
@@ -83,8 +96,29 @@ const PositionPage = () => {
     
     return (
         <div>
-            <h1 style={{ paddingLeft: '20px' }}>{ positionName + "s"}</h1>
+            {/* Mini menu for the other positions (to avoid re-fetching or having to go back to the team page) */}
+            <div style={{
+                display: 'grid', 
+                gridTemplateColumns: 'repeat(10, 1fr)',
+                gap: '10px',
+                padding: '20px'
+            }}>
+                {allPositions.map(position => (
+                    <div key={position}
+                        onClick={() => handleTeamClick(position)}
+                        style={{
+                            padding: '10px',
+                            backgroundColor: '#ddd',
+                            textAlign: 'center',
+                            cursor: 'pointer'
+                        }}>
+                        {position}
+                    </div>
+                ))}
+            </div>
 
+
+            <h1 style={{ paddingLeft: '20px' }}>{ positionName + "s"}</h1>
 
             {/* Season section drop-down menu */}
             <SeasonDropdownMenu
