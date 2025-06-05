@@ -92,8 +92,6 @@ const PositionPage = () => {
     
     // This useEffect hook is used exclusively to re-fetch the player stats data when the position changes (doesn't update database)
     useEffect(() => {
-        console.log(`INITIAL FETCH CHECKPOINT 2: ${initialFetchRef.current}`);
-        
         // Skip this hook on the during initial load (NOTE: ALWAYS USE THIS CHECK IN EVERY useEffect HOOK THAT'S NOT THE FIRST ONE)
         if (!initialFetchRef.current) {
             return;
