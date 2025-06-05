@@ -18,6 +18,7 @@ const PositionPage = () => {
     const [numPlayersShown, setPlayersShown] = useState(10); 
     const [teamSeason, setSeason] = useState("2024"); 
 
+
     // Get position from navigation state
     const location = useLocation();
     useEffect(() => {
@@ -82,6 +83,8 @@ const PositionPage = () => {
     // This useEffect hook is used exclusively to re-fetch the player stats data when the position changes (doesn't update database)
     useEffect(() => {
         // Skip this hook on the during initial load (NOTE: ALWAYS USE THIS CHECK IN EVERY useEffect HOOK THAT'S NOT THE FIRST ONE)
+        console.log(`INITIAL FETCH CHECKPOINT 2: ${initialFetchRef.current}`);
+        
         if (!initialFetchRef.current) {
             return;
         }
