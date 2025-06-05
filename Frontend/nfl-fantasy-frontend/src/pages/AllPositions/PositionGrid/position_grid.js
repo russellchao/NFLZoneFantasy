@@ -18,7 +18,10 @@ const PositionGrid = () => {
     const navigate = useNavigate(); 
 
     const handleClick = (positionName) => {
-        navigate(`/position_page`, { state: { position: positionName } }); 
+        navigate('/position_page', { 
+            state: { position: positionName },
+            replace: true // Replace current history entry
+        }); 
     };
 
     return (

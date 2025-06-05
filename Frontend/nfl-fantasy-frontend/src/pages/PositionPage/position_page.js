@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef } from 'react';
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { fetchPlayerDataByPosition, fetchUpdatePlayerStatsDB } from '../../API/player_data_api';
 import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
 
@@ -11,16 +11,30 @@ const allPositions = [
 
 
 const PositionPage = () => {
-    const [positionName, setPositionName] = useState(""); 
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    // Initialize positionName from location state (the position grid from the all positions page) or redirect if none exists
+    const [positionName, setPositionName] = useState(() => {
+        if (!location.state?.position) {
+            // Redirect back to positions page if no position was selected
+            navigate('/all_positions');
+            return '';
+        }
+        return location.state.position;
+    });
+
     const [positionData, setPosData] = useState([]); 
     const [loading, setLoading] = useState(true); 
     const [loadError, throwLoadError] = useState(false); 
     const [numPlayersShown, setPlayersShown] = useState(10); 
     const [teamSeason, setSeason] = useState("2024"); 
 
+    // Track if the initial fetch has been done
+    const initialFetchRef = useRef(false);
+
 
     // Get position from navigation state
-    const location = useLocation();
     useEffect(() => {
         if (location.state?.position) {
             setPositionName(location.state.position);
@@ -28,10 +42,6 @@ const PositionPage = () => {
     }, [location]);
 
 
-    // Track if the initial fetch has been done
-    const initialFetchRef = useRef(false);
-
-    
     // Expand table function
     const expandTable = () => {
         setPlayersShown(prevCount => prevCount + 10); 
@@ -82,9 +92,9 @@ const PositionPage = () => {
     
     // This useEffect hook is used exclusively to re-fetch the player stats data when the position changes (doesn't update database)
     useEffect(() => {
-        // Skip this hook on the during initial load (NOTE: ALWAYS USE THIS CHECK IN EVERY useEffect HOOK THAT'S NOT THE FIRST ONE)
         console.log(`INITIAL FETCH CHECKPOINT 2: ${initialFetchRef.current}`);
         
+        // Skip this hook on the during initial load (NOTE: ALWAYS USE THIS CHECK IN EVERY useEffect HOOK THAT'S NOT THE FIRST ONE)
         if (!initialFetchRef.current) {
             return;
         }
