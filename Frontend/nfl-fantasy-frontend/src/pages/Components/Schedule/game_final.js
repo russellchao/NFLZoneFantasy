@@ -1,5 +1,16 @@
 import React from 'react';
 
+// Import all logo images
+const logoImages = require.context('../../../logos', false, /\.(png|jpe?g|svg)$/);
+
+// Create a mapping of team abbreviations to logo paths
+const teamLogos = {};
+logoImages.keys().forEach(key => {
+    // Remove './' from the start and file extension from the end
+    const teamAbbr = key.replace(/^\.\//, '').replace(/\.(png|jpe?g|svg)$/, '');
+    teamLogos[teamAbbr] = logoImages(key);
+});
+
 const boxStyle = {
     background: '#b3cccc',
     margin: '1%',
@@ -20,6 +31,13 @@ const topRowStyle = {
     fontWeight: 'bold',
     fontSize: '1.1em',
     marginBottom: '40px',
+};
+
+const logoStyle = {
+    width: '50px',
+    height: '50px',
+    marginRight: '10px',
+    verticalAlign: 'middle'
 };
 
 const teamsRowStyle = {
@@ -76,11 +94,25 @@ const GameFinal = ({ game }) => {
                 <span style={{ 
                     marginLeft: 16,
                     ...(parseInt(game.awayTeamScore) < parseInt(game.homeTeamScore) ? losingStyle : {})
-                }}>{game.awayTeam}</span>
+                }}>
+                    <img 
+                        src={teamLogos[game.awayTeam]} 
+                        alt={`${game.awayTeam} logo`} 
+                        style={logoStyle}
+                    />
+                    {game.awayTeam}
+                </span>
                 <span style={{ 
                     marginRight: 16,
                     ...(parseInt(game.homeTeamScore) < parseInt(game.awayTeamScore) ? losingStyle : {})
-                }}>{game.homeTeam}</span>
+                }}>
+                    <img 
+                        src={teamLogos[game.homeTeam]} 
+                        alt={`${game.homeTeam} logo`} 
+                        style={logoStyle}
+                    />
+                    {game.homeTeam}
+                </span>
             </div>
             <div style={recordsRowStyle}>
                 <span style={{ 
