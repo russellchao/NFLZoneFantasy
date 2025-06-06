@@ -18,6 +18,7 @@ const FullSchedule = () => {
     // Variables for finding specific matchups
     const [specificTeam1, setSpecificTeam1] = useState("");
     const [specificTeam2, setSpecificTeam2] = useState("");
+    const [submitSpecificMatchup, setSubmitSpecificMatchup] = useState(false); 
 
     // Track if initial fetch has been done
     const initialFetchRef = useRef(false);
@@ -87,7 +88,6 @@ const FullSchedule = () => {
     }, [week]);
 
 
-
     useEffect(() => {
         // Skip date changes during initial load (NOTE: ALWAYS USE THIS CHECK IN EVERY useEffect HOOK THAT'S NOT THE FIRST ONE)
         if (!initialFetchRef.current) {
@@ -114,13 +114,40 @@ const FullSchedule = () => {
 
 
 
+    useEffect(() => {
+        // This useEffect is triggered when the user submits a specific matchup
+
+        if (!initialFetchRef.current) {
+            return;
+        }
+
+        // Check if the user selects two teams for a specific matchup
+        if (!submitSpecificMatchup) {
+            if (specificTeam1 !== "" && specificTeam2 !== "" && specificTeam1 !== specificTeam2) {
+                setSubmitSpecificMatchup(true); 
+            }; 
+        }; 
+
+        // Check if the user wants to go back to the full schedule
+        if (submitSpecificMatchup) {
+            if (specificTeam1 === "" || specificTeam2 === "") {
+                setSubmitSpecificMatchup(false); 
+            };
+        }
+
+    }, [specificTeam1, specificTeam2]); 
+
+
+
+
+
+
     // When the page is loading schedule data
     if (loading) {
         return (
             <p style={{ paddingLeft: '20px' }}>Loading the {teamSeason} NFL schedule...</p>
         );
     }
-
 
 
     // When the schedule data could not be loaded
@@ -140,6 +167,61 @@ const FullSchedule = () => {
                     }}
                 />
             </div>
+        );
+    }
+
+
+    // When the user submitted a specific matchup
+    if (submitSpecificMatchup) {
+        return (
+            <>
+                <div>
+                    <br></br>
+
+                    {/* Button to go back to the full schedule */}
+                    <button style={{ marginLeft: '20px' }}>
+                        <a 
+                            style={{ textDecoration: 'none', color: 'black' }}
+                            onClick={() => {
+                                setSpecificTeam1("");
+                                setSpecificTeam2("");
+                                setSubmitSpecificMatchup.bind(null, false);
+                            }}
+                        >   
+                            Back to Full Schedule
+                        </a>
+                    </button>
+                </div>
+
+                <div>
+                    <br></br>
+
+                    {/* Season selection drop-down menu (re-fetch schedule data if changed) */}
+                    <SeasonDropdownMenu
+                        teamSeason = {teamSeason}
+                        onChange={(newSeason) => {
+                            setSeason(newSeason);
+                            initialFetchRef.current = false;
+                        }}
+                    />
+
+                    {/* Specific matchup finder option */}
+                    <span style={{ marginLeft: '200px' }}>Find a matchup: </span>
+                    <TeamDropdownMenu
+                        team = {specificTeam1}
+                        onChange = {setSpecificTeam1}
+                    ></TeamDropdownMenu>
+                    <span style={{ marginLeft: '25px' }}>vs.</span>
+                    <TeamDropdownMenu
+                        team = {specificTeam2}
+                        onChange = {setSpecificTeam2}
+                    ></TeamDropdownMenu>
+
+                    <h2 style={{ paddingLeft: '20px' }}>
+                        Matchups for {specificTeam1} vs. {specificTeam2} in the {teamSeason} season
+                    </h2>
+                </div>
+            </>
         );
     }
 
@@ -167,11 +249,13 @@ const FullSchedule = () => {
             {/* Specific matchup finder option */}
             <span style={{ marginLeft: '200px' }}>Find a matchup: </span>
             <TeamDropdownMenu
-                team={specificTeam1}
+                team = {specificTeam1}
+                onChange = {setSpecificTeam1}
             ></TeamDropdownMenu>
             <span style={{ marginLeft: '25px' }}>vs.</span>
             <TeamDropdownMenu
-                team={specificTeam2}
+                team = {specificTeam2}
+                onChange = {setSpecificTeam2}
             ></TeamDropdownMenu>
             
             
