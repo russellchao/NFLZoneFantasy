@@ -48,7 +48,23 @@ export const fetchScheduleByWeek = async (weekNum) => {
 
 
 export const fetchScheduleByMatchup = async (team1, team2) => {
+    try {
+        const response = await fetch(
+            `http://localhost:8081/api/v1/schedule/specific?team1=${encodeURIComponent(team1)}&team2=${encodeURIComponent(team2)}`
+        );
 
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`)
+        }
+
+        const data = await response.json(); 
+        console.log(data); 
+        return data; 
+
+    } catch (error) {
+        console.error("Failed to fetch data:", error);
+        return []; 
+    }
 };
 
 

@@ -1,5 +1,5 @@
 import React, {useRef, useEffect, useState} from 'react';
-import { fetchScheduleByWeek, fetchUpdateScheduleDB } from '../../API/schedule_api';
+import { fetchScheduleByWeek, fetchScheduleByMatchup, fetchUpdateScheduleDB } from '../../API/schedule_api';
 import GameFinal from '../Components/Schedule/game_final';
 import GameScheduled from '../Components/Schedule/game_scheduled';
 import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
@@ -19,6 +19,8 @@ const FullSchedule = () => {
     const [specificTeam1, setSpecificTeam1] = useState("");
     const [specificTeam2, setSpecificTeam2] = useState("");
     const [submitSpecificMatchup, setSubmitSpecificMatchup] = useState(false); 
+    const [specificSchedule, setSpecificSchedule] = useState([]); // Schedule for the specific matchup
+    const [specificMatchupDates, setSpecificMatchupDates] = useState([]); // Dates for the specific matchup
 
     // Track if initial fetch has been done
     const initialFetchRef = useRef(false);
@@ -41,6 +43,8 @@ const FullSchedule = () => {
 
 
     useEffect(() => {
+        // This useEffect is triggered when the page loads for the first time or when the user selects a different season
+
         if (initialFetchRef.current) {
             return; // Skip if we've already done the initial fetch
         } else {
@@ -67,8 +71,9 @@ const FullSchedule = () => {
 
 
 
-
     useEffect(() => {
+        // This useEffect is triggered when the user selects a different week
+
         // Skip week changes during initial load
         if (!initialFetchRef.current) {
             return;
@@ -88,7 +93,10 @@ const FullSchedule = () => {
     }, [week]);
 
 
+
     useEffect(() => {
+        // This useEffect gets the new dates for the selected week whenever the week changes
+
         // Skip date changes during initial load (NOTE: ALWAYS USE THIS CHECK IN EVERY useEffect HOOK THAT'S NOT THE FIRST ONE)
         if (!initialFetchRef.current) {
             return;
@@ -125,6 +133,21 @@ const FullSchedule = () => {
         if (!submitSpecificMatchup) {
             if (specificTeam1 !== "" && specificTeam2 !== "" && specificTeam1 !== specificTeam2) {
                 setSubmitSpecificMatchup(true); 
+
+                (async () => {  
+                    const schedule_data = await fetchScheduleByMatchup(specificTeam1, specificTeam2); 
+                    setSpecificSchedule(schedule_data);
+
+                    const matchupDates = [];
+                    for (let i = 0; i < specificSchedule.length; i++) {
+                        const game = specificSchedule[i];
+                        if (game.date && !matchupDates.includes(game.date)) {
+                            matchupDates.push(game.date);
+                        }
+                    }
+
+                    setSpecificMatchupDates(matchupDates);
+                })(); 
             }; 
         }; 
 
@@ -220,6 +243,29 @@ const FullSchedule = () => {
                     <h2 style={{ paddingLeft: '20px' }}>
                         Matchups for {specificTeam1} vs. {specificTeam2} in the {teamSeason} season
                     </h2>
+
+                    <p>&nbsp;</p>
+
+                    {/* Display all matchups for each date in the specific matchup */}
+                    <div style={{ paddingLeft: '20px' }}>
+                        {specificMatchupDates.map((date, idx) => (
+                            <div key={idx}>
+                                <h2>{date}</h2>
+                                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
+                                    {specificSchedule.filter(game => game.date === date).map((game, gameIdx) => (
+                                        game.status === 'Final' ? (
+                                            <GameFinal key={game.gameId || gameIdx} game={game} />
+                                        ) : game.status === 'Scheduled' ? (
+                                            <GameScheduled key={game.gameId || gameIdx} game={game} />
+                                        ) : (
+                                            <></>
+                                        )
+                                    ))}
+                                </div>
+                            </div>
+                        ))}       
+                    </div>
+
                 </div>
             </>
         );
