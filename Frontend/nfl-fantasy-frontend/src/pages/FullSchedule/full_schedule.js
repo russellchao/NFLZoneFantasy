@@ -25,8 +25,13 @@ const FullSchedule = () => {
     // Variables for finding specific matchups
     const [specificTeam1, setSpecificTeam1] = useState("");
     const [specificTeam2, setSpecificTeam2] = useState("");
-    const [submitSpecificMatchup, setSubmitSpecificMatchup] = useState(false); 
+    const [viewingSpecificMatchup, setViewingSpecificMatchup] = useState(false); 
     const [specificSchedule, setSpecificSchedule] = useState([]); // Schedule for the specific matchup
+
+    // Specialized state to track if the user changed the season while viewing a specific matchup
+    // This is such that the same matchup can be viewed in a different season after updating the schedule database without having to re-select the teams
+    const [specificMatchupSeasonChanged, setSpecificMatchupSeasonChanged] = useState(false); 
+
 
     // Track if initial fetch has been done
     const initialFetchRef = useRef(false);
@@ -68,7 +73,14 @@ const FullSchedule = () => {
             const schedule_data = await fetchScheduleByWeek(week); 
             setSchedule(schedule_data);
 
-            setLoading(false);
+            if (viewingSpecificMatchup) {
+                // If necessary, set this flag to true so that the same matchup can be viewed in a different season 
+                // after updating the schedule database without having to re-select the teams
+                setSpecificMatchupSeasonChanged(true);
+            } else {
+                // if the above condition is true, loading will be set to false in the useEffect that handles specific matchups
+                setLoading(false);
+            }
 
             console.log(schedule);
         })();
@@ -131,35 +143,47 @@ const FullSchedule = () => {
     useEffect(() => {
         // This useEffect is triggered when the user submits a specific matchup
 
+        console.log(`Loading: ${loading}`);
+        console.log(`Season changed while viewing specific matchup: ${specificMatchupSeasonChanged}`);
+
         if (!initialFetchRef.current) {
-            return;
+            return; 
         }
 
         // Check if the user wants to go back to the full schedule
-        if (submitSpecificMatchup) {
+        if (viewingSpecificMatchup) {
             if (specificTeam1 === "" || specificTeam2 === "") {
-                setSubmitSpecificMatchup(false); 
+                setViewingSpecificMatchup(false); 
                 return; 
             };
         }
 
         // Check if the user selects two teams for a specific matchup
         if (specificTeam1 !== "" && specificTeam2 !== "" && specificTeam1 !== specificTeam2) {
-            (async () => {  
-                const schedule_data = await fetchScheduleByMatchup(specificTeam1, specificTeam2); 
-                setSpecificSchedule(schedule_data);
+            if (loading && specificMatchupSeasonChanged || !loading && !specificMatchupSeasonChanged) {
+                (async () => {  
+                    console.log(`Loading specific matchup for ${specificTeam1} vs. ${specificTeam2} in the ${teamSeason} season`);
 
-                if (!submitSpecificMatchup) {
-                    setSubmitSpecificMatchup(true); 
-                }
+                    const schedule_data = await fetchScheduleByMatchup(specificTeam1, specificTeam2); 
+                    setSpecificSchedule(schedule_data);
 
-            })(); 
+                    if (!viewingSpecificMatchup) {
+                        setViewingSpecificMatchup(true); 
+                    }
+
+                    if (specificMatchupSeasonChanged) {
+                        setSpecificMatchupSeasonChanged(false); 
+                    }
+
+                    if (loading) {
+                        setLoading(false); 
+                    }
+
+                })(); 
+            }
         }; 
         
-    }, [specificTeam1, specificTeam2]); 
-
-
-
+    }, [specificMatchupSeasonChanged, specificTeam1, specificTeam2]); 
 
 
 
@@ -193,7 +217,7 @@ const FullSchedule = () => {
 
 
     // When the user submitted a specific matchup
-    if (submitSpecificMatchup) {
+    if (viewingSpecificMatchup) {
         return (
             <>
                 <div>
@@ -206,7 +230,7 @@ const FullSchedule = () => {
                             onClick={() => {
                                 setSpecificTeam1("");
                                 setSpecificTeam2("");
-                                setSubmitSpecificMatchup.bind(null, false);
+                                setViewingSpecificMatchup.bind(null, false);
                             }}
                         >   
                             Back to Full Schedule
