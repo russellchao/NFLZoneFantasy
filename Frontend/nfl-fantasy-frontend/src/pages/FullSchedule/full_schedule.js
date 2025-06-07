@@ -7,6 +7,13 @@ import WeekDropdownMenu from '../Components/WeekDropdown/week_dropdown';
 import TeamDropdownMenu from '../Components/TeamDropdown/team_dropdown';
 
 
+const rowStyle = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-start',
+};
+
+
 const FullSchedule = () => {
     const [schedule, setSchedule] = useState([]);
     const [teamSeason, setSeason] = useState("2025"); 
@@ -20,7 +27,6 @@ const FullSchedule = () => {
     const [specificTeam2, setSpecificTeam2] = useState("");
     const [submitSpecificMatchup, setSubmitSpecificMatchup] = useState(false); 
     const [specificSchedule, setSpecificSchedule] = useState([]); // Schedule for the specific matchup
-    const [specificMatchupDates, setSpecificMatchupDates] = useState([]); // Dates for the specific matchup
 
     // Track if initial fetch has been done
     const initialFetchRef = useRef(false);
@@ -129,35 +135,27 @@ const FullSchedule = () => {
             return;
         }
 
-        // Check if the user selects two teams for a specific matchup
-        if (!submitSpecificMatchup) {
-            if (specificTeam1 !== "" && specificTeam2 !== "" && specificTeam1 !== specificTeam2) {
-                setSubmitSpecificMatchup(true); 
-
-                (async () => {  
-                    const schedule_data = await fetchScheduleByMatchup(specificTeam1, specificTeam2); 
-                    setSpecificSchedule(schedule_data);
-
-                    const matchupDates = [];
-                    for (let i = 0; i < specificSchedule.length; i++) {
-                        const game = specificSchedule[i];
-                        if (game.date && !matchupDates.includes(game.date)) {
-                            matchupDates.push(game.date);
-                        }
-                    }
-
-                    setSpecificMatchupDates(matchupDates);
-                })(); 
-            }; 
-        }; 
-
         // Check if the user wants to go back to the full schedule
         if (submitSpecificMatchup) {
             if (specificTeam1 === "" || specificTeam2 === "") {
                 setSubmitSpecificMatchup(false); 
+                return; 
             };
         }
 
+        // Check if the user selects two teams for a specific matchup
+        if (specificTeam1 !== "" && specificTeam2 !== "" && specificTeam1 !== specificTeam2) {
+            (async () => {  
+                const schedule_data = await fetchScheduleByMatchup(specificTeam1, specificTeam2); 
+                setSpecificSchedule(schedule_data);
+
+                if (!submitSpecificMatchup) {
+                    setSubmitSpecificMatchup(true); 
+                }
+
+            })(); 
+        }; 
+        
     }, [specificTeam1, specificTeam2]); 
 
 
@@ -240,30 +238,21 @@ const FullSchedule = () => {
                         onChange = {setSpecificTeam2}
                     ></TeamDropdownMenu>
 
+                    <p>&nbsp;</p>
+
                     <h2 style={{ paddingLeft: '20px' }}>
                         Matchups for {specificTeam1} vs. {specificTeam2} in the {teamSeason} season
                     </h2>
 
                     <p>&nbsp;</p>
 
-                    {/* Display all matchups for each date in the specific matchup */}
-                    <div style={{ paddingLeft: '20px' }}>
-                        {specificMatchupDates.map((date, idx) => (
-                            <div key={idx}>
-                                <h2>{date}</h2>
-                                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
-                                    {specificSchedule.filter(game => game.date === date).map((game, gameIdx) => (
-                                        game.status === 'Final' ? (
-                                            <GameFinal key={game.gameId || gameIdx} game={game} />
-                                        ) : game.status === 'Scheduled' ? (
-                                            <GameScheduled key={game.gameId || gameIdx} game={game} />
-                                        ) : (
-                                            <></>
-                                        )
-                                    ))}
-                                </div>
-                            </div>
-                        ))}       
+                    {/* Display all results for the specific matchup */}
+                    <div style={rowStyle}>
+                        {specificSchedule.map((game, idx) => (
+                            game.status === 'Final' 
+                                ? <GameFinal key={game.gameId || idx} game={game} />
+                                : <GameScheduled key={game.gameId || idx} game={game} />
+                        ))}
                     </div>
 
                 </div>
