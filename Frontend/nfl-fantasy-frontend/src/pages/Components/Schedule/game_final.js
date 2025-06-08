@@ -82,6 +82,25 @@ const losingStyle = {
     color: '#666666'
 };
 
+const buttonContainerStyle = {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'flex-end',
+    marginTop: '12x',
+    paddingRight: '16px'
+};
+
+const buttonStyle = {
+    padding: '4px 10px',
+    backgroundColor: '#004d4d',
+    color: 'white',
+    border: 'none',
+    borderRadius: '20px',
+    cursor: 'pointer',
+    fontWeight: 'bold',
+    fontSize: '0.7em'
+};
+
 const GameFinal = ({ game }) => {
     return (
         <div style={boxStyle}>
@@ -134,6 +153,14 @@ const GameFinal = ({ game }) => {
             </div>
             <div style={statusRowStyle}>
                 {game.overtime ? 'FINAL/OT' : 'FINAL'}
+
+                <button 
+                    style={buttonStyle}
+                    onMouseOver={(e) => e.target.style.backgroundColor = '#006666'}
+                    onMouseOut={(e) => e.target.style.backgroundColor = '#004d4d'}
+                >
+                    Game Info
+                </button>
             </div>
         </div>
     );

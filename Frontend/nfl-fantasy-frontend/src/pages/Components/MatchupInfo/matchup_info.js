@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 
 
-const MatchupInfo = () => {
+const MatchupInfo = ( gameInfo ) => {
 
-    const { gameId } = useParams();
-
-
+    // gameInfo is the array containing information about the specific game (e.g. awayTeam, homeTeam, weekNum, venue, etc)
 
 
     return (

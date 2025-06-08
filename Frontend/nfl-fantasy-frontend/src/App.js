@@ -7,7 +7,7 @@ import AllPositions from './pages/AllPositions/all_positions';
 import PositionPage from './pages/PositionPage/position_page';
 import Search from './pages/Search/search';
 import FullSchedule from './pages/FullSchedule/full_schedule';
-import MatchupInfo from './pages/MatchupInfo/matchup_info';
+
 
 function App() {
   return (
@@ -39,7 +39,6 @@ function App() {
           <Route path="/position_page" element={<PositionPage />} />
           <Route path="/search" element={<Search />} />
           <Route path="/full_schedule" element={<FullSchedule />} />
-          <Route path="/matchup_info/:gameId" element={<MatchupInfo />} />
         </Routes>
       </div>
 
