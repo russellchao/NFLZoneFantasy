@@ -39,7 +39,7 @@ function App() {
           <Route path="/position_page" element={<PositionPage />} />
           <Route path="/search" element={<Search />} />
           <Route path="/full_schedule" element={<FullSchedule />} />
-          <Route path="/matchup_info/:awayTeam/:homeTeam/:week/:season" element={<MatchupInfo />} />
+          <Route path="/matchup_info/:gameId" element={<MatchupInfo />} />
         </Routes>
       </div>
 
