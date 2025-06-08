@@ -5,7 +5,7 @@ import csv
 
 
 def formatDate(date):
-    monthNumToName = {1: "January", 2: "February", 9: "September", 10: "October", 11: "November", 12: "December"}
+    monthNumToName = {1: "January", 2: "February", 7: "July", 8: "August", 9: "September", 10: "October", 11: "November", 12: "December"}
 
     theMonth = str() 
     theDay = str() 
@@ -59,7 +59,8 @@ def get_schedule_data(year, week, seasonType):
         json.dump(schedule, file, indent=4)
 
 
-    # Week numbers mapped to their respective rounds for the playoffs
+    # Week numbers mapped to their respective rounds for the preseason and playoffs
+    preseasonKeys = {1: "Hall of Fame Week", 2: "Preseason Week 1", 3: "Preseason Week 2", 4: "Preseason Week 3"}
     playoffKeys = {1: "Wild Card Round", 2: "Divisional Round", 3: "Conference Championships", 5: "Super Bowl"}
 
 
@@ -81,9 +82,11 @@ def get_schedule_data(year, week, seasonType):
             # week number 
             weekInText = matchup.get("week").get("number")
             weekNum = "Week " + str(weekInText)
+            # if it's the playoffs or preseason, retrieve the appropriate round given the week
             if seasonType == 3:
-                # if it's the playoffs, retrieve the appropriate round given the week
                 weekNum = playoffKeys.get(int(weekInText), f"Week {weekInText}")
+            if seasonType == 1:
+                weekNum = preseasonKeys.get(int(weekInText), f"Week {weekInText}")
 
 
             # check if the status of a game is scheduled or finished (in the future I will try my best to scrape live games)
@@ -101,8 +104,7 @@ def get_schedule_data(year, week, seasonType):
             # I think once the regular season starts, each team's records will be available in Scheduled games
             awayTeamRecord = "0-0"
             homeTeamRecord = "0-0"
-
-            if status == "Final":
+            if status == "Final" and seasonType != 1:
                 awayTeamRecord = matchup.get("competitions")[0].get("competitors")[1].get("records")[0].get("summary")
                 homeTeamRecord = matchup.get("competitions")[0].get("competitors")[0].get("records")[0].get("summary")
 
@@ -127,6 +129,7 @@ def get_schedule_data(year, week, seasonType):
 
             # game ID (for Java Entity Primary Key)
             gameId = matchup.get("competitions")[0].get("id")
+
 
             # away team and home team scores (for Final games only)
             awayTeamScore = -1

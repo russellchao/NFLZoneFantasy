@@ -1,4 +1,53 @@
 Date,WeekNum,Status,AwayTeam,AwayTeamRecord,HomeTeam,HomeTeamRecord,Venue,Broadcast,SeasonType,WeekId,GameId,AwayTeamScore,HomeTeamScore,Overtime,StartTime
+"August 1, 2024",Hall of Fame Week,Final,Houston Texans,0-0,Chicago Bears,0-0,"Tom Benson Hall of Fame Stadium, Canton, OH, USA",ESPN/ABC/ESPN+,1,1,401671610,17,21,false,N/A
+"August 8, 2024",Preseason Week 1,Final,Carolina Panthers,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",NFL Net,1,2,401671918,3,17,false,N/A
+"August 8, 2024",Preseason Week 1,Final,Detroit Lions,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",TBD,1,2,401673457,3,14,false,N/A
+"August 9, 2024",Preseason Week 1,Final,Atlanta Falcons,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",NFL+,1,2,401671915,13,20,false,N/A
+"August 9, 2024",Preseason Week 1,Final,Houston Texans,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",NFL Net/NFL+,1,2,401671905,20,12,false,N/A
+"August 9, 2024",Preseason Week 1,Final,Philadelphia Eagles,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",NFL+,1,2,401671897,16,13,false,N/A
+"August 10, 2024",Preseason Week 1,Final,Washington Commanders,0-0,New York Jets,0-0,"MetLife Stadium, East Rutherford, NJ, USA",NFL+,1,2,401673171,17,20,false,N/A
+"August 10, 2024",Preseason Week 1,Final,Chicago Bears,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",NFL Net/NFL+,1,2,401671615,33,6,false,N/A
+"August 10, 2024",Preseason Week 1,Final,Las Vegas Raiders,0-0,Minnesota Vikings,0-0,"U.S. Bank Stadium, Minneapolis, MN, USA",NFL Net/NFL+,1,2,401672005,23,24,false,N/A
+"August 10, 2024",Preseason Week 1,Final,Green Bay Packers,0-0,Cleveland Browns,0-0,"Huntington Bank Field, Cleveland, OH, USA",NFL+,1,2,401671902,23,10,false,N/A
+"August 10, 2024",Preseason Week 1,Final,Tampa Bay Buccaneers,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",NFL+,1,2,401671900,17,14,false,N/A
+"August 10, 2024",Preseason Week 1,Final,San Francisco 49ers,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",NFL+,1,2,401673472,13,17,false,N/A
+"August 10, 2024",Preseason Week 1,Final,Kansas City Chiefs,0-0,Jacksonville Jaguars,0-0,"EverBank Stadium, Jacksonville, FL, USA",NFL Net/NFL+,1,2,401671910,13,26,false,N/A
+"August 10, 2024",Preseason Week 1,Final,Seattle Seahawks,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",NFL+,1,2,401671907,16,3,false,N/A
+"August 10, 2024",Preseason Week 1,Final,New Orleans Saints,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",NFL+,1,2,401673456,16,14,false,N/A
+"August 11, 2024",Preseason Week 1,Final,Denver Broncos,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",NFL Net/NFL+,1,2,401671920,34,30,false,N/A
+"August 11, 2024",Preseason Week 1,Final,Dallas Cowboys,0-0,Los Angeles Rams,0-0,"SoFi Stadium, Inglewood, CA, USA",NFL Net/NFL+,1,2,401671913,12,13,false,N/A
+"August 15, 2024",Preseason Week 2,Final,Philadelphia Eagles,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",NFL Net/NFL+,1,3,401671919,14,13,false,N/A
+"August 17, 2024",Preseason Week 2,Final,Atlanta Falcons,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",NFL+,1,3,401671898,12,13,false,N/A
+"August 17, 2024",Preseason Week 2,Final,Cincinnati Bengals,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",NFL Net/NFL+,1,3,401671901,3,27,false,N/A
+"August 17, 2024",Preseason Week 2,Final,New York Giants,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",TBD,1,3,401671924,10,28,false,N/A
+"August 17, 2024",Preseason Week 2,Final,Detroit Lions,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",NFL Net/NFL+,1,3,401671911,24,23,false,N/A
+"August 17, 2024",Preseason Week 2,Final,Minnesota Vikings,0-0,Cleveland Browns,0-0,"Huntington Bank Field, Cleveland, OH, USA",NFL+,1,3,401671903,27,12,false,N/A
+"August 17, 2024",Preseason Week 2,Final,Seattle Seahawks,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",NFL+,1,3,401673562,15,16,false,N/A
+"August 17, 2024",Preseason Week 2,Final,Arizona Cardinals,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",NFL+,1,3,401671936,13,21,false,N/A
+"August 17, 2024",Preseason Week 2,Final,Washington Commanders,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",NFL+,1,3,401671916,6,13,false,N/A
+"August 17, 2024",Preseason Week 2,Final,Buffalo Bills,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",NFL Net/NFL+,1,3,401671906,9,3,false,N/A
+"August 17, 2024",Preseason Week 2,Final,New York Jets,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",NFL+,1,3,401676591,15,12,false,N/A
+"August 17, 2024",Preseason Week 2,Final,Los Angeles Rams,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",NFL+,1,3,401671908,13,9,false,N/A
+"August 17, 2024",Preseason Week 2,Final,Tampa Bay Buccaneers,0-0,Jacksonville Jaguars,0-0,"EverBank Stadium, Jacksonville, FL, USA",NFL+,1,3,401671925,7,20,false,N/A
+"August 17, 2024",Preseason Week 2,Final,Dallas Cowboys,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",NFL Net/NFL+,1,3,401672897,27,12,false,N/A
+"August 18, 2024",Preseason Week 2,Final,Green Bay Packers,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",NFL Net/NFL+,1,3,401671921,2,27,false,N/A
+"August 18, 2024",Preseason Week 2,Final,New Orleans Saints,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",FOX,1,3,401671611,10,16,false,N/A
+"August 22, 2024",Preseason Week 3,Final,Indianapolis Colts,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",Prime Video,1,4,401671612,27,14,false,N/A
+"August 22, 2024",Preseason Week 3,Final,Chicago Bears,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",NFL Net,1,4,401671912,34,21,false,N/A
+"August 23, 2024",Preseason Week 3,Final,Jacksonville Jaguars,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",NFL Net,1,4,401671922,31,0,false,N/A
+"August 23, 2024",Preseason Week 3,Final,Miami Dolphins,0-0,Tampa Bay Buccaneers,0-0,"Raymond James Stadium, Tampa, FL, USA",TBD,1,4,401671917,14,24,false,N/A
+"August 23, 2024",Preseason Week 3,Final,San Francisco 49ers,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",NFL Net,1,4,401672898,24,24,false,N/A
+"August 24, 2024",Preseason Week 3,Final,Carolina Panthers,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",TBD,1,4,401671896,31,26,false,N/A
+"August 24, 2024",Preseason Week 3,Final,Pittsburgh Steelers,0-0,Detroit Lions,0-0,"Ford Field, Detroit, MI, USA",NFL Net,1,4,401673458,17,24,false,N/A
+"August 24, 2024",Preseason Week 3,Final,Baltimore Ravens,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",TBD,1,4,401671899,7,30,false,N/A
+"August 24, 2024",Preseason Week 3,Final,Minnesota Vikings,0-0,Philadelphia Eagles,0-0,"Lincoln Financial Field, Philadelphia, PA, USA",TBD,1,4,401672006,26,3,false,N/A
+"August 24, 2024",Preseason Week 3,Final,Los Angeles Rams,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",TBD,1,4,401671914,15,17,false,N/A
+"August 24, 2024",Preseason Week 3,Final,Los Angeles Chargers,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",NFL Net,1,4,401671909,26,19,false,N/A
+"August 24, 2024",Preseason Week 3,Final,New York Giants,0-0,New York Jets,0-0,"MetLife Stadium, East Rutherford, NJ, USA",NFL Net,1,4,401673172,6,10,false,N/A
+"August 24, 2024",Preseason Week 3,Final,Cleveland Browns,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",NFL Net,1,4,401671904,33,37,false,N/A
+"August 25, 2024",Preseason Week 3,Final,Tennessee Titans,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",NFL Net,1,4,401673561,30,27,false,N/A
+"August 25, 2024",Preseason Week 3,Final,Arizona Cardinals,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",CBS,1,4,401671613,12,38,false,N/A
+"August 25, 2024",Preseason Week 3,Final,New England Patriots,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",NBC/Peacock,1,4,401671614,10,20,false,N/A
 "September 5, 2024",Week 1,Final,Baltimore Ravens,0-1,Kansas City Chiefs,1-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",NBC/Peacock,2,1,401671789,20,27,false,N/A
 "September 6, 2024",Week 1,Final,Green Bay Packers,0-1,Philadelphia Eagles,1-0,"Corinthians Arena, Sao Paulo, None, Brazil",Peacock,2,1,401671805,29,34,false,N/A
 "September 8, 2024",Week 1,Final,Pittsburgh Steelers,1-0,Atlanta Falcons,0-1,"Mercedes-Benz Stadium, Atlanta, GA, USA",FOX,2,1,401671744,18,10,false,N/A

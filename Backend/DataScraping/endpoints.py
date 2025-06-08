@@ -36,8 +36,9 @@ def update_schedule(year):
     all_matchups = []
     
     try:
-        for i in range(1,24):
+        for i in range(-3,24):
             # There are a total of 23 weeks (excluding preseason) in an NFL season, with week 23 being the Super Bowl
+            # Negative numbers indicate preseason weeks
 
             week = i
             seasonType = 2
@@ -50,6 +51,11 @@ def update_schedule(year):
                 # This if statement obtains the proper week number when retrieving playoff games
                 week -= 18
                 seasonType = 3
+
+            if (week < 1):
+                # Same check as above, except for preseason games
+                week += 4
+                seasonType = 1
 
             all_matchups += get_schedule_data(year, week, seasonType)
 
