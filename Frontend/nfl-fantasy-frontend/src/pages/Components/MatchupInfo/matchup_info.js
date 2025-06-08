@@ -32,7 +32,8 @@ const MatchupInfo = ({ game }) => {
         return (
             <div style={{ padding: '20px' }}>
                     
-                <h1>{game.awayTeam} vs. {game.homeTeam} </h1>
+                <h1>{game.awayTeam} {game.awayTeamScore}</h1>
+                <h1>{game.homeTeam} {game.homeTeamScore}</h1>
 
             </div>
         );
