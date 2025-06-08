@@ -217,7 +217,7 @@ const TeamPage = () => {
                         <Schedule 
                             schedule = {schedule}
                         /> 
-                    )};
+                    )}
                 </>
 
             ) : section === "Roster" ? (
@@ -235,7 +235,7 @@ const TeamPage = () => {
                             defenders = {defenders}
                             kickers = {kickers}
                         />
-                    )};
+                    )}
                 </>
 
             ) : null}
