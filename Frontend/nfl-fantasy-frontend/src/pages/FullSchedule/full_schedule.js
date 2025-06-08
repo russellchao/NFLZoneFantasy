@@ -5,6 +5,7 @@ import GameScheduled from '../Components/Schedule/game_scheduled';
 import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
 import WeekDropdownMenu from '../Components/WeekDropdown/week_dropdown';
 import TeamDropdownMenu from '../Components/TeamDropdown/team_dropdown';
+import MatchupInfo from '../Components/MatchupInfo/matchup_info';
 
 
 const rowStyle = {
@@ -31,6 +32,10 @@ const FullSchedule = () => {
     // Specialized state to track if the user changed the season while viewing a specific matchup
     // This is such that the same matchup can be viewed in a different season after updating the schedule database without having to re-select the teams
     const [specificMatchupSeasonChanged, setSpecificMatchupSeasonChanged] = useState(false); 
+
+    // Variables for viewing matchup info
+    const [viewingMatchupInfo, setViewingMatchupInfo] = useState(false); 
+    const [matchToViewInfo, setMatchToViewInfo] = useState(); // The game which the user wants to view info
 
 
     // Track if initial fetch has been done
@@ -187,6 +192,21 @@ const FullSchedule = () => {
 
 
 
+    useEffect(() => {
+        // This useEffect hook handles requests to view information about a matchup 
+
+        if (!initialFetchRef.current) {
+            return; 
+        }
+
+        console.log(`User wants to view matchup info`);
+
+
+
+    }, [viewingMatchupInfo])
+
+
+
     // When the page is loading schedule data
     if (loading) {
         return (
@@ -214,6 +234,40 @@ const FullSchedule = () => {
             </div>
         );
     }
+
+
+    // When the user is viewing information about a matchup 
+    if (viewingMatchupInfo) {
+        return (
+            <>
+                <div>
+                    <br></br>
+
+                    {/* Button to go back */}
+                    <button style={{ marginLeft: '20px' }}>
+                        <a 
+                            style={{ textDecoration: 'none', color: 'black' }}
+                            onClick={() => {
+                                setViewingMatchupInfo(false);
+                            }}
+                        >   
+                            ← Back
+                        </a>
+                    </button>
+                </div>
+
+                <div>
+                    {/* Matchup Info */}
+                    <MatchupInfo
+                        game={matchToViewInfo}
+                    />
+
+                </div>
+
+            </>
+        )
+    }
+
 
 
     // When the user submitted a specific matchup
@@ -274,8 +328,24 @@ const FullSchedule = () => {
                     <div style={rowStyle}>
                         {specificSchedule.map((game, idx) => (
                             game.status === 'Final' 
-                                ? <GameFinal key={game.gameId || idx} game={game} />
-                                : <GameScheduled key={game.gameId || idx} game={game} />
+                                ?   
+                                    <GameFinal 
+                                        key = {game.gameId || idx} 
+                                        game = {game} 
+                                        onClick = {() => {
+                                            setViewingMatchupInfo(true);
+                                            setMatchToViewInfo(game);
+                                        }}
+                                    />
+                                : 
+                                    <GameScheduled
+                                        key = {game.gameId || idx} 
+                                        game = {game} 
+                                        onClick = {() => {
+                                            setViewingMatchupInfo(true);
+                                            setMatchToViewInfo(game);
+                                        }}
+                                    />
                         ))}
                     </div>
 
@@ -328,9 +398,23 @@ const FullSchedule = () => {
                         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
                             {schedule.filter(game => game.date === date).map((game, gameIdx) => (
                                 game.status === 'Final' ? (
-                                    <GameFinal key={game.gameId || gameIdx} game={game} />
+                                    <GameFinal 
+                                        key = {game.gameId || gameIdx} 
+                                        game = {game} 
+                                        onClick = {() => {
+                                            setViewingMatchupInfo(true);
+                                            setMatchToViewInfo(game);
+                                        }}
+                                    />
                                 ) : game.status === 'Scheduled' ? (
-                                    <GameScheduled key={game.gameId || gameIdx} game={game} />
+                                    <GameScheduled 
+                                        key = {game.gameId || gameIdx} 
+                                        game = {game} 
+                                        onClick = {() => {
+                                            setViewingMatchupInfo(true);
+                                            setMatchToViewInfo(game);
+                                        }}
+                                    />
                                 ) : (
                                     <></>
                                 )

@@ -1,19 +1,53 @@
 import React, { useState, useEffect } from 'react';
 
 
-const MatchupInfo = ( gameInfo ) => {
+const MatchupInfo = ({ game }) => {
 
-    // gameInfo is the array containing information about the specific game (e.g. awayTeam, homeTeam, weekNum, venue, etc)
+    if (game.status === "Scheduled") {
+        // Graphic for Scheduled games
+
+        return (
+            <div style={{ padding: '20px' }}>
+                    
+                <h1>{game.awayTeam} at {game.homeTeam} </h1>
+
+                <h2>{game.weekNum} • {game.date}</h2>
+
+                <h2></h2>
+
+            </div>
+        );
+    }
 
 
-    return (
-        <div style={{ padding: '20px' }}>
-                
-            <h2>Matchup Info</h2>
-            {/* <p>{awayTeam} vs. {homeTeam}, {week}, {season} </p> */}
 
-        </div>
-    );
+
+
+
+
+
+    if (game.status === "Final") {
+        // Graphic for Final games
+
+        return (
+            <div style={{ padding: '20px' }}>
+                    
+                <h1>{game.awayTeam} vs. {game.homeTeam} </h1>
+
+            </div>
+        );
+    }
+
+
+
+
+
+
+
+
+
+    // At some point I'll add a graphic for Live games
+
 
 };
 

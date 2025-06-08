@@ -106,7 +106,7 @@ const buttonStyle = {
     fontFamily: 'Segoe UI, sans-serif'
 };
 
-const GameFinal = ({ game }) => {
+const GameFinal = ({ game, onClick }) => {
     return (
         <div style={boxStyle}>
             <div style={topRowStyle}>
@@ -163,6 +163,7 @@ const GameFinal = ({ game }) => {
                     style={buttonStyle}
                     onMouseOver={(e) => e.target.style.backgroundColor = '#006666'}
                     onMouseOut={(e) => e.target.style.backgroundColor = '#004d4d'}
+                    onClick={(e) => onClick(e.target.value)}
                 >
                     Game Info
                 </button>
