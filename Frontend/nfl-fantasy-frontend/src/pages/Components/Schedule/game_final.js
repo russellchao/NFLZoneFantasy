@@ -71,11 +71,15 @@ const scoresRowStyle = {
 };
 
 const statusRowStyle = {
-    width: '100%',
+    width: '50%',
     display: 'flex',
-    justifyContent: 'center',
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    alignItems: 'center',
+    padding: '0 16px', 
     fontWeight: 'bold',
     fontSize: '1.3em',
+    marginLeft: '420px'
 };
 
 const losingStyle = {
@@ -91,14 +95,15 @@ const buttonContainerStyle = {
 };
 
 const buttonStyle = {
-    padding: '4px 10px',
+    padding: '1px 10px',
     backgroundColor: '#004d4d',
     color: 'white',
     border: 'none',
     borderRadius: '20px',
     cursor: 'pointer',
     fontWeight: 'bold',
-    fontSize: '0.7em'
+    fontSize: '0.7em',
+    fontFamily: 'Segoe UI, sans-serif'
 };
 
 const GameFinal = ({ game }) => {

@@ -233,7 +233,7 @@ const FullSchedule = () => {
                                 setViewingSpecificMatchup.bind(null, false);
                             }}
                         >   
-                            Back to Full Schedule
+                            ← Back to Full Schedule
                         </a>
                     </button>
                 </div>

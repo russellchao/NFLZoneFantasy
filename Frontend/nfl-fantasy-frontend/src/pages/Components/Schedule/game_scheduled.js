@@ -59,11 +59,15 @@ const recordsRowStyle = {
 };
 
 const statusRowStyle = {
-    width: '100%',
+    width: '70%',
     display: 'flex',
-    justifyContent: 'center',
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    alignItems: 'center',
+    padding: '0 16px', 
     fontWeight: 'bold',
     fontSize: '1.3em',
+    marginLeft: '240px'
 };
 
 const buttonContainerStyle = {
@@ -75,14 +79,15 @@ const buttonContainerStyle = {
 };
 
 const buttonStyle = {
-    padding: '4px 10px',
+    padding: '1px 10px',
     backgroundColor: '#004d4d',
     color: 'white',
     border: 'none',
     borderRadius: '20px',
     cursor: 'pointer',
     fontWeight: 'bold',
-    fontSize: '0.7em'
+    fontSize: '0.7em',
+    fontFamily: 'Segoe UI, sans-serif'
 };
 
 const GameScheduled = ({ game }) => {
@@ -117,7 +122,7 @@ const GameScheduled = ({ game }) => {
                 <span style={{ marginRight: 16 }}>({game.homeTeamRecord})</span>
             </div>
             <div style={statusRowStyle}>
-                {`${game.status.toUpperCase()} • ${game.startTime} • ${game.broadcast}`} 
+                {`${game.status.toUpperCase()} • ${game.startTime} • ${game.broadcast}`}
 
                 <button 
                     style={buttonStyle}
