@@ -19,9 +19,10 @@ const TeamPage = () => {
 
 
     // For schedule section
-    const [schedule, setSchedule] = useState([]); 
+    const [schedule, setSchedule] = useState([]);
+    const [showPreseason, setShowPreseason] = useState(false); 
     const [scheduleError, setScheduleError] = useState(false); 
-
+    
 
     // For player stats section
     const [passers, setPassers] = useState([]); 
@@ -102,7 +103,7 @@ const TeamPage = () => {
             console.log(`Retreiving schedule from ${teamSeason}`);
             if (teamName) {
                 const loadSchedule = async () => {
-                    const scheduleData = await fetchScheduleByTeam(teamName); 
+                    const scheduleData = await fetchScheduleByTeam(teamName);
                     setSchedule(scheduleData); 
                 }
                 loadSchedule();
@@ -196,7 +197,7 @@ const TeamPage = () => {
                 ))}
             </div>
 
-
+            
             {/* Season section drop-down menu */}
             <SeasonDropdownMenu
                 teamSeason = {teamSeason}
@@ -205,6 +206,18 @@ const TeamPage = () => {
                     initialFetchRef.current = false;
                 }}
             />
+
+            <label for="showPreseason" style={{ paddingLeft: '40px' }}>Show Preseason</label>
+            <select 
+                name="showPreseason" 
+                id="showPreseason" 
+                style={{marginLeft: '5px' }}
+                value={showPreseason.toString()}
+                onChange={(e) => setShowPreseason(e.target.value === "true")}
+            >
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
             
             <p>&nbsp;</p>
             
@@ -213,6 +226,11 @@ const TeamPage = () => {
                 <>
                     {scheduleError ? (
                         <p style={{ paddingLeft: '20px' }}>Error, could not load the schedule for the {teamSeason} season.</p>
+                    ) : showPreseason ? (
+                        <>
+                            <h2 style={{ paddingLeft: '20px' }}>Preseason Schedule</h2>
+                            
+                        </>
                     ) : (
                         <Schedule 
                             schedule = {schedule}
