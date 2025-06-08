@@ -12,6 +12,10 @@ const WeekDropdownMenu = ({ week, onChange }) => {
                 value={week}
                 onChange={(e) => onChange(e.target.value)}
             >
+                <option value="Hall of Fame Week">HOF Week</option>
+                <option value="Preseason Week 1">Pre 1</option>
+                <option value="Preseason Week 2">Pre 2</option>
+                <option value="Preseason Week 3">Pre 3</option>
                 <option value="Week 1">1</option>
                 <option value="Week 2">2</option>
                 <option value="Week 3">3</option>
