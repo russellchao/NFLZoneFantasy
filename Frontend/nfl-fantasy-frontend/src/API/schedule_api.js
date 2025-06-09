@@ -1,5 +1,3 @@
-import { type } from "@testing-library/user-event/dist/type";
-
 export const fetchScheduleByTeam = async (teamName) => {
     try {
         const response = await fetch(

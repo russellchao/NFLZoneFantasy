@@ -428,7 +428,7 @@ const FullSchedule = () => {
 
             {/* Display each team's bye weeks (can hard-code since all bye weeks are finalized) */}
             {teamSeason === "2025" ? (
-                <div style={{ paddingLeft: '20px' }}>
+                <div style={{ paddingLeft: '20px', fontWeight: 'bold' }}>
                     <h2>2025 Bye Weeks</h2>
                     <p>Week 5: PIT, CHI, ATL, GB</p>
                     <p>Week 6: HOU, MIN</p>
