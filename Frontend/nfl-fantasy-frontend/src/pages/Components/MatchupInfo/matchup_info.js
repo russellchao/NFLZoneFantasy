@@ -3,9 +3,18 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const MatchupInfo = ({ game }) => {
 
+    // Entire array containing game info
     const [matchupInfoData, setMatchupInfoData] = useState([]); 
 
+    // Odds (not always available - usually available a week before the game)
+    const [spread, setSpread] = useState("N/A");
+    const [overUnder, setOverUnder] = useState("N/A"); 
+
+
     const initialFetchRef = useRef(false);
+
+
+    
 
     
     useEffect(() => {
@@ -44,6 +53,14 @@ const MatchupInfo = ({ game }) => {
     if (game.status === "Scheduled" && initialFetchRef.current) {
         // Graphic for Scheduled games
 
+        // Win probablity
+        const awayTeamWinChance = matchupInfoData["predictor"]["awayTeam"]["gameProjection"];
+        const homeTeamWinChance = matchupInfoData["predictor"]["homeTeam"]["gameProjection"];
+
+
+        // Odds - set the odds once they become available
+
+        
         // Injury reports
         const homeTeamInjuries = matchupInfoData["injuries"][0]["injuries"]; 
         const awayTeamInjuries = matchupInfoData["injuries"][1]["injuries"]; 
@@ -64,6 +81,29 @@ const MatchupInfo = ({ game }) => {
                 <h2>{game.venue}</h2>
 
                 <h2>{game.startTime} on {game.broadcast}</h2>
+
+
+
+                <p>&nbsp;</p>
+
+                <h1>Win Probability</h1>
+
+                <h2>{game.awayTeam}: {awayTeamWinChance}%</h2>
+                <h2>{game.homeTeam}: {homeTeamWinChance}%</h2>
+
+
+
+
+                <p>&nbsp;</p>
+
+                <h1>Odds</h1>
+
+                <h2>Spread: {spread}</h2>
+                <h2>O/U: {overUnder}</h2>
+
+
+
+
 
                 <p>&nbsp;</p>
 
@@ -88,6 +128,9 @@ const MatchupInfo = ({ game }) => {
                         </p>
                     </div>
                 ))}
+
+
+
 
 
 
