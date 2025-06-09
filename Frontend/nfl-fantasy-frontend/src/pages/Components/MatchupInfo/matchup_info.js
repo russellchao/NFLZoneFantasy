@@ -63,6 +63,8 @@ const MatchupInfo = ({ game }) => {
 
                 <h2>{game.venue}</h2>
 
+                <h2>{game.startTime} on {game.broadcast}</h2>
+
                 <p>&nbsp;</p>
 
                 <h1>Injuries and Reserve</h1>
@@ -71,7 +73,7 @@ const MatchupInfo = ({ game }) => {
                 {awayTeamInjuries.map((injury, index) => (
                     <div key={index} style={{ marginBottom: '10px' }}>
                         <p>
-                            <strong>{injury.athlete.displayName}</strong> - {injury.status}
+                            <strong>{injury.athlete.displayName}</strong> - {injury.details["type"]}, {injury.status}
                             {injury.details?.returnDate && ` (Expected Return: ${injury.details.returnDate})`}
                         </p>
                     </div>
@@ -81,7 +83,7 @@ const MatchupInfo = ({ game }) => {
                 {homeTeamInjuries.map((injury, index) => (
                     <div key={index} style={{ marginBottom: '10px' }}>
                         <p>
-                            <strong>{injury.athlete.displayName}</strong> - {injury.status}
+                            <strong>{injury.athlete.displayName}</strong> - {injury.details["type"]}, {injury.status}
                             {injury.details?.returnDate && ` (Expected Return: ${injury.details.returnDate})`}
                         </p>
                     </div>
