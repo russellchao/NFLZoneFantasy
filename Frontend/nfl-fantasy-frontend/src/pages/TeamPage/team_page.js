@@ -233,8 +233,9 @@ const TeamPage = () => {
                 <option value="false">No</option>
             </select>
             
-            <p>&nbsp;</p>
             
+            <p>&nbsp;</p>
+
 
             {section === "Schedule" ? (
                 <>

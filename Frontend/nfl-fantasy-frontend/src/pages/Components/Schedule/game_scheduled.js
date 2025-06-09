@@ -59,7 +59,7 @@ const recordsRowStyle = {
 };
 
 const statusRowStyle = {
-    width: '70%',
+    width: '80%',
     display: 'flex',
     flexDirection: 'row', 
     justifyContent: 'space-between', 
@@ -67,7 +67,7 @@ const statusRowStyle = {
     padding: '0 16px', 
     fontWeight: 'bold',
     fontSize: '1.3em',
-    marginLeft: '240px'
+    marginLeft: '50px'
 };
 
 const buttonContainerStyle = {

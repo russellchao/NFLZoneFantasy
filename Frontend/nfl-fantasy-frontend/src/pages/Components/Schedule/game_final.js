@@ -71,7 +71,7 @@ const scoresRowStyle = {
 };
 
 const statusRowStyle = {
-    width: '50%',
+    width: '90%',
     display: 'flex',
     flexDirection: 'row', 
     justifyContent: 'space-between', 
@@ -79,7 +79,7 @@ const statusRowStyle = {
     padding: '0 16px', 
     fontWeight: 'bold',
     fontSize: '1.3em',
-    marginLeft: '420px'
+    marginLeft: '22px'
 };
 
 const losingStyle = {
