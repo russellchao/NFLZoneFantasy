@@ -4,10 +4,6 @@ const PlayerStats = ({ passers, rushers, receivers, defenders, kickers }) => {
 
     return (
         <>
-            <h2 style={{ paddingLeft: '20px' }}>Player Stats</h2>
-
-            <p>&nbsp;</p>
-
             <h2 style={{ paddingLeft: '20px' }}>Passing</h2>
             {passers.length === 0 ? (
                 <p style={{ paddingLeft: '20px' }}>No passing data available for this team.</p>
@@ -239,9 +235,6 @@ const PlayerStats = ({ passers, rushers, receivers, defenders, kickers }) => {
                     </tbody>
                 </table>
             )}  
-
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
         </>
     ); 
 

@@ -13,8 +13,6 @@ const rowStyle = {
 const Schedule = ({ schedule }) => {
     return (
         <>
-            <h2 style={{ paddingLeft: '20px' }}>Schedule</h2>
-            <p>&nbsp;</p>
             <div style={rowStyle}>
                 {schedule.map((game, idx) => (
                     game.status === 'Final' 
@@ -22,8 +20,6 @@ const Schedule = ({ schedule }) => {
                         : <GameScheduled key={game.gameId || idx} game={game} />
                 ))}
             </div>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
         </>
     );
 };

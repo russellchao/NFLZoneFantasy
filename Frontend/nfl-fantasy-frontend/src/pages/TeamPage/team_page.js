@@ -7,6 +7,13 @@ import PlayerStats from './PlayerStats/tp_player_stats';
 import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
 
 
+const rowStyle = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-start',
+};
+
+
 const TeamPage = () => {
     const { teamName } = useParams(); 
     const [section, setSection] = useState("Schedule"); // Default section is Schedule
@@ -20,6 +27,7 @@ const TeamPage = () => {
 
     // For schedule section
     const [schedule, setSchedule] = useState([]);
+    const [preseasonSchedule, setPreseasonSchedule] = useState([]); 
     const [showPreseason, setShowPreseason] = useState(false); 
     const [scheduleError, setScheduleError] = useState(false); 
     
@@ -104,7 +112,13 @@ const TeamPage = () => {
             if (teamName) {
                 const loadSchedule = async () => {
                     const scheduleData = await fetchScheduleByTeam(teamName);
-                    setSchedule(scheduleData); 
+                    
+                    // Separate preseason games from regular season and playoff games
+                    const preseason = scheduleData.filter(game => game.seasonType === 1);
+                    const regularSeasonAndPlayoffs = scheduleData.filter(game => game.seasonType !== 1);
+                    
+                    setPreseasonSchedule(preseason);
+                    setSchedule(regularSeasonAndPlayoffs); 
                 }
                 loadSchedule();
 
@@ -229,12 +243,19 @@ const TeamPage = () => {
                     ) : showPreseason ? (
                         <>
                             <h2 style={{ paddingLeft: '20px' }}>Preseason Schedule</h2>
-                            
+                            <p>&nbsp;</p>
+                            <Schedule 
+                                schedule = {preseasonSchedule}
+                            />
                         </>
                     ) : (
-                        <Schedule 
-                            schedule = {schedule}
-                        /> 
+                        <>
+                            <h2 style={{ paddingLeft: '20px' }}>Schedule</h2>
+                            <p>&nbsp;</p>
+                            <Schedule 
+                                schedule = {schedule}
+                            /> 
+                        </>
                     )}
                 </>
 
@@ -246,17 +267,24 @@ const TeamPage = () => {
                     {playerStatsError ? (
                         <p style={{ paddingLeft: '20px' }}>Error, could not load the player stats for the {teamSeason} season.</p>
                     ) : (
-                        <PlayerStats 
-                            passers = {passers}
-                            rushers = {rushers}
-                            receivers = {receivers}
-                            defenders = {defenders}
-                            kickers = {kickers}
-                        />
+                        <>
+                            <h2 style={{ paddingLeft: '20px' }}>Player Stats</h2>
+                            <p>&nbsp;</p>
+                            <PlayerStats 
+                                passers = {passers}
+                                rushers = {rushers}
+                                receivers = {receivers}
+                                defenders = {defenders}
+                                kickers = {kickers}
+                            />
+                        </>
                     )}
                 </>
 
             ) : null}
+
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
 
         </div>
     );
