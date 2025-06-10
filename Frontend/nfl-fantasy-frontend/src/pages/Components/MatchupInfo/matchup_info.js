@@ -183,11 +183,13 @@ const MatchupInfo = ({ game }) => {
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '20px' }}>
                                 {category?.leaders?.map((leader, idx) => (
                                     <div key={idx}>
-                                        <p><strong>{category.leaders[idx].displayName}</strong></p>
+                                        <p><strong>{leader.displayName}</strong></p>
                                         <p>
-                                            {category.leaders[idx].leaders[0].athlete.displayName}
+                                            {/* Null checks here. Of all 5 categories (passing, rushing, receiving, tackles, sacks), 
+                                                there is a chance a game could have 0 total sacks */}
+                                            {leader?.leaders?.[0]?.athlete?.displayName ?? 'N/A'}
                                             {": "} 
-                                            {category.leaders[idx].leaders[0].displayValue}
+                                            {leader?.leaders?.[0]?.displayValue ?? 'N/A'}
                                         </p>
                                     </div>
                                 ))}
@@ -204,7 +206,7 @@ const MatchupInfo = ({ game }) => {
                 {/* Section 4: Team Stats */}
                 <div style={{ marginTop: '30px' }}>
                     <h2>Team Stats</h2>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '20px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: '0.15fr 0.15fr 0.15fr', gap: '10px' }}>
                         <div><strong>{game.awayTeam}</strong></div>
                         <div style={{ textAlign: 'center' }}><strong>Stats</strong></div>
                         <div style={{ textAlign: 'right' }}><strong>{game.homeTeam}</strong></div>
