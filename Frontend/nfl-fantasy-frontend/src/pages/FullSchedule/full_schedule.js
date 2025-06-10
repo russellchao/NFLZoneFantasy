@@ -201,7 +201,27 @@ const FullSchedule = () => {
 
         console.log(`User wants to view matchup info`);
 
-
+        /* 
+            When viewing matchup info, we are still technically on the full schedule page.
+            This block of code makes clicking on the go back button set viewingMatchupInfo to false and take the user 
+            back to the full schedule when viewing matchup info, instead of go back to the page we were previously on. 
+        */
+        if (viewingMatchupInfo) {
+            // Push a new state to the history when viewing matchup info
+            window.history.pushState({ viewingMatchupInfo: true }, '');
+            
+            // Handle the back button
+            const handlePopState = () => {
+                setViewingMatchupInfo(false);
+            };
+            
+            window.addEventListener('popstate', handlePopState);
+            
+            // Cleanup listener when component unmounts
+            return () => {
+                window.removeEventListener('popstate', handlePopState);
+            };
+        }
 
     }, [viewingMatchupInfo])
 
@@ -248,7 +268,8 @@ const FullSchedule = () => {
                         <a 
                             style={{ textDecoration: 'none', color: 'black' }}
                             onClick={() => {
-                                setViewingMatchupInfo(false);
+                                // Handles setting viewingMatchupInfo to false
+                                window.history.back();
                             }}
                         >   
                             ← Back
@@ -263,26 +284,6 @@ const FullSchedule = () => {
                     />
 
                 </div>
-
-                <div>
-                    <br></br>
-
-                    {/* Button to go back (on bottom of page) */}
-                    <button style={{ marginLeft: '20px' }}>
-                        <a 
-                            style={{ textDecoration: 'none', color: 'black' }}
-                            onClick={() => {
-                                setViewingMatchupInfo(false);
-                            }}
-                        >   
-                            ← Back
-                        </a>
-                    </button>
-                </div>
-
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-
             </>
         )
     }
