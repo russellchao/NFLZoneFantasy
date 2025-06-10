@@ -84,6 +84,7 @@ const MatchupInfo = ({ game }) => {
         return (
             <div style={{ padding: '20px' }}>
 
+                {/* Section 1: General Matchup Info */}
                 <h2 style={{ textAlign: 'center' }}>{game.weekNum}</h2>
                 <h2 style={{ textAlign: 'center' }}>{game.date}</h2>
                 <h2 style={{ textAlign: 'center' }}>{game.overtime ? 'FINAL/OT' : 'FINAL'}</h2>
@@ -137,6 +138,7 @@ const MatchupInfo = ({ game }) => {
                 <p>&nbsp;</p>
 
                 
+                {/* Section 2: Scoring Summary */}
                 <div style={{ marginTop: '30px' }}>
                     <h2>Scoring Summary</h2>
                     {scoringPlays.map((play, index) => (
@@ -162,7 +164,6 @@ const MatchupInfo = ({ game }) => {
                                     <span>{boxscore.teams[1].team.abbreviation} {play.homeScore}</span>
                                 }
                                 
-
                                 <hr></hr>
                             </p>
                         </div>
@@ -171,6 +172,33 @@ const MatchupInfo = ({ game }) => {
 
                 <p>&nbsp;</p>
 
+                
+
+                {/* Section 3: Leaders */}
+                <div style={{ marginTop: '30px' }}>
+                    <h2>Leaders</h2>
+                    {leaders?.map((category, index) => (
+                        <div key={index} style={{ marginBottom: '20px' }}>
+                            <h3>{category?.name || 'Unknown Category'}</h3>
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                                {category?.leaders?.map((leader, idx) => (
+                                    <div key={idx}>
+                                        <p>
+                                            <strong>{leader?.athlete?.displayName || 'Unknown Player'}</strong><br />
+                                            {leader?.displayValue || 'N/A'}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+
+
+
+
+                {/* Section 4: Team Stats */}
                 <div style={{ marginTop: '30px' }}>
                     <h2>Team Stats</h2>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '20px' }}>
@@ -206,24 +234,8 @@ const MatchupInfo = ({ game }) => {
 
                 <p>&nbsp;</p>
 
-                <div style={{ marginTop: '30px' }}>
-                    <h2>Leaders</h2>
-                    {leaders?.map((category, index) => (
-                        <div key={index} style={{ marginBottom: '20px' }}>
-                            <h3>{category?.name || 'Unknown Category'}</h3>
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-                                {category?.leaders?.map((leader, idx) => (
-                                    <div key={idx}>
-                                        <p>
-                                            <strong>{leader?.athlete?.displayName || 'Unknown Player'}</strong><br />
-                                            {leader?.displayValue || 'N/A'}
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
+
+
 
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
