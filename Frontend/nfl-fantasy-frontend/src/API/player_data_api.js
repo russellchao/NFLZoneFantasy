@@ -55,7 +55,7 @@ export const fetchPlayerDataByPosition = async (positionName) => {
 export const fetchPlayerDataByName = async (playerName) => {
     try {
         const response = await fetch(
-            `http://localhost:8081/api/v1?name=${encodeURIComponent(playerName)}`
+            `http://localhost:8081/api/v1/playerName?name=${encodeURIComponent(playerName)}`
         );
 
         if (!response.ok) {

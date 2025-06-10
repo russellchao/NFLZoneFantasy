@@ -18,7 +18,7 @@ import java.util.*;
 
 
 @RestController
-@RequestMapping(path="api/v1")
+@RequestMapping(path="api/v1/playerName")
 public class NameController {
 
     private final PasserService passerService;
