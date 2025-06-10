@@ -264,6 +264,25 @@ const FullSchedule = () => {
 
                 </div>
 
+                <div>
+                    <br></br>
+
+                    {/* Button to go back (on bottom of page) */}
+                    <button style={{ marginLeft: '20px' }}>
+                        <a 
+                            style={{ textDecoration: 'none', color: 'black' }}
+                            onClick={() => {
+                                setViewingMatchupInfo(false);
+                            }}
+                        >   
+                            ← Back
+                        </a>
+                    </button>
+                </div>
+
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+
             </>
         )
     }
