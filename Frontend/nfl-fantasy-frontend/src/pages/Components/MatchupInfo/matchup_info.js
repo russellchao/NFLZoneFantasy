@@ -179,13 +179,15 @@ const MatchupInfo = ({ game }) => {
                     <h2>Leaders</h2>
                     {leaders?.map((category, index) => (
                         <div key={index} style={{ marginBottom: '20px' }}>
-                            <h3>{category?.name || 'Unknown Category'}</h3>
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                            <h3>{category.team.displayName}</h3>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '20px' }}>
                                 {category?.leaders?.map((leader, idx) => (
                                     <div key={idx}>
+                                        <p><strong>{category.leaders[idx].displayName}</strong></p>
                                         <p>
-                                            <strong>{leader?.athlete?.displayName || 'Unknown Player'}</strong><br />
-                                            {leader?.displayValue || 'N/A'}
+                                            {category.leaders[idx].leaders[0].athlete.displayName}
+                                            {": "} 
+                                            {category.leaders[idx].leaders[0].displayValue}
                                         </p>
                                     </div>
                                 ))}
@@ -194,8 +196,9 @@ const MatchupInfo = ({ game }) => {
                     ))}
                 </div>
 
+                <p>&nbsp;</p>
 
-
+                
 
 
                 {/* Section 4: Team Stats */}
