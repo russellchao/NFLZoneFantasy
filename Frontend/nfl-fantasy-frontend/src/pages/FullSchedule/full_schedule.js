@@ -333,6 +333,7 @@ const FullSchedule = () => {
                                         key = {game.gameId || idx} 
                                         game = {game} 
                                         onClick = {() => {
+                                            window.scrollTo(0, 0);
                                             setViewingMatchupInfo(true);
                                             setMatchToViewInfo(game);
                                         }}
@@ -342,6 +343,7 @@ const FullSchedule = () => {
                                         key = {game.gameId || idx} 
                                         game = {game} 
                                         onClick = {() => {
+                                            window.scrollTo(0, 0);
                                             setViewingMatchupInfo(true);
                                             setMatchToViewInfo(game);
                                         }}
@@ -402,6 +404,7 @@ const FullSchedule = () => {
                                         key = {game.gameId || gameIdx} 
                                         game = {game} 
                                         onClick = {() => {
+                                            window.scrollTo(0, 0);
                                             setViewingMatchupInfo(true);
                                             setMatchToViewInfo(game);
                                         }}
@@ -411,6 +414,7 @@ const FullSchedule = () => {
                                         key = {game.gameId || gameIdx} 
                                         game = {game} 
                                         onClick = {() => {
+                                            window.scrollTo(0, 0);
                                             setViewingMatchupInfo(true);
                                             setMatchToViewInfo(game);
                                         }}
