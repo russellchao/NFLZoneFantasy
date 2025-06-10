@@ -85,7 +85,7 @@ const statusRowStyle = {
 };
 
 const losingStyle = {
-    color: '#666666'
+    color: '#888888'
 };
 
 const buttonContainerStyle = {
