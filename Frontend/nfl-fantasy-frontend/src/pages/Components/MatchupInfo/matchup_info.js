@@ -76,7 +76,6 @@ const MatchupInfo = ({ game }) => {
 
     if (game.status === "Final" && initialFetchRef.current) {
         // Extract relevant stats from matchupInfoData
-        const gameInfo = matchupInfoData["gameInfo"];
         const boxscore = matchupInfoData["boxscore"];
         const scoringPlays = matchupInfoData["scoringPlays"];
         const leaders = matchupInfoData["leaders"];
@@ -177,25 +176,79 @@ const MatchupInfo = ({ game }) => {
                 {/* Section 3: Leaders */}
                 <div style={{ marginTop: '30px' }}>
                     <h2>Leaders</h2>
-                    {leaders?.map((category, index) => (
-                        <div key={index} style={{ marginBottom: '20px' }}>
-                            <h3>{category.team.displayName}</h3>
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '20px' }}>
-                                {category?.leaders?.map((leader, idx) => (
-                                    <div key={idx}>
-                                        <p><strong>{leader.displayName}</strong></p>
-                                        <p>
-                                            {/* Null checks here. Of all 5 categories (passing, rushing, receiving, tackles, sacks), 
-                                                there is a chance a game could have 0 total sacks */}
-                                            {leader?.leaders?.[0]?.athlete?.displayName ?? 'N/A'}
-                                            {": "} 
-                                            {leader?.leaders?.[0]?.displayValue ?? 'N/A'}
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: '0.2fr 0.2fr 0.2fr', gap: '10px' }}>
+                        <h3>{game.awayTeam}</h3>
+                        <h3 style={{ textAlign: 'center' }}>Category</h3>
+                        <h3 style={{ textAlign: 'right' }}>{game.homeTeam}</h3>
+
+                        {/* Null checks here. Of all 5 categories (passing, rushing, receiving, tackles, sacks), 
+                            there is a chance a game could have 0 total sacks */}
+                        
+                        {/* Passing */}
+                        <div>
+                            {leaders[1]?.leaders?.[0]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
+                            {": "} 
+                            {leaders[1]?.leaders?.[0]?.leaders?.[0]?.displayValue ?? 'N/A'}
                         </div>
-                    ))}
+                        <div style={{ textAlign: 'center' }}>Passing</div>
+                        <div style={{ textAlign: 'right' }}>
+                            {leaders?.[0]?.leaders?.[0]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
+                            {": "} 
+                            {leaders?.[0]?.leaders?.[0]?.leaders?.[0]?.displayValue ?? 'N/A'}
+                        </div>
+                        
+                        {/* Rushing */}
+                        <div>
+                            {leaders[1]?.leaders?.[1]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
+                            {": "} 
+                            {leaders[1]?.leaders?.[1]?.leaders?.[0]?.displayValue ?? 'N/A'}
+                        </div>
+                        <div style={{ textAlign: 'center' }}>Rushing</div>
+                        <div style={{ textAlign: 'right' }}>
+                            {leaders?.[0]?.leaders?.[1]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
+                            {": "} 
+                            {leaders?.[0]?.leaders?.[1]?.leaders?.[0]?.displayValue ?? 'N/A'}
+                        </div>
+                        
+                        {/* Receiving */}
+                        <div>
+                            {leaders[1]?.leaders?.[2]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
+                            {": "} 
+                            {leaders[1]?.leaders?.[2]?.leaders?.[0]?.displayValue ?? 'N/A'}
+                        </div>
+                        <div style={{ textAlign: 'center' }}>Recieving</div>
+                        <div style={{ textAlign: 'right' }}>
+                            {leaders?.[0]?.leaders?.[2]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
+                            {": "} 
+                            {leaders?.[0]?.leaders?.[2]?.leaders?.[0]?.displayValue ?? 'N/A'}
+                        </div>
+                    
+                        {/* Tackles */}
+                        <div>
+                            {leaders[1]?.leaders?.[3]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
+                            {": "} 
+                            {leaders[1]?.leaders?.[3]?.leaders?.[0]?.displayValue ?? 'N/A'}
+                        </div>
+                        <div style={{ textAlign: 'center' }}>Tackles</div>
+                        <div style={{ textAlign: 'right' }}>
+                            {leaders?.[0]?.leaders?.[3]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
+                            {": "} 
+                            {leaders?.[0]?.leaders?.[3]?.leaders?.[0]?.displayValue ?? 'N/A'}
+                        </div>
+
+                        {/* Sacks */}
+                        <div>
+                            {leaders[1]?.leaders?.[4]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
+                            {": "} 
+                            {leaders[1]?.leaders?.[4]?.leaders?.[0]?.displayValue ?? 'N/A'}
+                        </div>
+                        <div style={{ textAlign: 'center' }}>Sacks</div>
+                        <div style={{ textAlign: 'right' }}>
+                            {leaders?.[0]?.leaders?.[4]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
+                            {": "} 
+                            {leaders?.[0]?.leaders?.[4]?.leaders?.[0]?.displayValue ?? 'N/A'}
+                        </div>
+                    </div>
                 </div>
 
                 <p>&nbsp;</p>
@@ -206,34 +259,30 @@ const MatchupInfo = ({ game }) => {
                 {/* Section 4: Team Stats */}
                 <div style={{ marginTop: '30px' }}>
                     <h2>Team Stats</h2>
-                    <div style={{ display: 'grid', gridTemplateColumns: '0.15fr 0.15fr 0.15fr', gap: '10px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: '0.1fr 0.1fr 0.1fr', gap: '10px' }}>
                         <div><strong>{game.awayTeam}</strong></div>
                         <div style={{ textAlign: 'center' }}><strong>Stats</strong></div>
                         <div style={{ textAlign: 'right' }}><strong>{game.homeTeam}</strong></div>
                         
-                        {boxscore?.teams?.map((team, index) => (
-                            <React.Fragment key={index}>
-                                <div>{team.statistics?.firstDowns || 0}</div>
-                                <div style={{ textAlign: 'center' }}>First Downs</div>
-                                <div style={{ textAlign: 'right' }}>{team.statistics?.firstDowns || 0}</div>
-                                
-                                <div>{team.statistics?.totalYards || 0}</div>
-                                <div style={{ textAlign: 'center' }}>Total Yards</div>
-                                <div style={{ textAlign: 'right' }}>{team.statistics?.totalYards || 0}</div>
-                                
-                                <div>{team.statistics?.passingYards || 0}</div>
-                                <div style={{ textAlign: 'center' }}>Passing Yards</div>
-                                <div style={{ textAlign: 'right' }}>{team.statistics?.passingYards || 0}</div>
-                                
-                                <div>{team.statistics?.rushingYards || 0}</div>
-                                <div style={{ textAlign: 'center' }}>Rushing Yards</div>
-                                <div style={{ textAlign: 'right' }}>{team.statistics?.rushingYards || 0}</div>
-                                
-                                <div>{team.statistics?.turnovers || 0}</div>
-                                <div style={{ textAlign: 'center' }}>Turnovers</div>
-                                <div style={{ textAlign: 'right' }}>{team.statistics?.turnovers || 0}</div>
-                            </React.Fragment>
-                        ))}
+                        <div>{boxscore?.teams[0].statistics?.firstDowns || 0}</div>
+                        <div style={{ textAlign: 'center' }}>First Downs</div>
+                        <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics?.firstDowns || 0}</div>
+                        
+                        <div>{boxscore?.teams[0].statistics?.totalYards || 0}</div>
+                        <div style={{ textAlign: 'center' }}>Total Yards</div>
+                        <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics?.totalYards || 0}</div>
+                        
+                        <div>{boxscore?.teams[0].statistics?.passingYards || 0}</div>
+                        <div style={{ textAlign: 'center' }}>Passing Yards</div>
+                        <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics?.passingYards || 0}</div>
+                        
+                        <div>{boxscore?.teams[0].statistics?.rushingYards || 0}</div>
+                        <div style={{ textAlign: 'center' }}>Rushing Yards</div>
+                        <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics?.rushingYards || 0}</div>
+                        
+                        <div>{boxscore?.teams[0].statistics?.turnovers || 0}</div>
+                        <div style={{ textAlign: 'center' }}>Turnovers</div>
+                        <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics?.turnovers || 0}</div>
                     </div>
                 </div>
 
