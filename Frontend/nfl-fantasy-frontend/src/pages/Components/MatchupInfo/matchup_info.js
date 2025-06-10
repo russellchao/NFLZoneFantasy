@@ -67,6 +67,183 @@ const MatchupInfo = ({ game }) => {
             }
         })();
     }, []);
+
+
+
+
+
+
+
+    if (game.status === "Final" && initialFetchRef.current) {
+        // Extract relevant stats from matchupInfoData
+        const gameInfo = matchupInfoData["gameInfo"];
+        const boxscore = matchupInfoData["boxscore"];
+        const scoringPlays = matchupInfoData["scoringPlays"];
+        const leaders = matchupInfoData["leaders"];
+
+        return (
+            <div style={{ padding: '20px' }}>
+
+                <h2 style={{ textAlign: 'center' }}>{game.weekNum}</h2>
+                <h2 style={{ textAlign: 'center' }}>{game.date}</h2>
+                <h2 style={{ textAlign: 'center' }}>{game.overtime ? 'FINAL/OT' : 'FINAL'}</h2>
+                
+                <div style={{ 
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    gap: '40px',
+                    marginBottom: '30px',
+                    textAlign: 'center'
+                }}>
+                    {/* Away Team */}
+                    <div style={parseInt(game.awayTeamScore) < parseInt(game.homeTeamScore) ? losingTeamStyle : {}}>
+                        <h2>
+                            <img 
+                                src={teamLogos[game.awayTeam]} 
+                                alt={`${game.awayTeam} logo`} 
+                                style={logoStyle}
+                            /> 
+                            {game.awayTeam} ({game.awayTeamRecord})
+                        </h2>
+                        <h1 style={{ fontSize: '2.5em', margin: '10px 0' }}>{game.awayTeamScore}</h1>
+                    </div>
+
+                    {/* Separator */}
+                    <div style={{ 
+                        fontSize: '2em',
+                        fontWeight: 'bold',
+                        margin: '0 20px'
+                    }}>
+                        @
+                    </div>
+
+                    {/* Home Team */}
+                    <div style={parseInt(game.homeTeamScore) < parseInt(game.awayTeamScore) ? losingTeamStyle : {}}>
+                        <h2>
+                            <img 
+                                src={teamLogos[game.homeTeam]} 
+                                alt={`${game.homeTeam} logo`} 
+                                style={logoStyle}
+                            />
+                            {game.homeTeam} ({game.homeTeamRecord})</h2>
+                        <h1 style={{ fontSize: '2.5em', margin: '10px 0' }}>{game.homeTeamScore}</h1>
+                    </div>
+                </div>
+
+                <h2 style={{ textAlign: 'center' }}>{game.venue}</h2>
+
+                <p>&nbsp;</p>
+
+                
+                <div style={{ marginTop: '30px' }}>
+                    <h2>Scoring Summary</h2>
+                    {scoringPlays.map((play, index) => (
+                        <div key={index} style={{ marginBottom: '10px' }}>
+                            <p>
+                                <strong>
+                                    {play.period?.number > 4 ? 'OT' : `Q${play.period?.number}`}
+                                    {" at "}
+                                    {play?.clock?.displayValue} 
+                                </strong>
+                                {` - (${play.team.abbreviation}) ${play.text}`}
+
+                                <br></br>
+                                <br></br>
+
+                                {boxscore.teams[0].team.abbreviation === play.team.abbreviation ? 
+                                    <strong>{boxscore.teams[0].team.abbreviation} {play.awayScore}</strong> :
+                                    <span>{boxscore.teams[0].team.abbreviation} {play.awayScore}</span>
+                                }
+                                {", "}
+                                {boxscore.teams[1].team.abbreviation === play.team.abbreviation ? 
+                                    <strong>{boxscore.teams[1].team.abbreviation} {play.homeScore}</strong> :
+                                    <span>{boxscore.teams[1].team.abbreviation} {play.homeScore}</span>
+                                }
+                                
+
+                                <hr></hr>
+                            </p>
+                        </div>
+                    ))}
+                </div>
+
+                <p>&nbsp;</p>
+
+                <div style={{ marginTop: '30px' }}>
+                    <h2>Team Stats</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '20px' }}>
+                        <div><strong>{game.awayTeam}</strong></div>
+                        <div style={{ textAlign: 'center' }}><strong>Stats</strong></div>
+                        <div style={{ textAlign: 'right' }}><strong>{game.homeTeam}</strong></div>
+                        
+                        {boxscore?.teams?.map((team, index) => (
+                            <React.Fragment key={index}>
+                                <div>{team.statistics?.firstDowns || 0}</div>
+                                <div style={{ textAlign: 'center' }}>First Downs</div>
+                                <div style={{ textAlign: 'right' }}>{team.statistics?.firstDowns || 0}</div>
+                                
+                                <div>{team.statistics?.totalYards || 0}</div>
+                                <div style={{ textAlign: 'center' }}>Total Yards</div>
+                                <div style={{ textAlign: 'right' }}>{team.statistics?.totalYards || 0}</div>
+                                
+                                <div>{team.statistics?.passingYards || 0}</div>
+                                <div style={{ textAlign: 'center' }}>Passing Yards</div>
+                                <div style={{ textAlign: 'right' }}>{team.statistics?.passingYards || 0}</div>
+                                
+                                <div>{team.statistics?.rushingYards || 0}</div>
+                                <div style={{ textAlign: 'center' }}>Rushing Yards</div>
+                                <div style={{ textAlign: 'right' }}>{team.statistics?.rushingYards || 0}</div>
+                                
+                                <div>{team.statistics?.turnovers || 0}</div>
+                                <div style={{ textAlign: 'center' }}>Turnovers</div>
+                                <div style={{ textAlign: 'right' }}>{team.statistics?.turnovers || 0}</div>
+                            </React.Fragment>
+                        ))}
+                    </div>
+                </div>
+
+                <p>&nbsp;</p>
+
+                <div style={{ marginTop: '30px' }}>
+                    <h2>Leaders</h2>
+                    {leaders?.map((category, index) => (
+                        <div key={index} style={{ marginBottom: '20px' }}>
+                            <h3>{category?.name || 'Unknown Category'}</h3>
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                                {category?.leaders?.map((leader, idx) => (
+                                    <div key={idx}>
+                                        <p>
+                                            <strong>{leader?.athlete?.displayName || 'Unknown Player'}</strong><br />
+                                            {leader?.displayValue || 'N/A'}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+            </div>
+        );
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 
 
@@ -164,153 +341,6 @@ const MatchupInfo = ({ game }) => {
             </div>
         );
     }
-
-
-
-
-
-
-
-
-    if (game.status === "Final" && initialFetchRef.current) {
-        // Extract relevant stats from matchupInfoData
-        const gameInfo = matchupInfoData?.gameInfo || {};
-        const boxscore = matchupInfoData?.boxscore || {};
-        const scoringPlays = matchupInfoData?.scoringPlays || [];
-        const leaders = matchupInfoData?.leaders || [];
-
-        return (
-            <div style={{ padding: '20px' }}>
-
-                <h2 style={{ textAlign: 'center' }}>{game.weekNum}</h2>
-                <h2 style={{ textAlign: 'center' }}>{game.date}</h2>
-                <h2 style={{ textAlign: 'center' }}>{game.overtime ? 'FINAL/OT' : 'FINAL'}</h2>
-                
-                <div style={{ 
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    gap: '40px',
-                    marginBottom: '30px',
-                    textAlign: 'center'
-                }}>
-                    {/* Away Team */}
-                    <div style={parseInt(game.awayTeamScore) < parseInt(game.homeTeamScore) ? losingTeamStyle : {}}>
-                        <h2>
-                            <img 
-                                src={teamLogos[game.awayTeam]} 
-                                alt={`${game.awayTeam} logo`} 
-                                style={logoStyle}
-                            /> 
-                            {game.awayTeam} ({game.awayTeamRecord})
-                        </h2>
-                        <h1 style={{ fontSize: '2.5em', margin: '10px 0' }}>{game.awayTeamScore}</h1>
-                    </div>
-
-                    {/* Separator */}
-                    <div style={{ 
-                        fontSize: '2em',
-                        fontWeight: 'bold',
-                        margin: '0 20px'
-                    }}>
-                        @
-                    </div>
-
-                    {/* Home Team */}
-                    <div style={parseInt(game.homeTeamScore) < parseInt(game.awayTeamScore) ? losingTeamStyle : {}}>
-                        <h2>
-                            <img 
-                                src={teamLogos[game.homeTeam]} 
-                                alt={`${game.homeTeam} logo`} 
-                                style={logoStyle}
-                            />
-                            {game.homeTeam} ({game.homeTeamRecord})</h2>
-                        <h1 style={{ fontSize: '2.5em', margin: '10px 0' }}>{game.homeTeamScore}</h1>
-                    </div>
-                </div>
-
-                <h2 style={{ textAlign: 'center' }}>{game.venue}</h2>
-
-                <p>&nbsp;</p>
-                
-                <div style={{ marginTop: '30px' }}>
-                    <h2>Scoring Summary</h2>
-                    {scoringPlays?.map((play, index) => (
-                        <div key={index} style={{ marginBottom: '10px' }}>
-                            <p>
-                                <strong>{play?.period?.displayValue || ''}</strong>
-                                {play?.time?.displayValue ? ` - ${play.time.displayValue}` : ''} 
-                                {play?.text ? ` - ${play.text}` : ''}
-                            </p>
-                        </div>
-                    ))}
-                </div>
-
-                <p>&nbsp;</p>
-
-                <div style={{ marginTop: '30px' }}>
-                    <h2>Team Stats</h2>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '20px' }}>
-                        <div><strong>{game.awayTeam}</strong></div>
-                        <div style={{ textAlign: 'center' }}><strong>Stats</strong></div>
-                        <div style={{ textAlign: 'right' }}><strong>{game.homeTeam}</strong></div>
-                        
-                        {boxscore?.teams?.map((team, index) => (
-                            <React.Fragment key={index}>
-                                <div>{team.statistics?.firstDowns || 0}</div>
-                                <div style={{ textAlign: 'center' }}>First Downs</div>
-                                <div style={{ textAlign: 'right' }}>{team.statistics?.firstDowns || 0}</div>
-                                
-                                <div>{team.statistics?.totalYards || 0}</div>
-                                <div style={{ textAlign: 'center' }}>Total Yards</div>
-                                <div style={{ textAlign: 'right' }}>{team.statistics?.totalYards || 0}</div>
-                                
-                                <div>{team.statistics?.passingYards || 0}</div>
-                                <div style={{ textAlign: 'center' }}>Passing Yards</div>
-                                <div style={{ textAlign: 'right' }}>{team.statistics?.passingYards || 0}</div>
-                                
-                                <div>{team.statistics?.rushingYards || 0}</div>
-                                <div style={{ textAlign: 'center' }}>Rushing Yards</div>
-                                <div style={{ textAlign: 'right' }}>{team.statistics?.rushingYards || 0}</div>
-                                
-                                <div>{team.statistics?.turnovers || 0}</div>
-                                <div style={{ textAlign: 'center' }}>Turnovers</div>
-                                <div style={{ textAlign: 'right' }}>{team.statistics?.turnovers || 0}</div>
-                            </React.Fragment>
-                        ))}
-                    </div>
-                </div>
-
-                <p>&nbsp;</p>
-
-                <div style={{ marginTop: '30px' }}>
-                    <h2>Leaders</h2>
-                    {leaders?.map((category, index) => (
-                        <div key={index} style={{ marginBottom: '20px' }}>
-                            <h3>{category?.name || 'Unknown Category'}</h3>
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-                                {category?.leaders?.map((leader, idx) => (
-                                    <div key={idx}>
-                                        <p>
-                                            <strong>{leader?.athlete?.displayName || 'Unknown Player'}</strong><br />
-                                            {leader?.displayValue || 'N/A'}
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-            </div>
-        );
-    }
-
-
-
 
 
 
