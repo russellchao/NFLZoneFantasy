@@ -12,7 +12,7 @@ logoImages.keys().forEach(key => {
 });
 
 const boxStyle = {
-    background: '#b3cccc',
+    background: '#b3fff0',
     margin: '1%',
     width: '48%',
     minWidth: '350px',
@@ -22,6 +22,8 @@ const boxStyle = {
     padding: '16px 0',
     boxSizing: 'border-box',
     fontFamily: 'Segoe UI, sans-serif',
+    border: '2px solid black',  
+    borderRadius: '4px'
 };
 
 const topRowStyle = {

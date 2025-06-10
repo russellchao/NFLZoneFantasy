@@ -15,7 +15,7 @@ function App() {
 
       <nav style={{ 
         padding: "20px", 
-        background: "#eee",
+        background: "#004d26",
         position: "fixed",
         top: 0,
         left: 0,
@@ -23,14 +23,19 @@ function App() {
         zIndex: 1000,
         width: "100%"
       }}>
-        <Link to="/" style={{ marginRight: "30px" }}>Home</Link>
-        <Link to="/full_schedule" style={{ marginRight: "30px" }}>Schedule</Link>
-        <Link to="/all_teams" style={{ marginRight: "30px" }}>Teams</Link>
-        <Link to="/all_positions" style={{ marginRight: "30px" }}>Stats by Positions</Link>
-        <Link to="/search" style={{ marginRight: "30px" }}>Player Search</Link>
+        <Link to="/" style={{ marginRight: "30px", color: "#ffffff" }}>Home</Link>
+        <Link to="/full_schedule" style={{ marginRight: "30px", color: "#ffffff" }}>Schedule</Link>
+        <Link to="/all_teams" style={{ marginRight: "30px", color: "#ffffff" }}>Teams</Link>
+        <Link to="/all_positions" style={{ marginRight: "30px", color: "#ffffff" }}>Stats by Positions</Link>
+        <Link to="/search" style={{ marginRight: "30px", color: "#ffffff" }}>Player Search</Link>
       </nav>
 
-      <div style={{ paddingTop: "60px" }}>
+      <div 
+        style={{ 
+          paddingTop: "60px", 
+          background: "#53c68c",
+          minHeight: "100vh"
+        }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/all_teams" element={<AllTeams />} />
