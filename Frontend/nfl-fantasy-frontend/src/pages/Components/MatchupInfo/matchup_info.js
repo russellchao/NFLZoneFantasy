@@ -23,6 +23,22 @@ const losingTeamStyle = {
     color: '#666'
 };
 
+const boxStyle = {
+    background: '#b3fff0',
+    margin: '0%',
+    width: '100%',
+    minWidth: '350px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'stretch',
+    padding: '0px 0',
+    boxSizing: 'border-box',
+    fontFamily: 'Segoe UI, sans-serif',
+    border: '2px solid black',  
+    borderRadius: '4px'
+};
+
+
 
 const MatchupInfo = ({ game }) => {
 
@@ -32,6 +48,13 @@ const MatchupInfo = ({ game }) => {
     // Odds (not always available - usually available a week before the game)
     const [spread, setSpread] = useState("N/A");
     const [overUnder, setOverUnder] = useState("N/A"); 
+
+    // Variables handling sections for matchup info for final games
+    const [showScoring, setShowScoring] = useState(true);
+    const [showLeaders, setShowLeaders] = useState(true);
+    const [showTeamStats, setShowTeamStats] = useState(true);
+    const [showPlayerStats, setShowPlayerStats] = useState(true); 
+    const [playerStatsIdx, setPlayerStatsIdx] = useState(0); // 0 for the away team, 1 for the home team. Shows the away team by default
 
     // Track initial fetch
     const initialFetchRef = useRef(false);
@@ -139,35 +162,53 @@ const MatchupInfo = ({ game }) => {
                 
                 {/* Section 2: Scoring Summary */}
                 <div style={{ marginTop: '30px' }}>
-                    <h2>Scoring Summary</h2>
-                    {scoringPlays.map((play, index) => (
-                        <div key={index} style={{ marginBottom: '10px' }}>
-                            <p>
-                                <strong>
-                                    {play.period?.number > 4 ? 'OT' : `Q${play.period?.number}`}
-                                    {" at "}
-                                    {play?.clock?.displayValue} 
-                                </strong>
-                                {` - (${play.team.abbreviation}) ${play.text}`}
+                    <h2>
+                        Scoring Summary
+                        <button 
+                            onClick={() => setShowScoring(!showScoring)}
+                            style={{
+                                marginLeft: '20px',
+                                padding: '5px 10px',
+                                marginBottom: '10px',
+                                cursor: 'pointer'
+                            }}
+                        >
+                            {showScoring ? 'Hide' : 'Show'}
+                        </button>
+                    </h2>
+                    {showScoring && (
+                        <div style={boxStyle}>
+                            {scoringPlays.map((play, index) => (
+                                <div key={index} style={{ paddingLeft: '10px' }}>
+                                    <p>
+                                        <strong>
+                                            {play.period?.number > 4 ? 'OT' : `Q${play.period?.number}`}
+                                            {" at "}
+                                            {play?.clock?.displayValue} 
+                                        </strong>
+                                        {` - (${play.team.abbreviation}) ${play.text}`}
 
-                                <br></br>
-                                <br></br>
+                                        <br></br>
+                                        <br></br>
 
-                                {boxscore.teams[0].team.abbreviation === play.team.abbreviation ? 
-                                    <strong>{boxscore.teams[0].team.abbreviation} {play.awayScore}</strong> :
-                                    <span>{boxscore.teams[0].team.abbreviation} {play.awayScore}</span>
-                                }
-                                {", "}
-                                {boxscore.teams[1].team.abbreviation === play.team.abbreviation ? 
-                                    <strong>{boxscore.teams[1].team.abbreviation} {play.homeScore}</strong> :
-                                    <span>{boxscore.teams[1].team.abbreviation} {play.homeScore}</span>
-                                }
-                                
-                                <hr></hr>
-                            </p>
+                                        {boxscore.teams[0].team.abbreviation === play.team.abbreviation ? 
+                                            <strong>{boxscore.teams[0].team.abbreviation} {play.awayScore}</strong> :
+                                            <span>{boxscore.teams[0].team.abbreviation} {play.awayScore}</span>
+                                        }
+                                        {", "}
+                                        {boxscore.teams[1].team.abbreviation === play.team.abbreviation ? 
+                                            <strong>{boxscore.teams[1].team.abbreviation} {play.homeScore}</strong> :
+                                            <span>{boxscore.teams[1].team.abbreviation} {play.homeScore}</span>
+                                        }
+                                        
+                                        <hr></hr>
+                                    </p>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    )}
                 </div>
+                
 
                 <p>&nbsp;</p>
 
@@ -175,160 +216,247 @@ const MatchupInfo = ({ game }) => {
 
                 {/* Section 3: Leaders */}
                 <div style={{ marginTop: '30px' }}>
-                    <h2>Leaders</h2>
-                    <div style={{ display: 'grid', gridTemplateColumns: '0.2fr 0.2fr 0.2fr', gap: '10px' }}>
-                        <h3>{game.awayTeam}</h3>
-                        <h3 style={{ textAlign: 'center' }}>Category</h3>
-                        <h3 style={{ textAlign: 'right' }}>{game.homeTeam}</h3>
+                    <h2>
+                        Leaders
+                        <button 
+                            onClick={() => setShowLeaders(!showLeaders)}
+                            style={{
+                                marginLeft: '20px',
+                                padding: '5px 10px',
+                                marginBottom: '10px',
+                                cursor: 'pointer'
+                            }}
+                        >
+                            {showLeaders ? 'Hide' : 'Show'}
+                        </button>
+                    </h2>
+                    {showLeaders && (
+                        <div style={boxStyle}>
+                            <div style={{ display: 'grid', paddingLeft: '10px', gridTemplateColumns: '0.25fr 0.25fr 0.25fr', gap: '10px' }}>
+                                <h3>{game.awayTeam}</h3>
+                                <h3 style={{ textAlign: 'center' }}>Category</h3>
+                                <h3 style={{ textAlign: 'right' }}>{game.homeTeam}</h3>
 
-                        {/* Null checks here. Of all 5 categories (passing, rushing, receiving, tackles, sacks), 
-                            there is a chance a game could have 0 total sacks */}
-                        
-                        {/* Passing */}
-                        <div>
-                            {leaders[1]?.leaders?.[0]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
-                            {": "} 
-                            {leaders[1]?.leaders?.[0]?.leaders?.[0]?.displayValue ?? 'N/A'}
+                                {/* Null checks here. Of all 5 categories (passing, rushing, receiving, tackles, sacks), 
+                                    there is a chance a game could have 0 total sacks */}
+                                
+                                {/* Passing */}
+                                <div>
+                                    {leaders[1]?.leaders?.[0]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
+                                    {": "} 
+                                    {leaders[1]?.leaders?.[0]?.leaders?.[0]?.displayValue ?? 'N/A'}
+                                </div>
+                                <div style={{ textAlign: 'center' }}>Passing</div>
+                                <div style={{ textAlign: 'right' }}>
+                                    {leaders?.[0]?.leaders?.[0]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
+                                    {": "} 
+                                    {leaders?.[0]?.leaders?.[0]?.leaders?.[0]?.displayValue ?? 'N/A'}
+                                </div>
+                                
+                                {/* Rushing */}
+                                <div>
+                                    {leaders[1]?.leaders?.[1]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
+                                    {": "} 
+                                    {leaders[1]?.leaders?.[1]?.leaders?.[0]?.displayValue ?? 'N/A'}
+                                </div>
+                                <div style={{ textAlign: 'center' }}>Rushing</div>
+                                <div style={{ textAlign: 'right' }}>
+                                    {leaders?.[0]?.leaders?.[1]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
+                                    {": "} 
+                                    {leaders?.[0]?.leaders?.[1]?.leaders?.[0]?.displayValue ?? 'N/A'}
+                                </div>
+                                
+                                {/* Receiving */}
+                                <div>
+                                    {leaders[1]?.leaders?.[2]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
+                                    {": "} 
+                                    {leaders[1]?.leaders?.[2]?.leaders?.[0]?.displayValue ?? 'N/A'}
+                                </div>
+                                <div style={{ textAlign: 'center' }}>Recieving</div>
+                                <div style={{ textAlign: 'right' }}>
+                                    {leaders?.[0]?.leaders?.[2]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
+                                    {": "} 
+                                    {leaders?.[0]?.leaders?.[2]?.leaders?.[0]?.displayValue ?? 'N/A'}
+                                </div>
+                            
+                                {/* Tackles */}
+                                <div>
+                                    {leaders[1]?.leaders?.[3]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
+                                    {": "} 
+                                    {leaders[1]?.leaders?.[3]?.leaders?.[0]?.displayValue ?? 'N/A'}
+                                </div>
+                                <div style={{ textAlign: 'center' }}>Tackles</div>
+                                <div style={{ textAlign: 'right' }}>
+                                    {leaders?.[0]?.leaders?.[3]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
+                                    {": "} 
+                                    {leaders?.[0]?.leaders?.[3]?.leaders?.[0]?.displayValue ?? 'N/A'}
+                                </div>
+
+                                {/* Sacks */}
+                                <div>
+                                    {leaders[1]?.leaders?.[4]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
+                                    {": "} 
+                                    {leaders[1]?.leaders?.[4]?.leaders?.[0]?.displayValue ?? 'N/A'}
+                                </div>
+                                <div style={{ textAlign: 'center' }}>Sacks</div>
+                                <div style={{ textAlign: 'right' }}>
+                                    {leaders?.[0]?.leaders?.[4]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
+                                    {": "} 
+                                    {leaders?.[0]?.leaders?.[4]?.leaders?.[0]?.displayValue ?? 'N/A'}
+                                </div>
+                            </div>
+
+                            <br></br>
                         </div>
-                        <div style={{ textAlign: 'center' }}>Passing</div>
-                        <div style={{ textAlign: 'right' }}>
-                            {leaders?.[0]?.leaders?.[0]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
-                            {": "} 
-                            {leaders?.[0]?.leaders?.[0]?.leaders?.[0]?.displayValue ?? 'N/A'}
-                        </div>
-                        
-                        {/* Rushing */}
-                        <div>
-                            {leaders[1]?.leaders?.[1]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
-                            {": "} 
-                            {leaders[1]?.leaders?.[1]?.leaders?.[0]?.displayValue ?? 'N/A'}
-                        </div>
-                        <div style={{ textAlign: 'center' }}>Rushing</div>
-                        <div style={{ textAlign: 'right' }}>
-                            {leaders?.[0]?.leaders?.[1]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
-                            {": "} 
-                            {leaders?.[0]?.leaders?.[1]?.leaders?.[0]?.displayValue ?? 'N/A'}
-                        </div>
-                        
-                        {/* Receiving */}
-                        <div>
-                            {leaders[1]?.leaders?.[2]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
-                            {": "} 
-                            {leaders[1]?.leaders?.[2]?.leaders?.[0]?.displayValue ?? 'N/A'}
-                        </div>
-                        <div style={{ textAlign: 'center' }}>Recieving</div>
-                        <div style={{ textAlign: 'right' }}>
-                            {leaders?.[0]?.leaders?.[2]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
-                            {": "} 
-                            {leaders?.[0]?.leaders?.[2]?.leaders?.[0]?.displayValue ?? 'N/A'}
-                        </div>
+                    )}
                     
-                        {/* Tackles */}
-                        <div>
-                            {leaders[1]?.leaders?.[3]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
-                            {": "} 
-                            {leaders[1]?.leaders?.[3]?.leaders?.[0]?.displayValue ?? 'N/A'}
-                        </div>
-                        <div style={{ textAlign: 'center' }}>Tackles</div>
-                        <div style={{ textAlign: 'right' }}>
-                            {leaders?.[0]?.leaders?.[3]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
-                            {": "} 
-                            {leaders?.[0]?.leaders?.[3]?.leaders?.[0]?.displayValue ?? 'N/A'}
-                        </div>
-
-                        {/* Sacks */}
-                        <div>
-                            {leaders[1]?.leaders?.[4]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
-                            {": "} 
-                            {leaders[1]?.leaders?.[4]?.leaders?.[0]?.displayValue ?? 'N/A'}
-                        </div>
-                        <div style={{ textAlign: 'center' }}>Sacks</div>
-                        <div style={{ textAlign: 'right' }}>
-                            {leaders?.[0]?.leaders?.[4]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
-                            {": "} 
-                            {leaders?.[0]?.leaders?.[4]?.leaders?.[0]?.displayValue ?? 'N/A'}
-                        </div>
-                    </div>
                 </div>
+
+                
+
+
+                <p>&nbsp;</p>
+
+                {/* Section 4: Team Stats */}
+                <div style={{ marginTop: '30px' }}>
+                    <h2>
+                        Team Stats
+                        <button 
+                            onClick={() => setShowTeamStats(!showTeamStats)}
+                            style={{
+                                marginLeft: '20px',
+                                padding: '5px 10px',
+                                marginBottom: '10px',
+                                cursor: 'pointer'
+                            }}
+                        >
+                            {showTeamStats ? 'Hide' : 'Show'}
+                        </button>
+                    </h2>
+                    {showTeamStats && (
+                        <div style={boxStyle}>
+                            <div style={{ display: 'grid', paddingLeft: '10px', gridTemplateColumns: '0.15fr 0.15fr 0.15fr', gap: '10px' }}>
+                                <h3>{game.awayTeam}</h3>
+                                <h3 style={{ textAlign: 'center' }}>Stats</h3>
+                                <h3 style={{ textAlign: 'right' }}>{game.homeTeam}</h3>
+
+                                <div>{boxscore?.teams[0].statistics[7]?.displayValue || 0}</div>
+                                <div style={{ textAlign: 'center' }}>Total Yards</div>
+                                <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[7]?.displayValue || 0}</div>
+                                
+                                <div>{boxscore?.teams[0].statistics[10]?.displayValue || 0}</div>
+                                <div style={{ textAlign: 'center' }}>Passing Yards</div>
+                                <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[10]?.displayValue || 0}</div>
+                                
+                                <div>{boxscore?.teams[0].statistics[15]?.displayValue || 0}</div>
+                                <div style={{ textAlign: 'center' }}>Rushing Yards</div>
+                                <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[15]?.displayValue || 0}</div>
+
+                                <div>{boxscore?.teams[0].statistics[8]?.displayValue || 0}</div>
+                                <div style={{ textAlign: 'center' }}>Yards Per Play</div>
+                                <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[8]?.displayValue || 0}</div>
+                                
+                                <div>{boxscore?.teams[0].statistics[0]?.displayValue || 0}</div>
+                                <div style={{ textAlign: 'center' }}>First Downs</div>
+                                <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[0]?.displayValue || 0}</div>
+
+                                <div>{boxscore?.teams[0].statistics[4]?.displayValue || 0}</div>
+                                <div style={{ textAlign: 'center' }}>3rd Down Efficiency</div>
+                                <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[4]?.displayValue || 0}</div>
+
+                                <div>{boxscore?.teams[0].statistics[5]?.displayValue || 0}</div>
+                                <div style={{ textAlign: 'center' }}>4th Down Efficiency</div>
+                                <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[5]?.displayValue || 0}</div>
+
+                                <div>{boxscore?.teams[0].statistics[6]?.displayValue || 0}</div>
+                                <div style={{ textAlign: 'center' }}>Total Plays</div>
+                                <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[6]?.displayValue || 0}</div>
+
+                                <div>{boxscore?.teams[0].statistics[9]?.displayValue || 0}</div>
+                                <div style={{ textAlign: 'center' }}>Total Drives</div>
+                                <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[9]?.displayValue || 0}</div>
+
+                                <div>{boxscore?.teams[0].statistics[14]?.displayValue || 0}</div>
+                                <div style={{ textAlign: 'center' }}>Sacks Allowed-Yards Lost</div>
+                                <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[14]?.displayValue || 0}</div>
+
+                                <div>{boxscore?.teams[0].statistics[22]?.displayValue || 0}</div>
+                                <div style={{ textAlign: 'center' }}>Interceptions Thrown</div>
+                                <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[22]?.displayValue || 0}</div>
+
+                                <div>{boxscore?.teams[0].statistics[21]?.displayValue || 0}</div>
+                                <div style={{ textAlign: 'center' }}>Fumbles Lost</div>
+                                <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[21]?.displayValue || 0}</div>
+
+                                <div>{boxscore?.teams[0].statistics[19]?.displayValue || 0}</div>
+                                <div style={{ textAlign: 'center' }}>Penalties-Yards</div>
+                                <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[19]?.displayValue || 0}</div>
+
+                                <div>{boxscore?.teams[0].statistics[24]?.displayValue || 0}</div>
+                                <div style={{ textAlign: 'center' }}>Time of Possession</div>
+                                <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[24]?.displayValue || 0}</div>
+                            </div>
+
+                            <br></br>
+                        </div>
+                    )}
+                    
+                </div>
+
+
+                
 
                 <p>&nbsp;</p>
 
 
-
-
-
-
-                
-
-                
-
-
-
-                {/* Section 5: Team Stats */}
+                {/* Section 5: Player Stats */}
                 <div style={{ marginTop: '30px' }}>
-                    <h2>Team Stats</h2>
-                    <div style={{ display: 'grid', gridTemplateColumns: '0.1fr 0.1fr 0.1fr', gap: '10px' }}>
-                        <h3>{game.awayTeam}</h3>
-                        <h3 style={{ textAlign: 'center' }}>Stats</h3>
-                        <h3 style={{ textAlign: 'right' }}>{game.homeTeam}</h3>
+                    <h2>Player Stats</h2>
+                        <div style={{ paddingLeft: '10px' }}>
+                            <h3>
+                                {boxscore?.players[playerStatsIdx].team?.displayName || "N/A"}
+                                <button
+                                    onClick={() => setPlayerStatsIdx(playerStatsIdx === 0 ? 1 : 0)}
+                                    style={{
+                                        marginLeft: '20px',
+                                        padding: '5px 10px',
+                                        marginBottom: '10px',
+                                        cursor: 'pointer'
+                                    }}
+                                >
+                                    Switch Team
+                                </button>
+                            </h3>
 
-                        <div>{boxscore?.teams[0].statistics[7]?.displayValue || 0}</div>
-                        <div style={{ textAlign: 'center' }}>Total Yards</div>
-                        <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[7]?.displayValue || 0}</div>
-                        
-                        <div>{boxscore?.teams[0].statistics[10]?.displayValue || 0}</div>
-                        <div style={{ textAlign: 'center' }}>Passing Yards</div>
-                        <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[10]?.displayValue || 0}</div>
-                        
-                        <div>{boxscore?.teams[0].statistics[15]?.displayValue || 0}</div>
-                        <div style={{ textAlign: 'center' }}>Rushing Yards</div>
-                        <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[15]?.displayValue || 0}</div>
+                            <h3>Passing</h3>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(9, 1fr)', gap: '10px', padding: '10px 0' }}>
+                                <div><strong>Name</strong></div>
+                                <div><strong>C/ATT</strong></div>
+                                <div><strong>YDS</strong></div>
+                                <div><strong>AVG</strong></div>
+                                <div><strong>TD</strong></div>
+                                <div><strong>INT</strong></div>
+                                <div><strong>SACKS</strong></div>
+                                <div><strong>QBR</strong></div>
+                                <div><strong>RTG</strong></div>
+                            </div>
+                            <div>
+                                {boxscore?.players[playerStatsIdx]?.statistics[0].athletes || "N/A"}
+                            </div>
 
-                        <div>{boxscore?.teams[0].statistics[8]?.displayValue || 0}</div>
-                        <div style={{ textAlign: 'center' }}>Yards Per Play</div>
-                        <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[8]?.displayValue || 0}</div>
-                        
-                        <div>{boxscore?.teams[0].statistics[0]?.displayValue || 0}</div>
-                        <div style={{ textAlign: 'center' }}>First Downs</div>
-                        <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[0]?.displayValue || 0}</div>
 
-                        <div>{boxscore?.teams[0].statistics[4]?.displayValue || 0}</div>
-                        <div style={{ textAlign: 'center' }}>3rd Down Efficiency</div>
-                        <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[4]?.displayValue || 0}</div>
 
-                        <div>{boxscore?.teams[0].statistics[5]?.displayValue || 0}</div>
-                        <div style={{ textAlign: 'center' }}>4th Down Efficiency</div>
-                        <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[5]?.displayValue || 0}</div>
 
-                        <div>{boxscore?.teams[0].statistics[6]?.displayValue || 0}</div>
-                        <div style={{ textAlign: 'center' }}>Total Plays</div>
-                        <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[6]?.displayValue || 0}</div>
+                        </div>
 
-                        <div>{boxscore?.teams[0].statistics[9]?.displayValue || 0}</div>
-                        <div style={{ textAlign: 'center' }}>Total Drives</div>
-                        <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[9]?.displayValue || 0}</div>
 
-                        <div>{boxscore?.teams[0].statistics[14]?.displayValue || 0}</div>
-                        <div style={{ textAlign: 'center' }}>Sacks Allowed-Yards Lost</div>
-                        <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[14]?.displayValue || 0}</div>
-
-                        <div>{boxscore?.teams[0].statistics[22]?.displayValue || 0}</div>
-                        <div style={{ textAlign: 'center' }}>Interceptions Thrown</div>
-                        <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[22]?.displayValue || 0}</div>
-
-                        <div>{boxscore?.teams[0].statistics[21]?.displayValue || 0}</div>
-                        <div style={{ textAlign: 'center' }}>Fumbles Lost</div>
-                        <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[21]?.displayValue || 0}</div>
-
-                        <div>{boxscore?.teams[0].statistics[19]?.displayValue || 0}</div>
-                        <div style={{ textAlign: 'center' }}>Penalties-Yards</div>
-                        <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[19]?.displayValue || 0}</div>
-
-                        <div>{boxscore?.teams[0].statistics[24]?.displayValue || 0}</div>
-                        <div style={{ textAlign: 'center' }}>Time of Possession</div>
-                        <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[24]?.displayValue || 0}</div>
-                    </div>
+                    
                 </div>
+
+
+
+
+
 
                 <p>&nbsp;</p>
 
