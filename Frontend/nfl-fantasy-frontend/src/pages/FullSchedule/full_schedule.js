@@ -17,7 +17,7 @@ const rowStyle = {
 
 const FullSchedule = () => {
     const [schedule, setSchedule] = useState([]);
-    const [teamSeason, setSeason] = useState("2024"); 
+    const [teamSeason, setSeason] = useState("2025"); 
     const [week, setWeek] = useState("Week 1");
     const [loading, setLoading] = useState(true); 
     const [loadError, throwLoadError] = useState(false); // Error state for loading data

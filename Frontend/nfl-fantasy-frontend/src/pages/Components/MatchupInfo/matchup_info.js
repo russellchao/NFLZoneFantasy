@@ -52,10 +52,6 @@ const MatchupInfo = ({ game }) => {
     // Entire array containing game info
     const [matchupInfoData, setMatchupInfoData] = useState([]); 
 
-    // Odds (not always available - usually available a week before the game)
-    const [spread, setSpread] = useState("N/A");
-    const [overUnder, setOverUnder] = useState("N/A"); 
-
     // Variables handling sections for matchup info for final games
     const [showScoring, setShowScoring] = useState(true);
     const [showLeaders, setShowLeaders] = useState(true);
@@ -64,6 +60,13 @@ const MatchupInfo = ({ game }) => {
     const [playerStatsIdx, setPlayerStatsIdx] = useState(0); // 0 for the away team, 1 for the home team. Shows the away team by default
     const [showDriveInfo, setShowDriveInfo] = useState(true); 
     const [expandedDrives, setExpandedDrives] = useState({});
+
+    // Variables handling sections for matchup info for scheduled games
+    const [showWinProb, setShowWinProb] = useState(true);
+    const [spread, setSpread] = useState("N/A");
+    const [overUnder, setOverUnder] = useState("N/A"); 
+    const [showOdds, setShowOdds] = useState(true);
+    const [showInjuries, setShowInjuries] = useState(true);
 
     // Track initial fetch
     const initialFetchRef = useRef(false);
@@ -99,10 +102,6 @@ const MatchupInfo = ({ game }) => {
             }
         })();
     }, []);
-
-
-
-
 
 
 
@@ -721,20 +720,6 @@ const MatchupInfo = ({ game }) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
     if (game.status === "Scheduled" && initialFetchRef.current) {
         // Graphic for Scheduled games
 
@@ -742,13 +727,13 @@ const MatchupInfo = ({ game }) => {
         const awayTeamWinChance = matchupInfoData["predictor"]["awayTeam"]["gameProjection"];
         const homeTeamWinChance = matchupInfoData["predictor"]["homeTeam"]["gameProjection"];
 
-
         // Odds - set the odds once they become available
-
+        
         
         // Injury reports
         const homeTeamInjuries = matchupInfoData["injuries"][0]["injuries"]; 
         const awayTeamInjuries = matchupInfoData["injuries"][1]["injuries"]; 
+        
 
         console.log(`${game.awayTeam} injuries:`); 
         console.log(awayTeamInjuries); 
@@ -758,74 +743,170 @@ const MatchupInfo = ({ game }) => {
 
         return (
             <div style={{ padding: '20px' }}>
-                    
-                <h1>{game.awayTeam} {game.awayTeamRecord} at {game.homeTeam} {game.homeTeamRecord} </h1>
 
-                <h2>{game.weekNum} • {game.date}</h2>
+            {/* Section 1: General Game Info */}
+            <h2 style={{ textAlign: 'center' }}>{game.weekNum}</h2>
+            <h2 style={{ textAlign: 'center' }}>{game.date}</h2>
+            <h2 style={{ textAlign: 'center' }}>{game.startTime} on {game.broadcast}</h2>
+            
+            <div style={{ 
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '40px',
+                marginBottom: '30px',
+                textAlign: 'center'
+            }}>
+                {/* Away Team */}
+                <div>
+                    <h2>
+                        <img 
+                            src={teamLogos[game.awayTeam]} 
+                            alt={`${game.awayTeam} logo`} 
+                            style={logoStyle}
+                        /> 
+                        {game.awayTeam} ({game.awayTeamRecord})
+                    </h2>
+                </div>
 
-                <h2>{game.venue}</h2>
+                {/* Separator */}
+                <div style={{ 
+                    fontSize: '2em',
+                    fontWeight: 'bold',
+                    margin: '0 20px'
+                }}>
+                    @
+                </div>
 
-                <h2>{game.startTime} on {game.broadcast}</h2>
-
-
-
-                <p>&nbsp;</p>
-
-                <h1>Win Probability</h1>
-
-                <h2>{game.awayTeam}: {awayTeamWinChance}%</h2>
-                <h2>{game.homeTeam}: {homeTeamWinChance}%</h2>
-
-
-
-
-                <p>&nbsp;</p>
-
-                <h1>Odds</h1>
-
-                <h2>Spread: {spread}</h2>
-                <h2>O/U: {overUnder}</h2>
-
-
-
-
-
-                <p>&nbsp;</p>
-
-                <h1>Injuries and Reserve</h1>
-
-                <h2>{game.awayTeam}</h2>
-                {awayTeamInjuries.map((injury, index) => (
-                    <div key={index} style={{ marginBottom: '10px' }}>
-                        <p>
-                            <strong>{injury.athlete.displayName}</strong> - {injury.details["type"]}, {injury.status}
-                            {injury.details?.returnDate && ` (Expected Return: ${injury.details.returnDate})`}
-                        </p>
-                    </div>
-                ))}
-
-                <h2>{game.homeTeam}</h2>
-                {homeTeamInjuries.map((injury, index) => (
-                    <div key={index} style={{ marginBottom: '10px' }}>
-                        <p>
-                            <strong>{injury.athlete.displayName}</strong> - {injury.details["type"]}, {injury.status}
-                            {injury.details?.returnDate && ` (Expected Return: ${injury.details.returnDate})`}
-                        </p>
-                    </div>
-                ))}
-
-
-
-
-
-
-                <h2></h2>
-
-
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-
+                {/* Home Team */}
+                <div>
+                    <h2>
+                        <img 
+                            src={teamLogos[game.homeTeam]} 
+                            alt={`${game.homeTeam} logo`} 
+                            style={logoStyle}
+                        />
+                        {game.homeTeam} ({game.homeTeamRecord})
+                    </h2>
+                </div>
             </div>
+
+            <h2 style={{ textAlign: 'center' }}>{game.venue}</h2>
+
+            <p>&nbsp;</p>
+
+
+
+            {/* Section 2: Win Probability */}
+            <div style={{ marginTop: '30px' }}>
+                <h2>
+                    Win Probability
+                    <button 
+                        onClick={() => setShowWinProb(!showWinProb)}
+                        style={{
+                            marginLeft: '20px',
+                            padding: '5px 10px',
+                            marginBottom: '10px',
+                            cursor: 'pointer'
+                        }}
+                    >
+                        {showWinProb ? 'Hide' : 'Show'}
+                    </button>
+                </h2>
+                {showWinProb && (
+                    <div style={boxStyle}>
+                        <div style={{ paddingLeft: '10px', paddingTop: '10px' }}>
+                            <h3>{game.awayTeam}: {awayTeamWinChance}%</h3>
+                            <h3>{game.homeTeam}: {homeTeamWinChance}%</h3>
+                        </div>
+                    </div>
+                )}
+            </div>
+
+            <p>&nbsp;</p>
+
+
+
+            {/* Section 3: Odds */}
+            <div style={{ marginTop: '30px' }}>
+                <h2>
+                    Odds
+                    <button 
+                        onClick={() => setShowOdds(!showOdds)}
+                        style={{
+                            marginLeft: '20px',
+                            padding: '5px 10px',
+                            marginBottom: '10px',
+                            cursor: 'pointer'
+                        }}
+                    >
+                        {showOdds ? 'Hide' : 'Show'}
+                    </button>
+                </h2>
+                {showOdds && (
+                    <div style={boxStyle}>
+                        <div style={{ paddingLeft: '10px', paddingTop: '10px' }}>
+                            <h3>Spread: {spread}</h3>
+                            <h3>Over/Under: {overUnder}</h3>
+                        </div>
+                    </div>
+                )}
+            </div>
+
+            <p>&nbsp;</p>
+
+
+
+            {/* Section 4: Injuries */}
+            <div style={{ marginTop: '30px' }}>
+                <h2>
+                    Injuries
+                    <button 
+                        onClick={() => setShowInjuries(!showInjuries)}
+                        style={{
+                            marginLeft: '20px',
+                            padding: '5px 10px',
+                            marginBottom: '10px',
+                            cursor: 'pointer'
+                        }}
+                    >
+                        {showInjuries ? 'Hide' : 'Show'}
+                    </button>
+                </h2>
+                {showInjuries && (
+                    <div style={boxStyle}>
+                        <div style={{ paddingLeft: '10px', paddingTop: '10px' }}>
+                            <h3>{game.awayTeam}</h3>
+                            {awayTeamInjuries.map((injury, index) => (
+                                <div key={index} style={{ marginBottom: '10px' }}>
+                                    <p>
+                                        <strong>{injury.athlete.displayName}</strong> - {injury.details["type"]}, {injury.status}
+                                        {injury.details?.returnDate && ` (Expected Return: ${injury.details.returnDate})`}
+                                    </p>
+                                </div>
+                            ))}
+
+                            <hr></hr>
+
+                            <h3>{game.homeTeam}</h3>
+                            {homeTeamInjuries.map((injury, index) => (
+                                <div key={index} style={{ marginBottom: '10px' }}>
+                                    <p>
+                                        <strong>{injury.athlete.displayName}</strong> - {injury.details["type"]}, {injury.status}
+                                        {injury.details?.returnDate && ` (Expected Return: ${injury.details.returnDate})`}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+            </div>
+
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+        </div>
         );
     }
 
