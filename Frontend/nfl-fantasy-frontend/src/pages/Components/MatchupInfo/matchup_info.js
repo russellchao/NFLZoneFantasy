@@ -429,11 +429,19 @@ const MatchupInfo = ({ game }) => {
                                     {boxscore?.players[playerStatsIdx].team?.displayName || "N/A"}
                                     <button
                                         onClick={() => setPlayerStatsIdx(playerStatsIdx === 0 ? 1 : 0)}
+                                        onMouseOver={(e) => e.target.style.backgroundColor = '#006666'}
+                                        onMouseOut={(e) => e.target.style.backgroundColor = '#004d4d'}
                                         style={{
-                                            marginLeft: '20px',
-                                            padding: '5px 10px',
-                                            marginBottom: '10px',
-                                            cursor: 'pointer'
+                                            marginLeft: '15px',
+                                            padding: '4px 10px',
+                                            backgroundColor: '#004d4d',
+                                            color: 'white',
+                                            border: 'none',
+                                            borderRadius: '20px',
+                                            cursor: 'pointer',
+                                            fontWeight: 'bold',
+                                            fontSize: '0.7em',
+                                            fontFamily: 'Segoe UI, sans-serif'
                                         }}
                                     >
                                         Switch Team
