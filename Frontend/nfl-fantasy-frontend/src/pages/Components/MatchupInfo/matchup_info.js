@@ -18,6 +18,13 @@ const logoStyle = {
     verticalAlign: 'middle'
 };
 
+const smallLogoStyle = {
+    width: '30px',
+    height: '30px',
+    marginRight: '10px',
+    verticalAlign: 'middle'
+};
+
 const losingTeamStyle = {
     opacity: 0.85,
     color: '#666'
@@ -56,6 +63,7 @@ const MatchupInfo = ({ game }) => {
     const [showPlayerStats, setShowPlayerStats] = useState(true); 
     const [playerStatsIdx, setPlayerStatsIdx] = useState(0); // 0 for the away team, 1 for the home team. Shows the away team by default
     const [showDriveInfo, setShowDriveInfo] = useState(true); 
+    const [expandedDrives, setExpandedDrives] = useState({});
 
     // Track initial fetch
     const initialFetchRef = useRef(false);
@@ -103,6 +111,7 @@ const MatchupInfo = ({ game }) => {
         const boxscore = matchupInfoData["boxscore"];
         const scoringPlays = matchupInfoData["scoringPlays"];
         const leaders = matchupInfoData["leaders"];
+        const drives = matchupInfoData["drives"];
 
         return (
             <div style={{ padding: '20px' }}>
@@ -621,11 +630,9 @@ const MatchupInfo = ({ game }) => {
                 </div>
 
 
-
                 <p>&nbsp;</p>
 
 
-                
                 {/* Section 6: Drive Information */}
                 <div style={{ marginTop: '30px' }}>
                     <h2>
@@ -642,20 +649,69 @@ const MatchupInfo = ({ game }) => {
                             {showDriveInfo ? 'Hide' : 'Show'}
                         </button>
                     </h2>
+
+                    {showDriveInfo && (
+                        <div style={boxStyle}>
+                            <div style={{paddingLeft: '10px'}}>
+                                {drives?.previous?.map((drive, index) => (
+                                    <React.Fragment key={index}>
+                                        <p style={{fontSize: '1.1em'}}>
+                                            <img 
+                                                src={teamLogos[drive.team.displayName]} 
+                                                alt={`${drive.team.displayName} logo`} 
+                                                style={smallLogoStyle}
+                                            />
+
+                                            <strong>{drive.displayResult}</strong>
+                                            {" - "}
+                                            {drive.description}
+                                            {" - "}
+                                            <strong>{boxscore.teams[0].team.abbreviation} {drive.plays[drive.plays.length - 1]?.awayScore}</strong> 
+                                            {", "}
+                                            <strong>{boxscore.teams[1].team.abbreviation} {drive.plays[drive.plays.length - 1]?.homeScore}</strong> 
+                                        
+                                            <button
+                                                onClick={() => setExpandedDrives(prev => ({
+                                                    ...prev,
+                                                    [index]: !prev[index]
+                                                }))}
+                                                onMouseOver={(e) => e.target.style.backgroundColor = '#006666'}
+                                                onMouseOut={(e) => e.target.style.backgroundColor = '#004d4d'}
+                                                style={{
+                                                    marginLeft: '15px',
+                                                    padding: '4px 10px',
+                                                    backgroundColor: '#004d4d',
+                                                    color: 'white',
+                                                    border: 'none',
+                                                    borderRadius: '20px',
+                                                    cursor: 'pointer',
+                                                    fontWeight: 'bold',
+                                                    fontSize: '0.7em',
+                                                    fontFamily: 'Segoe UI, sans-serif'
+                                                }}
+                                            >
+                                                {expandedDrives[index] ? 'Collapse' : 'Expand'}
+                                            </button>
+                                        </p>
+                                        
+                                        {expandedDrives[index] && drive?.plays?.map((play, playIdx) => (
+                                            <p key={playIdx}>
+                                                <strong>{`${play.period?.number > 4 ? 'OT' : `Q${play.period?.number}`} at ${play.clock.displayValue}`}</strong>
+                                                {` - ${play.text}`}
+                                            </p>
+                                        ))}
+
+                                        <hr></hr>
+                                    </React.Fragment>
+                                )) || "N/A"}
+                            </div>
+                        </div>
+                    )}
+
+
                 </div>
 
-
-
-
-
-
-
-
-
-
-
                 <p>&nbsp;</p>
-
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
             </div>
