@@ -157,6 +157,7 @@ const MatchupInfo = ({ game }) => {
 
                 <h2 style={{ textAlign: 'center' }}>{game.venue}</h2>
 
+
                 <p>&nbsp;</p>
 
                 
@@ -212,7 +213,6 @@ const MatchupInfo = ({ game }) => {
 
                 <p>&nbsp;</p>
 
-                
 
                 {/* Section 3: Leaders */}
                 <div style={{ marginTop: '30px' }}>
@@ -312,10 +312,9 @@ const MatchupInfo = ({ game }) => {
                     
                 </div>
 
-                
-
 
                 <p>&nbsp;</p>
+
 
                 {/* Section 4: Team Stats */}
                 <div style={{ marginTop: '30px' }}>
@@ -404,14 +403,26 @@ const MatchupInfo = ({ game }) => {
                 </div>
 
 
-                
-
                 <p>&nbsp;</p>
 
 
                 {/* Section 5: Player Stats */}
                 <div style={{ marginTop: '30px' }}>
-                    <h2>Player Stats</h2>
+                    <h2>
+                        Player Stats
+                        <button 
+                            onClick={() => setShowPlayerStats(!showPlayerStats)}
+                            style={{
+                                marginLeft: '20px',
+                                padding: '5px 10px',
+                                marginBottom: '10px',
+                                cursor: 'pointer'
+                            }}
+                        >
+                            {showPlayerStats ? 'Hide' : 'Show'}
+                        </button>
+                    </h2>
+                    {showPlayerStats && (
                         <div style={{ paddingLeft: '10px' }}>
                             <h3>
                                 {boxscore?.players[playerStatsIdx].team?.displayName || "N/A"}
@@ -428,6 +439,7 @@ const MatchupInfo = ({ game }) => {
                                 </button>
                             </h3>
 
+                            {/* Passing Stats */}
                             <h3>Passing</h3>
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(9, 1fr)', gap: '10px', padding: '10px 0' }}>
                                 <div><strong>Name</strong></div>
@@ -440,28 +452,161 @@ const MatchupInfo = ({ game }) => {
                                 <div><strong>QBR</strong></div>
                                 <div><strong>RTG</strong></div>
                             </div>
-                            <div>
-                                {boxscore?.players[playerStatsIdx]?.statistics[0].athletes || "N/A"}
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(9, 1fr)', gap: '10px' }}>
+                                {boxscore?.players[playerStatsIdx]?.statistics[0]?.athletes?.map((athlete, index) => (
+                                    <React.Fragment key={index}>
+                                        <div>{athlete.athlete.displayName}</div>
+                                        <div>{athlete.stats[0]}</div>
+                                        <div>{athlete.stats[1]}</div>
+                                        <div>{athlete.stats[2]}</div>
+                                        <div>{athlete.stats[3]}</div>
+                                        <div>{athlete.stats[4]}</div>
+                                        <div>{athlete.stats[5]}</div>
+                                        <div>{athlete.stats[6]}</div>
+                                        <div>{athlete.stats[7]}</div>
+                                    </React.Fragment>
+                                )) || "N/A"}
                             </div>
 
+                            <br></br>
+                            <hr></hr>
 
+                            {/* Rushing Stats */}
+                            <h3>Rushing</h3>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '10px', padding: '10px 0' }}>
+                                <div><strong>Name</strong></div>
+                                <div><strong>CAR</strong></div>
+                                <div><strong>YDS</strong></div>
+                                <div><strong>AVG</strong></div>
+                                <div><strong>TD</strong></div>
+                                <div><strong>LONG</strong></div>
+                            </div>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '10px' }}>
+                                {boxscore?.players[playerStatsIdx]?.statistics[1]?.athletes?.map((athlete, index) => (
+                                    <React.Fragment key={index}>
+                                        <div>{athlete.athlete.displayName}</div>
+                                        <div>{athlete.stats[0]}</div>
+                                        <div>{athlete.stats[1]}</div>
+                                        <div>{athlete.stats[2]}</div>
+                                        <div>{athlete.stats[3]}</div>
+                                        <div>{athlete.stats[4]}</div>
+                                    </React.Fragment>
+                                )) || "N/A"}
+                            </div>
 
+                            <br></br>
+                            <hr></hr>
+
+                            {/* Receiving Stats */}
+                            <h3>Receiving</h3>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '10px', padding: '10px 0' }}>
+                                <div><strong>Name</strong></div>
+                                <div><strong>REC</strong></div>
+                                <div><strong>YDS</strong></div>
+                                <div><strong>AVG</strong></div>
+                                <div><strong>TD</strong></div>
+                                <div><strong>LONG</strong></div>
+                                <div><strong>TGTS</strong></div>
+                            </div>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '10px' }}>
+                                {boxscore?.players[playerStatsIdx]?.statistics[2]?.athletes?.map((athlete, index) => (
+                                    <React.Fragment key={index}>
+                                        <div>{athlete.athlete.displayName}</div>
+                                        <div>{athlete.stats[0]}</div>
+                                        <div>{athlete.stats[1]}</div>
+                                        <div>{athlete.stats[2]}</div>
+                                        <div>{athlete.stats[3]}</div>
+                                        <div>{athlete.stats[4]}</div>
+                                        <div>{athlete.stats[5]}</div>
+                                    </React.Fragment>
+                                )) || "N/A"}
+                            </div>
+
+                            <br></br>
+                            <hr></hr>
+
+                            {/* Defense Stats */}
+                            <h3>Defense</h3>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(8, 1fr)', gap: '10px', padding: '10px 0' }}>
+                                <div><strong>Name</strong></div>
+                                <div><strong>TCK</strong></div>
+                                <div><strong>SOLO</strong></div>
+                                <div><strong>SACKS</strong></div>
+                                <div><strong>TFL</strong></div>
+                                <div><strong>PD</strong></div>
+                                <div><strong>QB HITS</strong></div>
+                                <div><strong>TD</strong></div>
+                            </div>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(8, 1fr)', gap: '10px' }}>
+                                {boxscore?.players[playerStatsIdx]?.statistics[4]?.athletes?.map((athlete, index) => (
+                                    <React.Fragment key={index}>
+                                        <div>{athlete.athlete.displayName}</div>
+                                        <div>{athlete.stats[0]}</div>
+                                        <div>{athlete.stats[1]}</div>
+                                        <div>{athlete.stats[2]}</div>
+                                        <div>{athlete.stats[3]}</div>
+                                        <div>{athlete.stats[4]}</div>
+                                        <div>{athlete.stats[5]}</div>
+                                        <div>{athlete.stats[6]}</div>
+                                    </React.Fragment>
+                                )) || "N/A"}
+                            </div>
+
+                            <br></br>
+                            <hr></hr>
+
+                            {/* Interceptions */}
+                            <h3>Interceptions</h3>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '10px', padding: '10px 0' }}>
+                                <div><strong>Name</strong></div>
+                                <div><strong>INT</strong></div>
+                                <div><strong>YDS</strong></div>
+                                <div><strong>TD</strong></div>
+                            </div>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '10px' }}>
+                                {boxscore?.players[playerStatsIdx]?.statistics[5]?.athletes?.map((athlete, index) => (
+                                    <React.Fragment key={index}>
+                                        <div>{athlete.athlete.displayName}</div>
+                                        <div>{athlete.stats[0]}</div>
+                                        <div>{athlete.stats[1]}</div>
+                                        <div>{athlete.stats[2]}</div>
+                                    </React.Fragment>
+                                )) || "N/A"}
+                            </div>
+
+                            <br></br>
+                            <hr></hr>
+
+                            {/* Kicking */}
+                            <h3>Kicking</h3>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '10px', padding: '10px 0' }}>
+                                <div><strong>Name</strong></div>
+                                <div><strong>FG</strong></div>
+                                <div><strong>PCT</strong></div>
+                                <div><strong>LONG</strong></div>
+                                <div><strong>XP</strong></div>
+                                <div><strong>PTS</strong></div>
+                            </div>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '10px' }}>
+                                {boxscore?.players[playerStatsIdx]?.statistics[8]?.athletes?.map((athlete, index) => (
+                                    <React.Fragment key={index}>
+                                        <div>{athlete.athlete.displayName}</div>
+                                        <div>{athlete.stats[0]}</div>
+                                        <div>{athlete.stats[1]}</div>
+                                        <div>{athlete.stats[2]}</div>
+                                        <div>{athlete.stats[3]}</div>
+                                        <div>{athlete.stats[4]}</div>
+                                    </React.Fragment>
+                                )) || "N/A"}
+                            </div>
 
                         </div>
-
-
+                    )}
                     
+
                 </div>
 
-
-
-
-
-
                 <p>&nbsp;</p>
-
-
-
 
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
