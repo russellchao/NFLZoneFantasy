@@ -696,6 +696,7 @@ const MatchupInfo = ({ game }) => {
                                         {expandedDrives[index] && drive?.plays?.map((play, playIdx) => (
                                             <p key={playIdx}>
                                                 <strong>{`${play.period?.number > 4 ? 'OT' : `Q${play.period?.number}`} at ${play.clock.displayValue}`}</strong>
+                                                {play.start.downDistanceText && <strong style={{color:'blue'}}>{` - ${play.start.downDistanceText}`}</strong>}
                                                 {` - ${play.text}`}
                                             </p>
                                         ))}
@@ -919,9 +920,6 @@ const MatchupInfo = ({ game }) => {
         </div>
         );
     }
-
-
-
 
 
 
