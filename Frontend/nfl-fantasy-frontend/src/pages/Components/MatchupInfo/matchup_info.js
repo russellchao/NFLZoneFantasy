@@ -55,6 +55,7 @@ const MatchupInfo = ({ game }) => {
     const [showTeamStats, setShowTeamStats] = useState(true);
     const [showPlayerStats, setShowPlayerStats] = useState(true); 
     const [playerStatsIdx, setPlayerStatsIdx] = useState(0); // 0 for the away team, 1 for the home team. Shows the away team by default
+    const [showDriveInfo, setShowDriveInfo] = useState(true); 
 
     // Track initial fetch
     const initialFetchRef = useRef(false);
@@ -618,6 +619,40 @@ const MatchupInfo = ({ game }) => {
                     
 
                 </div>
+
+
+
+                <p>&nbsp;</p>
+
+
+                
+                {/* Section 6: Drive Information */}
+                <div style={{ marginTop: '30px' }}>
+                    <h2>
+                        Drive Information
+                        <button 
+                            onClick={() => setShowDriveInfo(!showDriveInfo)}
+                            style={{
+                                marginLeft: '20px',
+                                padding: '5px 10px',
+                                marginBottom: '10px',
+                                cursor: 'pointer'
+                            }}
+                        >
+                            {showDriveInfo ? 'Hide' : 'Show'}
+                        </button>
+                    </h2>
+                </div>
+
+
+
+
+
+
+
+
+
+
 
                 <p>&nbsp;</p>
 
