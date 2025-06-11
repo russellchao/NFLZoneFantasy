@@ -55,17 +55,16 @@ const gridStyle = {
     display: 'grid', 
     gridTemplateColumns: 'repeat(4, 1fr)',
     gap: '10px',
-    padding: '20px'
+    padding: '20px',
 }
 
 const buttonStyle = {
-    background: '#b3fff0',
+    backgroundColor: '#b3fff0',
     border: '2px solid black',  
-    borderRadius: '4px',
-    backgroundColor: '#ddd',
+    borderRadius: '10px',
     textAlign: 'center',
-    cursor: 'pointer'
-    
+    cursor: 'pointer',
+    transition: 'background-color 0.3s ease', // smooth transition for hover
 };
 
 
@@ -73,6 +72,7 @@ const TeamGrid = () => {
     const navigate = useNavigate(); 
 
     const handleTeamClick = (teamName) => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         navigate(`/all_teams/${teamName}`); 
     };
 
@@ -93,7 +93,7 @@ const TeamGrid = () => {
             <div style={gridStyle}>
                 {afcEast.map(team => (
                     <div key={team}
-                        onClick={() => handleTeamClick(team)} // eventually change to schedule
+                        onClick={() => handleTeamClick(team)}
                         style={buttonStyle}>
                             <h3>
                                 <img 
@@ -122,7 +122,7 @@ const TeamGrid = () => {
             <div style={gridStyle}>
                 {afcNorth.map(team => (
                     <div key={team}
-                        onClick={() => handleTeamClick(team, "schedule")}
+                        onClick={() => handleTeamClick(team)}
                         style={buttonStyle}>
                             <h3>
                                 <img 
