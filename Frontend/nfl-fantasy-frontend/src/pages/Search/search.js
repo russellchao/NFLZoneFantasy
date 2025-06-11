@@ -113,7 +113,9 @@ export const Search = () => {
 
 
             {/* using <form onSubmit={HandleSubmit}> allows user to press both enter and the submit button as a means to submit */}
-            <form onSubmit={HandleSubmit}> 
+            <form 
+                onSubmit={HandleSubmit}
+            > 
                 <input 
                     type="text" 
                     placeholder="Search..." 
@@ -124,8 +126,18 @@ export const Search = () => {
 
                 <button 
                     type='submit' 
-                    style={{ height:"37px", width:"100px", backgroundColor:"#7FFFD4" }}
-                    // onClick={HandleSubmit}
+                    style={{ 
+                        padding: '8px 13px',
+                        backgroundColor: '#004d4d',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '5px',
+                        cursor: 'pointer',
+                        fontWeight: 'bold',
+                        fontSize: '0.9em',
+                        fontFamily: 'Segoe UI, sans-serif',
+                        marginLeft: '3px'
+                    }}
                     >
                     Submit
                 </button>
