@@ -723,6 +723,16 @@ const MatchupInfo = ({ game }) => {
     if (game.status === "Scheduled" && initialFetchRef.current) {
         // Graphic for Scheduled games
 
+        // If the teams for the particular matchup are TBD (e.g. a playoff game whose teams are unknown)
+        if (game.awayTeam === "TBD TBD" || game.homeTeam === "TBD TBD") {
+            return (
+                <h2 style={{ paddingLeft:'20px' }}>
+                    Matchup information not available.
+                </h2>
+            );
+        };
+
+
         // Win probablity
         const awayTeamWinChance = matchupInfoData["predictor"]["awayTeam"]["gameProjection"];
         const homeTeamWinChance = matchupInfoData["predictor"]["homeTeam"]["gameProjection"];
