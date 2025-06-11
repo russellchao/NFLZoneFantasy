@@ -190,8 +190,8 @@ const MatchupInfo = ({ game }) => {
                     {showScoring && (
                         <div style={boxStyle}>
                             {scoringPlays.map((play, index) => (
-                                <div key={index} style={{ paddingLeft: '10px' }}>
-                                    <p>
+                                <div key={index} style={{ paddingLeft: '10px', paddingTop: '10px' }}>
+                                    <React.Fragment key={index}>
                                         <strong>
                                             {play.period?.number > 4 ? 'OT' : `Q${play.period?.number}`}
                                             {" at "}
@@ -213,7 +213,7 @@ const MatchupInfo = ({ game }) => {
                                         }
                                         
                                         <hr></hr>
-                                    </p>
+                                    </React.Fragment>
                                 </div>
                             ))}
                         </div>
