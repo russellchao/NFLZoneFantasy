@@ -451,7 +451,7 @@ const MatchupInfo = ({ game }) => {
                                 {/* Passing Stats */}
                                 <h3>Passing</h3>
                                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(9, 1fr)', gap: '10px', padding: '10px 0' }}>
-                                    <div><strong>Name</strong></div>
+                                    <div><strong>Player</strong></div>
                                     <div><strong>C/ATT</strong></div>
                                     <div><strong>YDS</strong></div>
                                     <div><strong>AVG</strong></div>
@@ -483,7 +483,7 @@ const MatchupInfo = ({ game }) => {
                                 {/* Rushing Stats */}
                                 <h3>Rushing</h3>
                                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '10px', padding: '10px 0' }}>
-                                    <div><strong>Name</strong></div>
+                                    <div><strong>Player</strong></div>
                                     <div><strong>CAR</strong></div>
                                     <div><strong>YDS</strong></div>
                                     <div><strong>AVG</strong></div>
@@ -509,7 +509,7 @@ const MatchupInfo = ({ game }) => {
                                 {/* Receiving Stats */}
                                 <h3>Receiving</h3>
                                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '10px', padding: '10px 0' }}>
-                                    <div><strong>Name</strong></div>
+                                    <div><strong>Player</strong></div>
                                     <div><strong>REC</strong></div>
                                     <div><strong>YDS</strong></div>
                                     <div><strong>AVG</strong></div>
@@ -537,7 +537,7 @@ const MatchupInfo = ({ game }) => {
                                 {/* Defense Stats */}
                                 <h3>Defense</h3>
                                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(8, 1fr)', gap: '10px', padding: '10px 0' }}>
-                                    <div><strong>Name</strong></div>
+                                    <div><strong>Player</strong></div>
                                     <div><strong>TCK</strong></div>
                                     <div><strong>SOLO</strong></div>
                                     <div><strong>SACKS</strong></div>
@@ -567,7 +567,7 @@ const MatchupInfo = ({ game }) => {
                                 {/* Interceptions */}
                                 <h3>Interceptions</h3>
                                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '10px', padding: '10px 0' }}>
-                                    <div><strong>Name</strong></div>
+                                    <div><strong>Player</strong></div>
                                     <div><strong>INT</strong></div>
                                     <div><strong>YDS</strong></div>
                                     <div><strong>TD</strong></div>
@@ -589,7 +589,7 @@ const MatchupInfo = ({ game }) => {
                                 {/* Kicking */}
                                 <h3>Kicking</h3>
                                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '10px', padding: '10px 0' }}>
-                                    <div><strong>Name</strong></div>
+                                    <div><strong>Player</strong></div>
                                     <div><strong>FG</strong></div>
                                     <div><strong>PCT</strong></div>
                                     <div><strong>LONG</strong></div>
