@@ -8,12 +8,29 @@ import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
 import MatchupInfo from '../Components/MatchupInfo/matchup_info';
 
 
+// Import all logo images
+const logoImages = require.context('../../logos', false, /\.(png|jpe?g|svg)$/);
+
+// Create a mapping of team abbreviations to logo paths
+const teamLogos = {};
+logoImages.keys().forEach(key => {
+    // Remove './' from the start and file extension from the end
+    const teamAbbr = key.replace(/^\.\//, '').replace(/\.(png|jpe?g|svg)$/, '');
+    teamLogos[teamAbbr] = logoImages(key);
+});
+
+const logoStyle = {
+    width: '80px',
+    height: '80px',
+    marginRight: '10px',
+    verticalAlign: 'middle'
+};
+
 const rowStyle = {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'flex-start',
 };
-
 
 const TeamPage = () => {
     const { teamName } = useParams(); 
@@ -257,7 +274,14 @@ const TeamPage = () => {
 
     return (
         <div>
-            <h1 style={{ paddingLeft: '20px' }}>{ teamName }</h1>
+            <h1 style={{ paddingLeft: '20px' }}>
+                <img 
+                    src={teamLogos[teamName]} 
+                    alt={`${teamName} logo`} 
+                    style={logoStyle}
+                />
+                { teamName }
+            </h1>
 
             {/* Menu for each section */}
             <div style={{
@@ -272,7 +296,9 @@ const TeamPage = () => {
                         onClick={() => handleSectionChange(thisSection)}
                         style={{
                             padding: '10px',
-                            backgroundColor: '#ddd',
+                            backgroundColor: '#b3fff0',
+                            border: '2px solid black',  
+                            borderRadius: '10px',
                             textAlign: 'center',
                             cursor: 'pointer'
                         }}>

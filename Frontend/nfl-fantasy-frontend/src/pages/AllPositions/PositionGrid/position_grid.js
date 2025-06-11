@@ -38,7 +38,9 @@ const PositionGrid = () => {
                         onClick={() => handleClick(position)}
                         style={{
                             padding: '10px',
-                            backgroundColor: '#ddd',
+                            backgroundColor: '#b3fff0',
+                            border: '2px solid black',  
+                            borderRadius: '10px',
                             textAlign: 'center',
                             cursor: 'pointer'
                         }}>
@@ -59,7 +61,9 @@ const PositionGrid = () => {
                         onClick={() => handleClick(position)}
                         style={{
                             padding: '10px',
-                            backgroundColor: '#ddd',
+                            backgroundColor: '#b3fff0',
+                            border: '2px solid black',  
+                            borderRadius: '10px',
                             textAlign: 'center',
                             cursor: 'pointer'
                         }}>
@@ -80,7 +84,9 @@ const PositionGrid = () => {
                         onClick={() => handleClick(position)}
                         style={{
                             padding: '10px',
-                            backgroundColor: '#ddd',
+                            backgroundColor: '#b3fff0',
+                            border: '2px solid black',  
+                            borderRadius: '10px',
                             textAlign: 'center',
                             cursor: 'pointer'
                         }}>
