@@ -10,7 +10,7 @@ const rowStyle = {
     justifyContent: 'flex-start',
 };
 
-const Schedule = ({ schedule }) => {
+const Schedule = ({ schedule, viewingMatchupInfo, setViewingMatchupInfo, matchToViewInfo, setMatchToViewInfo }) => {
 
     /*
     I am trying to find a way to extract the record and division placement for the team, but the current API endpoint is not working
@@ -46,8 +46,24 @@ const Schedule = ({ schedule }) => {
             <div style={rowStyle}>
                 {schedule.map((game, idx) => (
                     game.status === 'Final' 
-                        ? <GameFinal key={game.gameId || idx} game={game} />
-                        : <GameScheduled key={game.gameId || idx} game={game} />
+                        ? <GameFinal 
+                            key={game.gameId || idx} 
+                            game={game}
+                            onClick = {() => {
+                                window.scrollTo(0, 0);
+                                setViewingMatchupInfo(true);
+                                setMatchToViewInfo(game);
+                            }} 
+                        />
+                        : <GameScheduled 
+                            key={game.gameId || idx} 
+                            game={game} 
+                            onClick = {() => {
+                                window.scrollTo(0, 0);
+                                setViewingMatchupInfo(true);
+                                setMatchToViewInfo(game);
+                            }}
+                        />
                 ))}
             </div>
         </>

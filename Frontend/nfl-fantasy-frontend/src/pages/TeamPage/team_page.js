@@ -5,6 +5,7 @@ import { fetchScheduleByTeam, fetchUpdateScheduleDB } from '../../API/schedule_a
 import Schedule from './Schedule/tp_schedule';
 import PlayerStats from './PlayerStats/tp_player_stats';
 import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
+import MatchupInfo from '../Components/MatchupInfo/matchup_info';
 
 
 const rowStyle = {
@@ -24,12 +25,13 @@ const TeamPage = () => {
     // Track if the initial fetch has been done
     const initialFetchRef = useRef(false);
 
-
     // For schedule section
     const [schedule, setSchedule] = useState([]);
     const [preseasonSchedule, setPreseasonSchedule] = useState([]); 
     const [showPreseason, setShowPreseason] = useState(false); 
     const [scheduleError, setScheduleError] = useState(false); 
+    const [viewingMatchupInfo, setViewingMatchupInfo] = useState(false); 
+    const [matchToViewInfo, setMatchToViewInfo] = useState(); // The game which the user wants to view info
     
 
     // For player stats section
@@ -176,11 +178,79 @@ const TeamPage = () => {
     }, [teamSeason, teamName]);
 
 
+    useEffect(() => {
+        // This useEffect hook handles requests to view information about a matchup 
+
+        if (!initialFetchRef.current) {
+            return; 
+        }
+
+        console.log(`User wants to view matchup info`);
+
+        /* 
+            When viewing matchup info, we are still technically on the full schedule page.
+            This block of code makes clicking on the go back button set viewingMatchupInfo to false and take the user 
+            back to the full schedule when viewing matchup info, instead of go back to the page we were previously on. 
+        */
+        if (viewingMatchupInfo) {
+            // Push a new state to the history when viewing matchup info
+            window.history.pushState({ viewingMatchupInfo: true }, '');
+            
+            // Handle the back button
+            const handlePopState = () => {
+                setViewingMatchupInfo(false);
+            };
+            
+            window.addEventListener('popstate', handlePopState);
+            
+            // Cleanup listener when component unmounts
+            return () => {
+                window.removeEventListener('popstate', handlePopState);
+            };
+        }
+
+    }, [viewingMatchupInfo])
+
+
     // When the page is loading data
     if (loading) {
         return (
             <p style={{ paddingLeft: '20px' }}>Loading the {teamSeason} {section} for the {teamName}...</p>
         );
+    }
+
+
+
+    // When the user is viewing information about a matchup 
+    if (viewingMatchupInfo) {
+        return (
+            <>
+                <div>
+                    <br></br>
+
+                    {/* Button to go back */}
+                    <button style={{ marginLeft: '20px' }}>
+                        <a 
+                            style={{ textDecoration: 'none', color: 'black' }}
+                            onClick={() => {
+                                // Handles setting viewingMatchupInfo to false
+                                window.history.back();
+                            }}
+                        >   
+                            ← Back
+                        </a>
+                    </button>
+                </div>
+
+                <div>
+                    {/* Matchup Info */}
+                    <MatchupInfo
+                        game={matchToViewInfo}
+                    />
+
+                </div>
+            </>
+        )
     }
 
 
@@ -247,6 +317,10 @@ const TeamPage = () => {
                             <p>&nbsp;</p>
                             <Schedule 
                                 schedule = {preseasonSchedule}
+                                viewingMatchupInfo={viewingMatchupInfo}
+                                setViewingMatchupInfo={setViewingMatchupInfo}
+                                matchToViewInfo={matchToViewInfo}
+                                setMatchToViewInfo={setMatchToViewInfo}
                             />
                         </>
                     ) : (
@@ -255,6 +329,10 @@ const TeamPage = () => {
                             <p>&nbsp;</p>
                             <Schedule 
                                 schedule = {schedule}
+                                viewingMatchupInfo={viewingMatchupInfo}
+                                setViewingMatchupInfo={setViewingMatchupInfo}
+                                matchToViewInfo={matchToViewInfo}
+                                setMatchToViewInfo={setMatchToViewInfo}
                             /> 
                         </>
                     )}
