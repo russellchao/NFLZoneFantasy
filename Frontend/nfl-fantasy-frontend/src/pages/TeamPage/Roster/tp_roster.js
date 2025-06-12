@@ -36,22 +36,30 @@ const teamIDs = {
 };
 
 
+const boxStyle = {
+    background: '#b3fff0',
+    margin: '0%',
+    width: '90%',
+    minWidth: '350px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'stretch',
+    padding: '0px 0',
+    boxSizing: 'border-box',
+    fontFamily: 'Segoe UI, sans-serif',
+    border: '2px solid black',  
+    borderRadius: '4px'
+};
+
+
 const Roster = ({ teamName, teamSeason }) => {
 
     // Roster info
     const [rosterInfo, setRosterInfo] = useState([]); 
 
-    // Track initial fetch
-    const initialFetchRef = useRef(false);
-
+    
     useEffect(() => {
         // Get the info for this team's roster for the given season
-
-        if (initialFetchRef.current) {
-            return; // Skip if we've already done the initial fetch
-        } else {
-            initialFetchRef.current = true; // Mark that we've done the initial fetch
-        }
 
         (async () => {
             try {
@@ -95,22 +103,57 @@ const Roster = ({ teamName, teamSeason }) => {
     };
 
 
+    // I specifically want the first four positions listed in the following order: QB, RB, WR, TE. Everything else is fine
+    const firstFourPositions = ['QB', 'RB', 'WR', 'TE'];
+
 
     return (
         <div style={{ paddingLeft: '20px' }}>
-            <h2>{teamSeason} {teamName} Roster</h2>
-            {rosterInfo.athletes && Object.entries(groupPlayersByPosition(rosterInfo.athletes)).map(([position, players]) => (
-                <div key={position} style={{ marginBottom: '20px' }}>
-                    <h3>{position}</h3>
-                    <ul style={{ listStyle: 'none', padding: 0 }}>
-                        {players.map(player => (
-                            <li key={player.id} style={{ marginBottom: '5px' }}>
-                                {player.fullName} - #{player.jersey || 'N/A'}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            ))}
+            {rosterInfo.athletes && (() => {
+                const grouped = groupPlayersByPosition(rosterInfo.athletes);
+                const orderedPositions = [
+                    ...firstFourPositions,
+                    ...Object.keys(grouped).filter(pos => !firstFourPositions.includes(pos))
+                ];
+                
+                return (
+                    <div style={boxStyle}>
+                        <div style={{ 
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(4, 1fr)',
+                            gap: '1px',
+                            width: '100%',
+                            fontSize: '1.1em',
+                            paddingLeft: '10px'
+                        }}>
+                            {orderedPositions.map(position => (
+                                grouped[position] && (
+                                    <div key={position} style={{ 
+                                        marginBottom: '20px',
+                                        minWidth: '200px'
+                                    }}>
+                                        <h3>{position}</h3>
+                                        <ul style={{ 
+                                            listStyle: 'none', 
+                                            padding: 0,
+                                            margin: 0
+                                        }}>
+                                            {grouped[position].map(player => (
+                                                <li key={player.id} style={{ 
+                                                    marginBottom: '5px',
+                                                    fontSize: '0.9em'
+                                                }}>
+                                                    {player.fullName} - #{player.jersey || 'N/A'}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )
+                            ))}
+                        </div>
+                    </div>
+                );
+            })()}
         </div>
     );
 

@@ -368,8 +368,7 @@ const TeamPage = () => {
                         <p style={{ paddingLeft: '20px' }}>Error, could not load the Roster for the {teamSeason} season.</p>
                     ) : (
                         <>
-                            <h2 style={{ paddingLeft: '20px' }}>Roster</h2>
-                            <p>&nbsp;</p>
+                            <h2 style={{ paddingLeft: '20px' }}>{teamSeason} {teamName} Roster</h2>
                             <Roster
                                 teamName = {teamName}
                                 teamSeason = {teamSeason}
