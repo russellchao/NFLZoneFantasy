@@ -4,9 +4,9 @@ import { fetchPlayerDataByTeam, fetchUpdatePlayerStatsDB } from '../../API/playe
 import { fetchScheduleByTeam, fetchUpdateScheduleDB } from '../../API/schedule_api';
 import Schedule from './Schedule/tp_schedule';
 import PlayerStats from './PlayerStats/tp_player_stats';
+import Roster from './Roster/tp_roster';
 import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
 import MatchupInfo from '../Components/MatchupInfo/matchup_info';
-
 
 // Import all logo images
 const logoImages = require.context('../../logos', false, /\.(png|jpe?g|svg)$/);
@@ -121,10 +121,8 @@ const TeamPage = () => {
             // Update the player stats database
             await updatePlayerStatsDB(); 
 
-            // Update the roster database
-            // NOTE: Roster data is not currently being fetched from the Spring Boot Backend, so this function is not implemented
+            // NOTE: The roster is not using a database
     
-
 
             // Retrieve schedule from the Spring Boot Backend
             console.log(`Retreiving schedule from ${teamSeason}`);
@@ -365,7 +363,21 @@ const TeamPage = () => {
                 </>
 
             ) : section === "Roster" ? (
-                <h2 style={{ paddingLeft: '20px' }}>Roster</h2>
+                <>
+                    {rosterError ? (
+                        <p style={{ paddingLeft: '20px' }}>Error, could not load the Roster for the {teamSeason} season.</p>
+                    ) : (
+                        <>
+                            <h2 style={{ paddingLeft: '20px' }}>Roster</h2>
+                            <p>&nbsp;</p>
+                            <Roster
+                                teamName = {teamName}
+                                teamSeason = {teamSeason}
+                            />
+                        </>
+                    )}
+                </>
+                
 
             ) : section === "Player Stats" ? (
                 <>
