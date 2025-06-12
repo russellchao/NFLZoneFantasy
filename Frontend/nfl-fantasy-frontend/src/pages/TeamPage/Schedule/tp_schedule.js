@@ -1,6 +1,5 @@
 // Schedule component for team page
 
-import React, {useState} from 'react';
 import GameFinal from '../../Components/Schedule/game_final';
 import GameScheduled from '../../Components/Schedule/game_scheduled';
 
