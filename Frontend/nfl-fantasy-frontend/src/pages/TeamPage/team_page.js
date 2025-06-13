@@ -336,9 +336,7 @@ const TeamPage = () => {
                             <p>&nbsp;</p>
                             <Schedule 
                                 schedule = {preseasonSchedule}
-                                viewingMatchupInfo={viewingMatchupInfo}
                                 setViewingMatchupInfo={setViewingMatchupInfo}
-                                matchToViewInfo={matchToViewInfo}
                                 setMatchToViewInfo={setMatchToViewInfo}
                             />
                         </>
@@ -348,9 +346,7 @@ const TeamPage = () => {
                             <p>&nbsp;</p>
                             <Schedule 
                                 schedule = {schedule}
-                                viewingMatchupInfo={viewingMatchupInfo}
                                 setViewingMatchupInfo={setViewingMatchupInfo}
-                                matchToViewInfo={matchToViewInfo}
                                 setMatchToViewInfo={setMatchToViewInfo}
                             /> 
                         </>
