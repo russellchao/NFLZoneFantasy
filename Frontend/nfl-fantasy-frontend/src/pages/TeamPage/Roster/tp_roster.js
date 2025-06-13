@@ -80,7 +80,7 @@ const Roster = ({ teamName, teamSeason }) => {
                 console.error("Failed to fetch matchup info data:", error);
             }
         })();
-    }, []);
+    }, [teamName, teamSeason]);
 
 
     const groupPlayersByPosition = (athletes) => {
@@ -124,7 +124,7 @@ const Roster = ({ teamName, teamSeason }) => {
                             gap: '1px',
                             width: '100%',
                             fontSize: '1.1em',
-                            paddingLeft: '10px'
+                            paddingLeft: '50px'
                         }}>
                             {orderedPositions.map(position => (
                                 grouped[position] && (

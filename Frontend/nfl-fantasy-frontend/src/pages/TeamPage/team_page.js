@@ -101,6 +101,11 @@ const TeamPage = () => {
     };
 
 
+    /* 
+        TODO: Create separate functions to fetch the schedule and player stats, and move roster fetching from tp_roster.js here.
+        Call those functions in the useEffect hook below. 
+    */
+
 
 
     useEffect(() => {
@@ -337,7 +342,7 @@ const TeamPage = () => {
                         <p style={{ paddingLeft: '20px' }}>Error, could not load the schedule for the {teamSeason} season.</p>
                     ) : showPreseason ? (
                         <>
-                            <h2 style={{ paddingLeft: '20px' }}>Preseason Schedule</h2>
+                            <h2 style={{ paddingLeft: '20px' }}>{teamSeason} {teamName} Preseason Schedule</h2>
                             <p>&nbsp;</p>
                             <Schedule 
                                 schedule = {preseasonSchedule}
@@ -349,7 +354,7 @@ const TeamPage = () => {
                         </>
                     ) : (
                         <>
-                            <h2 style={{ paddingLeft: '20px' }}>Schedule</h2>
+                            <h2 style={{ paddingLeft: '20px' }}>{teamSeason} {teamName} Schedule</h2>
                             <p>&nbsp;</p>
                             <Schedule 
                                 schedule = {schedule}
@@ -384,7 +389,7 @@ const TeamPage = () => {
                         <p style={{ paddingLeft: '20px' }}>Error, could not load the player stats for the {teamSeason} season.</p>
                     ) : (
                         <>
-                            <h2 style={{ paddingLeft: '20px' }}>Player Stats</h2>
+                            <h2 style={{ paddingLeft: '20px' }}>{teamSeason} {teamName} Player Stats</h2>
                             <p>&nbsp;</p>
                             <PlayerStats 
                                 passers = {passers}
