@@ -4,7 +4,6 @@ import { fetchPlayerDataByTeam, fetchUpdatePlayerStatsDB } from '../../API/playe
 import { fetchScheduleByTeam, fetchUpdateScheduleDB } from '../../API/schedule_api';
 import Schedule from './Schedule/tp_schedule';
 import PlayerStats from './PlayerStats/tp_player_stats';
-import Roster from './Roster/tp_roster';
 import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
 import MatchupInfo from '../Components/MatchupInfo/matchup_info';
 
@@ -35,7 +34,7 @@ const rowStyle = {
 const TeamPage = () => {
     const { teamName } = useParams(); 
     const [section, setSection] = useState("Schedule"); // Default section is Schedule
-    const allSections = ["Schedule", "Player Stats", "Roster"];
+    const allSections = ["Schedule", "Player Stats"];
     const [teamSeason, setSeason] = useState("2025"); 
     const [loading, setLoading] = useState(true);
 
@@ -59,10 +58,6 @@ const TeamPage = () => {
     const [kickers, setKickers] = useState([]); 
     const [playerStatsError, setPlayerStatsError] = useState(false); 
      
-  
-    // For roster section
-    const [roster, setRoster] = useState([]); 
-    const [rosterError, setRosterError] = useState(false); 
 
 
     // Section switch
@@ -166,50 +161,10 @@ const TeamPage = () => {
         }; 
     }; 
 
-    async function getRosterData() {
-        console.log(`Retrieving the ${teamName} roster from ${teamSeason}`);
-
-        const teamIDs = {
-            "Arizona Cardinals": 22, "Atlanta Falcons": 1, "Baltimore Ravens": 33, "Buffalo Bills": 2, "Carolina Panthers": 29, 
-            "Chicago Bears": 3, "Cincinnati Bengals": 4, "Cleveland Browns": 5, "Dallas Cowboys": 6, "Denver Broncos": 7, 
-            "Detroit Lions": 8, "Green Bay Packers": 9, "Houston Texans": 34, "Indianapolis Colts": 11, "Jacksonville Jaguars": 30, 
-            "Kansas City Chiefs": 12, "Los Angeles Chargers": 24, "Los Angeles Rams": 14, "Las Vegas Raiders": 13, "Miami Dolphins": 15, 
-            "Minnesota Vikings": 16, "New England Patriots": 17, "New Orleans Saints": 18, "New York Giants": 19,"New York Jets": 20, 
-            "Philadelphia Eagles": 21, "Pittsburgh Steelers": 23, "Seattle Seahawks": 26, "San Francisco 49ers": 25, 
-            "Tampa Bay Buccaneers": 27, "Tennessee Titans": 10, "Washington Commanders": 28
-        };
-
-        if (teamName) {
-            try {
-                console.log(`THE YEAR IS ${teamSeason}`); // ALL CAPS FOR DEBUGGING
-                const response = await fetch(
-                    `https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${teamIDs[teamName]}/roster?year=${teamSeason}`
-                );
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`)
-                }
-
-                const data = await response.json(); 
-                console.log(`HERE IS THE ROSTER FOR ${teamSeason}`); // ALL CAPS FOR DEBUGGING
-                console.log(data); 
-
-                setRoster(data); 
-
-                setLoading(false); 
-
-            } catch (error) {
-                console.error("Failed to fetch roster info data:", error);
-                setRoster([]); 
-            }
-        }; 
-    }; 
-
 
     useEffect(() => {
         setPlayerStatsError(false);
         setScheduleError(false);
-        setRosterError(false); 
 
         // Only update the databases on initial load or if the season changes
         if (initialFetchRef.current) {
@@ -224,17 +179,12 @@ const TeamPage = () => {
 
             // Update the player stats database
             await updatePlayerStatsDB(); 
-
-            // NOTE: The roster is not using a database
     
             // Retrieve schedule from the Spring Boot Backend
             await getScheduleData(); 
                 
             // Retrieve player data from the Spring Boot Backend 
             await getPlayerStatsData(); 
-
-            // Retrieve roster data (not from the Spring Boot Backend)
-            await getRosterData(); 
         })();
 
     }, [teamSeason, teamName]);
@@ -406,23 +356,6 @@ const TeamPage = () => {
                         </>
                     )}
                 </>
-
-            ) : section === "Roster" ? (
-                <>
-                    {rosterError ? (
-                        <p style={{ paddingLeft: '20px' }}>Error, could not load the Roster for the {teamSeason} season.</p>
-                    ) : (
-                        <>
-                            <h2 style={{ paddingLeft: '20px' }}>{teamSeason} {teamName} Roster</h2>
-                            <Roster
-                                teamName = {teamName}
-                                teamSeason = {teamSeason}
-                                rosterInfo = {roster}
-                            />
-                        </>
-                    )}
-                </>
-                
 
             ) : section === "Player Stats" ? (
                 <>
