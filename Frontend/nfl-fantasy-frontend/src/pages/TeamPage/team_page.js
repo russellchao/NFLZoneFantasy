@@ -61,8 +61,8 @@ const TeamPage = () => {
      
   
     // For roster section
+    const [roster, setRoster] = useState([]); 
     const [rosterError, setRosterError] = useState(false); 
-
 
 
     // Section switch
@@ -71,7 +71,7 @@ const TeamPage = () => {
     };
 
 
-    // Functions to call the Spring Boot endpoints that update the specified CSV and database table
+    // The next 2 functions call the Spring Boot endpoints that update the specified CSV and database table
     async function updatePlayerStatsDB() {
         if (!loading) {
             setLoading(true); 
@@ -99,18 +99,117 @@ const TeamPage = () => {
             return; 
         }
     };
+    
+
+    // The next 3 functions fetch the respective data from the given season from the Spring Boot Backend
+    async function getScheduleData() {
+        console.log(`Retreiving schedule from ${teamSeason}`);
+        if (teamName) {
+            const loadSchedule = async () => {
+                const scheduleData = await fetchScheduleByTeam(teamName);
+                
+                // Separate preseason games from regular season and playoff games
+                const preseason = scheduleData.filter(game => game.seasonType === 1);
+                const regularSeasonAndPlayoffs = scheduleData.filter(game => game.seasonType !== 1);
+                
+                setPreseasonSchedule(preseason);
+                setSchedule(regularSeasonAndPlayoffs); 
+            }
+            loadSchedule();
+
+            setLoading(false); 
+
+            console.log(schedule);
+        };
+    }; 
+
+    async function getPlayerStatsData() {
+        console.log(`Retreiving player stats from ${teamSeason}`); 
+        if (teamName) {
+            // Fetch Passing data
+            const loadPassers = async () => {
+                const passingData = await fetchPlayerDataByTeam("passer", teamName); 
+                setPassers(passingData); 
+            };
+            loadPassers(); 
+
+            // Fetch Rushing data
+            const loadRushers = async () => {
+                const rushingData = await fetchPlayerDataByTeam("rusher", teamName); 
+                setRushers(rushingData); 
+            };
+            loadRushers(); 
+
+            // Fetch Receiving data
+            const loadReceivers = async () => {
+                const receivingData = await fetchPlayerDataByTeam("receiver", teamName); 
+                setReceivers(receivingData); 
+            };
+            loadReceivers(); 
+
+            // Fetch Defense data
+            const loadDefenders = async () => {
+                const defenseData = await fetchPlayerDataByTeam("defender", teamName); 
+                setDefenders(defenseData); 
+            };
+            loadDefenders(); 
+
+            // Fetch Kicking data
+            const loadKickers = async () => {
+                const kickingData = await fetchPlayerDataByTeam("kicker", teamName); 
+                setKickers(kickingData); 
+            };
+            loadKickers(); 
 
 
-    /* 
-        TODO: Create separate functions to fetch the schedule and player stats, and move roster fetching from tp_roster.js here.
-        Call those functions in the useEffect hook below. 
-    */
+            setLoading(false); 
+        }; 
+    }; 
 
+    async function getRosterData() {
+        console.log(`Retrieving the ${teamName} roster from ${teamSeason}`);
+
+        const teamIDs = {
+            "Arizona Cardinals": 22, "Atlanta Falcons": 1, "Baltimore Ravens": 33, "Buffalo Bills": 2, "Carolina Panthers": 29, 
+            "Chicago Bears": 3, "Cincinnati Bengals": 4, "Cleveland Browns": 5, "Dallas Cowboys": 6, "Denver Broncos": 7, 
+            "Detroit Lions": 8, "Green Bay Packers": 9, "Houston Texans": 34, "Indianapolis Colts": 11, "Jacksonville Jaguars": 30, 
+            "Kansas City Chiefs": 12, "Los Angeles Chargers": 24, "Los Angeles Rams": 14, "Las Vegas Raiders": 13, "Miami Dolphins": 15, 
+            "Minnesota Vikings": 16, "New England Patriots": 17, "New Orleans Saints": 18, "New York Giants": 19,"New York Jets": 20, 
+            "Philadelphia Eagles": 21, "Pittsburgh Steelers": 23, "Seattle Seahawks": 26, "San Francisco 49ers": 25, 
+            "Tampa Bay Buccaneers": 27, "Tennessee Titans": 10, "Washington Commanders": 28
+        };
+
+        if (teamName) {
+            try {
+                console.log(`THE YEAR IS ${teamSeason}`); // ALL CAPS FOR DEBUGGING
+                const response = await fetch(
+                    `https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${teamIDs[teamName]}/roster?year=${teamSeason}`
+                );
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`)
+                }
+
+                const data = await response.json(); 
+                console.log(`HERE IS THE ROSTER FOR ${teamSeason}`); // ALL CAPS FOR DEBUGGING
+                console.log(data); 
+
+                setRoster(data); 
+
+                setLoading(false); 
+
+            } catch (error) {
+                console.error("Failed to fetch roster info data:", error);
+                setRoster([]); 
+            }
+        }; 
+    }; 
 
 
     useEffect(() => {
         setPlayerStatsError(false);
         setScheduleError(false);
+        setRosterError(false); 
 
         // Only update the databases on initial load or if the season changes
         if (initialFetchRef.current) {
@@ -128,71 +227,14 @@ const TeamPage = () => {
 
             // NOTE: The roster is not using a database
     
-
             // Retrieve schedule from the Spring Boot Backend
-            console.log(`Retreiving schedule from ${teamSeason}`);
-            if (teamName) {
-                const loadSchedule = async () => {
-                    const scheduleData = await fetchScheduleByTeam(teamName);
-                    
-                    // Separate preseason games from regular season and playoff games
-                    const preseason = scheduleData.filter(game => game.seasonType === 1);
-                    const regularSeasonAndPlayoffs = scheduleData.filter(game => game.seasonType !== 1);
-                    
-                    setPreseasonSchedule(preseason);
-                    setSchedule(regularSeasonAndPlayoffs); 
-                }
-                loadSchedule();
-
-                setLoading(false); 
-
-                console.log(schedule);
-            };
+            await getScheduleData(); 
                 
+            // Retrieve player data from the Spring Boot Backend 
+            await getPlayerStatsData(); 
 
-
-            // Retrieve player data from the Spring Boot Backend (for player stats section)
-            console.log(`Retreiving player stats from ${teamSeason}`); 
-            if (teamName) {
-                // Fetch Passing data
-                const loadPassers = async () => {
-                    const passingData = await fetchPlayerDataByTeam("passer", teamName); 
-                    setPassers(passingData); 
-                };
-                loadPassers(); 
-
-                // Fetch Rushing data
-                const loadRushers = async () => {
-                    const rushingData = await fetchPlayerDataByTeam("rusher", teamName); 
-                    setRushers(rushingData); 
-                };
-                loadRushers(); 
-
-                // Fetch Receiving data
-                const loadReceivers = async () => {
-                    const receivingData = await fetchPlayerDataByTeam("receiver", teamName); 
-                    setReceivers(receivingData); 
-                };
-                loadReceivers(); 
-
-                // Fetch Defense data
-                const loadDefenders = async () => {
-                    const defenseData = await fetchPlayerDataByTeam("defender", teamName); 
-                    setDefenders(defenseData); 
-                };
-                loadDefenders(); 
-
-                // Fetch Kicking data
-                const loadKickers = async () => {
-                    const kickingData = await fetchPlayerDataByTeam("kicker", teamName); 
-                    setKickers(kickingData); 
-                };
-                loadKickers(); 
-
-
-                setLoading(false); 
-            }; 
-
+            // Retrieve roster data (not from the Spring Boot Backend)
+            await getRosterData(); 
         })();
 
     }, [teamSeason, teamName]);
@@ -240,7 +282,6 @@ const TeamPage = () => {
     }
 
 
-
     // When the user is viewing information about a matchup 
     if (viewingMatchupInfo) {
         return (
@@ -272,7 +313,6 @@ const TeamPage = () => {
             </>
         )
     }
-
 
 
     return (
@@ -377,6 +417,7 @@ const TeamPage = () => {
                             <Roster
                                 teamName = {teamName}
                                 teamSeason = {teamSeason}
+                                rosterInfo = {roster}
                             />
                         </>
                     )}
