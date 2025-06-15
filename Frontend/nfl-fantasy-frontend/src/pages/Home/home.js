@@ -43,7 +43,7 @@ const Home = () => {
 
             <div style={{ paddingLeft: '40px', marginTop: '40px' }}>
                 <div style={boxStyle}>
-                    <h1 style={{ paddingLeft: '20px' }}>NFL Zone Fantasy</h1> 
+                    <h1 style={{ paddingLeft: '20px' }}>NFL Zone</h1> 
                     <h3 style={{ paddingLeft: '20px' }}>A hub for American Football enthusiasts!</h3>
                 </div>
             </div>
