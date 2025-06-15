@@ -7,6 +7,7 @@ import AllPositions from './pages/AllPositions/all_positions';
 import PositionPage from './pages/PositionPage/position_page';
 import Search from './pages/Search/search';
 import FullSchedule from './pages/FullSchedule/full_schedule';
+import RegisterForm from './pages/Components/RegisterForm/register_form';
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
           <Route path="/position_page" element={<PositionPage />} />
           <Route path="/search" element={<Search />} />
           <Route path="/full_schedule" element={<FullSchedule />} />
+          <Route path="/register" element={<RegisterForm />} />
         </Routes>
       </div>
 
