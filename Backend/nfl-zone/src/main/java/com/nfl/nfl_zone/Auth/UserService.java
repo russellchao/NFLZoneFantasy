@@ -20,10 +20,6 @@ public class UserService {
             return "Username already exists";
         }
 
-        if (userRepository.findByEmail(user.getEmail()).isPresent()) {
-            return "Email already exists";
-        }
-
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
 
@@ -43,7 +39,6 @@ public class UserService {
             return "Invalid password";
         }
 
-        // Temporarily assume login is successful - 2FA comes after this
         return "Login successful";
     }
 
