@@ -15,7 +15,7 @@ public class User {
     private String email;
     private String password;
 
-    private boolean verified = false;
+    private boolean verified;
 
     @Column(unique = true)
     private String verifToken;

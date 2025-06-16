@@ -24,10 +24,26 @@ public class UserService {
             return "Email already exists";
         }
 
+        // Proceed with the following steps if the username and email are valid
+
+        // Step 1: Encode the password
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
 
-        return "User registered successfully";
+        // Step 2: Generate and assign a verification token to the user
+        String token = UUID.randomUUID().toString();
+        user.setVerifToken(token);
+        user.setVerified(false); // initially mark that the email is unverified
+
+        // Step 3: Save the user to the 'users' table in PostgreSQL
+        userRepository.save(user);
+
+        // Step 4: Send the verification email
+        sendVerificationEmail(user);
+
+
+
+        return "User registered successfully, check your email for a verification email";
     }
 
     public String loginUser(String username, String rawPassword) {
