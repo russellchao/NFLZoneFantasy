@@ -72,7 +72,7 @@ const LoginForm = () => {
                     </button>
 
                 </form>
-                {message && <p>{message}</p>}
+                {message && <h3 style={{ paddingLeft: '30px', color: 'red' }}>{message}</h3>}
             </div>
 
             <p>&nbsp;</p>
