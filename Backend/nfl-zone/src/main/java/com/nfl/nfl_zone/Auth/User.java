@@ -15,6 +15,11 @@ public class User {
     private String email;
     private String password;
 
+    private boolean verified = false;
+
+    @Column(unique = true)
+    private String verifToken;
+
 
     // Getters and Setters
 
@@ -58,4 +63,19 @@ public class User {
         this.password = password;
     }
 
+    public boolean isVerified() {
+        return verified;
+    }
+
+    public void setVerified(boolean verified) {
+        this.verified = verified;
+    }
+
+    public String getVerifToken() {
+        return verifToken;
+    }
+
+    public void setVerifToken(String verifToken) {
+        this.verifToken = verifToken;
+    }
 }
