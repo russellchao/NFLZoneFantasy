@@ -23,13 +23,21 @@ function App() {
         left: 0,
         right: 0,
         zIndex: 1000,
-        width: "100%"
+        width: "100%",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center"
       }}>
-        <Link to="/" style={{ marginRight: "30px", color: "#ffffff" }}>Home</Link>
-        <Link to="/full_schedule" style={{ marginRight: "30px", color: "#ffffff" }}>Schedule</Link>
-        <Link to="/all_teams" style={{ marginRight: "30px", color: "#ffffff" }}>Teams</Link>
-        <Link to="/all_positions" style={{ marginRight: "30px", color: "#ffffff" }}>Stats by Positions</Link>
-        <Link to="/search" style={{ marginRight: "30px", color: "#ffffff" }}>Player Search</Link>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <Link to="/" style={{ marginRight: "30px", color: "#ffffff" }}>Home</Link>
+          <Link to="/full_schedule" style={{ marginRight: "30px", color: "#ffffff" }}>Schedule</Link>
+          <Link to="/all_teams" style={{ marginRight: "30px", color: "#ffffff" }}>Teams</Link>
+          <Link to="/all_positions" style={{ marginRight: "30px", color: "#ffffff" }}>Positions</Link>
+          <Link to="/search" style={{ marginRight: "30px", color: "#ffffff" }}>Player Search</Link>
+        </div>
+        <div style={{ marginLeft: "auto", marginRight: "50px" }}>
+          <Link to="/login" style={{ color: "#ffffff" }}>Login</Link>
+        </div>
       </nav>
 
       <div 
