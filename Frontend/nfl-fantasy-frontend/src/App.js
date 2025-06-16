@@ -8,6 +8,7 @@ import PositionPage from './pages/PositionPage/position_page';
 import Search from './pages/Search/search';
 import FullSchedule from './pages/FullSchedule/full_schedule';
 import RegisterForm from './pages/Components/RegisterForm/register_form';
+import LoginForm from './pages/Components/LoginForm/login_form';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/full_schedule" element={<FullSchedule />} />
           <Route path="/register" element={<RegisterForm />} />
+          <Route path="/login" element={<LoginForm />} />
         </Routes>
       </div>
 
