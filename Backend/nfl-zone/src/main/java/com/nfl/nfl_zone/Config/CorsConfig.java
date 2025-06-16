@@ -1,4 +1,4 @@
-package com.nfl.nfl_zone;
+package com.nfl.nfl_zone.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
