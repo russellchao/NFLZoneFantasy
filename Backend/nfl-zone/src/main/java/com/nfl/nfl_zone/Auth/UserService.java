@@ -3,6 +3,8 @@ package com.nfl.nfl_zone.Auth;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.*;
+
 @Service
 public class UserService {
 
@@ -28,4 +30,43 @@ public class UserService {
         return "User registered successfully";
     }
 
+    public String loginUser(String username, String rawPassword) {
+        Optional<User> optionalUser = userRepository.findByUsername(username);
+
+        if (optionalUser.isEmpty()) {
+            return "User not found";
+        }
+
+        User user = optionalUser.get();
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        if (!encoder.matches(rawPassword, user.getPassword())) {
+            return "Invalid password";
+        }
+
+        // Temporarily assume login is successful - 2FA comes after this
+        return "Login successful";
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
