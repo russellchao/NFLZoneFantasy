@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const RegisterForm = () => {
-    const [form, setForm] = useState({ fullName: '', username: '',  password: '' });
+    const [form, setForm] = useState({ fullName: '', username: '', email: '', password: '' });
     const [message, setMessage] = useState(''); 
 
     const handleChange = (e) => {
@@ -51,6 +51,15 @@ const RegisterForm = () => {
                     <input 
                         name="username" 
                         placeholder="Username" 
+                        style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
+                        onChange={handleChange} 
+                        required 
+                    />
+                    
+                    <input 
+                        name="email" 
+                        type="email" 
+                        placeholder="Email" 
                         style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
                         onChange={handleChange} 
                         required 
