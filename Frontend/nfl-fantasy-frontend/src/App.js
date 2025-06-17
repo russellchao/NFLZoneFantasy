@@ -7,8 +7,8 @@ import AllPositions from './pages/AllPositions/all_positions';
 import PositionPage from './pages/PositionPage/position_page';
 import Search from './pages/Search/search';
 import FullSchedule from './pages/FullSchedule/full_schedule';
-import RegisterForm from './pages/Components/RegisterForm/register_form';
-import LoginForm from './pages/Components/LoginForm/login_form';
+import RegisterForm from './pages/RegisterForm/register_form';
+import LoginForm from './pages/LoginForm/login_form';
 
 
 function App() {
