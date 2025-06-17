@@ -38,7 +38,7 @@ public class UserController {
 
         User user = optionalUser.get();
         user.setVerified(true);
-        user.setVerifToken(null); // clear the verification token to prevent reuse
+        user.setVerifToken(null); // if verification is successful, clear the verification token to prevent reuse
 
         userRepository.save(user);
 

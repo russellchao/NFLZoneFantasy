@@ -22,7 +22,8 @@ public class SecurityConfig {
                     "api/v1/updateSchedule",
                     "api/v1/updatePlayerStats",
                     "/api/v1/auth/register",
-                    "/api/v1/auth/login"
+                    "/api/v1/auth/login",
+                    "/api/v1/auth/verify/**"
                 ).permitAll()
                 .anyRequest().authenticated()
             )
