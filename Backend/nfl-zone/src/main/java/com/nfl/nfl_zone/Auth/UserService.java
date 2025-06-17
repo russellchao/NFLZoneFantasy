@@ -45,6 +45,9 @@ public class UserService {
         message.setText(body);
         message.setFrom("NFL Zone <nflzoneapp@gmail.com>");
 
+        // make the verification email unrepliable by sending any reply attempts to a nonexistent email
+        message.setReplyTo("no-reply@nflzone.com");
+
         mailSender.send(message);
     }
 
@@ -96,7 +99,6 @@ public class UserService {
             return "Email not verified, please check your inbox for a verification email";
         }
 
-        // Temporarily assume login is successful - 2FA comes after this
         return "Login successful";
     }
 
