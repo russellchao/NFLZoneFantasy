@@ -30,10 +30,10 @@ public class UserService {
 
         // PAUSE HERE: I may start hosting the backend on heroku.
 
-        String subject = "Confirm your NFLZone account";
+        String subject = "Confirm your NFL Zone account";
         String body = String.format(
                 "Hi %s (%s), \n\n" + "Please verify your email by clicking the link below: "
-                + "\n%s\n\nIf you didn't register, please ignore this email.\n\nThank you",
+                + "\n%s\n\nIf you didn't register, please ignore this email.\n\nThank you,\nThe NFL Zone Team",
                 user.getFullName(),
                 user.getUsername(),
                 verificationLink
