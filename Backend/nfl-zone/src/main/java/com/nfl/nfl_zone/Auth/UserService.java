@@ -32,9 +32,10 @@ public class UserService {
 
         String subject = "Confirm your NFLZone account";
         String body = String.format(
-                "Hi %s, \n\n" + "Please verify your email by clicking the link below: "
+                "Hi %s (%s), \n\n" + "Please verify your email by clicking the link below: "
                 + "\n%s\n\nIf you didn't register, please ignore this email.\n\nThank you",
                 user.getFullName(),
+                user.getUsername(),
                 verificationLink
         );
 
