@@ -43,6 +43,7 @@ public class UserService {
         message.setTo(user.getEmail());
         message.setSubject(subject);
         message.setText(body);
+        message.setFrom("NFL Zone <nflzoneapp@gmail.com>");
 
         mailSender.send(message);
     }
