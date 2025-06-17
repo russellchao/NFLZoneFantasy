@@ -9,6 +9,8 @@ import Search from './pages/Search/search';
 import FullSchedule from './pages/FullSchedule/full_schedule';
 import RegisterForm from './pages/Registration/register_form';
 import LoginForm from './pages/Login/login_form';
+import VerifyFail from './pages/Verification/verify_fail';
+import VerifySuccess from './pages/Verification/verify_success';
 
 
 function App() {
@@ -56,6 +58,8 @@ function App() {
           <Route path="/full_schedule" element={<FullSchedule />} />
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/login" element={<LoginForm />} />
+          <Route path="/verify_fail" element={<VerifyFail />} />
+          <Route path="/verify_success" element={<VerifySuccess />} />
         </Routes>
       </div>
 
