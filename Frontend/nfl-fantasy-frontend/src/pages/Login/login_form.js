@@ -1,9 +1,12 @@
 import React, { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks/auth_context';
+
 
 const LoginForm = () => {
     const [form, setForm] = useState({ username: '', password: '' }); 
     const [message, setMessage] = useState(''); 
+    const { login } = useAuth(); 
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value }); 
@@ -21,8 +24,10 @@ const LoginForm = () => {
 
         // If the login is successful, store the user's credentials
         if (text === "Login successful") {
-            localStorage.setItem("isLoggedIn", true); 
-            localStorage.setItem("username", form.username); 
+            // localStorage.setItem("isLoggedIn", true); 
+            // localStorage.setItem("username", form.username); 
+
+            login(form.username);
             navigate("/"); // redirect to home page
 
             console.log(`User ${form.username} logged in successfully`);
