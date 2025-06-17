@@ -89,7 +89,7 @@ const RegisterForm = () => {
                     </button>
 
                 </form>
-                {message && <p>{message}</p>}
+                {message && <p style={{ paddingLeft: '30px' }}>{message}</p>}
             </div>
 
             <p>&nbsp;</p>
