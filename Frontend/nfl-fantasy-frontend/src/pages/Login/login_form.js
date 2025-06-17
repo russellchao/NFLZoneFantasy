@@ -18,6 +18,15 @@ const LoginForm = () => {
         });
         const text = await response.text(); 
         setMessage(text);
+
+        // If the login is successful, store the user's credentials
+        if (text === "Login successful") {
+            localStorage.setItem("isLoggedIn", true); 
+            localStorage.setItem("username", form.username); 
+            navigate("/"); // redirect to home page
+
+            console.log(`User ${form.username} logged in successfully`);
+        }
     };
 
     // Redirect the user to the register page if desired

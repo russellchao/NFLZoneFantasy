@@ -1,5 +1,6 @@
 import React from 'react'; 
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+
 import Home from './pages/Home/home';
 import AllTeams from './pages/AllTeams/all_teams';
 import TeamPage from './pages/TeamPage/team_page';
@@ -12,8 +13,13 @@ import LoginForm from './pages/Login/login_form';
 import VerifyFail from './pages/Verification/verify_fail';
 import VerifySuccess from './pages/Verification/verify_success';
 
+import { useAuth } from './hooks/use_auth';
+
+
 
 function App() {
+  const { isLoggedIn, logout } = useAuth(); 
+
   return (
     <Router>
 
@@ -37,9 +43,37 @@ function App() {
           <Link to="/all_positions" style={{ marginRight: "30px", color: "#ffffff" }}>Positions</Link>
           <Link to="/search" style={{ marginRight: "30px", color: "#ffffff" }}>Player Search</Link>
         </div>
+
+        {/* Login section */}
         <div style={{ marginLeft: "auto", marginRight: "50px" }}>
-          <Link to="/login" style={{ color: "#ffffff" }}>Login</Link>
+          {isLoggedIn ? (
+            <>
+              <span style={{ color: "#ffffff" }}>Welcome!</span>
+              <button 
+                onClick={logout}
+                style={{
+                  padding: '5px',
+                  marginLeft: '15px',
+                  backgroundColor: '#007bff',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '4px',
+                  cursor: 'pointer'
+                }}
+              >
+                Log Out
+              </button>
+            </>
+          ) : (
+            <>
+              <a href="/login" style={{ color: "#ffffff", marginRight: "15px" }}>Log In</a>
+              <a href="/register" style={{ color: "#ffffff" }}>Register</a>
+            </>
+          )}
+
+          {/* <Link to="/login" style={{ color: "#ffffff" }}>Login</Link> */}
         </div>
+
       </nav>
 
       <div 
