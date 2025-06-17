@@ -24,13 +24,16 @@ public class UserService {
 
     private void sendVerificationEmail(User user) {
         String token = user.getVerifToken();
-        String verificationLink = "https://nflzone.herokuapp.com/api/v1/auth/verify?token=" + token;
+        String verificationLink = "http://localhost:8081/api/v1/auth/verify?token=" + token;
+
+        // String verificationLink = "https://nflzone.herokuapp.com/api/v1/auth/verify?token=" + token;
 
         // PAUSE HERE: I may start hosting the backend on heroku.
 
         String subject = "Confirm your NFLZone account";
-        String body = String.format("Hi %s, \n\n" + "Please verify your email by clicking the link below: "
-                        + "\n%s\n\nIf you didn't register, please ignore this email.\n\nThank you",
+        String body = String.format(
+                "Hi %s, \n\n" + "Please verify your email by clicking the link below: "
+                + "\n%s\n\nIf you didn't register, please ignore this email.\n\nThank you",
                 user.getFullName(),
                 verificationLink
         );
