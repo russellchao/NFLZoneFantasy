@@ -2,6 +2,7 @@ package com.nfl.nfl_zone.Auth;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.*;
 
@@ -28,11 +29,11 @@ public class UserController {
     }
 
     @GetMapping("/verify")
-    public ResponseEntity<String> verifyUser(@RequestParam String token) {
+    public RedirectView verifyUser(@RequestParam String token) {
         Optional<User> optionalUser = userRepository.findByVerifToken(token);
 
         if (optionalUser.isEmpty()) {
-            return ResponseEntity.badRequest().body("Invalid or expired verification token");
+            return new RedirectView("http://localhost:3000/verify_fail");
         }
 
         User user = optionalUser.get();
@@ -41,7 +42,7 @@ public class UserController {
 
         userRepository.save(user);
 
-        return ResponseEntity.ok("User verified successfully");
+        return new RedirectView("http://localhost:3000/verify_success");
     }
 }
 
