@@ -90,6 +90,10 @@ public class UserService {
             return "Invalid password";
         }
 
+        if (!user.isVerified()) {
+            return "Email not verified, please check your inbox for a verification email";
+        }
+
         // Temporarily assume login is successful - 2FA comes after this
         return "Login successful";
     }
