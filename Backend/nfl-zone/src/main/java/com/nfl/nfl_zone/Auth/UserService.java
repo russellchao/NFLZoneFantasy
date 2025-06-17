@@ -2,6 +2,8 @@ package com.nfl.nfl_zone.Auth;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 
 import java.util.*;
 
@@ -9,11 +11,38 @@ import java.util.*;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final JavaMailSender mailSender;
+
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    public UserService(UserRepository userRepository) {
+
+    public UserService(UserRepository userRepository, JavaMailSender mailSender) {
         this.userRepository = userRepository;
+        this.mailSender = mailSender;
     }
+
+
+    private void sendVerificationEmail(User user) {
+        String token = user.getVerifToken();
+        String verificationLink = "https://nflzone.herokuapp.com/api/v1/auth/verify?token=" + token;
+
+        // PAUSE HERE: I may start hosting the backend on heroku.
+
+        String subject = "Confirm your NFLZone account";
+        String body = String.format("Hi %s, \n\n" + "Please verify your email by clicking the link below: "
+                        + "\n%s\n\nIf you didn't register, please ignore this email.\n\nThank you",
+                user.getFullName(),
+                verificationLink
+        );
+
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(user.getEmail());
+        message.setSubject(subject);
+        message.setText(body);
+
+        mailSender.send(message);
+    }
+
 
     public String registerUser(User user) {
         if (userRepository.findByUsername(user.getUsername()).isPresent()) {
@@ -38,13 +67,12 @@ public class UserService {
         // Step 3: Save the user to the 'users' table in PostgreSQL
         userRepository.save(user);
 
-        // Step 4: Send the verification email
+        // Final Step: Send the verification email
         sendVerificationEmail(user);
-
-
 
         return "User registered successfully, check your email for a verification email";
     }
+
 
     public String loginUser(String username, String rawPassword) {
         Optional<User> optionalUser = userRepository.findByUsername(username);
