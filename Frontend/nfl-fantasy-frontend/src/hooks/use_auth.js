@@ -4,20 +4,24 @@ import { useEffect, useState } from "react";
 
 export const useAuth = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false); 
+    const [username, setUsername] = useState(''); 
 
     useEffect(() => {
-        const status = localStorage.getItem("isLoggedIn") === "true";
-        setIsLoggedIn(status); 
+        const loggedInTrue = localStorage.getItem("isLoggedIn") === "true";
+        setIsLoggedIn(loggedInTrue); 
+
+        const name = localStorage.getItem("username"); 
+        setUsername(name); 
     }, []); 
 
     const logout = () => {
-        localStorage.removeItem("isLoggedIn"); 
-        localStorage.removeItem("username"); 
+        localStorage.clear(); 
+
         setIsLoggedIn(false); 
         window.location.reload(); 
 
         console.log(`Logged out successfully`); 
     };
 
-    return { isLoggedIn, logout }; 
+    return { isLoggedIn, username, logout }; 
 };

@@ -23,7 +23,9 @@ const LoginForm = () => {
         if (text === "Login successful") {
             localStorage.setItem("isLoggedIn", true); 
             localStorage.setItem("username", form.username); 
+
             navigate("/"); // redirect to home page
+            window.location.reload(); // immediately reload the page after logging in 
 
             console.log(`User ${form.username} logged in successfully`);
         }
@@ -107,3 +109,5 @@ const LoginForm = () => {
         </>
     )
 };
+
+export default LoginForm; 

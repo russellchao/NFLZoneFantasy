@@ -18,7 +18,7 @@ import { useAuth } from './hooks/use_auth';
 
 
 function App() {
-  const { isLoggedIn, logout } = useAuth(); 
+  const { isLoggedIn, username, logout } = useAuth(); 
 
   return (
     <Router>
@@ -46,10 +46,9 @@ function App() {
 
         {/* Login section */}
         <div style={{ marginLeft: "auto", marginRight: "50px" }}>
-          <Link to="/login" style={{ color: "#ffffff" }}>Login</Link>
           {isLoggedIn ? (
             <>
-              <span style={{ color: "#ffffff" }}>Welcome!</span>
+              <span style={{ color: "#ffffff" }}>Welcome, {username}!</span>
               <button 
                 onClick={logout}
                 style={{
@@ -67,12 +66,10 @@ function App() {
             </>
           ) : (
             <>
-              <a href="/login" style={{ color: "#ffffff", marginRight: "15px" }}>Log In</a>
-              <a href="/register" style={{ color: "#ffffff" }}>Register</a>
+              <Link to="/login" style={{ color: "#ffffff", marginRight: "15px" }}>Log In</Link>
+              <Link to="/register" style={{ color: "#ffffff" }}>Register</Link>
             </>
           )}
-
-          {/* <Link to="/login" style={{ color: "#ffffff" }}>Login</Link> */}
         </div>
 
       </nav>
