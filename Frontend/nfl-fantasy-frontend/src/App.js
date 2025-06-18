@@ -69,8 +69,8 @@ function App() {
               </>
             ) : (
               <>
-                <a href="/login" style={{ color: "#ffffff", marginRight: "15px" }}>Log In</a>
-                <a href="/register" style={{ color: "#ffffff" }}>Register</a>
+                <Link to="/login" style={{ color: "#ffffff", marginRight: "15px" }}>Log In</Link>
+                <Link to="/register" style={{ color: "#ffffff" }}>Register</Link>
               </>
             )}
 

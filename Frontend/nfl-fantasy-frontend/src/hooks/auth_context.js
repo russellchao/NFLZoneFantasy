@@ -13,11 +13,11 @@ export const AuthProvider = ({ children }) => {
         setUsername(savedUsername || ''); 
     }, []);
 
-    const login = (username) => {
+    const login = (name) => {
         localStorage.setItem("isLoggedIn", "true"); 
-        localStorage.setItem("username", username); 
+        localStorage.setItem("username", name); 
         setIsLoggedIn(true); 
-        setUsername(username); 
+        setUsername(name); 
     };
 
     const logout = () => {
