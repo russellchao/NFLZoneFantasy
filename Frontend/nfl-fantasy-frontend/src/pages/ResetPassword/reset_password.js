@@ -36,6 +36,12 @@ const ResetPassword = () => {
         <> 
             <div>
                 <h2 style={{ paddingLeft: '20px' }}>Reset Password</h2>
+
+                <div style={{ paddingLeft: '20px' }}>
+                    <p>IMPORTANT: After clicking 'Reset', check your inbox for a password reset confirmation email.</p>
+                    <p>Your password will NOT be changed until you click on the confirmation link.</p>
+                </div>
+
                 <form 
                     style={{ 
                         paddingLeft: '30px',
@@ -74,11 +80,11 @@ const ResetPassword = () => {
                             cursor: 'pointer'
                         }}
                     >
-                        Login
+                        Reset
                     </button>
-
                 </form>
                 {message && <p style={{ paddingLeft: '30px' }}>{message}</p>}
+            
             </div>
         </>
     )

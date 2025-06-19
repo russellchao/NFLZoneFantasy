@@ -40,7 +40,7 @@ const LoginForm = () => {
     // Redirect the user to the reset password page if desired
     const handleResetPassword = () => {
         navigate(`/reset_password`); 
-    }
+    };
 
     return (
         <>
