@@ -12,6 +12,8 @@ import RegisterForm from './pages/Registration/register_form';
 import LoginForm from './pages/Login/login_form';
 import VerifyFail from './pages/Verification/verify_fail';
 import VerifySuccess from './pages/Verification/verify_success';
+import ResetPassword from './pages/ResetPassword/reset_password';
+
 
 import { useAuth } from './hooks/use_auth';
 
@@ -92,6 +94,7 @@ function App() {
           <Route path="/login" element={<LoginForm />} />
           <Route path="/verify_fail" element={<VerifyFail />} />
           <Route path="/verify_success" element={<VerifySuccess />} />
+          <Route path="/reset_password" element={<ResetPassword />} />
         </Routes>
       </div>
 

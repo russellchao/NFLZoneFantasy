@@ -1,7 +1,7 @@
 import React, { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 
-const LoginForm = () => {
+const ResetPassword = () => {
     const [form, setForm] = useState({ username: '', password: '' }); 
     const [message, setMessage] = useState(''); 
     const navigate = useNavigate(); 
@@ -32,20 +32,10 @@ const LoginForm = () => {
         }
     };
 
-    // Redirect the user to the register page if desired
-    const handleRegisterInstead = () => {
-        navigate(`/register`); 
-    };
-
-    // Redirect the user to the reset password page if desired
-    const handleResetPassword = () => {
-        navigate(`/reset_password`); 
-    }
-
     return (
-        <>
+        <> 
             <div>
-                <h2 style={{ paddingLeft: '20px' }}>Login</h2>
+                <h2 style={{ paddingLeft: '20px' }}>Reset Password</h2>
                 <form 
                     style={{ 
                         paddingLeft: '30px',
@@ -90,50 +80,8 @@ const LoginForm = () => {
                 </form>
                 {message && <p style={{ paddingLeft: '30px' }}>{message}</p>}
             </div>
-
-            <p>&nbsp;</p>
-
-            <div>
-                <h3 style={{paddingLeft: '20px'}}>Don't have an account?</h3>
-                <button 
-                    type="submit"
-                    style={{
-                        padding: '10px',
-                        marginLeft: '20px',
-                        backgroundColor: '#007bff',
-                        color: 'white',
-                        border: 'none',
-                        borderRadius: '4px',
-                        cursor: 'pointer'
-                    }}
-                    onClick={handleRegisterInstead}
-                >
-                    Register Instead
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-
-            <div>
-                <h3 style={{paddingLeft: '20px'}}>Forgot your password?</h3>
-                <button 
-                    type="submit"
-                    style={{
-                        padding: '10px',
-                        marginLeft: '20px',
-                        backgroundColor: '#007bff',
-                        color: 'white',
-                        border: 'none',
-                        borderRadius: '4px',
-                        cursor: 'pointer'
-                    }}
-                    onClick={handleResetPassword}
-                >
-                    Reset Password
-                </button>
-            </div>
         </>
     )
 };
 
-export default LoginForm; 
+export default ResetPassword; 
