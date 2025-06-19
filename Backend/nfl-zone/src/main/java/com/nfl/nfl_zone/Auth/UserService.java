@@ -22,36 +22,6 @@ public class UserService {
     }
 
 
-    private void sendVerificationEmail(User user) {
-        String token = user.getVerifToken();
-        String verificationLink = "http://localhost:8081/api/v1/auth/verify?token=" + token;
-
-        // String verificationLink = "https://nflzone.herokuapp.com/api/v1/auth/verify?token=" + token;
-
-        // PAUSE HERE: I may start hosting the backend on heroku.
-
-        String subject = "Confirm your NFL Zone account";
-        String body = String.format(
-                "Hi %s (%s), \n\n" + "Please verify your email by clicking the link below: "
-                + "\n%s\n\nIf you didn't register, please ignore this email.\n\nThank you,\nThe NFL Zone Team",
-                user.getFullName(),
-                user.getUsername(),
-                verificationLink
-        );
-
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo(user.getEmail());
-        message.setSubject(subject);
-        message.setText(body);
-        message.setFrom("NFL Zone <no-reply@nflzone.com>");
-
-        // make the verification email unrepliable by sending any reply attempts to a nonexistent email (NOT WORKING AS OF NOW)
-        message.setReplyTo("no-reply@nflzone.com");
-
-        mailSender.send(message);
-    }
-
-
     public String registerUser(User user) {
         if (userRepository.findByUsername(user.getUsername()).isPresent()) {
             return "Username already exists";
@@ -103,7 +73,37 @@ public class UserService {
     }
 
 
-    private void sendPasswordResetEmail(String username) {
+    private void sendVerificationEmail(User user) {
+        String token = user.getVerifToken();
+        String verificationLink = "http://localhost:8081/api/v1/auth/verify?token=" + token;
+
+        // String verificationLink = "https://nflzone.herokuapp.com/api/v1/auth/verify?token=" + token;
+
+        // PAUSE HERE: I may start hosting the backend on heroku.
+
+        String subject = "Confirm your NFL Zone account";
+        String body = String.format(
+                "Hi %s (%s), \n\n" + "Please verify your email by clicking the link below: "
+                        + "\n%s\n\nIf you didn't register, please ignore this email.\n\nThank you,\nThe NFL Zone Team",
+                user.getFullName(),
+                user.getUsername(),
+                verificationLink
+        );
+
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(user.getEmail());
+        message.setSubject(subject);
+        message.setText(body);
+        message.setFrom("NFL Zone <no-reply@nflzone.com>");
+
+        // make the verification email unrepliable by sending any reply attempts to a nonexistent email (NOT WORKING AS OF NOW)
+        message.setReplyTo("no-reply@nflzone.com");
+
+        mailSender.send(message);
+    }
+
+
+    public void sendPasswordResetEmail(String username) {
         String verificationLink = "http://localhost:8081/api/v1/auth/resetPassword?username=" + username;
 
         Optional<User> optionalUser = userRepository.findByUsername(username);

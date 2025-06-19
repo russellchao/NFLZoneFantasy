@@ -44,6 +44,11 @@ public class UserController {
 
         return new RedirectView("http://localhost:3000/verify_success");
     }
+
+    @GetMapping("/sendPwReset")
+    public void sendResetPwEmail(@RequestParam String username) {
+        userService.sendPasswordResetEmail(username);
+    }
 }
 
 
