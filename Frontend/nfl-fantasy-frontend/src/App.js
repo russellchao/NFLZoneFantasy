@@ -96,7 +96,7 @@ function App() {
           <Route path="/verify_fail" element={<VerifyFail />} />
           <Route path="/verify_success" element={<VerifySuccess />} />
           <Route path="/reset_password" element={<ResetPassword />} />
-          <Route path="/create_new_password" element={<CreateNewPassword />} />
+          <Route path="/create_new_password/:username" element={<CreateNewPassword />} />
         </Routes>
       </div>
 

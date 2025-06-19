@@ -12,7 +12,7 @@ const ResetPassword = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault(); 
-        const response = await fetch(`http://localhost:8081/api/v1/auth/resetPassword?username=${form.username}`);
+        const response = await fetch(`http://localhost:8081/api/v1/auth/confirmPwReset?username=${form.username}`);
         const text = await response.text(); 
         setMessage(text);
     };
