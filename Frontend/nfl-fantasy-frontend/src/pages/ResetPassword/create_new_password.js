@@ -1,4 +1,4 @@
-const ResetPwSuccess = () => {
+const CreateNewPassword = () => {
     return (
         <div>
             <h2 style={{ paddingLeft: '20px' }}>
@@ -8,4 +8,4 @@ const ResetPwSuccess = () => {
     )
 }
 
-export default ResetPwSuccess; 
+export default CreateNewPassword; 

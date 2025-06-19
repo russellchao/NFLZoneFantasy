@@ -13,7 +13,7 @@ import LoginForm from './pages/Login/login_form';
 import VerifyFail from './pages/Verification/verify_fail';
 import VerifySuccess from './pages/Verification/verify_success';
 import ResetPassword from './pages/ResetPassword/reset_password';
-import ResetPwSuccess from './pages/ResetPassword/reset_pw_success';
+import CreateNewPassword from './pages/ResetPassword/create_new_password';
 
 
 import { useAuth } from './hooks/use_auth';
@@ -96,7 +96,7 @@ function App() {
           <Route path="/verify_fail" element={<VerifyFail />} />
           <Route path="/verify_success" element={<VerifySuccess />} />
           <Route path="/reset_password" element={<ResetPassword />} />
-          <Route path="/reset_pw_success" element={<ResetPwSuccess />} />
+          <Route path="/create_new_password" element={<CreateNewPassword />} />
         </Routes>
       </div>
 
