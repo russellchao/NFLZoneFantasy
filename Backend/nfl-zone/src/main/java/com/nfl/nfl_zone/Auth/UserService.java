@@ -43,9 +43,9 @@ public class UserService {
         message.setTo(user.getEmail());
         message.setSubject(subject);
         message.setText(body);
-        message.setFrom("NFL Zone <nflzoneapp@gmail.com>");
+        message.setFrom("NFL Zone <no-reply@nflzone.com>");
 
-        // make the verification email unrepliable by sending any reply attempts to a nonexistent email
+        // make the verification email unrepliable by sending any reply attempts to a nonexistent email (NOT WORKING AS OF NOW)
         message.setReplyTo("no-reply@nflzone.com");
 
         mailSender.send(message);
@@ -100,6 +100,34 @@ public class UserService {
         }
 
         return "Login successful";
+    }
+
+
+    private void sendPasswordResetEmail(String username) {
+        String verificationLink = "http://localhost:8081/api/v1/auth/resetPassword?username=" + username;
+
+        Optional<User> optionalUser = userRepository.findByUsername(username);
+        User user = optionalUser.get();
+
+        String subject = "Reset your NFL Zone password";
+        String body = String.format(
+                "Hi %s (%s), \n\n" + "Please reset your password by clicking the link below: "
+                        + "\n%s\n\nIf you didn't request a password reset, please ignore this email.\n\nThank you,\nThe NFL Zone Team",
+                user.getFullName(),
+                user.getUsername(),
+                verificationLink
+        );
+
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(user.getEmail());
+        message.setSubject(subject);
+        message.setText(body);
+        message.setFrom("NFL Zone <no-reply@nflzone.com>");
+
+        // make the verification email unrepliable by sending any reply attempts to a nonexistent email (NOT WORKING AS OF NOW)
+        message.setReplyTo("no-reply@nflzone.com");
+
+        mailSender.send(message);
     }
 
 }
