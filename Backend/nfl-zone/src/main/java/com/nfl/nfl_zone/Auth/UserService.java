@@ -103,11 +103,19 @@ public class UserService {
     }
 
 
-    public void sendPasswordResetEmail(String username) {
-        String verificationLink = "http://localhost:8081/api/v1/auth/resetPassword?username=" + username;
-
+    public String sendPasswordResetEmail(String username) {
         Optional<User> optionalUser = userRepository.findByUsername(username);
+
+        if (optionalUser.isEmpty()) {
+            return "User not found";
+        }
+
         User user = optionalUser.get();
+
+        String verificationLink = String.format(
+            "http://localhost:3000/create_new_password/%s",
+            username
+        );
 
         String subject = "Reset your NFL Zone password";
         String body = String.format(
@@ -128,7 +136,29 @@ public class UserService {
         message.setReplyTo("no-reply@nflzone.com");
 
         mailSender.send(message);
+
+        return "Password reset email sent to " + user.getEmail();
     }
+
+
+    public String resetPassword(String username, String newPassword) {
+        Optional<User> optionalUser = userRepository.findByUsername(username);
+
+        if (optionalUser.isEmpty()) {
+            return "User not found";
+        }
+
+        User user = optionalUser.get();
+
+        user.setPassword(passwordEncoder.encode(newPassword));
+        userRepository.save(user);
+
+        return "Password reset successfully, you may now log in.";
+    }
+
+
+
+
 
 }
 
