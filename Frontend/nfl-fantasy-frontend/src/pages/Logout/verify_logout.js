@@ -10,8 +10,9 @@ const VerifyLogout = () => {
             <button 
                 type="submit"
                 style={{
+                    width: '80px',
                     padding: '10px',
-                    marginLeft: '20px',
+                    marginLeft: '100px',
                     backgroundColor: '#007bff',
                     color: 'white',
                     border: 'none',
@@ -25,6 +26,7 @@ const VerifyLogout = () => {
             <button 
                 type="submit"
                 style={{
+                    width: '80px',
                     padding: '10px',
                     marginLeft: '20px',
                     backgroundColor: '#007bff',
