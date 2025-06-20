@@ -31,7 +31,12 @@ public class UserService {
             return "Email already exists";
         }
 
-        // Proceed with the following steps if the username and email are valid
+        if (user.getPassword().length() < 8) {
+            return "Password must be at least 8 characters long";
+        }
+
+
+        // Proceed with the following steps if the username, email, and password are valid
 
         // Step 1: Encode the password
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -148,7 +153,17 @@ public class UserService {
             return "User not found";
         }
 
+        System.out.println("DEBUG: New Password: " + newPassword);
+
+        if (newPassword.length() < 8) {
+            return "Password must be at least 8 characters long";
+        }
+
         User user = optionalUser.get();
+
+        if (passwordEncoder.matches(newPassword, user.getPassword())) {
+            return "New password cannot be the same as the current password (perhaps you didn't forget your password!)";
+        }
 
         user.setPassword(passwordEncoder.encode(newPassword));
         userRepository.save(user);
@@ -156,10 +171,7 @@ public class UserService {
         return "Password reset successfully, you may now log in.";
     }
 
-
-
-
-
+    
 }
 
 
