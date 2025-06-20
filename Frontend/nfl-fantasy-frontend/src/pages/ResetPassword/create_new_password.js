@@ -11,8 +11,6 @@ const CreateNewPassword = () => {
     };
 
     const handleSubmit = async (e) => {
-        console.log(newPassword); 
-
         e.preventDefault(); 
         const response = await fetch(`http://localhost:8081/api/v1/auth/resetPw?username=${username}&newPassword=${newPassword}`, {
             method: "POST", 
