@@ -1,10 +1,13 @@
 // The use_auth hook stores the username for the account the user is logged into
 
 import { useEffect, useState } from "react"; 
+import { useNavigate } from "react-router-dom";
+import VerifyLogout from "../pages/Components/Logout/verify_logout";
 
 export const useAuth = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false); 
     const [username, setUsername] = useState(''); 
+    // const navigate = useNavigate(); 
 
     useEffect(() => {
         const loggedInTrue = localStorage.getItem("isLoggedIn") === "true";
@@ -14,14 +17,5 @@ export const useAuth = () => {
         setUsername(name); 
     }, []); 
 
-    const logout = () => {
-        localStorage.clear(); 
-
-        setIsLoggedIn(false); 
-        window.location.reload(); 
-
-        console.log(`Logged out successfully`); 
-    };
-
-    return { isLoggedIn, username, logout }; 
+    return { isLoggedIn, username, }; 
 };

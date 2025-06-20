@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React, { useState } from 'react'; 
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 
 import Home from './pages/Home/home';
@@ -14,19 +14,28 @@ import VerifyFail from './pages/Verification/verify_fail';
 import VerifySuccess from './pages/Verification/verify_success';
 import ResetPassword from './pages/ResetPassword/reset_password';
 import CreateNewPassword from './pages/ResetPassword/create_new_password';
-import VerifyLogout from './pages/Logout/verify_logout';
-
 
 import { useAuth } from './hooks/use_auth';
-
-
+import VerifyLogout from './pages/Components/Logout/verify_logout';
 
 function App() {
-  const { isLoggedIn, username, logout } = useAuth(); 
+  const { isLoggedIn, username } = useAuth(); 
+  const [showVerifyLogout, setShowVerifyLogout] = useState(false);
+
+  const handleLogoutClick = () => setShowVerifyLogout(true);
+
+  const handleConfirmLogout = () => {
+    // Clear auth info and reload (or redirect as needed)
+    localStorage.clear();
+    window.location.reload();
+    
+    console.log("Logged out successfully");
+  };
+
+  const handleCancelLogout = () => setShowVerifyLogout(false);
 
   return (
     <Router>
-
       <nav style={{ 
         padding: "20px", 
         background: "#004d26",
@@ -54,7 +63,7 @@ function App() {
             <>
               <span style={{ color: "#ffffff" }}>Welcome, {username}!</span>
               <button 
-                onClick={logout}
+                onClick={handleLogoutClick}
                 style={{
                   padding: '5px',
                   marginLeft: '15px',
@@ -75,7 +84,6 @@ function App() {
             </>
           )}
         </div>
-
       </nav>
 
       <div 
@@ -98,10 +106,16 @@ function App() {
           <Route path="/verify_success" element={<VerifySuccess />} />
           <Route path="/reset_password" element={<ResetPassword />} />
           <Route path="/create_new_password/:username" element={<CreateNewPassword />} />
-          <Route path="/verify_logout" element={<VerifyLogout />} />
         </Routes>
       </div>
 
+      {/* Modal for logout confirmation */}
+      {showVerifyLogout && (
+        <VerifyLogout 
+          onConfirm={handleConfirmLogout}
+          onCancel={handleCancelLogout}
+        />
+      )}
     </Router>
   );
 }
