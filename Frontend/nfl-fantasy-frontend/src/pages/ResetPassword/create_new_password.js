@@ -3,19 +3,21 @@ import { useParams } from 'react-router-dom';
 
 const CreateNewPassword = () => {
     const { username } = useParams(); 
-    const [form, setForm] = useState({ newPassword: '' }); 
+    const [newPassword, setNewPassword] = useState(''); 
     const [message, setMessage] = useState(''); 
     
     const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value }); 
+        setNewPassword(e.target.value); 
     };
 
     const handleSubmit = async (e) => {
+        console.log(newPassword); 
+
         e.preventDefault(); 
-        const response = await fetch(`http://localhost:8081/api/v1/auth/resetPw?username=${username}&newPassword=${form.newPassword}`, {
+        const response = await fetch(`http://localhost:8081/api/v1/auth/resetPw?username=${username}&newPassword=${newPassword}`, {
             method: "POST", 
-            headers: { "Content-Type": "application/json" }, 
-            body: JSON.stringify(form)
+            headers: { "Content-Type": "application/json" },
+            body: newPassword
         });
         const text = await response.text(); 
         setMessage(text);
@@ -24,7 +26,7 @@ const CreateNewPassword = () => {
     return (
         <div>
             <h2 style={{ paddingLeft: '20px' }}>
-                Creating a new password for: {username}
+                Create a new password for user: {username}
             </h2>
 
             <form 
@@ -40,6 +42,7 @@ const CreateNewPassword = () => {
                     <input 
                         name="newPassword" 
                         placeholder="New Password" 
+                        type="password" 
                         style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
                         onChange={handleChange} 
                         required 
