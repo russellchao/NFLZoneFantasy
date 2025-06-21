@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const RegisterForm = () => {
     const [form, setForm] = useState({ fullName: '', username: '', email: '', password: '' });
     const [message, setMessage] = useState(''); 
+    const [confirmPassword, setConfirmPassword] = useState(''); 
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -11,6 +12,15 @@ const RegisterForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault(); 
+
+        console.log(`Password: ${form.password}`);
+        console.log(`Confirm password: ${confirmPassword}`); 
+
+        if (form.password !== confirmPassword) {
+            setMessage("Passwords do not match"); 
+            return; 
+        }
+
         const response = await fetch("http://localhost:8081/api/v1/auth/register", {
             method: "POST", 
             headers: { "Content-Type": "application/json" }, 
@@ -71,6 +81,15 @@ const RegisterForm = () => {
                         placeholder="Password" 
                         style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
                         onChange={handleChange} 
+                        required 
+                    />
+
+                    <input 
+                        name="confirmPassword" 
+                        type="password" 
+                        placeholder="Confirm Password" 
+                        style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
+                        onChange={e => setConfirmPassword(e.target.value)} 
                         required 
                     />
                     
