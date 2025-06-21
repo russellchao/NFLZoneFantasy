@@ -4,14 +4,17 @@ import { useParams } from 'react-router-dom';
 const CreateNewPassword = () => {
     const { username } = useParams(); 
     const [newPassword, setNewPassword] = useState(''); 
+    const [confirmNewPassword, setConfirmNewPassword] = useState(''); 
     const [message, setMessage] = useState(''); 
-    
-    const handleChange = (e) => {
-        setNewPassword(e.target.value); 
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault(); 
+
+        if (newPassword !== confirmNewPassword) {
+            setMessage("Passwords do not match"); 
+            return; 
+        }
+
         const response = await fetch(`http://localhost:8081/api/v1/auth/resetPw?username=${username}&newPassword=${newPassword}`, {
             method: "POST", 
             headers: { "Content-Type": "application/json" },
@@ -42,7 +45,16 @@ const CreateNewPassword = () => {
                         placeholder="New Password" 
                         type="password" 
                         style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
-                        onChange={handleChange} 
+                        onChange={e => setNewPassword(e.target.value)} 
+                        required 
+                    />
+
+                    <input 
+                        name="confirmNewPassword" 
+                        placeholder="Confirm New Password" 
+                        type="password" 
+                        style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
+                        onChange={e => setConfirmNewPassword(e.target.value)} 
                         required 
                     />
 
