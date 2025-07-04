@@ -30,19 +30,7 @@ public class UserController {
 
     @GetMapping("/verify")
     public RedirectView verifyUser(@RequestParam String token) {
-        Optional<User> optionalUser = userRepository.findByVerifToken(token);
-
-        if (optionalUser.isEmpty()) {
-            return new RedirectView("http://localhost:3000/verify_fail");
-        }
-
-        User user = optionalUser.get();
-        user.setVerified(true);
-        user.setVerifToken(null); // if verification is successful, clear the verification token to prevent reuse
-
-        userRepository.save(user);
-
-        return new RedirectView("http://localhost:3000/verify_success");
+        return userService.verifyUser(token);
     }
 
     @GetMapping("/confirmPwReset")

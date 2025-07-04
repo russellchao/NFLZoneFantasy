@@ -4,6 +4,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.*;
 
@@ -82,10 +83,6 @@ public class UserService {
         String token = user.getVerifToken();
         String verificationLink = "http://localhost:8081/api/v1/auth/verify?token=" + token;
 
-        // String verificationLink = "https://nflzone.herokuapp.com/api/v1/auth/verify?token=" + token;
-
-        // PAUSE HERE: I may start hosting the backend on heroku.
-
         String subject = "Confirm your NFL Zone account";
         String body = String.format(
                 "Hi %s (%s), \n\n" + "Please verify your email by clicking the link below: "
@@ -108,6 +105,23 @@ public class UserService {
     }
 
 
+    public RedirectView verifyUser(String token) {
+        Optional<User> optionalUser = userRepository.findByVerifToken(token);
+
+        if (optionalUser.isEmpty()) {
+            return new RedirectView("http://localhost:3002/verify_fail");
+        }
+
+        User user = optionalUser.get();
+        user.setVerified(true);
+        user.setVerifToken(null); // if verification is successful, clear the verification token to prevent reuse
+
+        userRepository.save(user);
+
+        return new RedirectView("http://localhost:3002/verify_success");
+    }
+
+
     public String sendPasswordResetEmail(String username) {
         Optional<User> optionalUser = userRepository.findByUsername(username);
 
@@ -118,7 +132,7 @@ public class UserService {
         User user = optionalUser.get();
 
         String verificationLink = String.format(
-            "http://localhost:3000/create_new_password/%s",
+            "http://localhost:3002/create_new_password/%s",
             username
         );
 
@@ -171,7 +185,7 @@ public class UserService {
         return "Password reset successfully, you may now log in.";
     }
 
-    
+
 }
 
 
