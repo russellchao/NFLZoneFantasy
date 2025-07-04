@@ -35,7 +35,7 @@ const RegisterForm = () => {
     const handleLoginInstead = () => {
         navigate(`/login`); 
     };
-
+    
     return (
         <>
             <div>
