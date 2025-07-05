@@ -734,9 +734,15 @@ const MatchupInfo = ({ game }) => {
         };
 
 
-        // Win probablity
-        const awayTeamWinChance = matchupInfoData["predictor"]["awayTeam"]["gameProjection"];
-        const homeTeamWinChance = matchupInfoData["predictor"]["homeTeam"]["gameProjection"];
+        // Win probablity (Not applicable for Preseason Games)
+        let awayTeamWinChance = "N/A";
+        let homeTeamWinChance = "N/A"; 
+
+        if (matchupInfoData["predictor"]) {
+            awayTeamWinChance = matchupInfoData["predictor"]["awayTeam"]["gameProjection"] + "%";
+            homeTeamWinChance = matchupInfoData["predictor"]["homeTeam"]["gameProjection"] + "%";
+        }
+
 
         // Odds - set the odds once they become available
         
@@ -828,8 +834,8 @@ const MatchupInfo = ({ game }) => {
                 {showWinProb && (
                     <div style={boxStyle}>
                         <div style={{ paddingLeft: '10px', paddingTop: '10px' }}>
-                            <h3>{game.awayTeam}: {awayTeamWinChance}%</h3>
-                            <h3>{game.homeTeam}: {homeTeamWinChance}%</h3>
+                            <h3>{game.awayTeam}: {awayTeamWinChance}</h3>
+                            <h3>{game.homeTeam}: {homeTeamWinChance}</h3>
                         </div>
                     </div>
                 )}
