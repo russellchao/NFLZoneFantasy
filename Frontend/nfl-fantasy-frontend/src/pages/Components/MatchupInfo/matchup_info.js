@@ -63,8 +63,6 @@ const MatchupInfo = ({ game }) => {
 
     // Variables handling sections for matchup info for scheduled games
     const [showWinProb, setShowWinProb] = useState(true);
-    const [spread, setSpread] = useState("N/A");
-    const [overUnder, setOverUnder] = useState("N/A"); 
     const [showOdds, setShowOdds] = useState(true);
     const [showInjuries, setShowInjuries] = useState(true);
 
@@ -745,13 +743,14 @@ const MatchupInfo = ({ game }) => {
 
 
         // Odds - set the odds once they become available
+        let spread = "N/A";
+        let overUnder = "N/A";
         
         
         // Injury reports
         const homeTeamInjuries = matchupInfoData["injuries"][0]["injuries"]; 
         const awayTeamInjuries = matchupInfoData["injuries"][1]["injuries"]; 
         
-
         console.log(`${game.awayTeam} injuries:`); 
         console.log(awayTeamInjuries); 
         console.log(`${game.homeTeam} injuries:`); 
