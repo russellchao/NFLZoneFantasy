@@ -14,9 +14,10 @@ import VerifyFail from './pages/Verification/verify_fail';
 import VerifySuccess from './pages/Verification/verify_success';
 import ResetPassword from './pages/ResetPassword/reset_password';
 import CreateNewPassword from './pages/ResetPassword/create_new_password';
+import VerifyLogout from './pages/Components/Logout/verify_logout';
+import HotTakes from './pages/HotTakes/hot_takes';
 
 import { useAuth } from './hooks/use_auth';
-import VerifyLogout from './pages/Components/Logout/verify_logout';
 
 function App() {
   const { isLoggedIn, username } = useAuth(); 
@@ -55,6 +56,13 @@ function App() {
           <Link to="/all_teams" style={{ marginRight: "30px", color: "#ffffff" }}>Teams</Link>
           <Link to="/all_positions" style={{ marginRight: "30px", color: "#ffffff" }}>Positions</Link>
           <Link to="/search" style={{ marginRight: "30px", color: "#ffffff" }}>Player Search</Link>
+
+          {/* Conditionally render certain section links based on login status */}
+          {isLoggedIn ? (
+            <Link to="/hot_takes" style={{ color: "#ffffff" }}>Hot Takes</Link>
+          ) : (
+            null
+          )}
         </div>
 
         {/* Login section */}
@@ -106,6 +114,7 @@ function App() {
           <Route path="/verify_success" element={<VerifySuccess />} />
           <Route path="/reset_password" element={<ResetPassword />} />
           <Route path="/create_new_password/:username" element={<CreateNewPassword />} />
+          <Route path="/hot_takes" element={<HotTakes />} />
         </Routes>
       </div>
 
