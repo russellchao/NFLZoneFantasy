@@ -32,8 +32,16 @@ public class UserService {
             return "Email already exists";
         }
 
-        if (user.getPassword().length() < 8) {
-            return "Password must be at least 8 characters long";
+        if (user.getUsername().length() < 3 || user.getUsername().length() > 32) {
+            return "Username must be between 3-32 characters long";
+        }
+
+        if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
+            return "Password must be between 8-32 characters long";
+        }
+
+        if (user.getPassword().equalsIgnoreCase(user.getUsername())) {
+            return "Username and password cannot be the same";
         }
 
 
@@ -169,8 +177,12 @@ public class UserService {
 
         System.out.println("DEBUG: New Password: " + newPassword);
 
-        if (newPassword.length() < 8) {
-            return "Password must be at least 8 characters long";
+        if (newPassword.length() < 8 || newPassword.length() > 32) {
+            return "Password must be between 8-32 characters long";
+        }
+
+        if (username.equalsIgnoreCase(newPassword)) {
+            return "Username and password cannot be the same";
         }
 
         User user = optionalUser.get();
