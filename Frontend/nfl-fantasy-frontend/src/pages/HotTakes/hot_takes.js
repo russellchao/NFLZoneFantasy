@@ -57,8 +57,14 @@ const HotTakes = () => {
         const text = await response.text();
         console.log(text); 
 
-        
+        // Validate the hot take and process it (PLACEHOLDER FOR NOW)
+        const validationResponse = await fetch(`http://localhost:8081/api/v1/hotTakes/validate?hotTake=${form.hotTakeText}`, {
+            method: "GET"
+        });
+        const validationText = await validationResponse.text();
+        console.log(validationText); 
 
+        
         setForm({ hotTakeText: '' }); // Reset the form after submission
     };
 

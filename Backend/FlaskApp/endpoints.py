@@ -2,6 +2,7 @@ from flask import Flask
 from flask_cors import CORS
 from PlayerStatsData.PlayerStatsScraper import scrape_player_stats
 from ScheduleData.GetScheduleData import get_schedule_data, write_schedule_csv
+from HotTakes.HotTakeValidator import validate_hot_take
 
 
 app = Flask(__name__)
@@ -71,8 +72,18 @@ def update_schedule(year):
         
 
 
+@app.route("/validateHotTake/<hotTake>")
+def validate_hot_take(hotTake):
+    # Endpoint called from Spring Boot App that validates a hot take
+    # Returns a string indicating whether the hot take is valid or not
 
-
+    try:
+        result = validate_hot_take(hotTake)
+        return result
+    
+    except Exception as e:
+        print(f"Failure, {e}")
+        return "Failure validating hot take"
 
     
 
