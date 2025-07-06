@@ -60,10 +60,14 @@ const HotTakes = () => {
 
         const deadline = new Date('2025-09-04T20:20:00-04:00'); // September 4, 2025 at 8:20 PM ET
 
+        // Close the hot takes form if the current time is past the deadline
         if (currentTime > deadline) {
             setAcceptingHotTakes(false);
             console.log("Hot takes are no longer being accepted.");
         } else {
+            if (!acceptingHotTakes) {
+                setAcceptingHotTakes(true);
+            }
             console.log("Hot takes are still being accepted.");
         }
 
@@ -86,44 +90,51 @@ const HotTakes = () => {
                     <h2>Enter your hot takes here</h2>
                     <h4 style={{ color:'maroon' }}>IMPORTANT: Hot takes are meant to be placed before the regular season and will no longer be accepted upon the start of the regular season.</h4>
                     <h4 style={{ color:'maroon' }}>This field will close September 4, 2025 at 8:20 PM Eastern Time.</h4>
-                    <form 
-                        style={{ 
-                            display: 'flex',
-                            flexDirection: 'row',
-                            alignItems: 'center',
-                            gap: '20px'
-                        }}
-                        onSubmit={handleSubmit}
-                    >
-                        <input 
-                            name="hotTakeText" 
-                            placeholder="Enter your hot take here..." 
+                    
+                    { /* Only show the form if hot takes are being accepted */ }
+                    { acceptingHotTakes ? ( 
+                        <form 
                             style={{ 
-                                padding: '8px', 
-                                borderRadius: '4px', 
-                                border: '1px solid #ccc', 
-                                width: '600px', 
-                                height: '20px' 
+                                display: 'flex',
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                                gap: '20px'
                             }}
-                            onChange={handleChange} 
-                            required 
-                            value={form.hotTakeText}
-                        />
-
-                        <button 
-                            type="submit"
-                            style={{
-                                padding: '11px',
-                                backgroundColor: '#007bff',
-                                color: 'white',
-                                border: 'none',
-                                borderRadius: '4px',
-                                cursor: 'pointer',
-                            }}
+                            onSubmit={handleSubmit}
                         >
-                            Submit
-                        </button>
-                    </form>
+                            <input 
+                                name="hotTakeText" 
+                                placeholder="Enter your hot take here..." 
+                                style={{ 
+                                    padding: '8px', 
+                                    borderRadius: '4px', 
+                                    border: '1px solid #ccc', 
+                                    width: '600px', 
+                                    height: '20px' 
+                                }}
+                                onChange={handleChange} 
+                                required 
+                                value={form.hotTakeText}
+                            />
+
+                            <button 
+                                type="submit"
+                                style={{
+                                    padding: '11px',
+                                    backgroundColor: '#007bff',
+                                    color: 'white',
+                                    border: 'none',
+                                    borderRadius: '4px',
+                                    cursor: 'pointer',
+                                }}
+                            >
+                                Submit
+                            </button>
+                        </form>
+                    ) : (
+                        <h2>Sorry, hot takes are no longer being accepted.</h2>
+                    )}
+                    
                 </div>
             </div>
 
