@@ -63,7 +63,6 @@ def update_schedule(year):
         # Write all matchups to the schedule CSV file
         write_schedule_csv(all_matchups)
         
-        
         return "Success updating schedule data"
     
     except Exception as e:

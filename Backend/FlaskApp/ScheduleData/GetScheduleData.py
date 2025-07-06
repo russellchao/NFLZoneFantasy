@@ -1,6 +1,5 @@
 import requests 
 import json
-import time
 import csv
 
 
@@ -41,7 +40,6 @@ def write_schedule_csv(allMatchups):
 
 
 def get_schedule_data(year, week, seasonType):
-
     # Call the unofficial ESPN API to Retrieve Schedule Data
     espn_api_url = f"https://cdn.espn.com/core/nfl/schedule?xhr=1&year={year}&week={week}&seasontype={seasonType}"
     response = requests.get(espn_api_url)
