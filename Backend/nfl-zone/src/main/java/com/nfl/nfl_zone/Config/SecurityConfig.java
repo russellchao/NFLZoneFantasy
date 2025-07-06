@@ -25,7 +25,8 @@ public class SecurityConfig {
                     "/api/v1/auth/login",
                     "/api/v1/auth/verify/**",
                     "/api/v1/auth/confirmPwReset/**",
-                    "/api/v1/auth/resetPw/**"
+                    "/api/v1/auth/resetPw/**",
+                    "/api/v1/hotTakes/**"
                 ).permitAll()
                 .anyRequest().authenticated()
             )
