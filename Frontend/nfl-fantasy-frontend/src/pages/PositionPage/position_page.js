@@ -482,8 +482,10 @@ const PositionPage = () => {
                 <p style={{ paddingLeft: '20px' }}>Table format for {positionName} not implemented yet.</p>
             )}
 
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
 
         </div>
     );

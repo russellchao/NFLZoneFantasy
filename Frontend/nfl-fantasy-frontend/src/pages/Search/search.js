@@ -151,8 +151,10 @@ export const Search = () => {
                 <p>&nbsp;</p>
             )}
 
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
 
         </div>
     );

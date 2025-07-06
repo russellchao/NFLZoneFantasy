@@ -310,8 +310,10 @@ const TeamGrid = () => {
                 ))}
             </div>
 
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
 
         </div>
     );
