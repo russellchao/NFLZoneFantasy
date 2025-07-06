@@ -22,7 +22,12 @@ const HotTakes = () => {
     const currentTime = new Date();
     const formattedTime = currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
+    // NFL Kickoff and Super Bowl dates for the upcoming/current season
     const currentSeason = "2025-26";
+    const kickoffDate = new Date('2025-09-04T20:20:00-04:00'); // September 4, 2025 at 8:20 PM ET
+    const monthAfterSuperBowl = new Date('2026-03-08T18:30:00-05:00'); // March 8, 2026 at 6:30 PM ET
+
+    // Variable to track if hot takes are being accepted
     const [acceptingHotTakes, setAcceptingHotTakes] = useState(true);
     const [form, setForm] = useState({ hotTakeText: '' }); 
 
@@ -58,17 +63,13 @@ const HotTakes = () => {
 
         console.log(`Current Time (ET): ${formattedTime}`);
 
-        const deadline = new Date('2025-09-04T20:20:00-04:00'); // September 4, 2025 at 8:20 PM ET
-
         // Close the hot takes form if the current time is past the deadline
-        if (currentTime > deadline) {
+        if (currentTime > kickoffDate) {
             setAcceptingHotTakes(false);
-            console.log("Hot takes are no longer being accepted.");
         } else {
             if (!acceptingHotTakes) {
                 setAcceptingHotTakes(true);
             }
-            console.log("Hot takes are still being accepted.");
         }
 
     } , [currentTime]);
@@ -88,8 +89,12 @@ const HotTakes = () => {
 
                 <div>
                     <h2>Enter your hot takes here</h2>
-                    <h4 style={{ color:'maroon' }}>IMPORTANT: Hot takes are meant to be placed before the regular season and will no longer be accepted upon the start of the regular season.</h4>
-                    <h4 style={{ color:'maroon' }}>This field will close September 4, 2025 at 8:20 PM Eastern Time.</h4>
+                    <h4 style={{ color:'maroon' }}>
+                        Hot takes are meant to be placed before the regular season and will no longer be accepted upon the start of the regular season.
+                        {<br></br>}
+                        After that, hot takes for the following season will re-open a month after the Super Bowl for this season.
+                    </h4>
+                    <h4 style={{ color:'maroon' }}>Hot takes for the {currentSeason} season will close on {kickoffDate.toLocaleDateString()} at 8:20 PM Eastern Time.</h4>
                     
                     { /* Only show the form if hot takes are being accepted */ }
                     { acceptingHotTakes ? ( 
@@ -132,7 +137,11 @@ const HotTakes = () => {
                             </button>
                         </form>
                     ) : (
-                        <h2>Sorry, hot takes are no longer being accepted.</h2>
+                        <h3>
+                            Sorry, hot takes are no longer being accepted.
+                            {<br></br>}
+                            Hot takes for the next season will re-open on {monthAfterSuperBowl.toLocaleDateString()} at 6:30 PM Eastern Time.
+                        </h3>
                     )}
                     
                 </div>
