@@ -46,7 +46,6 @@ const boxStyle = {
 };
 
 
-
 const MatchupInfo = ({ game }) => {
 
     // Entire array containing game info
