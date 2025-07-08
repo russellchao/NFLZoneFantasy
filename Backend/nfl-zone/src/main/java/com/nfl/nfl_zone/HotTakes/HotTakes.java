@@ -2,6 +2,8 @@ package com.nfl.nfl_zone.HotTakes;
 
 import jakarta.persistence.*;
 
+@Entity
+@Table(name = "hot_takes")
 public class HotTakes {
 
     @Id
