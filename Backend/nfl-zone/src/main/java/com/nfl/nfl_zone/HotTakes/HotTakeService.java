@@ -17,7 +17,8 @@ public class HotTakeService {
             return response;
 
         } catch (Exception e) {
-            return "Failure validating hot take";
+            System.out.println("Error calling Flask: " + e);
+            return "Spring Boot: Failure validating hot take";
         }
     }
 

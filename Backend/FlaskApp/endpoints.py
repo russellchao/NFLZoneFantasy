@@ -73,7 +73,7 @@ def update_schedule(year):
 
 
 @app.route("/validateHotTake/<hotTake>")
-def validate_hot_take(hotTake):
+def validate(hotTake):
     # Endpoint called from Spring Boot App that validates a hot take
     # Returns a string indicating whether the hot take is valid or not
 
