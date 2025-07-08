@@ -64,7 +64,12 @@ const HotTakes = () => {
         const validationText = await validationResponse.text();
         console.log(validationText); 
 
-        
+        // If the hot take is valid, save it to the hot_takes table in the database with the respective username
+        if (validationText === "This hot take is valid") {
+            console.log("Hot take is valid, saving to database");
+        }
+
+
         setForm({ hotTakeText: '' }); // Reset the form after submission
     };
 
