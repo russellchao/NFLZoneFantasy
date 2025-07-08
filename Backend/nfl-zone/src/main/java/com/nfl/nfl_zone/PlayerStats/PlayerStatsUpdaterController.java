@@ -77,7 +77,7 @@ public class PlayerStatsUpdaterController {
         try {
             // First, clear the table for each player category (passing, rushing, receiving, defense, kicking)
             Path basePath = Paths.get(System.getProperty("user.dir"));
-            Path csvFilePath = basePath.resolve("../DataScraping/PlayerStatsData/" + playerCategory + "_stats.csv").normalize(); // normalize() resolves '..'
+            Path csvFilePath = basePath.resolve("../FlaskApp/PlayerStatsData/" + playerCategory + "_stats.csv").normalize(); // normalize() resolves '..'
             String tableName = playerCategory + "_stats";
 
             CSVReader reader = new CSVReader(new FileReader(csvFilePath.toFile()));

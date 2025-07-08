@@ -58,7 +58,7 @@ public class UpdateScheduleController {
 
         try {
             Path basePath = Paths.get(System.getProperty("user.dir"));
-            Path csvFilePath = basePath.resolve("../DataScraping/ScheduleData/schedule_data.csv").normalize(); // normalize() resolves '..'
+            Path csvFilePath = basePath.resolve("../FlaskApp/ScheduleData/schedule_data.csv").normalize(); // normalize() resolves '..'
 
             CSVReader reader = new CSVReader(new FileReader(csvFilePath.toFile()));
             jdbcTemplate.execute("TRUNCATE TABLE schedule");
