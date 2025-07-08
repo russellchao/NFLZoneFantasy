@@ -67,6 +67,11 @@ const HotTakes = () => {
         // If the hot take is valid, save it to the hot_takes table in the database with the respective username
         if (validationText === "This hot take is valid") {
             console.log("Hot take is valid, saving to database");
+            const saveResponse = await fetch(`http://localhost:8081/api/v1/hotTakes/save?username=${localStorage.getItem("username")}&hotTake=${form.hotTakeText}`, {
+                method: "POST"
+            });
+            const saveText = await saveResponse.text();
+            console.log(saveText);
         }
 
 

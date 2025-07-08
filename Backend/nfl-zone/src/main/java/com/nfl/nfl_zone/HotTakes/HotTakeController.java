@@ -24,8 +24,8 @@ public class HotTakeController {
     }
 
     @PostMapping("/save")
-    public void saveHotTake(@RequestParam String username, @RequestParam String hotTake) {
-        hotTakeService.saveHotTake(username, hotTake);
+    public String saveHotTake(@RequestParam String username, @RequestParam String hotTake) {
+        return hotTakeService.saveHotTake(username, hotTake);
     }
 
 }

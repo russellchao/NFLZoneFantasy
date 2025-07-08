@@ -26,12 +26,14 @@ public class HotTakeService {
         return null;
     }
 
-    public void saveHotTake(String username, String hotTake) {
+    public String saveHotTake(String username, String hotTake) {
 
+        return "Spring Boot: Successfully saved hot take \"" + hotTake + "\" for user \"" + username + "\"";
     }
 
-    public void deleteHotTake(String username, String hotTake) {
+    public String deleteHotTake(String username, String hotTake) {
 
+        return "Spring Boot: Successfully deleted hot take \"" + hotTake + "\" for user \"" + username + "\"";
     }
 
 }
