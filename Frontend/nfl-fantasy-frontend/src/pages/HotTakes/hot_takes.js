@@ -29,6 +29,9 @@ const HotTakes = () => {
     const [acceptingHotTakes, setAcceptingHotTakes] = useState(true);
     const [form, setForm] = useState({ hotTakeText: '' }); 
 
+    // Array of hot takes
+    const [hotTakesArray, setHotTakesArray] = useState([]);
+
 
     const handleChange = (e) => {
         // Handles change in the hot take text input
@@ -38,19 +41,12 @@ const HotTakes = () => {
 
     const handleSubmit = async (e) => {
         // Handles the hot take submission
+
         e.preventDefault(); 
 
         console.log("Hot Take Submitted:", form.hotTakeText);
 
-        // Here you would typically send the form data to your backend
-        /**
-         * TODO: 
-         * 1. Call the Java Spring Boot API to submit the hot take
-         * 2. Send it through an NLP Model to validate the hot take
-         * 3. 
-         */
-
-        // Validate the hot take and process it (PLACEHOLDER FOR NOW)
+        // Validate the hot take and process it 
         const validationResponse = await fetch(`http://localhost:8081/api/v1/hotTakes/validate?username=${localStorage.getItem("username")}&hotTake=${form.hotTakeText}`, {
             method: "GET"
         });
@@ -67,14 +63,34 @@ const HotTakes = () => {
             console.log(saveText);
         }
 
-
         setForm({ hotTakeText: '' }); // Reset the form after submission
     };
 
 
     useEffect(() => {
-        // Check if the current time is past the deadline for submitting hot takes
+        // Fetch the hot takes from the database when the component mounts
 
+        const fetchHotTakes = async () => {
+            try {  
+                const response = await fetch(`http://localhost:8081/api/v1/hotTakes/get?username=${localStorage.getItem("username")}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                console.log("Fetched Hot Takes:", data);
+                setHotTakesArray(data); // Set the fetched hot takes to the state
+            } catch (error) {
+                console.error("Failed to fetch hot takes:", error);
+                setHotTakesArray([]); // Set to empty array if fetch fails
+            }
+        };
+
+        fetchHotTakes(); 
+    }, []); // Empty dependency array to run only once when the component mounts
+
+
+    useEffect(() => {
+        // Check if the current time is past the deadline for submitting hot takes
         console.log(`Current Time (ET): ${formattedTime}`);
 
         // Close the hot takes form if the current time is past the deadline
@@ -87,7 +103,6 @@ const HotTakes = () => {
         }
 
     } , [currentTime]);
-
 
 
     return (
