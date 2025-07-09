@@ -29,9 +29,10 @@ const HotTakes = () => {
     const [acceptingHotTakes, setAcceptingHotTakes] = useState(true);
     const [form, setForm] = useState({ hotTakeText: '' }); 
 
-    // Array of hot takes
+    // Variables handling hot takes
     const [hotTakesArray, setHotTakesArray] = useState([]);
     const [showHotTakes, setShowHotTakes] = useState(true);
+    const [hotTakeValidationMessage, setHotTakeValidationMessage] = useState('');
 
 
     const handleChange = (e) => {
@@ -53,6 +54,7 @@ const HotTakes = () => {
         });
         const validationText = await validationResponse.text();
         console.log(validationText); 
+        setHotTakeValidationMessage(validationText); 
 
         // If the hot take is valid, save it to the hot_takes table in the database with the respective username
         if (validationText === "This hot take is valid") {
@@ -65,6 +67,8 @@ const HotTakes = () => {
         }
 
         setForm({ hotTakeText: '' }); // Reset the form after submission
+
+        window.location.reload(); // Reload the page to show the updated hot takes
     };
 
 
@@ -167,6 +171,8 @@ const HotTakes = () => {
                                     Submit
                                 </button>
                             </form>
+                            <br></br>
+                            {hotTakeValidationMessage}
                         </div>
                     ) : (
                         <h4 style={{ color:'maroon' }}>Sorry, hot takes are no longer being accepted.</h4>
@@ -225,7 +231,6 @@ const HotTakes = () => {
                     </div>
                 </div>
                 
-
                 <br></br>
                 <br></br>
                 <br></br>
