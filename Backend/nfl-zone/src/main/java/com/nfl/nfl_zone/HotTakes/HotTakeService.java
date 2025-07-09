@@ -13,12 +13,30 @@ public class HotTakeService {
         this.hotTakeRepository = hotTakeRepository;
     }
 
-    public String validateHotTake(String hotTake) {
-        String flaskURL = String.format("http://localhost:5000/validateHotTake/%s", hotTake);
+    public String validateHotTake(String username, String hotTake) {
+
+        // Check if the username exists in the hot_takes table
+        if (hotTakeRepository.findByUsername(username).isEmpty()) {
+            System.out.println("User \"" + username + "\" does not exist in hot_takes table. Creating new user...");
+
+            // Add a new user to the hot_takes table if it doesn't exist
+            HotTakes newUser = new HotTakes();
+            newUser.setUsername(username);
+            newUser.setHotTakes(new ArrayList<>());
+            hotTakeRepository.save(newUser);
+        }
+
+        // Get the user's existing hot takes and convert it into a comma-separated string
+        List<String> existingHotTakes = hotTakeRepository.findByUsername(username).get().getHotTakes();
+        String existingHotTakesString = String.join(",", existingHotTakes);
+        System.out.println("Existing hot takes for user \"" + username + "\": " + existingHotTakesString);
+
+        // Create the Flask endpoint that validates the hot take
+        String flaskURL = String.format("http://localhost:5000/validateHotTake/%s/%s", hotTake, existingHotTakesString);
         RestTemplate restTemplate = new RestTemplate();
 
         try {
-            // returns a String for whether the hot take is valid or not
+            // Calls the endpoint and returns a String for whether the hot take is valid or not
             return restTemplate.getForObject(flaskURL, String.class);
 
         } catch (Exception e) {
@@ -33,32 +51,34 @@ public class HotTakeService {
     }
 
     public String saveHotTake(String username, String hotTake) {
+        /**
+         * NOTE: There are warnings under the get() calls saying 'Optional.get()' without 'isPresent()' check.
+         * The validateHotTake(), which always gets called before this function gets called,
+         * already checks if the given username exists in the hot_takes table.
+          */
 
-        // Check if the username exists in the hot_takes table
-        if (hotTakeRepository.findByUsername(username).isEmpty()) {
-            System.out.println("User \"" + username + "\" does not exist in hot_takes table. Creating new user...");
-
-            // Add a new user to the hot_takes table if it doesn't exist
-            HotTakes newUser = new HotTakes();
-            newUser.setUsername(username);
-            newUser.setHotTakes(new ArrayList<>());
-            hotTakeRepository.save(newUser);
-        }
-
-        // If the given user has less than 10 hot takes, add the new hot take to the list
-        if (hotTakeRepository.findByUsername(username).get().getHotTakes().size() < 10) {
-            hotTakeRepository.findByUsername(username).get().getHotTakes().add(hotTake);
-            hotTakeRepository.save(hotTakeRepository.findByUsername(username).get());
-        } else {
-            return "Spring Boot: User \"" + username + "\" has reached the maximum number of hot takes (10)";
-        }
+        hotTakeRepository.findByUsername(username).get().getHotTakes().add(hotTake);
+        hotTakeRepository.save(hotTakeRepository.findByUsername(username).get());
 
         return "Spring Boot: Successfully saved hot take \"" + hotTake + "\" for user \"" + username + "\"";
     }
 
     public String deleteHotTake(String username, String hotTake) {
 
-        return "Spring Boot: Successfully deleted hot take \"" + hotTake + "\" for user \"" + username + "\"";
+        // Check if the username exists in the hot_takes table
+        if (hotTakeRepository.findByUsername(username).isEmpty()) {
+            return "Spring Boot: User \"" + username + "\" does not exist in hot_takes table. Cannot delete hot take \"" + hotTake + "\"";
+        }
+
+        // Check if the hot take exists in the hot_takes table for the given user
+        if (hotTakeRepository.findByUsername(username).get().getHotTakes().contains(hotTake)) {
+            hotTakeRepository.findByUsername(username).get().getHotTakes().remove(hotTake);
+            hotTakeRepository.save(hotTakeRepository.findByUsername(username).get());
+
+            return "Spring Boot: Successfully deleted hot take \"" + hotTake + "\" for user \"" + username + "\"";
+        } else {
+            return "Spring Boot: Hot take \"" + hotTake + "\" does not exist for user \"" + username + "\"";
+        }
     }
 
 }

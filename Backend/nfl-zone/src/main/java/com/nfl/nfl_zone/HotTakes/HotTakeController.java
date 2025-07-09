@@ -13,13 +13,18 @@ public class HotTakeController {
     }
 
     @GetMapping("/validate")
-    public String validateHotTake(@RequestParam String hotTake) {
-        return hotTakeService.validateHotTake(hotTake);
+    public String validateHotTake(@RequestParam String username, @RequestParam String hotTake) {
+        return hotTakeService.validateHotTake(username, hotTake);
     }
 
     @PostMapping("/save")
     public String saveHotTake(@RequestParam String username, @RequestParam String hotTake) {
         return hotTakeService.saveHotTake(username, hotTake);
+    }
+
+    @DeleteMapping("/delete")
+    public String deleteHotTake(@RequestParam String username, @RequestParam String hotTake) {
+        return hotTakeService.deleteHotTake(username, hotTake);
     }
 
 }

@@ -50,15 +50,8 @@ const HotTakes = () => {
          * 3. 
          */
 
-        // Test the Hot Take API Call by just logging it
-        const response = await fetch(`http://localhost:8081/api/v1/hotTakes/print?hotTake=${form.hotTakeText}`, {
-            method: "GET"
-        });
-        const text = await response.text();
-        console.log(text); 
-
         // Validate the hot take and process it (PLACEHOLDER FOR NOW)
-        const validationResponse = await fetch(`http://localhost:8081/api/v1/hotTakes/validate?hotTake=${form.hotTakeText}`, {
+        const validationResponse = await fetch(`http://localhost:8081/api/v1/hotTakes/validate?username=${localStorage.getItem("username")}&hotTake=${form.hotTakeText}`, {
             method: "GET"
         });
         const validationText = await validationResponse.text();
