@@ -2,6 +2,8 @@ package com.nfl.nfl_zone.HotTakes;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/hotTakes")
 public class HotTakeController {
@@ -10,6 +12,11 @@ public class HotTakeController {
 
     public HotTakeController(HotTakeService hotTakeService) {
         this.hotTakeService = hotTakeService;
+    }
+
+    @GetMapping("/get")
+    public List<String> getHotTakes(@RequestParam String username) {
+        return hotTakeService.getHotTakes(username);
     }
 
     @GetMapping("/validate")

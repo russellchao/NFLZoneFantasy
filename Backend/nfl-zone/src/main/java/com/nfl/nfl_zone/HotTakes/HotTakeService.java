@@ -13,6 +13,14 @@ public class HotTakeService {
         this.hotTakeRepository = hotTakeRepository;
     }
 
+    public List<String> getHotTakes(String username) {
+        if (hotTakeRepository.findByUsername(username).isEmpty()) {
+            return new ArrayList<>();
+        }
+
+        return hotTakeRepository.findByUsername(username).get().getHotTakes();
+    }
+
     public String validateHotTake(String username, String hotTake) {
 
         // Check if the username exists in the hot_takes table
@@ -43,11 +51,6 @@ public class HotTakeService {
             System.out.println("Error calling Flask: " + e);
             return "Spring Boot: Failure validating hot take";
         }
-    }
-
-    public List<String> getHotTakes(String username) {
-
-        return null;
     }
 
     public String saveHotTake(String username, String hotTake) {
