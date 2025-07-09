@@ -31,6 +31,7 @@ const HotTakes = () => {
 
     // Array of hot takes
     const [hotTakesArray, setHotTakesArray] = useState([]);
+    const [showHotTakes, setShowHotTakes] = useState(true);
 
 
     const handleChange = (e) => {
@@ -175,31 +176,55 @@ const HotTakes = () => {
             </div>
 
             <div>
-                <p>&nbsp;</p>
+                <h2 style={{ paddingLeft: '20px' }}>Your Hot Takes</h2>
+                {showHotTakes && (
+                    <div style={{ paddingLeft: '20px' }}>
+                        <div style={boxStyle}>
+                            {hotTakesArray.length > 0 ? (
+                                hotTakesArray.map((hotTake, index) => (
+                                    <div key={index}>
+                                        <p style={{ paddingLeft: '20px' }}>{index+1}. {hotTake}</p>
+                                    </div>
+                                ))
+                            ) : (
+                                <p style={{ paddingLeft: '20px' }}>You have not placed any hot takes yet.</p>
+                            )}
+                        </div>
+                    </div>
+                )}
+            </div>
 
-                <div style={boxStyle}>
-                    <div style={{ paddingLeft : "20px" }}>
-                        <h4>Rules</h4>
-                        <p>1. You may place up to 10 hot takes.</p>
-                        <p>2. Hot takes must be specific and measurable. For example, "The Philadelphia Eagles will win the Super Bowl" is a valid hot take, but "The Eagles will be good" is not.</p>
-                        <p>3. Hot takes must not contain blatantly false information. For example, "The Kansas City Chiefs will four-peat" is invalid since the Chiefs failed to three-peat.</p>
-                        <p>4. Hot takes that involve predicting injuries and suspensions will not be accepted.</p>
-                        <p>5. Hot takes that contradict other hot takes won't be accepted.</p>
-                        <p>6. Each hot take will be evaluated by an NLP Model to determine its validity.</p>
-                        <p>7. You will be awarded User Points based on the accuracy of your hot take mesaused by an NLP Model following the Postseason.</p>
+            <div>
+                <br></br>
+
+                <h2 style={{ paddingLeft: '20px' }}>Rules</h2>
+                <div style={{ paddingLeft: '20px' }}>
+                    <div style={boxStyle}>
+                        <div style={{ paddingLeft : "20px" }}>
+                            <p>1. You may place up to 10 hot takes.</p>
+                            <p>2. Hot takes must be specific and measurable. For example, "The Philadelphia Eagles will win the Super Bowl" is a valid hot take, but "The Eagles will be good" is not.</p>
+                            <p>3. Hot takes must not contain blatantly false information. For example, "The Kansas City Chiefs will four-peat" is invalid since the Chiefs failed to three-peat.</p>
+                            <p>4. Hot takes that involve predicting injuries and suspensions will not be accepted.</p>
+                            <p>5. Hot takes that contradict other hot takes won't be accepted.</p>
+                            <p>6. Each hot take will be evaluated by an NLP Model to determine its validity.</p>
+                            <p>7. You will be awarded User Points based on the accuracy of your hot take mesaused by an NLP Model following the Postseason.</p>
+                        </div>
                     </div>
                 </div>
 
                 <p>&nbsp;</p>
 
-                <div style={boxStyle}>
-                    <div style={{ paddingLeft : "20px" }}>
-                        <h4>More Examples of Hot Takes</h4>
-                        <p>1. Lamar Jackson will have 5200 passing yards and 900 rusing yards.</p>
-                        <p>2. The Chicago Bears will make the playoffs.</p>
-                        <p>3. A Rookie Quarterback will win the MVP award.</p>
+                <h2 style={{ paddingLeft: '20px' }}>More Examples of Hot Takes</h2>
+                <div style={{ paddingLeft: '20px' }}>
+                    <div style={boxStyle}>
+                        <div style={{ paddingLeft : "20px" }}>
+                            <p>1. Lamar Jackson will have 5200 passing yards and 900 rusing yards.</p>
+                            <p>2. The Chicago Bears will make the playoffs.</p>
+                            <p>3. A Rookie Quarterback will win the MVP award.</p>
+                        </div>
                     </div>
                 </div>
+                
 
                 <br></br>
                 <br></br>
