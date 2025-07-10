@@ -182,14 +182,27 @@ const HotTakes = () => {
             </div>
 
             <div>
-                <h2 style={{ paddingLeft: '20px' }}>Your Hot Takes</h2>
+                <h2 style={{ paddingLeft: '20px' }}>
+                    Your Hot Takes
+                    <button 
+                        onClick={() => setShowHotTakes(!showHotTakes)}
+                        style={{
+                            marginLeft: '15px',
+                            padding: '5px 10px',
+                            marginBottom: '10px',
+                            cursor: 'pointer'
+                        }}
+                    >
+                        {showHotTakes ? 'Hide' : 'Show'}
+                    </button>
+                </h2>
                 {showHotTakes && (
                     <div style={{ paddingLeft: '20px' }}>
                         <div style={boxStyle}>
                             {hotTakesArray.length > 0 ? (
                                 hotTakesArray.map((hotTake, index) => (
                                     <div key={index}>
-                                        <p style={{ paddingLeft: '20px' }}>{index+1}. {hotTake}</p>
+                                        <p style={{ paddingLeft: '20px', color: '#084719' }}>{index+1}. {hotTake}</p>
                                     </div>
                                 ))
                             ) : (
@@ -211,7 +224,7 @@ const HotTakes = () => {
                             <p>2. Hot takes must be specific and measurable. For example, "The Philadelphia Eagles will win the Super Bowl" is a valid hot take, but "The Eagles will be good" is not.</p>
                             <p>3. Hot takes must not contain blatantly false information. For example, "The Kansas City Chiefs will four-peat" is invalid since the Chiefs failed to three-peat.</p>
                             <p>4. Hot takes that involve predicting injuries and suspensions will not be accepted.</p>
-                            <p>5. Hot takes that contradict other hot takes won't be accepted.</p>
+                            <p>5. Hot takes that contradict other hot takes or is seen as redundant won't be accepted.</p>
                             <p>6. Each hot take will be evaluated by an NLP Model to determine its validity.</p>
                             <p>7. You will be awarded User Points based on the accuracy of your hot take mesaused by an NLP Model following the Postseason.</p>
                         </div>
