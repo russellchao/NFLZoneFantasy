@@ -27,7 +27,10 @@ const HotTakes = () => {
 
     // Variable to track if hot takes are being accepted
     const [acceptingHotTakes, setAcceptingHotTakes] = useState(true);
+
+    // Hot take submission form
     const [form, setForm] = useState({ hotTakeText: '' }); 
+    const maxHotTakeLen = 100; 
 
     // Variables handling hot takes
     const [hotTakesArray, setHotTakesArray] = useState([]);
@@ -37,7 +40,13 @@ const HotTakes = () => {
 
     const handleChange = (e) => {
         // Handles change in the hot take text input
-        setForm({ ...form, [e.target.name]: e.target.value }); 
+
+        if (form.hotTakeText.length < maxHotTakeLen) {
+            setForm({ ...form, [e.target.name]: e.target.value }); 
+        } else {
+            // If the hot take text is at the limit, only allow the text to be deleted
+            setForm({ ...form, [e.target.name]: e.target.value.slice(0, maxHotTakeLen) });
+        }
     };
 
 
@@ -152,6 +161,7 @@ const HotTakes = () => {
                     { acceptingHotTakes ? (
                         <div>
                             <h4 style={{ color:'maroon' }}>Hot takes for the {currentSeason} season will close on {kickoffDate.toLocaleDateString()} at 8:20 PM Eastern Time.</h4>
+                            <p>{form.hotTakeText.length}/{maxHotTakeLen}</p>
                             <form 
                                 style={{ 
                                     display: 'flex',
