@@ -73,13 +73,10 @@ const HotTakes = () => {
             });
             const saveText = await saveResponse.text();
             console.log(saveText);
+
+            // Reload the page to show the updated hot takes
+            window.location.reload(); 
         }
-
-        // Reset the form after submission
-        setForm({ hotTakeText: '' }); 
-
-        // Reload the page to show the updated hot takes
-        window.location.reload(); 
     };
 
 
@@ -231,7 +228,7 @@ const HotTakes = () => {
                             {hotTakesArray.length > 0 ? (
                                 hotTakesArray.map((hotTake, index) => (
                                     <div key={index}>
-                                        <p style={{ paddingLeft: '20px', color: '#084719' }}>
+                                        <p style={{ paddingLeft: '20px', color: 'green' }}>
                                             {index+1}.  
                                             {" "}
                                             {hotTake} 
@@ -270,10 +267,11 @@ const HotTakes = () => {
                             <p>1. You may place up to 10 hot takes.</p>
                             <p>2. Hot takes must be specific and measurable. For example, "The Philadelphia Eagles will win the Super Bowl" is a valid hot take, but "The Eagles will be good" is not.</p>
                             <p>3. Hot takes must not contain blatantly false information. For example, "The Kansas City Chiefs will four-peat" is invalid since the Chiefs failed to three-peat.</p>
-                            <p>4. Hot takes that involve predicting injuries and suspensions will not be accepted.</p>
+                            <p>4. A hot take that directly implies another hot take will replace the latter. For example, "The Bengals will win the AFC North" will replace "The Ravens won't win the AFC North".</p>
                             <p>5. Hot takes that contradict other hot takes or is seen as redundant won't be accepted.</p>
-                            <p>6. Each hot take will be evaluated by an NLP Model to determine its validity.</p>
-                            <p>7. You will be awarded User Points based on the accuracy of your hot take mesaused by an NLP Model following the Postseason.</p>
+                            <p>6. Hot takes that involve predicting injuries and suspensions won't be accepted.</p>
+                            <p>7. Each hot take will be evaluated by an NLP Model to determine its validity.</p>
+                            <p>8. You will be awarded User Points based on the accuracy of your hot take mesaused by an NLP Model following the Postseason.</p>
                         </div>
                     </div>
                 </div>
@@ -286,7 +284,7 @@ const HotTakes = () => {
                         <div style={{ paddingLeft : "20px" }}>
                             <p>1. Lamar Jackson will have 5200 passing yards and 900 rusing yards.</p>
                             <p>2. The Chicago Bears will make the playoffs.</p>
-                            <p>3. A Rookie Quarterback will win the MVP award.</p>
+                            <p>3. A Rookie Quarterback will win MVP.</p>
                         </div>
                     </div>
                 </div>
