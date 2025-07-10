@@ -34,9 +34,16 @@ public class HotTakeService {
             hotTakeRepository.save(newUser);
         }
 
-        // Get the user's existing hot takes and convert it into a comma-separated string
+        // Get the user's existing hot takes and convert it into a comma-separated string, or an empty string if there are no existing hot takes
         List<String> existingHotTakes = hotTakeRepository.findByUsername(username).get().getHotTakes();
-        String existingHotTakesString = String.join(",", existingHotTakes);
+        String existingHotTakesString;
+
+        if (existingHotTakes.isEmpty()) {
+            existingHotTakesString = "None";
+        } else {
+            existingHotTakesString = String.join(",", existingHotTakes);
+        }
+
         System.out.println("Existing hot takes for user \"" + username + "\": " + existingHotTakesString);
 
         // Create the Flask endpoint that validates the hot take
@@ -49,7 +56,7 @@ public class HotTakeService {
 
         } catch (Exception e) {
             System.out.println("Error calling Flask: " + e);
-            return "Spring Boot: Failure validating hot take";
+            return "Spring Boot: Error validating hot take";
         }
     }
 
