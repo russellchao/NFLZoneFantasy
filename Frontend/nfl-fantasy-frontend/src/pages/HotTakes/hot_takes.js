@@ -42,7 +42,7 @@ const HotTakes = () => {
 
 
     const handleSubmit = async (e) => {
-        // Handles the hot take submission
+        // Handles the submission of a hot take
 
         e.preventDefault(); 
 
@@ -66,9 +66,28 @@ const HotTakes = () => {
             console.log(saveText);
         }
 
-        setForm({ hotTakeText: '' }); // Reset the form after submission
+        // Reset the form after submission
+        setForm({ hotTakeText: '' }); 
 
-        window.location.reload(); // Reload the page to show the updated hot takes
+        // Reload the page to show the updated hot takes
+        window.location.reload(); 
+    };
+
+
+    const handleDelete = async (hotTake) => {
+        // Handles the deletion of a hot take
+
+        // Delete the requested hot take from the database
+        const deletionResponse = await fetch(`http://localhost:8081/api/v1/hotTakes/delete?username=${localStorage.getItem("username")}&hotTake=${hotTake}`, {
+            method: "DELETE"
+        });
+        const deletionText = await deletionResponse.text();
+        console.log(deletionText); 
+
+        console.log("Hot Take Deleted:", hotTake); 
+
+        // Reload the page to show the updated hot takes
+        window.location.reload();
     };
 
 
@@ -202,7 +221,25 @@ const HotTakes = () => {
                             {hotTakesArray.length > 0 ? (
                                 hotTakesArray.map((hotTake, index) => (
                                     <div key={index}>
-                                        <p style={{ paddingLeft: '20px', color: '#084719' }}>{index+1}. {hotTake}</p>
+                                        <p style={{ paddingLeft: '20px', color: '#084719' }}>
+                                            {index+1}.  
+                                            {" "}
+                                            {hotTake} 
+                                            {" "}
+                                            <button 
+                                                onClick={() => handleDelete(hotTake)}
+                                                style={{
+                                                    marginLeft: '10px',
+                                                    padding: '2px 2px',
+                                                    cursor: 'pointer',
+                                                    color: 'white',
+                                                    backgroundColor: 'maroon',
+                                                    borderColor: 'maroon'
+                                                }}
+                                            >
+                                                Delete
+                                            </button>
+                                        </p>
                                     </div>
                                 ))
                             ) : (
