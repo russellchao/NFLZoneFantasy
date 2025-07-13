@@ -45,7 +45,7 @@ NFL Zone is a Fullstack web application for NFL fans that:
   - Scoring summary
   - Player/team leaders
   - Box scores and drive summaries
-  - 
+    
 ### 🧑‍💻 User Authentication
 - [x] Registration with email verification
 
