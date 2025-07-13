@@ -109,7 +109,7 @@ const HotTakes = () => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                
+
                 const data = await response.json();
                 console.log("Fetched Hot Takes:", data);
                 setHotTakesArray(data); // Set the fetched hot takes to the state
@@ -169,7 +169,7 @@ const HotTakes = () => {
                                     display: 'flex',
                                     flexDirection: 'row',
                                     alignItems: 'center',
-                                    gap: '20px'
+                                    gap: '1px'
                                 }}
                                 onSubmit={handleSubmit}
                             >
@@ -191,7 +191,7 @@ const HotTakes = () => {
                                 <button 
                                     type="submit"
                                     style={{
-                                        padding: '11px',
+                                        padding: '10.5px',
                                         backgroundColor: '#007bff',
                                         color: 'white',
                                         border: 'none',
