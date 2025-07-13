@@ -10,10 +10,7 @@ A dynamic Full-Stack web application that brings NFL fans an interactive experie
 - [About the Project](#about-the-project)
 - [Tech Stack](#tech-stack)
 - [Features](#features)
-- [Getting Started](#getting-started)
 - [Future Roadmap](#future-roadmap)
-- [Known Issues](#known-issues)
-- [Credits](#credits)
 
 ---
 
@@ -54,7 +51,6 @@ NFL Zone is a Fullstack web application for NFL fans that:
 
 ### 🧠 Hot Take Zone
 - [x] Submit up to 10 measurable "hot takes" per user
-
 
 ---
 
