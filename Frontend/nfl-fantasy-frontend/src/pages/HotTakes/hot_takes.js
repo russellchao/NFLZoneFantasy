@@ -102,13 +102,18 @@ const HotTakes = () => {
 
         const fetchHotTakes = async () => {
             try {  
-                const response = await fetch(`http://localhost:8081/api/v1/hotTakes/get?username=${localStorage.getItem("username")}`);
+                const response = await fetch(`http://localhost:8081/api/v1/hotTakes/get?username=${localStorage.getItem("username")}`, {
+                    method: "GET"
+                });
+
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
+                
                 const data = await response.json();
                 console.log("Fetched Hot Takes:", data);
                 setHotTakesArray(data); // Set the fetched hot takes to the state
+
             } catch (error) {
                 console.error("Failed to fetch hot takes:", error);
                 setHotTakesArray([]); // Set to empty array if fetch fails
