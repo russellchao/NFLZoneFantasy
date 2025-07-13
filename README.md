@@ -40,8 +40,6 @@ NFL Zone is a Fullstack web application for NFL fans that:
 ### 🔍 Player & Team Exploration
 - [x] View player stats by team and by position
 - [x] Search for players by name and filter by year
-- [x] Dynamically update stats when switching seasons
-- [x] Expandable player tables for large stat sets
 
 ### 📅 Schedule Viewer
 - [x] View full NFL schedule for a selected season
@@ -50,22 +48,13 @@ NFL Zone is a Fullstack web application for NFL fans that:
   - Scoring summary
   - Player/team leaders
   - Box scores and drive summaries
-- [x] Handles live, upcoming, and finished games
-- [x] Visual cues for overtime games and start times
-
+  - 
 ### 🧑‍💻 User Authentication
 - [x] Registration with email verification
-- [x] Login/logout state detection
-- [x] Password recovery via email
-- [x] Confirmation prompts before logging out
 
 ### 🧠 Hot Take Zone
 - [x] Submit up to 10 measurable "hot takes" per user
-- [x] Backend validator for redundant/contradictory takes
-- [x] AI-powered NLP validation (initial version)
-- [x] Takes disabled after regular season kickoff
-- [x] Ability to delete or view submitted takes
-- [x] 100-character limit enforcement
+
 
 ---
 
