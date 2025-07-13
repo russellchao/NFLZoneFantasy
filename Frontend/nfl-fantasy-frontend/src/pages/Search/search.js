@@ -120,23 +120,21 @@ export const Search = () => {
                     type="text" 
                     placeholder="Search..." 
                     style={{ marginLeft:"25px", height:"30px", width:"500px" }}
+                    onChange={(e) => [setName(e.target.value), setSearched(false)]}
+                    required
                     value={name}
-                    onChange={(e) => [setName(e.target.value), setSearched(false)]}>
-                </input>
+                />
 
                 <button 
                     type='submit' 
                     style={{ 
-                        padding: '8px 13px',
-                        backgroundColor: '#004d4d',
+                        padding: '10px',
+                        backgroundColor: '#007bff',
                         color: 'white',
                         border: 'none',
-                        borderRadius: '5px',
+                        borderRadius: '4px',
+                        marginLeft: '1px',
                         cursor: 'pointer',
-                        fontWeight: 'bold',
-                        fontSize: '0.9em',
-                        fontFamily: 'Segoe UI, sans-serif',
-                        marginLeft: '3px'
                     }}
                     >
                     Submit
