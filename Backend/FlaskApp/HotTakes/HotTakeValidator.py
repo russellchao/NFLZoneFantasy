@@ -91,3 +91,25 @@ def validate_hot_take(hotTake, listOfHotTakes):
 
 
     return "This hot take is valid"
+
+
+
+
+
+
+if __name__ == '__main__':
+    # FOR TESTING ONLY
+
+    listOfHotTakes = [
+        "Jayden Daniels will be top 5 in passing yards", 
+        "The Bengals will fire Zac Taylor by the end of the season",
+        "The Panthers will make the playoffs",
+        "The Eagles won't make the Super Bowl",
+        "The Eagles will make the Super Bowl"
+    ]
+
+
+    while True:
+        hotTake = input("Enter your hot take: ")
+        result = validate_hot_take(hotTake, listOfHotTakes)
+        print(result)

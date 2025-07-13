@@ -28,7 +28,6 @@ def update_player_stats(nflSeason):
 
 
 
-
 @app.route("/scheduleData/<year>")
 def update_schedule(year):
     # Retrieves all regular season and playoff matches of the given year 
