@@ -1,4 +1,6 @@
 import re
+import openai
+from OpenAiApiKey import open_ai_api_key
 
 
 def basic_invalidator(hotTake, listOfHotTakes):
@@ -76,6 +78,16 @@ def is_contradictory(hotTake, listOfHotTakes):
 
 
 
+def validator_ai_model(hotTake, listOfHotTakes):
+
+    pass
+
+
+
+
+
+
+
 
 def validate_hot_take(hotTake, listOfHotTakes):
 
@@ -86,8 +98,6 @@ def validate_hot_take(hotTake, listOfHotTakes):
     # 2. Contradiction invalidator
     if is_contradictory(hotTake, listOfHotTakes):
         return "This hot take is invalid, it contradicts an existing hot take"
-
-
 
 
     return "This hot take is valid"
