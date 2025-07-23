@@ -5,7 +5,6 @@ const CreateNewPassword = () => {
     const { username } = useParams(); 
     const [newPassword, setNewPassword] = useState(''); 
     const [confirmNewPassword, setConfirmNewPassword] = useState(''); 
-    const [verifCode, setVerifCode] = useState(''); 
     const [message, setMessage] = useState(''); 
 
     const handleSubmit = async (e) => {
@@ -37,7 +36,7 @@ const CreateNewPassword = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         gap: '20px',
-                        maxWidth: '400px'
+                        maxWidth: '300px'
                     }}
                     onSubmit={handleSubmit}
                 >
@@ -56,14 +55,6 @@ const CreateNewPassword = () => {
                         type="password" 
                         style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
                         onChange={e => setConfirmNewPassword(e.target.value)} 
-                        required 
-                    />
-
-                    <input 
-                        name="verifCode" 
-                        placeholder="Verification Code (Check the email that was just sent)" 
-                        style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
-                        onChange={e => setVerifCode(e.target.value)} 
                         required 
                     />
 
