@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const CreateNewPassword = () => {
-    const { username } = useParams(); 
+    const { username, token } = useParams(); 
     const [newPassword, setNewPassword] = useState(''); 
     const [confirmNewPassword, setConfirmNewPassword] = useState(''); 
     const [message, setMessage] = useState(''); 
@@ -15,7 +15,9 @@ const CreateNewPassword = () => {
             return; 
         }
 
-        const response = await fetch(`http://localhost:8081/api/v1/auth/resetPw?username=${username}&newPassword=${newPassword}`, {
+        const response = await fetch(
+            `http://localhost:8081/api/v1/auth/resetPw?username=${username}&newPassword=${newPassword}&token=${token}`, 
+        {
             method: "POST", 
             headers: { "Content-Type": "application/json" },
             body: newPassword

@@ -131,17 +131,23 @@ public class UserService {
 
 
     public String sendPasswordResetEmail(String username) {
-        Optional<User> optionalUser = userRepository.findByUsername(username);
 
+        // Check if the user exists
+        Optional<User> optionalUser = userRepository.findByUsername(username);
         if (optionalUser.isEmpty()) {
             return "User not found";
         }
 
         User user = optionalUser.get();
 
-        String verificationLink = String.format(
-            "http://localhost:3002/create_new_password/%s",
-            username
+        // Generate a new verification token for the user that wants to reset their password
+        String token = UUID.randomUUID().toString();
+        user.setVerifToken(token);
+        userRepository.save(user);
+
+        String passwordResetLink = String.format(
+            "http://localhost:3002/create_new_password/%s/%s",
+            username, token
         );
 
         String subject = "Reset your NFL Zone password";
@@ -150,7 +156,7 @@ public class UserService {
                         + "\n%s\n\nIf you didn't request a password reset, please ignore this email.\n\nThank you,\nThe NFL Zone Team",
                 user.getFullName(),
                 user.getUsername(),
-                verificationLink
+                passwordResetLink
         );
 
         SimpleMailMessage message = new SimpleMailMessage();
@@ -168,11 +174,17 @@ public class UserService {
     }
 
 
-    public String resetPassword(String username, String newPassword) {
+    public String resetPassword(String username, String newPassword, String token) {
         Optional<User> optionalUser = userRepository.findByUsername(username);
-
         if (optionalUser.isEmpty()) {
             return "User not found";
+        }
+
+        User user = optionalUser.get();
+
+        if (!token.equals(user.getVerifToken())) {
+            // Return an error if the PW reset link is invalid
+            return "Invalid or expired link. Please go back to the Login page and click 'Forgot Password' again.";
         }
 
         System.out.println("DEBUG: New Password: " + newPassword);
@@ -185,13 +197,12 @@ public class UserService {
             return "Username and password cannot be the same";
         }
 
-        User user = optionalUser.get();
-
         if (passwordEncoder.matches(newPassword, user.getPassword())) {
             return "New password cannot be the same as the current password (perhaps you didn't forget your password!)";
         }
 
         user.setPassword(passwordEncoder.encode(newPassword));
+        user.setVerifToken(null); // nullify the token of the PW reset link to prevent its reuse
         userRepository.save(user);
 
         return "Password reset successfully, you may now log in.";
