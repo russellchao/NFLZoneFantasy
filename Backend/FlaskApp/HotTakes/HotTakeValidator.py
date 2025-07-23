@@ -1,6 +1,7 @@
 import re
-import openai
-from OpenAiApiKey import open_ai_api_key
+import json
+from openai import OpenAI
+from HotTakes.OpenAiApiKey import open_ai_api_key
 
 
 def basic_invalidator(hotTake, listOfHotTakes):
@@ -80,7 +81,15 @@ def is_contradictory(hotTake, listOfHotTakes):
 
 def validator_ai_model(hotTake, listOfHotTakes):
 
-    pass
+    client = OpenAI(api_key=open_ai_api_key)
+
+    response = client.responses.create(
+        model = "gpt-4.1",
+        input = "Which NFL teams are most likely to win the Super Bowl?"
+    )
+
+    with open("ResponseExample.txt", "w") as file:
+        file.write(str(response))
 
 
 
@@ -121,5 +130,10 @@ if __name__ == '__main__':
 
     while True:
         hotTake = input("Enter your hot take: ")
-        result = validate_hot_take(hotTake, listOfHotTakes)
-        print(result)
+
+        # result = validate_hot_take(hotTake, listOfHotTakes)
+        # print(result)
+
+        validator_ai_model(hotTake, listOfHotTakes)
+
+        
