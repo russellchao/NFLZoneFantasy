@@ -178,18 +178,18 @@ def get_matches_this_week(year, week, seasonType):
 
 def get_schedule_data(year):
 
+    # Write the CSV header for the schedule data file
     write_schedule_csv_header()
 
     # Instead of using for loops for each season type and week, we can use a ThreadPoolExecutor to parallelize the requests
     # This will speed up the process significantly, especially for the regular season with 18 weeks
 
-    weeks = [(year, x, 1) for x in range(1, 5)] + \
-            [(year, x, 2) for x in range(1, 19)] + \
-            [(year, x, 3) for x in [1, 2, 3, 5]]
+    preseason_weeks = [(year, x, 1) for x in range(1, 5)]  # Preseason weeks 1-4
+    regular_season_weeks = [(year, x, 2) for x in range(1, 19)]  # Regular season weeks 1-18
+    playoff_weeks = [(year, x, 3) for x in [1, 2, 3, 5]] # Playoffs: Wild Card, Divisional, Conference Championships, Super Bowl
+
+    weeks = preseason_weeks + regular_season_weeks + playoff_weeks
 
     with ThreadPoolExecutor(max_workers=8) as executor:
         executor.map(lambda args: get_matches_this_week(*args), weeks)
 
-
-
-    
