@@ -39,7 +39,7 @@ def write_schedule_csv(allMatchups):
         print(f"SCHEDULE DATA FILE WRITE ERROR:", e)
 
 
-def get_schedule_data(year, week, seasonType):
+def get_matches_this_week(year, week, seasonType):
     # Call the unofficial ESPN API to Retrieve Schedule Data
     espn_api_url = f"https://cdn.espn.com/core/nfl/schedule?xhr=1&year={year}&week={week}&seasontype={seasonType}"
     response = requests.get(espn_api_url)
@@ -167,13 +167,39 @@ def get_schedule_data(year, week, seasonType):
     
 
 
+def get_schedule_data(year):
+
+    all_matchups = []
+
+    for i in range(-3,24):
+        # There are a total of 23 weeks (excluding preseason) in an NFL season, with week 23 being the Super Bowl
+        # Negative numbers indicate preseason weeks
+
+        week = i
+        seasonType = 2
+
+        if (week == 22):
+            # Week 22 is the Pro Bowl so no need to extract game data from that week
+            continue
+
+        if (week > 18): 
+            # This if statement obtains the proper week number when retrieving playoff games
+            week -= 18
+            seasonType = 3
+
+        if (week < 1):
+            # Same check as above, except for preseason games
+            week += 4
+            seasonType = 1
+
+        all_matchups += get_matches_this_week(year, week, seasonType)
+
+
+    # Write all matchups to the schedule CSV file
+    write_schedule_csv(all_matchups)
+
+
+
 
 
     
-# if __name__ == "__main__":
-
-#     # Test examples extracting the schedule (for seasonType: 1=preseason, 2=regular season, 3=playoffs) but idc about preseason
-#     # e.g. 
-#     #   get_schedule_data(2025, 1, 2) for Week 1 of 2025, 
-#     #   get_schedule_data(2024, 15, 2) for Week 15 of 2024, 
-#     #   get_schedule_data(2024, 5, 3) for Super Bowl of 2024-25 (Eagles 40, Chiefs 22)
