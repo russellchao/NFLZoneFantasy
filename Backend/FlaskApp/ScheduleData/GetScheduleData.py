@@ -1,3 +1,5 @@
+import itertools
+from webbrowser import get
 import requests 
 import json
 import csv
@@ -171,28 +173,55 @@ def get_schedule_data(year):
 
     all_matchups = []
 
-    for i in range(-3,24):
-        # There are a total of 23 weeks (excluding preseason) in an NFL season, with week 23 being the Super Bowl
-        # Negative numbers indicate preseason weeks
+    # for i in range(-3,24):
+    #     # There are a total of 23 weeks (excluding preseason) in an NFL season, with week 23 being the Super Bowl
+    #     # Negative numbers indicate preseason weeks
 
-        week = i
-        seasonType = 2
+    #     week = i
+    #     seasonType = 2
 
-        if (week == 22):
-            # Week 22 is the Pro Bowl so no need to extract game data from that week
-            continue
+    #     if (week == 22):
+    #         # Week 22 is the Pro Bowl so no need to extract game data from that week
+    #         continue
 
-        if (week > 18): 
-            # This if statement obtains the proper week number when retrieving playoff games
-            week -= 18
-            seasonType = 3
+    #     if (week > 18): 
+    #         # This if statement obtains the proper week number when retrieving playoff games
+    #         week -= 18
+    #         seasonType = 3
 
-        if (week < 1):
-            # Same check as above, except for preseason games
-            week += 4
-            seasonType = 1
+    #     if (week < 1):
+    #         # Same check as above, except for preseason games
+    #         week += 4
+    #         seasonType = 1
 
-        all_matchups += get_matches_this_week(year, week, seasonType)
+    #     all_matchups += get_matches_this_week(year, week, seasonType)
+
+    
+    # all_matchups += map(lambda x: get_matches_this_week(year, x, 1), range(1, 5))
+    # all_matchups += map(lambda x: get_matches_this_week(year, x, 2), range(1, 19))
+    # all_matchups += map(lambda x: get_matches_this_week(year, x, 3), range(1, 6))
+
+    preseason = map(lambda x: get_matches_this_week(year, x, 1), range(1, 5))
+    regular = map(lambda x: get_matches_this_week(year, x, 2), range(1, 19))
+    playoffs = map(lambda x: get_matches_this_week(year, x, 3), range(1, 6))
+
+    all_matchups = list(itertools.chain.from_iterable(preseason))
+    all_matchups += list(itertools.chain.from_iterable(regular))
+    all_matchups += list(itertools.chain.from_iterable(playoffs))
+
+    
+    # # Preseason weeks 1-4
+    # for x in range(1, 5):
+    #     all_matchups += get_matches_this_week(year, x, 1)
+    # # Regular season weeks 1-18
+    # for x in range(1, 19):
+    #     all_matchups += get_matches_this_week(year, x, 2)
+    # # Playoff weeks 1-5
+    # for x in range(1, 4):
+    #     all_matchups += get_matches_this_week(year, x, 3)
+
+
+    print(list(all_matchups))
 
 
     # Write all matchups to the schedule CSV file
