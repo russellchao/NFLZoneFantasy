@@ -1,8 +1,9 @@
-import itertools
-from webbrowser import get
+from concurrent.futures import ThreadPoolExecutor
 import requests 
 import json
 import csv
+
+csvFilename = f"ScheduleData/schedule_data.csv"
 
 
 def formatDate(date):
@@ -28,15 +29,24 @@ def formatDate(date):
     return f"{theMonth} {theDay}, {theYear}"
 
 
-def write_schedule_csv(allMatchups):
-    csvFilename = f"ScheduleData/schedule_data.csv"
+def write_schedule_csv_header():
     header = ['Date', 'WeekNum', 'Status', 'AwayTeam', 'AwayTeamRecord', 'HomeTeam', 'HomeTeamRecord', 
               'Venue', 'Broadcast', 'SeasonType', 'WeekId', 'GameId', 'AwayTeamScore', 'HomeTeamScore', 'Overtime', 'StartTime']
     try:
         with open(csvFilename, mode="w", newline="", encoding="utf-8") as file:
             writer = csv.DictWriter(file, fieldnames=header)
             writer.writeheader()
-            writer.writerows(allMatchups)     
+    except Exception as e:
+        print(f"SCHEDULE DATA FILE WRITE ERROR:", e)
+
+
+def write_schedule_csv(matchupData):
+    header = ['Date', 'WeekNum', 'Status', 'AwayTeam', 'AwayTeamRecord', 'HomeTeam', 'HomeTeamRecord', 
+              'Venue', 'Broadcast', 'SeasonType', 'WeekId', 'GameId', 'AwayTeamScore', 'HomeTeamScore', 'Overtime', 'StartTime']
+    try:
+        with open(csvFilename, mode="a", newline="", encoding="utf-8") as file:
+            writer = csv.DictWriter(file, fieldnames=header)
+            writer.writerows(matchupData)
     except Exception as e:
         print(f"SCHEDULE DATA FILE WRITE ERROR:", e)
 
@@ -61,12 +71,11 @@ def get_matches_this_week(year, week, seasonType):
 
     # Week numbers mapped to their respective rounds for the preseason and playoffs
     preseasonKeys = {1: "Hall of Fame Week", 2: "Preseason Week 1", 3: "Preseason Week 2", 4: "Preseason Week 3"}
-    playoffKeys = {1: "Wild Card Round", 2: "Divisional Round", 3: "Conference Championships", 5: "Super Bowl"}
+    playoffKeys = {1: "Wild Card Round", 2: "Divisional Round", 3: "Conference Championships", 4: "Pro Bowl", 5: "Super Bowl"}
 
 
     # Loop through the .json output to retreieve each matchup for the given week
     # each "date" follows the format of something like: YYYYMMDD (e.g. 20250904)
-    allMatchupsThisWk = []
     for date in schedule:
 
         gamesThisDate = schedule[date]
@@ -149,85 +158,37 @@ def get_matches_this_week(year, week, seasonType):
             start_time = "N/A"
             if status == "Scheduled":
                 start_time_detail = matchup.get("status").get("type").get("detail").split(" ") 
-                #print(start_time_detail)
                 if start_time_detail[2] == "TBD":
                     start_time = "TBD"
                 else:
                     start_time = start_time_detail[4] + " " + start_time_detail[5] + " " + start_time_detail[6]
 
 
-            # Add this matchup to the matchups this week list
+            # Organize the matchup data into a dictionary
             matchup_data = {'Date': fullDate, 'WeekNum': weekNum, 'Status': status, 'AwayTeam': awayTeam, 
                             'AwayTeamRecord': awayTeamRecord, 'HomeTeam': homeTeam, 'HomeTeamRecord': homeTeamRecord, 
                             'Venue': fullVenue, 'Broadcast': broadcast, 'SeasonType': seasonType, 'WeekId': week, 'GameId': gameId,
                             'AwayTeamScore': awayTeamScore, 'HomeTeamScore': homeTeamScore, 'Overtime': overtime, 'StartTime': start_time} 
-            allMatchupsThisWk.append(matchup_data)
             
 
-    # Return each matchup from this week to the schedule CSV file
-    return allMatchupsThisWk
+            # Write the matchup data to the schedule CSV file
+            write_schedule_csv([matchup_data])
     
 
 
 def get_schedule_data(year):
 
-    all_matchups = []
+    write_schedule_csv_header()
 
-    # for i in range(-3,24):
-    #     # There are a total of 23 weeks (excluding preseason) in an NFL season, with week 23 being the Super Bowl
-    #     # Negative numbers indicate preseason weeks
+    # Instead of using for loops for each season type and week, we can use a ThreadPoolExecutor to parallelize the requests
+    # This will speed up the process significantly, especially for the regular season with 18 weeks
 
-    #     week = i
-    #     seasonType = 2
+    weeks = [(year, x, 1) for x in range(1, 5)] + \
+            [(year, x, 2) for x in range(1, 19)] + \
+            [(year, x, 3) for x in [1, 2, 3, 5]]
 
-    #     if (week == 22):
-    #         # Week 22 is the Pro Bowl so no need to extract game data from that week
-    #         continue
-
-    #     if (week > 18): 
-    #         # This if statement obtains the proper week number when retrieving playoff games
-    #         week -= 18
-    #         seasonType = 3
-
-    #     if (week < 1):
-    #         # Same check as above, except for preseason games
-    #         week += 4
-    #         seasonType = 1
-
-    #     all_matchups += get_matches_this_week(year, week, seasonType)
-
-    
-    # all_matchups += map(lambda x: get_matches_this_week(year, x, 1), range(1, 5))
-    # all_matchups += map(lambda x: get_matches_this_week(year, x, 2), range(1, 19))
-    # all_matchups += map(lambda x: get_matches_this_week(year, x, 3), range(1, 6))
-
-    preseason = map(lambda x: get_matches_this_week(year, x, 1), range(1, 5))
-    regular = map(lambda x: get_matches_this_week(year, x, 2), range(1, 19))
-    playoffs = map(lambda x: get_matches_this_week(year, x, 3), range(1, 6))
-
-    all_matchups = list(itertools.chain.from_iterable(preseason))
-    all_matchups += list(itertools.chain.from_iterable(regular))
-    all_matchups += list(itertools.chain.from_iterable(playoffs))
-
-    
-    # # Preseason weeks 1-4
-    # for x in range(1, 5):
-    #     all_matchups += get_matches_this_week(year, x, 1)
-    # # Regular season weeks 1-18
-    # for x in range(1, 19):
-    #     all_matchups += get_matches_this_week(year, x, 2)
-    # # Playoff weeks 1-5
-    # for x in range(1, 4):
-    #     all_matchups += get_matches_this_week(year, x, 3)
-
-
-    print(list(all_matchups))
-
-
-    # Write all matchups to the schedule CSV file
-    write_schedule_csv(all_matchups)
-
-
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        executor.map(lambda args: get_matches_this_week(*args), weeks)
 
 
 
