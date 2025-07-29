@@ -59,15 +59,15 @@ const TeamPage = () => {
     const [playerStatsError, setPlayerStatsError] = useState(false); 
      
 
-
-    // Section switch
     const handleSectionChange = (section) => {
+        // Section switch
         setSection(section); 
     };
 
 
-    // The next 2 functions call the Spring Boot endpoints that update the specified CSV and database table
     async function updatePlayerStatsDB() {
+        // This function updates the player stats database for the given team season
+
         if (!loading) {
             setLoading(true); 
         }
@@ -82,6 +82,8 @@ const TeamPage = () => {
     };
 
     async function updateScheduleDB() {
+        // This function updates the schedule database for the given team season
+
         if (!loading) {
             setLoading(true); 
         }
@@ -96,8 +98,9 @@ const TeamPage = () => {
     };
     
 
-    // The next 3 functions fetch the respective data from the given season from the Spring Boot Backend
     async function getScheduleData() {
+        // This function retrieves the schedule data for the given team season
+
         console.log(`Retreiving schedule from ${teamSeason}`);
         if (teamName) {
             const loadSchedule = async () => {
@@ -113,12 +116,13 @@ const TeamPage = () => {
             loadSchedule();
 
             setLoading(false); 
-
-            console.log(schedule);
         };
     }; 
 
+
     async function getPlayerStatsData() {
+        // This function retrieves the player stats data for the given team season
+
         console.log(`Retreiving player stats from ${teamSeason}`); 
         if (teamName) {
             // Fetch Passing data
@@ -156,7 +160,6 @@ const TeamPage = () => {
             };
             loadKickers(); 
 
-
             setLoading(false); 
         }; 
     }; 
@@ -174,16 +177,9 @@ const TeamPage = () => {
         }
 
         (async () => {
-            // Update the schedule database
             await updateScheduleDB(); 
-
-            // Update the player stats database
             await updatePlayerStatsDB(); 
-    
-            // Retrieve schedule from the Spring Boot Backend
             await getScheduleData(); 
-                
-            // Retrieve player data from the Spring Boot Backend 
             await getPlayerStatsData(); 
         })();
 
@@ -224,16 +220,16 @@ const TeamPage = () => {
     }, [viewingMatchupInfo])
 
 
-    // When the page is loading data
     if (loading) {
+        // When the page is loading data
         return (
             <p style={{ paddingLeft: '20px' }}>Loading the {teamSeason} {section} for the {teamName}...</p>
         );
     }
 
 
-    // When the user is viewing information about a matchup 
     if (viewingMatchupInfo) {
+        // When the user is viewing information about a matchup 
         return (
             <>
                 <div>

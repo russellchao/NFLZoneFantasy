@@ -175,7 +175,6 @@ def get_matches_this_week(year, week, seasonType):
             write_schedule_csv([matchup_data])
     
 
-
 def get_schedule_data(year):
 
     # Write the CSV header for the schedule data file
