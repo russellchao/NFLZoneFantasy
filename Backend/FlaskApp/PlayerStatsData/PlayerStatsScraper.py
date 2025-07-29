@@ -7,6 +7,17 @@ def scrape_player_stats(data_type, season):
 
     print(f"Scraping {data_type} data for {season}")
 
+    filename = f"PlayerStatsData/{data_type}_stats.csv"
+
+    # Clear the CSV file before writing new data
+    try:
+        with open(filename  , mode="w", newline="", encoding="utf-8") as file:
+            writer = csv.writer(file)
+            writer.writerow([])
+    except Exception as e:
+        print(f"PLAYER STATS DATA FILE WRITE ERROR ({data_type}):", e)
+        return
+
     # Send a GET request to the stats page URL
     response = requests.get(
         f"https://www.pro-football-reference.com/years/{season}/{data_type}.htm",
@@ -112,7 +123,6 @@ def scrape_player_stats(data_type, season):
         players_data.sort(key=lambda x: int(x["FGM"].replace(",", "")), reverse=True)
 
     # Export player data to CSV file
-    filename = f"PlayerStatsData/{data_type}_stats.csv"
     try:
         with open(filename, mode="w", newline="", encoding="utf-8") as file:
             writer = csv.DictWriter(file, fieldnames=list(players_data[0].keys()))
