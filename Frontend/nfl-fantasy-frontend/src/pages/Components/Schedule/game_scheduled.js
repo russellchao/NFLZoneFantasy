@@ -23,7 +23,7 @@ const boxStyle = {
     boxSizing: 'border-box',
     fontFamily: 'Segoe UI, sans-serif',
     border: '2px solid black',  
-    borderRadius: '4px'
+    borderRadius: '12px'
 };
 
 const topRowStyle = {

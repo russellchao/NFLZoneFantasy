@@ -13,7 +13,7 @@ const boxStyle = {
     boxSizing: 'border-box',
     fontFamily: 'Segoe UI, sans-serif',
     border: '2px solid black',  
-    borderRadius: '4px'
+    borderRadius: '12px'
 };
 
 const HotTakes = () => {
@@ -275,8 +275,7 @@ const HotTakes = () => {
                             <p>4. A hot take that directly implies another hot take will replace the latter. For example, "The Bengals will win the AFC North" will replace "The Ravens won't win the AFC North".</p>
                             <p>5. Hot takes that contradict other hot takes or is seen as redundant won't be accepted.</p>
                             <p>6. Hot takes that involve predicting injuries and suspensions won't be accepted.</p>
-                            <p>7. Each hot take will be evaluated by an NLP Model to determine its validity.</p>
-                            <p>8. You will be awarded User Points based on the accuracy of your hot take mesaused by an NLP Model following the Postseason.</p>
+                            <p>7. You will be awarded User Points based on the accuracy of your hot takes following the Postseason.</p>
                         </div>
                     </div>
                 </div>
