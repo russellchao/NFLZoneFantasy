@@ -1,19 +1,21 @@
+from concurrent.futures import ThreadPoolExecutor
 from bs4 import BeautifulSoup
-from bs4 import Comment
-import pandas as pd
 import requests 
-import time
 import csv
-
 
 def scrape_player_stats(data_type, season):
 
     print(f"Scraping {data_type} data for {season}")
 
     # Send a GET request to the stats page URL
-    response = requests.get(f"https://www.pro-football-reference.com/years/{season}/{data_type}.htm")
+    response = requests.get(
+        f"https://www.pro-football-reference.com/years/{season}/{data_type}.htm",
+    )
+
+    print(f"Response status code: {response.status_code}")
+
     if response.status_code != 200:
-        print(int(response.headers["Retry-After"]))
+        print(response.headers["Retry-After"])
         raise Exception(f"Failed to load page ({response.status_code})")
 
     # Parse the HTML content
@@ -57,8 +59,9 @@ def scrape_player_stats(data_type, season):
             "tackles_solo": "Solo", "tackles_assists": "Asst", "tackles_loss": "TFL", "sacks": "Sack", "pass_defended": "PBU",
             "def_int": "INT", "def_int_td": "INT TD", "fumbles_forced": "FF", "fumbles_rec": "FR", "fumbles_rec_td": "FRTD"
         }
-        defensive_positions = {"DE", "LDE", "RDE", "DT", "LDT", "RDT", "NT", "LB", "ILB", "OLB", "LLB", "RLB", "MLB", "LILB", 
-                "RILB", "LOLB", "ROLB", "CB", "LCB", "RCB", "S", "FS", "SS", "DB", "EDGE"
+        defensive_positions = {
+            "DE", "LDE", "RDE", "DT", "LDT", "RDT", "NT", "LB", "ILB", "OLB", "LLB", "RLB", "MLB", "LILB", 
+            "RILB", "LOLB", "ROLB", "CB", "LCB", "RCB", "S", "FS", "SS", "DB", "EDGE"
         }
 
     elif data_type == "kicking":
@@ -67,7 +70,6 @@ def scrape_player_stats(data_type, season):
             "name_display": "Name", "age": "Age", "team_name_abbr": "Team", "pos": "Pos", "games": "G", "fga": "FGA", "fgm": "FGM",
             "fg_long": "Long", "xpa": "XPA", "xpm": "XPM", "kickoff": "KO", "kickoff_yds": "KOYds", "kickoff_tb": "TB"
         }
-
 
     players_data = [] 
 
@@ -109,12 +111,8 @@ def scrape_player_stats(data_type, season):
         # Sort defense data based on total field goals made
         players_data.sort(key=lambda x: int(x["FGM"].replace(",", "")), reverse=True)
 
-    # Export player data to .csv file
+    # Export player data to CSV file
     filename = f"PlayerStatsData/{data_type}_stats.csv"
-
-    # # DEBUG
-    # print(players_data)
-
     try:
         with open(filename, mode="w", newline="", encoding="utf-8") as file:
             writer = csv.DictWriter(file, fieldnames=list(players_data[0].keys()))
@@ -127,117 +125,19 @@ def scrape_player_stats(data_type, season):
     return 
 
 
+def get_player_stats_data(year):
 
+    # Instead of using for loops for each season type and week, we can use a ThreadPoolExecutor to parallelize the requests
+    # This will speed up the process significantly, since there are so many players being retreived
 
+    passing_stats = [("passing", year)]
+    rushing_stats = [("rushing", year)]
+    receiving_stats = [("receiving", year)]
+    defense_stats = [("defense", year)]
+    kicking_stats = [("kicking", year)]
 
-    print(f"Scraping {data_type} data for {season} for team {team_name}")
+    player_stat_types = passing_stats + rushing_stats + receiving_stats + defense_stats + kicking_stats
 
-    # Send a GET request to the stats page URL
-    response = requests.get(f"https://www.pro-football-reference.com/years/{season}/{data_type}.htm")
-    if response.status_code != 200:
-        print(int(response.headers["Retry-After"]))
-        raise Exception(f"Failed to load page ({response.status_code})")
-
-    # Parse the HTML content
-    soup = BeautifulSoup(response.content, "html.parser")
-
-    # Find the table directly
-    table = soup.find("table", id=data_type)
-    if table is None:
-        raise Exception("ERROR: Couldn't find the requested table.")
-    
-    # Debug: Print total rows before filtering
-    all_rows = table.tbody.find_all("tr")
-    print(f"Total rows before filtering: {len(all_rows)}")
-
-    # First filter rows by team to reduce processing
-    rows = [row for row in table.tbody.find_all("tr") 
-            if row.get("class") != ["thead"] 
-            and row.find("td", {"data-stat": "team_name_abbr"}) 
-            and row.find("td", {"data-stat": "team_name_abbr"}).text.strip() == team_name]
-
-    # Debug: Print filtered rows
-    print(f"Rows after team filtering: {len(rows)}")
-    
-    # Debug: Print team names found for verification
-    teams_found = set(row.find("td", {"data-stat": "team_name_abbr"}).text.strip() 
-                     for row in table.tbody.find_all("tr") 
-                     if row.find("td", {"data-stat": "team_name_abbr"}))
-    print(f"Teams found in data: {sorted(teams_found)}")
-    print(f"Looking for team: {team_name}")
-
-    # Set smaller limits since we're only looking at one team
-    position_limits = {
-        "passing": 4,    # Most teams only have 2-3 QBs
-        "rushing": 8,    # Running backs and occasional QB/WR rushers
-        "receiving": 12, # Main receivers and tight ends
-        "defense": 30,   # Main defensive players
-        "kicking": 2     # Usually 1 kicker per team
-    }
-    limit = position_limits.get(data_type, 30)
-
-    # Retreive player data with pre-filtered rows
-    desired_stats = get_desired_stats(data_type)
-    defensive_positions = get_defensive_positions() if data_type == "defense" else None
-
-    players_data = []
-    for row in rows[:limit]:
-        player_data = {}
-        skip_row = False
-
-        for stat_key, label in desired_stats.items():
-            cell = row.find("td", {"data-stat": stat_key})
-            if cell is None:
-                skip_row = True
-                break
-            player_data[label] = cell.text.strip()
-
-            if (data_type == "defense" and 
-                stat_key == "pos" and 
-                player_data[label] not in defensive_positions):
-                skip_row = True
-                break
-
-        if not skip_row:
-            players_data.append(player_data)
-
-    if not players_data:
-        print(f"No {data_type} data found for {team_name}")
-        return
-
-    # Sort data based on type
-    sort_player_data(players_data, data_type)
-
-    # Export player data to .csv file
-    filename = f"PlayerStatsData/{data_type}_stats.csv"
-    
-    try:
-        with open(filename, mode="w", newline="", encoding="utf-8") as file:
-            writer = csv.DictWriter(file, fieldnames=list(players_data[0].keys()))
-            writer.writeheader()
-            writer.writerows(players_data)
-    except Exception as e:
-        print(f"PLAYER STATS DATA FILE WRITE ERROR ({data_type}):", e)
-
-
-    return 
-
-
-
-
-
-
-# if __name__ == "__main__":
-
-#     # Used for testing in terminal only. Will be replaced by Flask App endpoint. 
-
-#     data_types = ["passing", "rushing", "receiving", "defense", "kicking"]
-
-#     for d in data_types:
-
-#         # scrape_player_stats(data_type=d, season="2024")
-
-    
-
-
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        executor.map(lambda args: scrape_player_stats(*args), player_stat_types)
     
