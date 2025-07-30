@@ -26,9 +26,9 @@ function App() {
   const handleLogoutClick = () => setShowVerifyLogout(true);
 
   const handleConfirmLogout = () => {
-    // Clear auth info and reload (or redirect as needed)
+    // Clear auth info and redirect to home page
     localStorage.clear();
-    window.location.reload();
+    window.location.href = "/";
     
     console.log("Logged out successfully");
   };
