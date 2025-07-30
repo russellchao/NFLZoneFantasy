@@ -24,7 +24,6 @@ def scrape_player_stats(data_type, season):
     )
 
     print(f"Response status code: {response.status_code}")
-
     if response.status_code != 200:
         print(response.headers["Retry-After"])
         raise Exception(f"Failed to load page ({response.status_code})")
@@ -148,6 +147,6 @@ def get_player_stats_data(year):
 
     player_stat_types = passing_stats + rushing_stats + receiving_stats + defense_stats + kicking_stats
 
-    with ThreadPoolExecutor(max_workers=8) as executor:
+    with ThreadPoolExecutor(max_workers=16) as executor:
         executor.map(lambda args: scrape_player_stats(*args), player_stat_types)
     

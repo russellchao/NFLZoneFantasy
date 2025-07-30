@@ -12,8 +12,6 @@ CORS(app, resources={r"/api/*": {"origins": "*"}})
 def update_player_stats(nflSeason): 
     # Endpoint called from Spring Boot App that updates the player stats CSVs
 
-    # data_types = ["passing", "rushing", "receiving", "defense", "kicking"]
-
     try:
         get_player_stats_data(nflSeason)
         return "Success updating player stats data"
