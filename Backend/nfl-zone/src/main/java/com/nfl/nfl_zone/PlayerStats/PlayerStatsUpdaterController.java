@@ -7,18 +7,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.scheduling.annotation.Async;
 
 import com.opencsv.CSVReader;
 import java.io.FileReader;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 
 @RestController
 @RequestMapping(path="api/v1/updatePlayerStats")
 public class PlayerStatsUpdaterController {
     // This endpoint updates all player stats tables in the PostgreSQL database based on the season requested
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     // Functions for when parsing int or double values in the csv, ignores null values
     private Integer parseIntSafe(String s) {
@@ -52,12 +57,19 @@ public class PlayerStatsUpdaterController {
                 return "Failure updating CSVs";
             }
 
-            // Update the PostgreSQL database for each playing category
-            update_database("passing");
-            update_database("rushing");
-            update_database("receiving");
-            update_database("defense");
-            update_database("kicking");
+            /* Update the databases for each player category asynchronously. */
+
+            // Create a list of futures for all database updates
+            List<CompletableFuture<Void>> futures = List.of(
+                update_database_async("passing"),
+                update_database_async("rushing"),
+                update_database_async("receiving"),
+                update_database_async("defense"),
+                update_database_async("kicking")
+            );
+
+            // Wait for all futures to complete
+            CompletableFuture.allOf(futures.toArray(new CompletableFuture[0])).join();
 
             System.out.println("Success");
             return "Success updating CSVs";
@@ -69,8 +81,11 @@ public class PlayerStatsUpdaterController {
     }
 
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+    @Async
+    public CompletableFuture<Void> update_database_async(String playerCategory) {
+        update_database(playerCategory);
+        return CompletableFuture.completedFuture(null);
+    }
 
 
     public void update_database(String playerCategory) {

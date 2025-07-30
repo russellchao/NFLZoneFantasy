@@ -105,8 +105,6 @@ public class UserService {
         message.setSubject(subject);
         message.setText(body);
         message.setFrom("NFL Zone <no-reply@nflzone.com>");
-
-        // make the verification email unrepliable by sending any reply attempts to a nonexistent email (NOT WORKING AS OF NOW)
         message.setReplyTo("no-reply@nflzone.com");
 
         mailSender.send(message);
@@ -184,7 +182,7 @@ public class UserService {
 
         if (!token.equals(user.getVerifToken())) {
             // Return an error if the PW reset link is invalid
-            return "Invalid or expired link. Please go back to the Login page and click 'Forgot Password' again.";
+            return "Invalid or expired link. Please go back to the Login page and click 'Reset Password' again.";
         }
 
         System.out.println("DEBUG: New Password: " + newPassword);
