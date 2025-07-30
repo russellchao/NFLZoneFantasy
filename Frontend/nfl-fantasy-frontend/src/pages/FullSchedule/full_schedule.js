@@ -1,5 +1,5 @@
 import React, {useRef, useEffect, useState} from 'react';
-import { fetchScheduleByWeek, fetchScheduleByMatchup, fetchUpdateScheduleDB } from '../../API/schedule_api';
+import { fetchScheduleByWeek, fetchScheduleByTeam, fetchScheduleByMatchup, fetchUpdateScheduleDB } from '../../API/schedule_api';
 import GameFinal from '../Components/Schedule/game_final';
 import GameScheduled from '../Components/Schedule/game_scheduled';
 import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
@@ -157,11 +157,37 @@ const FullSchedule = () => {
 
         // Check if the user wants to go back to the full schedule
         if (viewingSpecificMatchup) {
-            if (specificTeam1 === "" || specificTeam2 === "") {
+            if (specificTeam1 === "" && specificTeam2 === "") {
                 setViewingSpecificMatchup(false); 
                 return; 
             };
         }
+
+        // Check if the user wants to view all matchups featuring a specific team
+        if (specificTeam1 !== "" && specificTeam2 === "" || specificTeam1 === "" && specificTeam2 !== "") {
+            if (loading && specificMatchupSeasonChanged || !loading && !specificMatchupSeasonChanged) {
+                (async () => {  
+                    console.log(`Loading matchups featuring the ${specificTeam1 !== "" ? specificTeam1 : specificTeam2} in the ${teamSeason} season`);
+
+                    const schedule_data = await fetchScheduleByTeam(specificTeam1 !== "" ? specificTeam1 : specificTeam2);
+                    setSpecificSchedule(schedule_data);
+
+                    if (!viewingSpecificMatchup) {
+                        setViewingSpecificMatchup(true); 
+                    }
+
+                    if (specificMatchupSeasonChanged) {
+                        setSpecificMatchupSeasonChanged(false); 
+                    }
+
+                    if (loading) {
+                        setLoading(false); 
+                    }
+
+                })(); 
+            }
+            return; 
+        };
 
         // Check if the user selects two teams for a specific matchup
         if (specificTeam1 !== "" && specificTeam2 !== "" && specificTeam1 !== specificTeam2) {
@@ -339,7 +365,11 @@ const FullSchedule = () => {
                     <p>&nbsp;</p>
 
                     <h2 style={{ paddingLeft: '20px' }}>
-                        Matchups for {specificTeam1} vs. {specificTeam2} in the {teamSeason} season
+                        {specificTeam1 !== "" && specificTeam2 !== "" ? 
+                            `Matchups for ${specificTeam1} vs. ${specificTeam2} in the ${teamSeason} season`
+                            :
+                            `Matchups featuring the ${specificTeam1 !== "" ? specificTeam1 : specificTeam2} in the ${teamSeason} season`
+                        }
                     </h2>
 
                     <p>&nbsp;</p>
@@ -370,6 +400,11 @@ const FullSchedule = () => {
                                     />
                         ))}
                     </div>
+
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
 
                 </div>
             </>
