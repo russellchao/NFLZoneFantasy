@@ -12,7 +12,7 @@ logoImages.keys().forEach(key => {
 });
 
 const boxStyle = {
-    background: '#b3fff0',
+    background: 'linear-gradient(135deg, #409398ff 0%, #296b88ff 100%)',
     margin: '1%',
     width: '48%',
     minWidth: '350px',

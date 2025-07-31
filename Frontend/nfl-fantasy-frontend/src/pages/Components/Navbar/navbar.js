@@ -55,7 +55,7 @@ const Navbar = () => {
         <nav style={{ 
             padding: "20px",
             paddingLeft: "25px", 
-            background: "#004d26",
+            background: "#10161eff",
             position: "fixed",
             top: 0,
             left: 0,

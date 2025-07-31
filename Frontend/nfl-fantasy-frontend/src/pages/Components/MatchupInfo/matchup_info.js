@@ -31,7 +31,7 @@ const losingTeamStyle = {
 };
 
 const boxStyle = {
-    background: '#b3fff0',
+    background: 'linear-gradient(135deg, #409398ff 0%, #296b88ff 100%)',
     margin: '0%',
     width: '100%',
     minWidth: '350px',

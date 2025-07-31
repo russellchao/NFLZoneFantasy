@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 const boxStyle = {
-    background: '#b3fff0',
+    background: 'linear-gradient(135deg, #409398ff 0%, #296b88ff 100%)',
     margin: '0%',
     width: '80%',
     minWidth: '350px',
@@ -146,14 +146,14 @@ const HotTakes = () => {
                 <div>
                     <h1>Hot Takes</h1>
                     <h3>This is where you can place your hottest (or not so hot) takes for the upcoming NFL season. </h3>
-                    <h3 style={{ color:'blue' }}>Current Season: {currentSeason}</h3>
+                    <h3 style={{ color:'aqua' }}>Current Season: {currentSeason}</h3>
                 </div>
 
                 <br></br>
 
                 <div>
                     <h2>Enter your hot takes here</h2>
-                    <h4 style={{ color:'maroon' }}>
+                    <h4 style={{ color:'red' }}>
                         Hot takes are meant to be placed before the regular season and will no longer be accepted upon the start of the regular season.
                         {<br></br>}
                         After that, hot takes for the following season will re-open during the following offseason.
@@ -162,7 +162,7 @@ const HotTakes = () => {
                     { /* Only show the form if hot takes are being accepted */ }
                     { acceptingHotTakes ? (
                         <div>
-                            <h4 style={{ color:'maroon' }}>Hot takes for the {currentSeason} season will close on {kickoffDate.toLocaleDateString()} at 8:20 PM Eastern Time.</h4>
+                            <h4 style={{ color:'red' }}>Hot takes for the {currentSeason} season will close on {kickoffDate.toLocaleDateString()} at 8:20 PM Eastern Time.</h4>
                             <p>{form.hotTakeText.length}/{maxHotTakeLen}</p>
                             <form 
                                 style={{ 
@@ -233,7 +233,7 @@ const HotTakes = () => {
                             {hotTakesArray.length > 0 ? (
                                 hotTakesArray.map((hotTake, index) => (
                                     <div key={index}>
-                                        <p style={{ paddingLeft: '20px', color: 'green' }}>
+                                        <p style={{ paddingLeft: '20px', color: 'lightgreen' }}>
                                             {index+1}.  
                                             {" "}
                                             {hotTake} 

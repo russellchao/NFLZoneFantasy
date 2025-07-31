@@ -28,7 +28,7 @@ const SearchResult = ( {nameData} ) => {
 
                                 {key === "Quarterbacks" ? ( // note, actually comparing by reference, so no need for JSON.stringify()
 
-                                    <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px", backgroundColor: '#b3fff0', border: '2px solid black' }}>
+                                    <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px", background: 'linear-gradient(135deg, #409398ff 0%, #296b88ff 100%)', border: '2px solid black' }}>
                                     <thead>
                                         <tr>
                                             <th>Name</th>  
@@ -75,7 +75,7 @@ const SearchResult = ( {nameData} ) => {
 
                                 ) : key === "Running Backs" ? (
 
-                                    <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px", backgroundColor: '#b3fff0', border: '2px solid black' }}>
+                                    <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px", background: 'linear-gradient(135deg, #409398ff 0%, #296b88ff 100%)', border: '2px solid black' }}>
                                     <thead>
                                         <tr>
                                             <th>Name</th>  
@@ -112,7 +112,7 @@ const SearchResult = ( {nameData} ) => {
 
                                 ) : key === "Wide Receivers and Tight Ends" ? (
 
-                                    <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px", backgroundColor: '#b3fff0', border: '2px solid black' }}>
+                                    <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px", background: 'linear-gradient(135deg, #409398ff 0%, #296b88ff 100%)', border: '2px solid black' }}>
                                     <thead>
                                         <tr>
                                         <th>Name</th>  
@@ -149,7 +149,7 @@ const SearchResult = ( {nameData} ) => {
                                 
                                 ) : key === "Defenders" ? ( 
 
-                                    <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px", backgroundColor: '#b3fff0', border: '2px solid black' }}>
+                                    <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px", background: 'linear-gradient(135deg, #409398ff 0%, #296b88ff 100%)', border: '2px solid black' }}>
                                     <thead>
                                         <tr>
                                         <th>Name</th>  
@@ -196,7 +196,7 @@ const SearchResult = ( {nameData} ) => {
 
                                 ) : key === "Kickers" ? (
 
-                                    <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px", backgroundColor: '#b3fff0', border: '2px solid black' }}>
+                                    <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px", background: 'linear-gradient(135deg, #409398ff 0%, #296b88ff 100%)', border: '2px solid black' }}>
                                     <thead>
                                         <tr>
                                         <th>Name</th>  

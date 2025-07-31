@@ -158,7 +158,7 @@ const PositionPage = () => {
                         onClick={() => setPositionName(position)}
                         style={{
                             padding: '10px',
-                            backgroundColor: '#b3fff0',
+                            background: 'linear-gradient(135deg, #409398ff 0%, #296b88ff 100%)',
                             border: '2px solid black',  
                             borderRadius: '10px',
                             textAlign: 'center',
@@ -190,7 +190,7 @@ const PositionPage = () => {
             ) : JSON.stringify(positionName) === JSON.stringify("Quarterback") ? (
                 <>
                     <div style={{ marginLeft: '25px', width: '75%' }}>
-                        <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", width: '100%', backgroundColor: '#b3fff0', border: '2px solid black' }}>
+                        <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", width: '100%', background: 'linear-gradient(135deg, #409398ff 0%, #296b88ff 100%)', border: '2px solid black' }}>
                             <thead>
                                 <tr>
                                 <th>Name</th>  
@@ -255,7 +255,7 @@ const PositionPage = () => {
             ) : JSON.stringify(positionName) === JSON.stringify("Running Back") ? (
                 <>
                     <div style={{ marginLeft: '25px', width: '75%' }}>
-                        <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", width: '100%', backgroundColor: '#b3fff0', border: '2px solid black' }}>
+                        <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", width: '100%', background: 'linear-gradient(135deg, #409398ff 0%, #296b88ff 100%)', border: '2px solid black' }}>
                             <thead>
                                 <tr>
                                 <th>Name</th>  
@@ -308,7 +308,7 @@ const PositionPage = () => {
             ) : JSON.stringify(positionName) === JSON.stringify("Wide Receiver") || JSON.stringify(positionName) === JSON.stringify("Tight End") ? (
                 <>
                     <div style={{ marginLeft: '25px', width: '75%' }}>
-                        <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", width: '100%', backgroundColor: '#b3fff0', border: '2px solid black' }}>
+                        <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", width: '100%', background: 'linear-gradient(135deg, #409398ff 0%, #296b88ff 100%)', border: '2px solid black' }}>
                             <thead>
                                 <tr>
                                 <th>Name</th>  
@@ -361,7 +361,7 @@ const PositionPage = () => {
             ) : JSON.stringify(positionName) === JSON.stringify("Defensive End") || JSON.stringify(positionName) === JSON.stringify("Linebacker") || JSON.stringify(positionName) === JSON.stringify("Cornerback") || JSON.stringify(positionName) === JSON.stringify("Safety") ? (
                 <>
                     <div style={{ marginLeft: '25px', width: '75%' }}>
-                        <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", width: '100%', backgroundColor: '#b3fff0', border: '2px solid black' }}>
+                        <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", width: '100%', background: 'linear-gradient(135deg, #409398ff 0%, #296b88ff 100%)', border: '2px solid black' }}>
                             <thead>
                                 <tr>
                                 <th>Name</th>  
@@ -424,7 +424,7 @@ const PositionPage = () => {
             ) : JSON.stringify(positionName) === JSON.stringify("Kicker") ? (
                 <>
                     <div style={{ marginLeft: '25px', width: '75%' }}>
-                        <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", width: '100%', backgroundColor: '#b3fff0', border: '2px solid black' }}>
+                        <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", width: '100%', background: 'linear-gradient(135deg, #409398ff 0%, #296b88ff 100%)', border: '2px solid black' }}>
                             <thead>
                                 <tr>
                                 <th>Name</th>  

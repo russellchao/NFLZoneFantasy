@@ -8,7 +8,7 @@ const PlayerStats = ({ passers, rushers, receivers, defenders, kickers }) => {
             {passers.length === 0 ? (
                 <p style={{ paddingLeft: '20px' }}>No passing data available for this team.</p>
             ) : (
-                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px", backgroundColor: '#b3fff0', border: '2px solid black' }}>
+                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px", background: 'linear-gradient(135deg, #409398ff 0%, #296b88ff 100%)', border: '2px solid black' }}>
                     <thead>
                         <tr>
                         <th>Name</th>  
@@ -60,7 +60,7 @@ const PlayerStats = ({ passers, rushers, receivers, defenders, kickers }) => {
             {rushers.length === 0 ? (
                 <p style={{ paddingLeft: '20px' }}>No rushing data available for this team.</p>
             ) : (
-                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px", backgroundColor: '#b3fff0', border: '2px solid black' }}>
+                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px", background: 'linear-gradient(135deg, #409398ff 0%, #296b88ff 100%)', border: '2px solid black' }}>
                     <thead>
                         <tr>
                         <th>Name</th>  
@@ -102,7 +102,7 @@ const PlayerStats = ({ passers, rushers, receivers, defenders, kickers }) => {
             {receivers.length === 0 ? (
                 <p style={{ paddingLeft: '20px' }}>No receiving data available for this team.</p>
             ) : (
-                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px", backgroundColor: '#b3fff0', border: '2px solid black' }}>
+                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px", background: 'linear-gradient(135deg, #409398ff 0%, #296b88ff 100%)', border: '2px solid black' }}>
                     <thead>
                         <tr>
                         <th>Name</th>  
@@ -144,7 +144,7 @@ const PlayerStats = ({ passers, rushers, receivers, defenders, kickers }) => {
             {defenders.length === 0 ? (
                 <p style={{ paddingLeft: '20px' }}>No defense data available for this team.</p>
             ) : (
-                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px", backgroundColor: '#b3fff0', border: '2px solid black' }}>
+                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px", background: 'linear-gradient(135deg, #409398ff 0%, #296b88ff 100%)', border: '2px solid black' }}>
                     <thead>
                         <tr>
                         <th>Name</th>  
@@ -196,7 +196,7 @@ const PlayerStats = ({ passers, rushers, receivers, defenders, kickers }) => {
             {kickers.length === 0 ? (
                 <p style={{ paddingLeft: '20px' }}>No kicking data available for this team.</p>
             ) : (
-                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px", backgroundColor: '#b3fff0', border: '2px solid black' }}>
+                <table border="1" cellPadding="16" style={{ borderCollapse: "collapse", marginLeft: "25px", background: 'linear-gradient(135deg, #409398ff 0%, #296b88ff 100%)', border: '2px solid black' }}>
                     <thead>
                         <tr>
                         <th>Name</th>  

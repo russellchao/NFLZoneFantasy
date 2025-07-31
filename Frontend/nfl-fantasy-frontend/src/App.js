@@ -28,7 +28,7 @@ function App() {
       <div 
         style={{ 
           paddingTop: "60px", 
-          background: "#53c68c",
+          background: "linear-gradient(135deg, #0f2027 0%, #2c5364 100%)",
           minHeight: "100vh"
         }}>
         <Routes>
