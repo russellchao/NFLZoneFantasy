@@ -1,5 +1,5 @@
 import React, { useState } from 'react'; 
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { useAuth } from '../../../hooks/use_auth';
 import VerifyLogout from '../Logout/verify_logout';
 
@@ -35,6 +35,7 @@ const buttonStyle = {
 const Navbar = () => {
     const { isLoggedIn, username } = useAuth(); 
     const [showVerifyLogout, setShowVerifyLogout] = useState(false);
+    const navigate = useNavigate();
 
     // If the user clicks 'Log Out', show the logout confirmation modal
     const handleLogoutClick = () => setShowVerifyLogout(true);
@@ -45,7 +46,8 @@ const Navbar = () => {
     // If the user clicks 'Yes' when being asked to Log out, clear auth info and redirect to home page
     const handleConfirmLogout = () => {
         localStorage.clear();
-        window.location.href = "/";
+        navigate("/");
+        window.location.reload(); // reload the page to reflect the logout state
         console.log("Logged out successfully");
     };
 
@@ -136,14 +138,14 @@ const Navbar = () => {
                 ) : (
                     <>
                         <button 
-                            onClick={() => window.location.href = "/login"}
+                            onClick={() => navigate('/login')}
                             style={buttonStyle}
                         >
                             Login
                         </button>
 
                         <button 
-                            onClick={() => window.location.href = "/register"}
+                            onClick={() => navigate('/register')}
                             style={buttonStyle}
                         >
                             Register
