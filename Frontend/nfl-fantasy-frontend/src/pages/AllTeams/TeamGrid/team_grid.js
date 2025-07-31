@@ -2,7 +2,7 @@ import React, { use } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // Import all logo images
-const logoImages = require.context('../../../logos', false, /\.(png|jpe?g|svg)$/);
+const logoImages = require.context('../../../logos/NFL Logos', false, /\.(png|jpe?g|svg)$/);
 
 // Create a mapping of team abbreviations to logo paths
 const teamLogos = {};

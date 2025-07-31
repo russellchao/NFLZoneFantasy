@@ -1,5 +1,5 @@
 // Import all logo images
-const logoImages = require.context('../../logos', false, /\.(png|jpe?g|svg)$/);
+const logoImages = require.context('../../logos/NFL Logos', false, /\.(png|jpe?g|svg)$/);
 
 // Create a mapping of team abbreviations to logo paths
 const teamLogos = {};

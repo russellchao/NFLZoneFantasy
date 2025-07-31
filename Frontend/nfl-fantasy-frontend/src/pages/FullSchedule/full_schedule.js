@@ -57,7 +57,6 @@ const FullSchedule = () => {
     };
 
 
-
     useEffect(() => {
         // This useEffect is triggered when the page loads for the first time or when the user selects a different season
 
@@ -93,7 +92,6 @@ const FullSchedule = () => {
     }, [teamSeason]);
 
 
-
     useEffect(() => {
         // This useEffect is triggered when the user selects a different week
 
@@ -114,7 +112,6 @@ const FullSchedule = () => {
         
 
     }, [week]);
-
 
 
     useEffect(() => {
@@ -142,7 +139,6 @@ const FullSchedule = () => {
         console.log('Updated dates:', datesThisWeek);
 
     }, [schedule]);
-
 
 
     useEffect(() => {
@@ -217,7 +213,6 @@ const FullSchedule = () => {
     }, [specificMatchupSeasonChanged, specificTeam1, specificTeam2]); 
 
 
-
     useEffect(() => {
         // This useEffect hook handles requests to view information about a matchup 
 
@@ -250,7 +245,6 @@ const FullSchedule = () => {
         }
 
     }, [viewingMatchupInfo])
-
 
 
     // When the page is loading schedule data
@@ -313,7 +307,6 @@ const FullSchedule = () => {
             </>
         )
     }
-
 
 
     // When the user submitted a specific matchup

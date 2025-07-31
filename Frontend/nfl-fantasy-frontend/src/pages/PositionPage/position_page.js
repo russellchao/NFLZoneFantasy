@@ -28,7 +28,7 @@ const PositionPage = () => {
     const [loading, setLoading] = useState(true); 
     const [loadError, throwLoadError] = useState(false); 
     const [numPlayersShown, setPlayersShown] = useState(10); 
-    const [teamSeason, setSeason] = useState("2024"); 
+    const [teamSeason, setSeason] = useState("2025"); // Default season
 
     // Track if the initial fetch has been done
     const initialFetchRef = useRef(false);

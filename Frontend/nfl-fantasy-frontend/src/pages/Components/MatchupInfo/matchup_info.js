@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 // Import all logo images
-const logoImages = require.context('../../../logos', false, /\.(png|jpe?g|svg)$/);
+const logoImages = require.context('../../../logos/NFL Logos', false, /\.(png|jpe?g|svg)$/);
 
 // Create a mapping of team abbreviations to logo paths
 const teamLogos = {};
@@ -312,7 +312,7 @@ const MatchupInfo = ({ game }) => {
                                 </div>
                             </div>
 
-                            <br></br>
+                            <p>&nbsp;</p>
                         </div>
                     )}
                     
@@ -402,7 +402,7 @@ const MatchupInfo = ({ game }) => {
                                 <div style={{ textAlign: 'right' }}>{boxscore?.teams[1].statistics[24]?.displayValue || 0}</div>
                             </div>
 
-                            <br></br>
+                            <p>&nbsp;</p>
                         </div>
                     )}
                     
