@@ -2,6 +2,7 @@ import React, {useRef, useEffect, useState} from 'react';
 import { fetchScheduleByWeek, fetchScheduleByTeam, fetchScheduleByMatchup, fetchUpdateScheduleDB } from '../../API/schedule_api';
 import GameFinal from '../Components/Schedule/game_final';
 import GameScheduled from '../Components/Schedule/game_scheduled';
+import GameInProgress from '../Components/Schedule/game_in_progress';
 import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
 import WeekDropdownMenu from '../Components/WeekDropdown/week_dropdown';
 import TeamDropdownMenu from '../Components/TeamDropdown/team_dropdown';
@@ -372,25 +373,38 @@ const FullSchedule = () => {
                         {specificSchedule.map((game, idx) => (
                             game.status === 'Final' 
                                 ?   
-                                    <GameFinal 
-                                        key = {game.gameId || idx} 
-                                        game = {game} 
-                                        onClick = {() => {
-                                            window.scrollTo(0, 0);
-                                            setViewingMatchupInfo(true);
-                                            setMatchToViewInfo(game);
-                                        }}
-                                    />
-                                : 
-                                    <GameScheduled
-                                        key = {game.gameId || idx} 
-                                        game = {game} 
-                                        onClick = {() => {
-                                            window.scrollTo(0, 0);
-                                            setViewingMatchupInfo(true);
-                                            setMatchToViewInfo(game);
-                                        }}
-                                    />
+                                <GameFinal 
+                                    key = {game.gameId || idx} 
+                                    game = {game} 
+                                    onClick = {() => {
+                                        window.scrollTo(0, 0);
+                                        setViewingMatchupInfo(true);
+                                        setMatchToViewInfo(game);
+                                    }}
+                                />
+                            : game.status === 'Scheduled'
+                                ?
+                                <GameScheduled
+                                    key = {game.gameId || idx} 
+                                    game = {game} 
+                                    onClick = {() => {
+                                        window.scrollTo(0, 0);
+                                        setViewingMatchupInfo(true);
+                                        setMatchToViewInfo(game);
+                                    }}
+                                />
+                            : game.status === 'In Progress'
+                                ?
+                                <GameInProgress
+                                    key = {game.gameId || idx} 
+                                    game = {game} 
+                                    onClick = {() => {
+                                        window.scrollTo(0, 0);
+                                        setViewingMatchupInfo(true);
+                                        setMatchToViewInfo(game);
+                                    }}
+                                />
+                            : <></>
                         ))}
                     </div>
 
@@ -461,6 +475,16 @@ const FullSchedule = () => {
                                     <GameScheduled 
                                         key = {game.gameId || gameIdx} 
                                         game = {game} 
+                                        onClick = {() => {
+                                            window.scrollTo(0, 0);
+                                            setViewingMatchupInfo(true);
+                                            setMatchToViewInfo(game);
+                                        }}
+                                    />
+                                ) : game.status === 'In Progress' || game.status === 'Halftime' ? (
+                                    <GameInProgress
+                                        key = {game.gameId || gameIdx}
+                                        game = {game}
                                         onClick = {() => {
                                             window.scrollTo(0, 0);
                                             setViewingMatchupInfo(true);

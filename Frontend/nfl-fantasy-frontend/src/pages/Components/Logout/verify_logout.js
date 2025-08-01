@@ -27,7 +27,7 @@ const buttonStyle = {
 const VerifyLogout = ({ onConfirm, onCancel }) => (
     <div style={modalStyle}>
         <div>
-            <h3>Are you sure you want to log out?</h3>
+            <h3 style={{color:'black'}}>Are you sure you want to log out?</h3>
         </div>
         <div style={{ marginTop: "16px", textAlign: "right" }}>
             <button style={buttonStyle} onClick={onConfirm}>Yes</button>

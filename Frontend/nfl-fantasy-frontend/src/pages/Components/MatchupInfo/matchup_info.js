@@ -163,8 +163,19 @@ const MatchupInfo = ({ game }) => {
 
                 <h2 style={{ textAlign: 'center' }}>{game.venue}</h2>
 
+                <br></br>
 
-                <p>&nbsp;</p>
+                <div style={{ textAlign: 'center', marginLeft: '30px', color: 'aqua' }}>
+                    <h2>
+                        See more on
+                        <a href={`https://www.espn.com/nfl/game/_/gameId/${game.gameId}`} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            style={{ textDecoration: 'underline', color: 'lightblue', paddingLeft: '7px' }}>
+                            ESPN
+                        </a>
+                    </h2>
+                </div>
 
                 
                 {/* Section 2: Scoring Summary */}
@@ -809,8 +820,19 @@ const MatchupInfo = ({ game }) => {
 
             <h2 style={{ textAlign: 'center' }}>{game.venue}</h2>
 
-            <p>&nbsp;</p>
+            <br></br>
 
+            <div style={{ textAlign: 'center', marginLeft: '30px', color: 'aqua' }}>
+                <h2>
+                    See more on
+                    <a href={`https://www.espn.com/nfl/game/_/gameId/${game.gameId}`} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        style={{ textDecoration: 'underline', color: 'lightblue', paddingLeft: '7px' }}>
+                        ESPN
+                    </a>
+                </h2>
+            </div>
 
 
             {/* Section 2: Win Probability */}
@@ -927,7 +949,93 @@ const MatchupInfo = ({ game }) => {
 
 
 
-    // At some point I'll add a graphic for Live games
+    if (game.status === "In Progress" || game.status === "Halftime" && initialFetchRef.current) {
+        // Graphic for In Progress games
+
+        const boxscore = matchupInfoData["boxscore"];
+        const scoringPlays = matchupInfoData["scoringPlays"];
+        const leaders = matchupInfoData["leaders"];
+        const drives = matchupInfoData["drives"];
+        
+        return (
+            <div>
+
+                {/* Section 1: General Matchup Info */}
+                <h2 style={{ textAlign: 'center' }}>{game.weekNum}</h2>
+                <h2 style={{ textAlign: 'center' }}>{game.date}</h2>
+                <h2 style={{ textAlign: 'center', color: 'lightgreen' }}>{game.status.toUpperCase()} • {game.broadcast}</h2>
+                <h2 style={{ textAlign: 'center', color:'#ed9b95' }}>No dynamic updating as of now</h2>
+                
+                <div style={{ 
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    gap: '40px',
+                    marginBottom: '30px',
+                    textAlign: 'center'
+                }}>
+                    {/* Away Team */}
+                    <div>
+                        <h2>
+                            <img 
+                                src={teamLogos[game.awayTeam]} 
+                                alt={`${game.awayTeam} logo`} 
+                                style={logoStyle}
+                            /> 
+                            {game.awayTeam} ({game.awayTeamRecord})
+                        </h2>
+                        <h1 style={{ fontSize: '2.5em', margin: '10px 0' }}>{game.awayTeamScore}</h1>
+                    </div>
+
+                    {/* Separator */}
+                    <div style={{ 
+                        fontSize: '2em',
+                        fontWeight: 'bold',
+                        margin: '0 20px'
+                    }}>
+                        @
+                    </div>
+
+                    {/* Home Team */}
+                    <div>
+                        <h2>
+                            <img 
+                                src={teamLogos[game.homeTeam]} 
+                                alt={`${game.homeTeam} logo`} 
+                                style={logoStyle}
+                            />
+                            {game.homeTeam} ({game.homeTeamRecord})</h2>
+                        <h1 style={{ fontSize: '2.5em', margin: '10px 0' }}>{game.homeTeamScore}</h1>
+                    </div>
+                </div>
+
+                <h2 style={{ textAlign: 'center' }}>{game.venue}</h2>
+
+                <p>&nbsp;</p>
+
+                {/* Section 2: Redirect to ESPN */}
+                <div style={{ textAlign: 'center', marginLeft: '30px', color: 'aqua' }}>
+                    <h2>
+                        See live stats and updates on 
+                        <a href={`https://www.espn.com/nfl/game/_/gameId/${game.gameId}`} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            style={{ textDecoration: 'underline', color: 'lightblue', paddingLeft: '7px' }}>
+                            ESPN
+                        </a>
+                    </h2>
+                    <h2>
+                        Final stats will be available here after the game ends.
+                    </h2>
+                </div>
+
+                <p>&nbsp;</p>
+                
+            </div>
+        );
+
+    };
 
 
 };

@@ -2,6 +2,7 @@
 
 import GameFinal from '../../Components/Schedule/game_final';
 import GameScheduled from '../../Components/Schedule/game_scheduled';
+import GameInProgress from '../../Components/Schedule/game_in_progress';
 
 const rowStyle = {
     display: 'flex',
@@ -25,15 +26,29 @@ const Schedule = ({ schedule, setViewingMatchupInfo, setMatchToViewInfo }) => {
                                 setMatchToViewInfo(game);
                             }} 
                         />
-                        : <GameScheduled 
-                            key={game.gameId || idx} 
-                            game={game} 
+                    : game.status === 'Scheduled'
+                        ?
+                        <GameScheduled
+                            key = {game.gameId || idx} 
+                            game = {game} 
                             onClick = {() => {
                                 window.scrollTo(0, 0);
                                 setViewingMatchupInfo(true);
                                 setMatchToViewInfo(game);
                             }}
                         />
+                    : game.status === 'In Progress'
+                        ?
+                        <GameInProgress
+                            key = {game.gameId || idx} 
+                            game = {game} 
+                            onClick = {() => {
+                                window.scrollTo(0, 0);
+                                setViewingMatchupInfo(true);
+                                setMatchToViewInfo(game);
+                            }}
+                        />
+                    : <></>
                 ))}
             </div>
         </>
