@@ -140,10 +140,10 @@ def get_matches_this_week(year, week, seasonType):
             gameId = matchup.get("competitions")[0].get("id")
 
 
-            # away team and home team scores (for Final games only)
+            # away team and home team scores (for Final/In progress games only)
             awayTeamScore = -1
             homeTeamScore = -1
-            if status == "Final":
+            if status == "Final" or status == "In Progress" or status == "Halftime":
                 awayTeamScore = int(matchup.get("competitions")[0].get("competitors")[1].get("score"))
                 homeTeamScore = int(matchup.get("competitions")[0].get("competitors")[0].get("score"))
 
@@ -154,7 +154,7 @@ def get_matches_this_week(year, week, seasonType):
                 overtime = "true"
 
 
-            # add the game's start time if the game's status is "Scheduled
+            # add the game's start time if the game's status is "Scheduled"
             start_time = "N/A"
             if status == "Scheduled":
                 start_time_detail = matchup.get("status").get("type").get("detail").split(" ") 
