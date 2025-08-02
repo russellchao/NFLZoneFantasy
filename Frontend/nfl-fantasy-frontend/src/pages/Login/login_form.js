@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
-    const [form, setForm] = useState({ username: '', password: '' }); 
+    const [form, setForm] = useState({ username: '', password: '', points: '' }); 
     const [message, setMessage] = useState(''); 
     const navigate = useNavigate(); 
 
@@ -20,10 +20,17 @@ const LoginForm = () => {
         const text = await response.text(); 
         setMessage(text);
 
-        // If the login is successful, store the user's credentials
+        // If the login is successful, store the user's credentials and points
         if (text === "Login successful") {
+
+            const get_points = await fetch(`http://localhost:8081/api/v1/auth/getPoints?username=${form.username}`, {
+                method: "GET"
+            });
+            const points = await get_points.text()
+
             localStorage.setItem("isLoggedIn", true); 
             localStorage.setItem("username", form.username); 
+            localStorage.setItem("points", points)
 
             navigate("/"); // redirect to home page
             window.location.reload(); // immediately reload the page after logging in 

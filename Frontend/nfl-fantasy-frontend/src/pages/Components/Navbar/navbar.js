@@ -33,7 +33,7 @@ const buttonStyle = {
 
 
 const Navbar = () => {
-    const { isLoggedIn, username } = useAuth(); 
+    const { isLoggedIn, username, points } = useAuth(); 
     const [showVerifyLogout, setShowVerifyLogout] = useState(false);
     const navigate = useNavigate();
 
@@ -127,13 +127,16 @@ const Navbar = () => {
                 <div style={{ marginLeft: "auto", marginRight: "50px" }}>
                     {isLoggedIn ? (
                         <>
-                        <span style={{ color: "#ffffff" }}>Welcome, {username}!</span>
-                        <button 
-                            onClick={handleLogoutClick}
-                            style={buttonStyle}
-                        >
-                            Log Out
-                        </button>
+                        <span style={{ color: "#d2e859ff" }}>Points: {points}</span>
+                        <span style={{ color: "#ffffff", paddingLeft: "30px" }}>Welcome, {username}!</span>
+                        <div style={{ display: "inline-block" }}>
+                            <button 
+                                onClick={handleLogoutClick}
+                                style={buttonStyle}
+                            >
+                                Log Out
+                            </button>
+                        </div>
                     </>
                 ) : (
                     <>

@@ -11,9 +11,11 @@ import java.util.*;
 public class UserController {
 
     private final UserService userService;
+    private final UserRepository userRepository;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, UserRepository userRepository) {
         this.userService = userService;
+        this.userRepository = userRepository;
     }
 
     @PostMapping("/register")
@@ -39,6 +41,17 @@ public class UserController {
     @PostMapping("/resetPw")
     public String resetPassword(@RequestParam String username, @RequestBody String newPassword, @RequestParam String token) {
         return userService.resetPassword(username, newPassword, token);
+    }
+
+    @GetMapping("/getPoints")
+    public Integer getPoints(@RequestParam String username) {
+        return userRepository.findByUsername(username).get().getPoints();
+    }
+
+    @PutMapping("/updatePoints")
+    public void updatePoints(@RequestParam String username, @RequestParam Integer increaseBy) {
+        userRepository.findByUsername(username).get().setPoints(userRepository.findByUsername(username).get().getPoints() + increaseBy);
+        userRepository.save(userRepository.findByUsername(username).get());
     }
 }
 

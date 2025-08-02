@@ -20,6 +20,8 @@ public class User {
     @Column(unique = true)
     private String verifToken;
 
+    private Integer points;
+
 
     // Getters and Setters
 
@@ -77,5 +79,13 @@ public class User {
 
     public void setVerifToken(String verifToken) {
         this.verifToken = verifToken;
+    }
+
+    public Integer getPoints() {
+        return points;
+    }
+
+    public void setPoints(Integer points) {
+        this.points = points;
     }
 }

@@ -73,7 +73,7 @@ const gridStyle = {
 }
 
 const Home = () => {
-    const { isLoggedIn, username } = useAuth(); 
+    const { isLoggedIn, username, points } = useAuth(); 
     const navigate = useNavigate();
 
     return (

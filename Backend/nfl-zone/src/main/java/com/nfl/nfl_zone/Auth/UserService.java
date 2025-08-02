@@ -43,20 +43,21 @@ public class UserService {
         if (user.getPassword().equalsIgnoreCase(user.getUsername())) {
             return "Username and password cannot be the same";
         }
-
-
+        
         // Proceed with the following steps if the username, email, and password are valid
 
         // Step 1: Encode the password
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
 
         // Step 2: Generate and assign a verification token to the user
         String token = UUID.randomUUID().toString();
         user.setVerifToken(token);
         user.setVerified(false); // initially mark that the email is unverified
 
-        // Step 3: Save the user to the 'users' table in PostgreSQL
+        // Step 3: Set the number of points for the user to 0
+        user.setPoints(0);
+
+        // Step 4: Save the user to the 'users' table in PostgreSQL
         userRepository.save(user);
 
         // Final Step: Send the verification email
