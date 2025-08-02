@@ -108,7 +108,6 @@ if __name__ == '__main__':
         "The Buccaneers will make the Super Bowl"
     ]
 
-
     while True:
         hotTake = input("Enter your hot take: ")
 
