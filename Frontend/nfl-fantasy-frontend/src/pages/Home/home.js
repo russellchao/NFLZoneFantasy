@@ -24,7 +24,7 @@ const heroStyle = {
     boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
     margin: '40px auto',
     width: '80%',
-    maxWidth: '700px',
+    maxWidth: '900px',
     padding: '40px 20px'
 };
 
@@ -53,7 +53,7 @@ const subtitleStyle = {
 };
 
 const buttonStyle = {
-    padding: '12px 32px',
+    padding: '12px 40px',
     fontSize: '1.1rem',
     fontWeight: '600',
     background: '#0e3739ff',
@@ -105,6 +105,9 @@ const Home = () => {
             <div style={gridStyle}>
                 <button style={buttonStyle} onClick={() => isLoggedIn ? navigate("/hot_takes") : navigate("/login")}>
                     Hot Takes
+                </button>
+                <button style={buttonStyle} onClick={() => isLoggedIn ? navigate("/predict_the_winner") : navigate("/login")}>
+                    Predict The Winner
                 </button>
             </div>
             

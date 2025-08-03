@@ -16,6 +16,7 @@ import VerifySuccess from './pages/Verification/verify_success';
 import ResetPassword from './pages/ResetPassword/reset_password';
 import CreateNewPassword from './pages/ResetPassword/create_new_password';
 import HotTakes from './pages/HotTakes/hot_takes';
+import PredictTheWinner from './pages/PredictTheWinner/predict_the_winner';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           <Route path="/reset_password" element={<ResetPassword />} />
           <Route path="/create_new_password/:username/:token" element={<CreateNewPassword />} />
           <Route path="/hot_takes" element={<HotTakes />} />
+          <Route path="/predict_the_winner" element={<PredictTheWinner />} />
         </Routes>
       </div>
     </Router>

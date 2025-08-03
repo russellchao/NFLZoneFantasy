@@ -35,6 +35,8 @@ const buttonStyle = {
 const Navbar = () => {
     const { isLoggedIn, username, points } = useAuth(); 
     const [showVerifyLogout, setShowVerifyLogout] = useState(false);
+    const [hoveredLogo, setHoveredLogo] = useState(null);
+    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const navigate = useNavigate();
 
     // If the user clicks 'Log Out', show the logout confirmation modal
@@ -67,10 +69,35 @@ const Navbar = () => {
             alignItems: "center"
         }}>
             <div style={{ display: "flex", alignItems: "center" }}>
+                {/* Banner for hovered logo */}
+                {hoveredLogo && (
+                    <div 
+                        style={{
+                            position: "absolute",
+                            top: mousePos.y + 20, // 20px below the cursor
+                            left: mousePos.x,
+                            background: "#222",
+                            color: "#fff",
+                            padding: "6px 18px",
+                            borderRadius: "6px",
+                            fontWeight: "bold",
+                            zIndex: 2000,
+                            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                            pointerEvents: "none"
+                        }}
+                    >
+                        {hoveredLogo}
+                    </div>
+                )}
+                
                 <Link to="/" style={{ marginRight: "30px", color: "#ffffff" }}>
                     <img 
                         src={navbarLogos["Home"]} 
                         style={logoStyle}
+                        alt="Home"
+                        onMouseEnter={() => setHoveredLogo("Home")}
+                        onMouseLeave={() => setHoveredLogo(null)}
+                        onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}
                     />
                 </Link>
 
@@ -78,6 +105,10 @@ const Navbar = () => {
                     <img 
                         src={navbarLogos["Schedule"]} 
                         style={logoStyle}
+                        alt="Schedule"
+                        onMouseEnter={() => setHoveredLogo("Schedule")}
+                        onMouseLeave={() => setHoveredLogo(null)}
+                        onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}
                     />
                 </Link>
 
@@ -85,6 +116,10 @@ const Navbar = () => {
                     <img 
                         src={navbarLogos["Teams"]} 
                         style={logoStyle}
+                        alt="Teams"
+                        onMouseEnter={() => setHoveredLogo("Teams")}
+                        onMouseLeave={() => setHoveredLogo(null)}
+                        onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}
                     />
                 </Link>
 
@@ -92,6 +127,10 @@ const Navbar = () => {
                     <img 
                         src={navbarLogos["Positions"]} 
                         style={logoStyle}
+                        alt="Positions"
+                        onMouseEnter={() => setHoveredLogo("Positions")}
+                        onMouseLeave={() => setHoveredLogo(null)}
+                        onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}
                     />
                 </Link>
 
@@ -99,6 +138,10 @@ const Navbar = () => {
                     <img 
                         src={navbarLogos["Player Search"]} 
                         style={logoStyle}
+                        alt="Player Search"
+                        onMouseEnter={() => setHoveredLogo("Player Search")}
+                        onMouseLeave={() => setHoveredLogo(null)}
+                        onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}
                     />
                 </Link>
 
@@ -112,12 +155,29 @@ const Navbar = () => {
         
                 {/* Conditionally render certain section links based on login status */}
                 {isLoggedIn ? (
-                    <Link to="/hot_takes" style={{ color: "#ffffff" }}>
-                        <img 
-                            src={navbarLogos["Hot Takes"]} 
-                            style={logoStyle}
-                        />
-                    </Link>
+                    <div>
+                        <Link to="/hot_takes" style={{ marginRight: "30px", color: "#ffffff" }}>
+                            <img 
+                                src={navbarLogos["Hot Takes"]} 
+                                style={logoStyle}
+                                alt="Hot Takes"
+                                onMouseEnter={() => setHoveredLogo("Hot Takes")}
+                                onMouseLeave={() => setHoveredLogo(null)}
+                                onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}
+                            />
+                        </Link>
+
+                        <Link to="/predict_the_winner" style={{ marginRight: "30px", color: "#ffffff" }}>
+                            <img 
+                                src={navbarLogos["Predict The Winner"]} 
+                                style={logoStyle}
+                                alt="Predict The Winner"
+                                onMouseEnter={() => setHoveredLogo("Predict The Winner")}
+                                onMouseLeave={() => setHoveredLogo(null)}
+                                onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}
+                            />
+                        </Link>
+                    </div>
                 ) : (
                     null
                 )}
