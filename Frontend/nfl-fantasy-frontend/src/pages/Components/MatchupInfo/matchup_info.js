@@ -745,26 +745,24 @@ const MatchupInfo = ({ game }) => {
         // Win probablity (Not applicable for Preseason Games)
         let awayTeamWinChance = "N/A";
         let homeTeamWinChance = "N/A"; 
-
         if (matchupInfoData["predictor"]) {
             awayTeamWinChance = matchupInfoData["predictor"]["awayTeam"]["gameProjection"] + "%";
             homeTeamWinChance = matchupInfoData["predictor"]["homeTeam"]["gameProjection"] + "%";
         }
 
 
-        // Odds - set the odds once they become available
+        // Odds - spread and over/under
         let spread = "N/A";
         let overUnder = "N/A";
+        if (matchupInfoData["pickcenter"]) {
+            spread = matchupInfoData["pickcenter"][0]["details"]; 
+            overUnder = matchupInfoData["pickcenter"][0]["overUnder"];
+        }
         
         
         // Injury reports
         const homeTeamInjuries = matchupInfoData["injuries"][0]["injuries"]; 
         const awayTeamInjuries = matchupInfoData["injuries"][1]["injuries"]; 
-        
-        console.log(`${game.awayTeam} injuries:`); 
-        console.log(awayTeamInjuries); 
-        console.log(`${game.homeTeam} injuries:`); 
-        console.log(homeTeamInjuries); 
         
 
         return (
