@@ -1,0 +1,13 @@
+package com.nfl.nfl_zone.Predictions;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import java.util.*;
+
+@Repository
+public interface PredictionRepository extends JpaRepository<Prediction, String> {
+    Optional<Prediction> findByUsername(String username);
+    Optional<Prediction> findByGameId(String gameId);
+    Optional<Prediction> findByGameIdAndUsername(String gameId, String username);
+    Optional<Prediction> findByWeek(String week);
+}
