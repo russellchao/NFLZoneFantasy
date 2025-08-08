@@ -38,7 +38,6 @@ const FullSchedule = () => {
     const [viewingMatchupInfo, setViewingMatchupInfo] = useState(false); 
     const [matchToViewInfo, setMatchToViewInfo] = useState(); // The game which the user wants to view info
 
-
     // Track if initial fetch has been done
     const initialFetchRef = useRef(false);
 

@@ -156,7 +156,7 @@ const Navbar = () => {
                 {/* Conditionally render certain section links based on login status */}
                 {isLoggedIn ? (
                     <div>
-                        <Link to="/hot_takes" style={{ marginRight: "30px", color: "#ffffff" }}>
+                        <Link to="/hot_takes" style={{ marginRight: "30px", color: "#ffffffff" }}>
                             <img 
                                 src={navbarLogos["Hot Takes"]} 
                                 style={logoStyle}

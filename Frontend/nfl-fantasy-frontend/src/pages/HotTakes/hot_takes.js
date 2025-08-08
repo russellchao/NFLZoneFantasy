@@ -153,7 +153,7 @@ const HotTakes = () => {
 
                 <div>
                     <h2>Enter your hot takes here</h2>
-                    <h4 style={{ color:'red' }}>
+                    <h4 style={{ color:'#ed9b95' }}>
                         Hot takes are meant to be placed before the regular season and will no longer be accepted upon the start of the regular season.
                         {<br></br>}
                         After that, hot takes for the following season will re-open during the following offseason.
@@ -162,7 +162,7 @@ const HotTakes = () => {
                     { /* Only show the form if hot takes are being accepted */ }
                     { acceptingHotTakes ? (
                         <div>
-                            <h4 style={{ color:'red' }}>Hot takes for the {currentSeason} season will close on {kickoffDate.toLocaleDateString()} at 8:20 PM Eastern Time.</h4>
+                            <h4 style={{ color:'#ed9b95' }}>Hot takes for the {currentSeason} season will close on {kickoffDate.toLocaleDateString()} at 8:20 PM Eastern Time.</h4>
                             <p>{form.hotTakeText.length}/{maxHotTakeLen}</p>
                             <form 
                                 style={{ 
