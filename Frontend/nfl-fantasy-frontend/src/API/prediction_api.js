@@ -36,6 +36,8 @@ export const deleteOldMatchups = async (currentPredictionWeek) => {
      * Basically deletes all matchups from the previous week
     */ 
 
+    console.log(`Deleting old matchups for week: ${currentPredictionWeek}`)
+
     const response = await fetch(`http://localhost:8081/api/v1/predictions/deleteOldMatchups?currentWeek=${currentPredictionWeek}`, {
         method: "DELETE"
     });
@@ -45,3 +47,68 @@ export const deleteOldMatchups = async (currentPredictionWeek) => {
     }
 };
 
+export const getPredictions = async (username) => {
+
+    console.log(`Getting predictions for username: ${username}`)
+
+    const response = await fetch(`http://localhost:8081/api/v1/predictions/getPredictions?username=${username}`, {
+        method: "GET"
+    });
+
+    if (!response.ok) {
+        console.error("Failed to get predictions from prediction database:", response.statusText);
+    }
+
+    const data = await response.json();
+    console.log(data); 
+
+    return data;
+}; 
+
+export const updatePredictedWinner = async (gameId, username, winner) => {
+
+    const response = await fetch(
+        `http://localhost:8081/api/v1/predictions/updatePredictedWinner?gameId=${gameId}&username=${username}&winner=${winner}`, 
+    {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    if (!response.ok) {
+        console.error("Failed to update predicted winner:", response.statusText);
+    }
+};
+
+export const updatePredictedSpread = async (gameId, username, spread) => {
+
+    const response = await fetch(
+        `http://localhost:8081/api/v1/predictions/updatePredictedSpread?gameId=${gameId}&username=${username}&spread=${spread}`, 
+    {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    if (!response.ok) {
+        console.error("Failed to update predicted spread:", response.statusText);
+    }
+};
+
+export const updatePredictedOverUnder = async (gameId, username, overUnder) => {
+
+    const response = await fetch(
+        `http://localhost:8081/api/v1/predictions/updatePredictedOverUnder?gameId=${gameId}&username=${username}&overUnder=${overUnder}`, 
+    {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    if (!response.ok) {
+        console.error("Failed to update predicted over/under:", response.statusText);
+    }
+};

@@ -7,6 +7,7 @@ import java.util.*;
 @Repository
 public interface PredictionRepository extends JpaRepository<Prediction, String> {
     Optional<Prediction> findByUsername(String username);
+    List<Prediction> findAllByUsername(String username);
     Optional<Prediction> findByGameId(String gameId);
     Optional<Prediction> findByGameIdAndUsername(String gameId, String username);
     Optional<Prediction> findByWeek(String week);

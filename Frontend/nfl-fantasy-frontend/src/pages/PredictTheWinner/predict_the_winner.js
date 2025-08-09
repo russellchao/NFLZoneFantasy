@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { fetchScheduleByWeek, fetchUpdateScheduleDB } from '../../API/schedule_api';
-import { deleteOldMatchups, updateMatchups } from '../../API/prediction_api';
+import { deleteOldMatchups, updateMatchups, getPredictions, updatePredictedWinner, updatePredictedSpread, updatePredictedOverUnder } from '../../API/prediction_api';
 
 // Import all logo images
 const logoImages = require.context('../../logos/NFL Logos', false, /\.(png|jpe?g|svg)$/);
@@ -172,6 +172,7 @@ const PredictTheWinner = () => {
     const currentSeason = "2025"; 
     const today = new Date();
     const [currentPredictionWeek, setCurrentPredictionWeek] = useState(""); 
+    const [currentPredictions, setCurrentPredictions] = useState([]);
 
     const [matchups, setMatchups] = useState([]);
     const [spreads, setSpreads] = useState([]);
@@ -179,6 +180,17 @@ const PredictTheWinner = () => {
 
     const [loading, setLoading] = useState(true); 
     const [loadError, throwLoadError] = useState(false); 
+
+
+    useEffect(() => {
+        // Automatically refresh the page every 10 minutes
+
+        const interval = setInterval(() => {
+            window.location.reload();
+        }, 10 * 60 * 1000); // 10 minutes in milliseconds
+
+        return () => clearInterval(interval); // Cleanup on unmount
+    }, []);
 
     
     async function getCurrentPredictionWeek() {
@@ -249,10 +261,60 @@ const PredictTheWinner = () => {
     }
 
 
-    function handlePickWinner(team) {
+    function handlePickWinner(gameId, username, winner, status) {
+        // Handle the user's winner prediction for a matchup
+        console.log(`User picked for winner: ${winner}`);
+        
+        if (status === "Scheduled") {
+            (async () => {
+                await updatePredictedWinner(gameId, username, winner);
+
+                // Update the predictions array so it is reflected in the UI
+                const predictions = await getPredictions(localStorage.getItem("username"));
+                setCurrentPredictions(predictions);
+            })();
+
+        } else {
+            console.log("Game already started or finished, cannot make a prediction.");
+        }
+    }
+
+
+    function handlePickSpread(gameId, username, spread, status) {
         // Handle the user's prediction for a matchup
-        console.log(`User picked: ${team}`);
-        // Here you would typically send the prediction to your backend or update the state accordingly
+        console.log(`User picked for spread: ${spread}`);
+        
+        if (status === "Scheduled") {
+            (async () => {
+                await updatePredictedSpread(gameId, username, spread);
+
+                // Update the predictions array so it is reflected in the UI
+                const predictions = await getPredictions(localStorage.getItem("username"));
+                setCurrentPredictions(predictions);
+            })();
+            
+        } else {
+            console.log("Game already started or finished, cannot make a prediction.");
+        }
+    }
+
+
+    function handlePickOverUnder(gameId, username, overUnder, status) {
+        // Handle the user's prediction for a matchup
+        console.log(`User picked for over/under: ${overUnder}`);
+        
+        if (status === "Scheduled") {
+            (async () => {
+                await updatePredictedOverUnder(gameId, username, overUnder);
+
+                // Update the predictions array so it is reflected in the UI
+                const predictions = await getPredictions(localStorage.getItem("username"));
+                setCurrentPredictions(predictions);
+            })();
+
+        } else {
+            console.log("Game already started or finished, cannot make a prediction.");
+        }
     }
 
     
@@ -271,7 +333,7 @@ const PredictTheWinner = () => {
     useEffect(() => {
         // Update the schedule database and fetch the matchups for the current prediction week for this season
 
-        if (currentPredictionWeek && currentPredictionWeek !== "N/A") {
+        if (currentPredictionWeek !== "") {
             const updateAndFetchMatchups = async () => {
                 await updateScheduleDB();
 
@@ -307,22 +369,23 @@ const PredictTheWinner = () => {
 
     }, [matchups]);
 
-    /*
-        In the future, when the spread and over/under finish loading, add another useEffect hook.
-        This hook would call the database to check if the user made any predictions (for Scheduled games)
-        This hook would determine the result and add/deduct points based on if a prediction was correct or not (for Final games)
-    */
 
     useEffect(() => {
         /**
          * First delete matchups from the previous week in the prediction database
          * Then add matchups of the current week, or update the away/home teams' score, spread, and over/under if it already exists in the DB
-         */
+         * Finally, fetch the current user's predictions for the current week
+        */
 
-        (async () => {
-            await deleteOldMatchups(currentPredictionWeek);
-            await updateMatchups(matchups, spreads, overUnders);
-        })();
+        if (currentPredictionWeek !== "") {
+            (async () => {
+                await deleteOldMatchups(currentPredictionWeek);
+                await updateMatchups(matchups, spreads, overUnders);
+
+                const predictions = await getPredictions(localStorage.getItem("username"));
+                setCurrentPredictions(predictions);
+            })();
+        }
 
     }, [spreads, overUnders]);
 
@@ -374,13 +437,14 @@ const PredictTheWinner = () => {
                     <h2>Rules</h2>
 
                     <div style={boxStyle}>
-                        <div style={{ color: 'lightgreen', paddingLeft: '20px' }}>
+                        <div style={{ paddingLeft: '20px' }}>
                             <h4>1. Only games that are being played this week and before its scheduled start time are eligible for prediction.</h4>
                             <h4>2. Predicting winners: You will win 2 points for each correct prediction and lose 2 points for each incorrect prediction. Correctly/Incorrectly predicting a tie will win/lose you 20 points.</h4>
                             <h4>3. Predicting the spread: You will win 4 points for each correct prediction and lose 4 points for each incorrect prediction.</h4>
                             <h4>4. Predicting over/under: You will win 3 points for each correct prediction and lose 3 points for each incorrect prediction.</h4>
                             <h4>5. You will not win/lose any points for any predictions that are not made.</h4>
                             <h4>6. Note that the Spreads and Over/Unders can change over time, so you should ideally wait right before the start of the game to place your picks.</h4>
+                            <h4>7. This page automatically refreshes every 10 minutes to ensure the latest matchup information.</h4>
                             <h4>Pick wisely!</h4>
                         </div>
                     </div>
@@ -439,14 +503,14 @@ const PredictTheWinner = () => {
                                         ) : matchup.status === "Final" ? (
                                             <div>
                                                 <h4 style={{ color: 'lightgreen' }}>
-                                                    Results are in!
+                                                    Result: {teamAbbr[matchup.awayTeam]} {matchup.awayTeamScore}, {teamAbbr[matchup.homeTeam]} {matchup.homeTeamScore}
                                                 </h4>
                                             </div>
 
                                         ) : (
                                             // If the game is 'In Progress', 'Halftime', etc
                                             <h4 style={{ color: '#f4a0a0ff' }}>
-                                                Locked
+                                                Locked, Game In Progress
                                             </h4>
                                         )}   
                                     </div>
@@ -457,21 +521,21 @@ const PredictTheWinner = () => {
                                         <div style={{ display: 'inline-block' }}>
                                             <button 
                                                 style={buttonStyle}
-                                                onClick={() => handlePickWinner(matchup.awayTeam)}>
+                                                onClick={() => handlePickWinner(matchup.gameId, localStorage.getItem("username"), matchup.awayTeam, matchup.status)}>
                                                     {teamAbbr[matchup.awayTeam]}
                                             </button>
                                         </div>
                                         <div style={{ display: 'inline-block', paddingLeft: '5px' }}>
                                             <button 
                                                 style={buttonStyle}
-                                                onClick={() => handlePickWinner(matchup.homeTeam)}>
+                                                onClick={() => handlePickWinner(matchup.gameId, localStorage.getItem("username"), matchup.homeTeam, matchup.status)}>
                                                     {teamAbbr[matchup.homeTeam]}
                                             </button>
                                         </div>
                                         <div style={{ display: 'inline-block', paddingLeft: '5px' }}>
                                             <button 
                                                 style={buttonStyle}
-                                                onClick={() => handlePickWinner("Tie")}>
+                                                onClick={() => handlePickWinner(matchup.gameId, localStorage.getItem("username"), "Tie", matchup.status)}>
                                                     Tie
                                             </button>
                                         </div>
@@ -482,7 +546,8 @@ const PredictTheWinner = () => {
 
                                         <div style={{ display: 'inline-block' }}>
                                             <button 
-                                                style={buttonStyle}>
+                                                style={buttonStyle}
+                                                onClick={() => handlePickSpread(matchup.gameId, localStorage.getItem("username"), "Minus", matchup.status)}>
                                                     {typeof spreads[matchup.gameId] === 'string'
                                                         ? `-${spreads[matchup.gameId].replace(/^[A-Z]{2,3}\s-?/, '')}`
                                                         : '-'
@@ -491,7 +556,8 @@ const PredictTheWinner = () => {
                                         </div>
                                         <div style={{ display: 'inline-block', paddingLeft: '5px' }}>
                                             <button 
-                                                style={buttonStyle}>
+                                                style={buttonStyle}
+                                                onClick={() => handlePickSpread(matchup.gameId, localStorage.getItem("username"), "Plus", matchup.status)}>
                                                     {typeof spreads[matchup.gameId] === 'string'
                                                         ? `+${spreads[matchup.gameId].replace(/^[A-Z]{2,3}\s-?/, '')}`
                                                         : '-'
@@ -505,13 +571,15 @@ const PredictTheWinner = () => {
 
                                         <div style={{ display: 'inline-block' }}>
                                             <button 
-                                                style={buttonStyle}>
+                                                style={buttonStyle}
+                                                onClick={() => handlePickOverUnder(matchup.gameId, localStorage.getItem("username"), "Over", matchup.status)}>
                                                     o{overUnders[matchup.gameId]}
                                             </button>
                                         </div>
                                         <div style={{ display: 'inline-block', paddingLeft: '5px' }}>
                                             <button 
-                                                style={buttonStyle}>
+                                                style={buttonStyle}
+                                                onClick={() => handlePickOverUnder(matchup.gameId, localStorage.getItem("username"), "Under", matchup.status)}>
                                                     u{overUnders[matchup.gameId]}
                                             </button>
                                         </div>
