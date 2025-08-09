@@ -45,12 +45,12 @@ const buttonStyleSelected = {
     padding: '5px 12px',
     fontSize: '1.1rem',
     fontWeight: '600',
-    background: '#8ac7ebff',
-    color: '#fff',
+    background: '#66faf5ff',
+    color: '#181289ff',
     border: 'none',
     borderRadius: '8px',
     cursor: 'pointer',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.12)',
     transition: 'background 0.2s'
 };
 
@@ -467,11 +467,17 @@ const PredictTheWinner = () => {
 
                 <div style={{ textAlign: 'center' }}>
                     {/* Show matchups for the current week and give the user an option to pick one team or a tie*/}
+                    
                     {matchups.length > 0 ? (
                         <div style={gridStyle}>
-                            {matchups.map((matchup, index) => (
-                                <div key={index} style={{ margin: '10px 0' }}>
-                                    <div>
+                            {matchups.map((matchup, index) => {
+                                
+                                // Get the array in currentPredictions that is based on the gameId for this matchup
+                                const predictionForThisMatchup = currentPredictions.find(pred => pred.gameId === matchup.gameId) || {};
+
+                                return (
+                                    <div key={index} style={{ margin: '10px 0' }}>
+                                        <div>
                                         <div style={{ display: 'inline-block'}}>
                                             <img 
                                                 src={teamLogos[matchup.awayTeam]} 
@@ -520,21 +526,21 @@ const PredictTheWinner = () => {
                                         
                                         <div style={{ display: 'inline-block' }}>
                                             <button 
-                                                style={buttonStyle}
+                                                style={predictionForThisMatchup.predictedWinner === matchup.awayTeam ? buttonStyleSelected : buttonStyle}
                                                 onClick={() => handlePickWinner(matchup.gameId, localStorage.getItem("username"), matchup.awayTeam, matchup.status)}>
                                                     {teamAbbr[matchup.awayTeam]}
                                             </button>
                                         </div>
                                         <div style={{ display: 'inline-block', paddingLeft: '5px' }}>
                                             <button 
-                                                style={buttonStyle}
+                                                style={predictionForThisMatchup.predictedWinner === matchup.homeTeam ? buttonStyleSelected : buttonStyle}
                                                 onClick={() => handlePickWinner(matchup.gameId, localStorage.getItem("username"), matchup.homeTeam, matchup.status)}>
                                                     {teamAbbr[matchup.homeTeam]}
                                             </button>
                                         </div>
                                         <div style={{ display: 'inline-block', paddingLeft: '5px' }}>
                                             <button 
-                                                style={buttonStyle}
+                                                style={predictionForThisMatchup.predictedWinner === "Tie" ? buttonStyleSelected : buttonStyle}
                                                 onClick={() => handlePickWinner(matchup.gameId, localStorage.getItem("username"), "Tie", matchup.status)}>
                                                     Tie
                                             </button>
@@ -546,7 +552,7 @@ const PredictTheWinner = () => {
 
                                         <div style={{ display: 'inline-block' }}>
                                             <button 
-                                                style={buttonStyle}
+                                                style={predictionForThisMatchup.predictedSpread === "Minus" ? buttonStyleSelected : buttonStyle}
                                                 onClick={() => handlePickSpread(matchup.gameId, localStorage.getItem("username"), "Minus", matchup.status)}>
                                                     {typeof spreads[matchup.gameId] === 'string'
                                                         ? `-${spreads[matchup.gameId].replace(/^[A-Z]{2,3}\s-?/, '')}`
@@ -556,7 +562,7 @@ const PredictTheWinner = () => {
                                         </div>
                                         <div style={{ display: 'inline-block', paddingLeft: '5px' }}>
                                             <button 
-                                                style={buttonStyle}
+                                                style={predictionForThisMatchup.predictedSpread === "Plus" ? buttonStyleSelected : buttonStyle}
                                                 onClick={() => handlePickSpread(matchup.gameId, localStorage.getItem("username"), "Plus", matchup.status)}>
                                                     {typeof spreads[matchup.gameId] === 'string'
                                                         ? `+${spreads[matchup.gameId].replace(/^[A-Z]{2,3}\s-?/, '')}`
@@ -571,14 +577,14 @@ const PredictTheWinner = () => {
 
                                         <div style={{ display: 'inline-block' }}>
                                             <button 
-                                                style={buttonStyle}
+                                                style={predictionForThisMatchup.predictedOverUnder === "Over" ? buttonStyleSelected : buttonStyle}
                                                 onClick={() => handlePickOverUnder(matchup.gameId, localStorage.getItem("username"), "Over", matchup.status)}>
                                                     o{overUnders[matchup.gameId]}
                                             </button>
                                         </div>
                                         <div style={{ display: 'inline-block', paddingLeft: '5px' }}>
                                             <button 
-                                                style={buttonStyle}
+                                                style={predictionForThisMatchup.predictedOverUnder === "Under" ? buttonStyleSelected : buttonStyle}
                                                 onClick={() => handlePickOverUnder(matchup.gameId, localStorage.getItem("username"), "Under", matchup.status)}>
                                                     u{overUnders[matchup.gameId]}
                                             </button>
@@ -586,7 +592,7 @@ const PredictTheWinner = () => {
                                     </div>
                                     
                                 </div>
-                            ))}
+                            )})}
                         </div>          
                     ) : (
                         <p>No matchups available for this week.</p>
