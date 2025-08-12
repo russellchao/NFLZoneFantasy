@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { fetchScheduleByWeek, fetchUpdateScheduleDB } from '../../API/schedule_api';
-import { deleteOldMatchups, updateMatchups, getPredictions, updatePredictedWinner, updatePredictedSpread, updatePredictedOverUnder } from '../../API/prediction_api';
+import { deleteOldMatchups, updateMatchups, getPredictions, updatePredictedWinner, updatePredictedSpread, updatePredictedOverUnder, updatePointsForPrediction } from '../../API/prediction_api';
 
 // Import all logo images
 const logoImages = require.context('../../logos/NFL Logos', false, /\.(png|jpe?g|svg)$/);
@@ -131,20 +131,20 @@ const teamAbbr = {
     "Washington Commanders":"WSH"
 };
 
-const startDatesForWeek = {
+const datesForEachWeek = {
     /*
-        The dates for each week where predictions can start being made for games being played that week
-        E.g. predictions for Week 1, 2025 games can start being made on 8/28/2025
+        The dates for each week when predictions can start being made for games being played that week.
+        (E.g. predictions for Week 1, 2025 games can start being made on 8/28/2025)
 
         Current Season: 2025-26
     */ 
 
     "Hall of Fame Week": new Date("2025-07-24"),
     "Preseason Week 1": new Date("2025-08-02"),
-    "Preseason Week 2": new Date("2025-08-12"),
+    "Preseason Week 2": new Date("2025-08-14"), 
     "Preseason Week 3": new Date("2025-08-20"),
-    "Week 1": new Date("2025-08-28"),
-    "Week 2": new Date("2025-09-10"),
+    "Week 1": new Date("2025-08-28"), 
+    "Week 2": new Date("2025-09-10"), 
     "Week 3": new Date("2025-09-17"),
     "Week 4": new Date("2025-09-24"),
     "Week 5": new Date("2025-10-01"),
@@ -152,7 +152,7 @@ const startDatesForWeek = {
     "Week 7": new Date("2025-10-15"),
     "Week 8": new Date("2025-10-22"),
     "Week 9": new Date("2025-10-29"),
-    "Week 10": new Date("2025-11-05"),
+    "Week 10": new Date("2025-11-05"), 
     "Week 11": new Date("2025-11-12"),
     "Week 12": new Date("2025-11-19"),
     "Week 13": new Date("2025-11-26"),
@@ -160,11 +160,11 @@ const startDatesForWeek = {
     "Week 15": new Date("2025-12-10"),
     "Week 16": new Date("2025-12-17"),
     "Week 17": new Date("2025-12-24"),
-    "Week 18": new Date("2025-12-31"),
-    "Wild Card Round": new Date("2026-01-06"),
-    "Divisional Round": new Date("2026-01-14"),
-    "Conference Championships": new Date("2026-01-20"),
-    "Super Bowl": new Date("2026-01-27"),
+    "Week 18": new Date("2026-01-02"),
+    "Wild Card Round": new Date("2026-01-09"),
+    "Divisional Round": new Date("2026-01-16"),
+    "Conference Championships": new Date("2026-01-24"),
+    "Super Bowl": new Date("2026-02-07"),
 };
 
 
@@ -195,7 +195,7 @@ const PredictTheWinner = () => {
 
     async function getCurrentPredictionWeek() {
         // Get the current week where predictions for games that week could start being made
-        const currentPredictionWeek = Object.entries(startDatesForWeek)
+        const currentPredictionWeek = Object.entries(datesForEachWeek)
             .filter(([week, date]) => date <= today)
             .sort((a, b) => b[1] - a[1]);
         return currentPredictionWeek.length > 0 ? currentPredictionWeek[0][0] : "N/A";
@@ -506,7 +506,7 @@ const PredictTheWinner = () => {
                         <div style={{ paddingLeft: '20px' }}>
                             <h4>1. Only games that are being played this week and before its scheduled start time are eligible for prediction.</h4>
                             <h4>2. Predicting winners: You will win 1 point for each correct prediction and lose 1 point for each incorrect prediction. Correctly/Incorrectly predicting a tie will win/lose you 20 points.</h4>
-                            <h4>3. Predicting the spread: You will win 3 points for each correct prediction and lose 3 points for each incorrect prediction.</h4>
+                            <h4>3. Predicting the spread: You will win 3 points for each correct prediction and lose 3 points for each incorrect prediction. If the spread is "EVEN", you will not win or lose any points.</h4>
                             <h4>4. Predicting over/under: You will win 2 points for each correct prediction and lose 2 points for each incorrect prediction.</h4>
                             <h4>5. You will not win/lose any points for any predictions that are not made, or has been originally made but the game has been canceled (rare).</h4>
                             <h4>6. Note that the Spreads and Over/Unders can change over time, so you should ideally wait right before the start of the game to place your picks.</h4>
@@ -545,11 +545,42 @@ const PredictTheWinner = () => {
                                 let winnerIsCorrect = null; 
                                 let spreadIsCorrect = null;
                                 let overUnderIsCorrect = null; 
+                                let pointsForThisPrediction = 0; 
 
                                 if (matchup.status === 'Final') {
                                     winnerIsCorrect = checkCorrectWinner(predictionForThisMatchup); 
                                     spreadIsCorrect = checkCorrectSpread(predictionForThisMatchup);
                                     overUnderIsCorrect = checkCorrectOverUnder(predictionForThisMatchup);
+
+                                    // Calculate the number of points earned based on the predictions
+                                    if (winnerIsCorrect === true) {
+                                        if (predictionForThisMatchup.predictedWinner === "Tie") pointsForThisPrediction += 20; 
+                                        else pointsForThisPrediction++; 
+
+                                    } else if (winnerIsCorrect === false) {
+                                        if (predictionForThisMatchup.predictedWinner === "Tie") pointsForThisPrediction -= 20; 
+                                        else pointsForThisPrediction--; 
+                                    }
+
+                                    if (spreadIsCorrect === true) pointsForThisPrediction += 3;
+                                    else if (spreadIsCorrect === false) pointsForThisPrediction -= 3;
+
+                                    if (overUnderIsCorrect === true) pointsForThisPrediction += 2;
+                                    else if (overUnderIsCorrect === false) pointsForThisPrediction -= 2;
+
+                                    /**
+                                     * Add the number of points to the user's current number of points.
+                                     * Update the points for the given user in the database, then reflect the change in the navbar
+                                     */
+                                    updatePointsForPrediction(matchup.gameId, localStorage.getItem("username"), pointsForThisPrediction);
+                                    (async () => {
+                                        const get_points = await fetch(`http://localhost:8081/api/v1/auth/getPoints?username=${localStorage.getItem("username")}`, {
+                                            method: "GET"
+                                        });
+                                        const points = await get_points.text()
+
+                                        localStorage.setItem("points", points);
+                                    })();
                                 }
 
                                 return (
@@ -701,6 +732,29 @@ const PredictTheWinner = () => {
                                                     u{overUnders[matchup.gameId]}
                                             </button>
                                         </div>
+                                    </div>
+
+                                    <div>
+                                        {matchup.status === 'Final' && (() => {
+                                            return (
+                                                <div>
+                                                    <div style={{ display: 'inline-block' }}>
+                                                        <h4>
+                                                            Points for this prediction: 
+                                                        </h4>
+                                                    </div>
+                                                    <div style={{ display: 'inline-block', paddingLeft: '7px' }}>
+                                                        {pointsForThisPrediction > 0 ? 
+                                                            <h4 style={{ color: 'lightgreen' }}>{pointsForThisPrediction}</h4>
+                                                        : pointsForThisPrediction < 0 ? 
+                                                            <h4 style={{ color: '#f4a0a0ff' }}>{pointsForThisPrediction}</h4>
+                                                        : 
+                                                            <h4>{pointsForThisPrediction}</h4>
+                                                        }   
+                                                    </div>
+                                                </div>
+                                            );
+                                        })()} 
                                     </div>
                                     
                                 </div>

@@ -43,4 +43,8 @@ public class PredictionController {
         predictionService.updateOverUnderPrediction(gameId, username, overUnder);
     }
 
+    @PutMapping("/addPoints")
+    public void addPts(@RequestParam String gameId, @RequestParam String username, @RequestParam Integer points) {
+        predictionService.addPoints(gameId, username, points);
+    }
 }

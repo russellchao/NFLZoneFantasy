@@ -85,4 +85,16 @@ public class PredictionService {
             }
         }
     }
+
+    public void addPoints(String gameId, String username, Integer points) {
+        Prediction prediction = predictionRepository.findByGameIdAndUsername(gameId, username).get();
+
+        if (!prediction.isPointsAdded()) {
+            String pointsEndpoint = String.format("http://localhost:8081/api/v1/auth/updatePoints?username=%s&increaseBy=%d", username, points);
+            RestTemplate restTemplate = new RestTemplate();
+            restTemplate.put(pointsEndpoint, prediction);
+            prediction.setPointsAdded(true);
+            predictionRepository.save(prediction);
+        }
+    }
 }

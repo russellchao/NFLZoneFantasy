@@ -728,7 +728,6 @@ const MatchupInfo = ({ game }) => {
 
 
 
-
     if (game.status === "Scheduled" && initialFetchRef.current) {
         // Graphic for Scheduled games
 

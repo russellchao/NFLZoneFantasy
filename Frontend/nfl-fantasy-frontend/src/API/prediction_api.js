@@ -112,3 +112,19 @@ export const updatePredictedOverUnder = async (gameId, username, overUnder) => {
         console.error("Failed to update predicted over/under:", response.statusText);
     }
 };
+
+export const updatePointsForPrediction = async (gameId, username, points) => {
+
+    const response = await fetch(
+        `http://localhost:8081/api/v1/predictions/addPoints?gameId=${gameId}&username=${username}&points=${points}`, 
+    {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    if (!response.ok) {
+        console.error("Failed to update points for prediction:", response.statusText);
+    }
+};
