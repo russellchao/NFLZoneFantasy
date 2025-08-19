@@ -1,5 +1,6 @@
 import React, { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
+import { getPoints } from '../../API/points_api';
 
 const LoginForm = () => {
     const [form, setForm] = useState({ username: '', password: '', points: '' }); 
@@ -23,10 +24,7 @@ const LoginForm = () => {
         // If the login is successful, store the user's credentials and points
         if (text === "Login successful") {
 
-            const get_points = await fetch(`http://localhost:8081/api/v1/auth/getPoints?username=${form.username}`, {
-                method: "GET"
-            });
-            const points = await get_points.text()
+            const points = await getPoints(form.username);
 
             localStorage.setItem("isLoggedIn", true); 
             localStorage.setItem("username", form.username); 

@@ -46,6 +46,18 @@ public class Prediction {
     @Column(name = "week")
     private String week;
 
+    @Column(name = "winneriscorrect")
+    private String winnerIsCorrect;
+
+    @Column(name = "spreadiscorrect")
+    private String spreadIsCorrect;
+
+    @Column(name = "overunderiscorrect")
+    private String overUnderIsCorrect;
+
+    @Column(name = "numpoints")
+    private Integer numPoints;
+
 
     public String getGameId() {
         return gameId;
@@ -149,5 +161,37 @@ public class Prediction {
 
     public void setWeek(String week) {
         this.week = week;
+    }
+
+    public String getWinnerIsCorrect() {
+        return winnerIsCorrect;
+    }
+
+    public void setWinnerIsCorrect(String winnerIsCorrect) {
+        this.winnerIsCorrect = winnerIsCorrect;
+    }
+
+    public String getSpreadIsCorrect() {
+        return spreadIsCorrect;
+    }
+
+    public void setSpreadIsCorrect(String spreadIsCorrect) {
+        this.spreadIsCorrect = spreadIsCorrect;
+    }
+
+    public String getOverUnderIsCorrect() {
+        return overUnderIsCorrect;
+    }
+
+    public void setOverUnderIsCorrect(String overUnderIsCorrect) {
+        this.overUnderIsCorrect = overUnderIsCorrect;
+    }
+
+    public Integer getNumPoints() {
+        return numPoints;
+    }
+
+    public void setNumPoints(Integer numPoints) {
+        this.numPoints = numPoints;
     }
 }

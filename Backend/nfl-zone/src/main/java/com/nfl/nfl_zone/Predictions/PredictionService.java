@@ -86,15 +86,34 @@ public class PredictionService {
         }
     }
 
-    public void addPoints(String gameId, String username, Integer points) {
+    public void setPointsAdded(String gameId, String username) {
+        // Mark the flag that the points for a specific prediction has been added to true
         Prediction prediction = predictionRepository.findByGameIdAndUsername(gameId, username).get();
+        prediction.setPointsAdded(true);
+        predictionRepository.save(prediction);
+    }
 
-        if (!prediction.isPointsAdded()) {
-            String pointsEndpoint = String.format("http://localhost:8081/api/v1/auth/updatePoints?username=%s&increaseBy=%d", username, points);
-            RestTemplate restTemplate = new RestTemplate();
-            restTemplate.put(pointsEndpoint, prediction);
-            prediction.setPointsAdded(true);
-            predictionRepository.save(prediction);
-        }
+    public void setWinnerIsCorrect(String gameId, String username, String isCorrect) {
+        Prediction prediction = predictionRepository.findByGameIdAndUsername(gameId, username).get();
+        prediction.setWinnerIsCorrect(isCorrect);
+        predictionRepository.save(prediction);
+    }
+
+    public void setSpreadIsCorrect(String gameId, String username, String isCorrect) {
+        Prediction prediction = predictionRepository.findByGameIdAndUsername(gameId, username).get();
+        prediction.setSpreadIsCorrect(isCorrect);
+        predictionRepository.save(prediction);
+    }
+
+    public void setOverUnderIsCorrect(String gameId, String username, String isCorrect) {
+        Prediction prediction = predictionRepository.findByGameIdAndUsername(gameId, username).get();
+        prediction.setOverUnderIsCorrect(isCorrect);
+        predictionRepository.save(prediction);
+    }
+
+    public void setNumPoints(String gameId, String username, Integer numPoints) {
+        Prediction prediction = predictionRepository.findByGameIdAndUsername(gameId, username).get();
+        prediction.setNumPoints(numPoints);
+        predictionRepository.save(prediction);
     }
 }

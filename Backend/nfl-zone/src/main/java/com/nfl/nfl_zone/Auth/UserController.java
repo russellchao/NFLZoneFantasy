@@ -45,13 +45,15 @@ public class UserController {
 
     @GetMapping("/getPoints")
     public Integer getPoints(@RequestParam String username) {
-        return userRepository.findByUsername(username).get().getPoints();
+        User user = userRepository.findByUsername(username).get();
+        return user.getPoints();
     }
 
-    @PutMapping("/updatePoints")
-    public void updatePoints(@RequestParam String username, @RequestParam Integer increaseBy) {
-        userRepository.findByUsername(username).get().setPoints(userRepository.findByUsername(username).get().getPoints() + increaseBy);
-        userRepository.save(userRepository.findByUsername(username).get());
+    @PutMapping("/setPoints")
+    public void setPoints(@RequestParam String username, @RequestParam Integer points) {
+        User user = userRepository.findByUsername(username).get();
+        user.setPoints(points);
+        userRepository.save(user);
     }
 }
 

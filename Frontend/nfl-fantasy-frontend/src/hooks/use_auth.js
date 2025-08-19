@@ -16,6 +16,17 @@ export const useAuth = () => {
 
         const points = localStorage.getItem("points");
         setPoints(points ? parseInt(points, 10) : 0); // Ensure points is a number
+
+        // Listen for point updates
+        const handlePointsUpdate = () => {
+            const updatedPoints = localStorage.getItem("points");
+            setPoints(updatedPoints ? parseInt(updatedPoints, 10) : 0);
+        };
+        window.addEventListener("pointsUpdated", handlePointsUpdate);
+
+        return () => {
+            window.removeEventListener("pointsUpdated", handlePointsUpdate);
+        };
     }, []); 
 
     return { isLoggedIn, username, points }; 

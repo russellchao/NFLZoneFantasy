@@ -1,6 +1,8 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { fetchScheduleByWeek, fetchUpdateScheduleDB } from '../../API/schedule_api';
-import { deleteOldMatchups, updateMatchups, getPredictions, updatePredictedWinner, updatePredictedSpread, updatePredictedOverUnder, updatePointsForPrediction } from '../../API/prediction_api';
+import { deleteOldMatchups, updateMatchups, getPredictions, updatePredictedWinner, updatePredictedSpread, updatePredictedOverUnder, markPointsAddedForPrediction, setWinnerIsCorrect, setSpreadIsCorrect, setOverUnderIsCorrect, setNumPoints } from '../../API/prediction_api';
+import { createNotification } from '../../API/notification_api';
+import { setPoints, getPoints } from '../../API/points_api';
 
 // Import all logo images
 const logoImages = require.context('../../logos/NFL Logos', false, /\.(png|jpe?g|svg)$/);
@@ -269,7 +271,6 @@ const PredictTheWinner = () => {
                 const predictions = await getPredictions(localStorage.getItem("username"));
                 setCurrentPredictions(predictions);
             })();
-
         } else {
             console.log("Game already started or finished, cannot make a prediction.");
         }
@@ -286,8 +287,7 @@ const PredictTheWinner = () => {
                 // Update the predictions array so it is reflected in the UI
                 const predictions = await getPredictions(localStorage.getItem("username"));
                 setCurrentPredictions(predictions);
-            })();
-            
+            })();  
         } else {
             console.log("Game already started or finished, cannot make a prediction.");
         }
@@ -305,7 +305,6 @@ const PredictTheWinner = () => {
                 const predictions = await getPredictions(localStorage.getItem("username"));
                 setCurrentPredictions(predictions);
             })();
-
         } else {
             console.log("Game already started or finished, cannot make a prediction.");
         }
@@ -313,7 +312,7 @@ const PredictTheWinner = () => {
 
     function checkCorrectWinner(prediction) {
         if (prediction.predictedWinner === "N/A") {
-            return null; 
+            return "N/A"; 
 
         } else if (prediction.predictedWinner === prediction.awayTeam) {
             return prediction.awayTeamScore > prediction.homeTeamScore;
@@ -328,7 +327,7 @@ const PredictTheWinner = () => {
 
     function checkCorrectSpread(prediction) {
         if (prediction.spreadValue === "EVEN" || prediction.predictedSpread === "N/A" || prediction.spreadValue === undefined) {
-            return null; 
+            return "N/A"; 
         } 
 
         const spreadTeam = (prediction.spreadValue).replace(/-?\d+(\.\d+)?/, '').trim(); // e.g. "BUF -3.5" => "BUF"
@@ -353,7 +352,6 @@ const PredictTheWinner = () => {
             }
 
         } else if (prediction.predictedSpread === 'Plus') {
-
             /**
              * If the user picked the 'Plus' spread (picked the underdog), a correct prediction falls under 3 conditions:
              * 
@@ -373,7 +371,7 @@ const PredictTheWinner = () => {
 
     function checkCorrectOverUnder(prediction) {
         if (prediction.predictedOverUnder === "N/A" || prediction.overUnderValue === undefined) {
-            return null;
+            return "N/A";
 
         } else if (prediction.predictedOverUnder === "Over") {
             return prediction.awayTeamScore + prediction.homeTeamScore >= prediction.overUnderValue;
@@ -383,22 +381,73 @@ const PredictTheWinner = () => {
         }
     }
 
+    async function awardPointsForPredictions(matchups, predictions) {
+        let totalPts = 0;
+
+        for (const matchup of matchups) {
+            // Get the array in currentPredictions that is based on the gameId for this matchup
+            const predictionForThisMatchup = predictions.find(pred => pred.gameId === matchup.gameId) || {};
+
+            if (matchup.status === 'Final' && predictionForThisMatchup.pointsAdded === false) {
+                // Determine whether the user's predictions were correct/incorrect/NA when the matchup finishes
+                let pointsForThisPrediction = 0; 
+                const winnerIsCorrect = checkCorrectWinner(predictionForThisMatchup); 
+                const spreadIsCorrect = checkCorrectSpread(predictionForThisMatchup);
+                const overUnderIsCorrect = checkCorrectOverUnder(predictionForThisMatchup);
+
+                // Calculate the number of points earned based on the predictions
+                if (winnerIsCorrect === true) {
+                    if (predictionForThisMatchup.predictedWinner === "Tie") pointsForThisPrediction += 20; 
+                    else pointsForThisPrediction++; 
+
+                } else if (winnerIsCorrect === false) {
+                    if (predictionForThisMatchup.predictedWinner === "Tie") pointsForThisPrediction -= 20; 
+                    else pointsForThisPrediction--; 
+                }
+
+                if (spreadIsCorrect === true) pointsForThisPrediction++;
+                else if (spreadIsCorrect === false) pointsForThisPrediction--;
+
+                if (overUnderIsCorrect === true) pointsForThisPrediction++;
+                else if (overUnderIsCorrect === false) pointsForThisPrediction--;
+
+                // Add the points for this prediction to the total prediction points for this week
+                totalPts += pointsForThisPrediction; 
+
+                // Mark the flag that the points for a specific prediction has been added to true
+                await markPointsAddedForPrediction(matchup.gameId, localStorage.getItem("username"));
+
+                // Mark whether the winner, spread, and over/under for this prediction is correct
+                await setWinnerIsCorrect(matchup.gameId, localStorage.getItem("username"), winnerIsCorrect === true ? "Yes" : winnerIsCorrect === false ? "No" : "N/A");
+                await setSpreadIsCorrect(matchup.gameId, localStorage.getItem("username"), spreadIsCorrect === true ? "Yes" : spreadIsCorrect === false ? "No" : "N/A");
+                await setOverUnderIsCorrect(matchup.gameId, localStorage.getItem("username"), overUnderIsCorrect === true ? "Yes" : overUnderIsCorrect === false ? "No" : "N/A");
+
+                // Mark the number of points that have been added for this prediction (to be reflected in GUI)
+                await setNumPoints(matchup.gameId, localStorage.getItem("username"), pointsForThisPrediction);
+
+                // // Create a notification that the points have been added
+                // const notifMessage = `You earned ${pointsForThisPrediction} points for your predictions in the ${predictionForThisMatchup.week} matchup for ${predictionForThisMatchup.awayTeam} vs. ${predictionForThisMatchup.homeTeam}`;
+                // await createNotification(localStorage.getItem("username"), notifMessage); 
+            }
+        }
+
+        // Update the number of points the user currently has if necessary
+        await setPoints(localStorage.getItem("username"), totalPts);
+    }
+
 
     useEffect(() => {
         // Set the current prediction week on mount
-
         const fetchWeek = async () => {
             const cpw = await getCurrentPredictionWeek();
             setCurrentPredictionWeek(cpw);
         };
         fetchWeek();
-
     }, []);
 
 
     useEffect(() => {
         // Update the schedule database and fetch the matchups for the current prediction week for this season
-
         if (currentPredictionWeek !== "") {
             const updateAndFetchMatchups = async () => {
                 await updateScheduleDB();
@@ -408,13 +457,11 @@ const PredictTheWinner = () => {
             };
             updateAndFetchMatchups();
         }
-
     }, [currentPredictionWeek]);
 
 
     useEffect(() => {
         // Get the spreads and over/unders of each matchup 
-
         const fetchSpreadsAndOverUnders = async () => {
             if (matchups.length > 0) {
                 const newSpreads = [];
@@ -432,27 +479,25 @@ const PredictTheWinner = () => {
             }
         };
         fetchSpreadsAndOverUnders();
-
     }, [matchups]);
 
 
     useEffect(() => {
-        /**
-         * First delete matchups from the previous week in the prediction database
-         * Then add matchups of the current week, or update the away/home teams' score, spread, and over/under if it already exists in the DB
-         * Finally, fetch the current user's predictions for the current week
-        */
-
         if (currentPredictionWeek !== "") {
             (async () => {
+                // Delete old matchups from the DB and update with new ones when the user opens the page with a new prediction week for the first time
                 await deleteOldMatchups(currentPredictionWeek);
                 await updateMatchups(matchups, spreads, overUnders);
 
+                // Add points for predictions in case the user opens the page with a finished matchup for the first time
                 const predictions = await getPredictions(localStorage.getItem("username"));
-                setCurrentPredictions(predictions);
+                await awardPointsForPredictions(matchups, predictions);
+
+                // Fetch the user's predictions again to get the updated points which would then be reflected in the GUI
+                const predictionsAfterAddingPoints = await getPredictions(localStorage.getItem("username"));
+                setCurrentPredictions(predictionsAfterAddingPoints);
             })();
         }
-
     }, [spreads, overUnders]);
 
 
@@ -506,8 +551,8 @@ const PredictTheWinner = () => {
                         <div style={{ paddingLeft: '20px' }}>
                             <h4>1. Only games that are being played this week and before its scheduled start time are eligible for prediction.</h4>
                             <h4>2. Predicting winners: You will win 1 point for each correct prediction and lose 1 point for each incorrect prediction. Correctly/Incorrectly predicting a tie will win/lose you 20 points.</h4>
-                            <h4>3. Predicting the spread: You will win 3 points for each correct prediction and lose 3 points for each incorrect prediction. If the spread is "EVEN", you will not win or lose any points.</h4>
-                            <h4>4. Predicting over/under: You will win 2 points for each correct prediction and lose 2 points for each incorrect prediction.</h4>
+                            <h4>3. Predicting the spread: You will win 1 points for each correct prediction and lose 1 points for each incorrect prediction. If the spread is "EVEN", you will not win or lose any points.</h4>
+                            <h4>4. Predicting over/under: You will win 1 points for each correct prediction and lose 1 points for each incorrect prediction.</h4>
                             <h4>5. You will not win/lose any points for any predictions that are not made, or has been originally made but the game has been canceled (rare).</h4>
                             <h4>6. Note that the Spreads and Over/Unders can change over time, so you should ideally wait right before the start of the game to place your picks.</h4>
                             <h4>7. This page automatically refreshes every 10 minutes to ensure the latest matchup information.</h4>
@@ -537,51 +582,9 @@ const PredictTheWinner = () => {
                     {matchups.length > 0 ? (
                         <div style={gridStyle}>
                             {matchups.map((matchup, index) => {
-                                
+
                                 // Get the array in currentPredictions that is based on the gameId for this matchup
                                 const predictionForThisMatchup = currentPredictions.find(pred => pred.gameId === matchup.gameId) || {};
-
-                                // Determine whether the user's predictions were correct/incorrect/NA when the matchup finishes
-                                let winnerIsCorrect = null; 
-                                let spreadIsCorrect = null;
-                                let overUnderIsCorrect = null; 
-                                let pointsForThisPrediction = 0; 
-
-                                if (matchup.status === 'Final') {
-                                    winnerIsCorrect = checkCorrectWinner(predictionForThisMatchup); 
-                                    spreadIsCorrect = checkCorrectSpread(predictionForThisMatchup);
-                                    overUnderIsCorrect = checkCorrectOverUnder(predictionForThisMatchup);
-
-                                    // Calculate the number of points earned based on the predictions
-                                    if (winnerIsCorrect === true) {
-                                        if (predictionForThisMatchup.predictedWinner === "Tie") pointsForThisPrediction += 20; 
-                                        else pointsForThisPrediction++; 
-
-                                    } else if (winnerIsCorrect === false) {
-                                        if (predictionForThisMatchup.predictedWinner === "Tie") pointsForThisPrediction -= 20; 
-                                        else pointsForThisPrediction--; 
-                                    }
-
-                                    if (spreadIsCorrect === true) pointsForThisPrediction += 3;
-                                    else if (spreadIsCorrect === false) pointsForThisPrediction -= 3;
-
-                                    if (overUnderIsCorrect === true) pointsForThisPrediction += 2;
-                                    else if (overUnderIsCorrect === false) pointsForThisPrediction -= 2;
-
-                                    /**
-                                     * Add the number of points to the user's current number of points.
-                                     * Update the points for the given user in the database, then reflect the change in the navbar
-                                     */
-                                    updatePointsForPrediction(matchup.gameId, localStorage.getItem("username"), pointsForThisPrediction);
-                                    (async () => {
-                                        const get_points = await fetch(`http://localhost:8081/api/v1/auth/getPoints?username=${localStorage.getItem("username")}`, {
-                                            method: "GET"
-                                        });
-                                        const points = await get_points.text()
-
-                                        localStorage.setItem("points", points);
-                                    })();
-                                }
 
                                 return (
                                     <div key={index} style={{ margin: '10px 0' }}>
@@ -635,9 +638,9 @@ const PredictTheWinner = () => {
                                         <div style={{ display: 'inline-block' }}>
                                             <button 
                                                 style={
-                                                    predictionForThisMatchup.predictedWinner === matchup.awayTeam && winnerIsCorrect === false ? buttonStyleWrong 
-                                                    : predictionForThisMatchup.predictedWinner === matchup.awayTeam && winnerIsCorrect === true ? buttonStyleCorrect
-                                                    : predictionForThisMatchup.predictedWinner === matchup.awayTeam && winnerIsCorrect === null ? buttonStyleSelected 
+                                                    predictionForThisMatchup.predictedWinner === matchup.awayTeam && predictionForThisMatchup.winnerIsCorrect === "Yes" ? buttonStyleCorrect
+                                                    : predictionForThisMatchup.predictedWinner === matchup.awayTeam && predictionForThisMatchup.winnerIsCorrect === "No" ? buttonStyleWrong
+                                                    : predictionForThisMatchup.predictedWinner === matchup.awayTeam && predictionForThisMatchup.winnerIsCorrect === "N/A" ? buttonStyleSelected 
                                                     : buttonStyle
                                                 }
                                                 onClick={() => handlePickWinner(matchup.gameId, localStorage.getItem("username"), matchup.awayTeam, matchup.status)}>
@@ -647,9 +650,9 @@ const PredictTheWinner = () => {
                                         <div style={{ display: 'inline-block', paddingLeft: '5px' }}>
                                             <button 
                                                 style={
-                                                    predictionForThisMatchup.predictedWinner === matchup.homeTeam && winnerIsCorrect === false ? buttonStyleWrong 
-                                                    : predictionForThisMatchup.predictedWinner === matchup.homeTeam && winnerIsCorrect === true ? buttonStyleCorrect
-                                                    : predictionForThisMatchup.predictedWinner === matchup.homeTeam && winnerIsCorrect === null ? buttonStyleSelected 
+                                                    predictionForThisMatchup.predictedWinner === matchup.homeTeam && predictionForThisMatchup.winnerIsCorrect === "Yes" ? buttonStyleCorrect
+                                                    : predictionForThisMatchup.predictedWinner === matchup.homeTeam && predictionForThisMatchup.winnerIsCorrect === "No" ? buttonStyleWrong
+                                                    : predictionForThisMatchup.predictedWinner === matchup.homeTeam && predictionForThisMatchup.winnerIsCorrect === "N/A" ? buttonStyleSelected
                                                     : buttonStyle
                                                 }
                                                 onClick={() => handlePickWinner(matchup.gameId, localStorage.getItem("username"), matchup.homeTeam, matchup.status)}>
@@ -659,9 +662,9 @@ const PredictTheWinner = () => {
                                         <div style={{ display: 'inline-block', paddingLeft: '5px' }}>
                                             <button 
                                                 style={
-                                                    predictionForThisMatchup.predictedWinner === "Tie" && winnerIsCorrect === false ? buttonStyleWrong
-                                                    : predictionForThisMatchup.predictedWinner === "Tie" && winnerIsCorrect === true ? buttonStyleCorrect
-                                                    : predictionForThisMatchup.predictedWinner === "Tie" && winnerIsCorrect === null ? buttonStyleSelected
+                                                    predictionForThisMatchup.predictedWinner === "Tie" && predictionForThisMatchup.winnerIsCorrect === "Yes" ? buttonStyleCorrect
+                                                    : predictionForThisMatchup.predictedWinner === "Tie" && predictionForThisMatchup.winnerIsCorrect === "No" ? buttonStyleWrong
+                                                    : predictionForThisMatchup.predictedWinner === "Tie" && predictionForThisMatchup.winnerIsCorrect === "N/A" ? buttonStyleSelected
                                                     : buttonStyle
                                                 }
                                                 onClick={() => handlePickWinner(matchup.gameId, localStorage.getItem("username"), "Tie", matchup.status)}>
@@ -676,9 +679,9 @@ const PredictTheWinner = () => {
                                         <div style={{ display: 'inline-block' }}>
                                             <button 
                                                 style={
-                                                    predictionForThisMatchup.predictedSpread === "Minus" && spreadIsCorrect === false ? buttonStyleWrong
-                                                    : predictionForThisMatchup.predictedSpread === "Minus" && spreadIsCorrect === true ? buttonStyleCorrect
-                                                    : predictionForThisMatchup.predictedSpread === "Minus" && spreadIsCorrect === null ? buttonStyleSelected
+                                                    predictionForThisMatchup.predictedSpread === "Minus" && predictionForThisMatchup.spreadIsCorrect === "Yes" ? buttonStyleCorrect
+                                                    : predictionForThisMatchup.predictedSpread === "Minus" && predictionForThisMatchup.spreadIsCorrect === "No" ? buttonStyleWrong
+                                                    : predictionForThisMatchup.predictedSpread === "Minus" && predictionForThisMatchup.spreadIsCorrect === "N/A" ? buttonStyleSelected
                                                     : buttonStyle
                                                 }
                                                 onClick={() => handlePickSpread(matchup.gameId, localStorage.getItem("username"), "Minus", matchup.status)}>
@@ -691,9 +694,9 @@ const PredictTheWinner = () => {
                                         <div style={{ display: 'inline-block', paddingLeft: '5px' }}>
                                             <button 
                                                 style={
-                                                    predictionForThisMatchup.predictedSpread === "Plus" && spreadIsCorrect === false ? buttonStyleWrong
-                                                    : predictionForThisMatchup.predictedSpread === "Plus" && spreadIsCorrect === true ? buttonStyleCorrect
-                                                    : predictionForThisMatchup.predictedSpread === "Plus" && spreadIsCorrect === null ? buttonStyleSelected
+                                                    predictionForThisMatchup.predictedSpread === "Plus" && predictionForThisMatchup.spreadIsCorrect === "Yes" ? buttonStyleCorrect
+                                                    : predictionForThisMatchup.predictedSpread === "Plus" && predictionForThisMatchup.spreadIsCorrect === "No" ? buttonStyleWrong
+                                                    : predictionForThisMatchup.predictedSpread === "Plus" && predictionForThisMatchup.spreadIsCorrect === "N/A" ? buttonStyleSelected
                                                     : buttonStyle
                                                 }
                                                 onClick={() => handlePickSpread(matchup.gameId, localStorage.getItem("username"), "Plus", matchup.status)}>
@@ -711,9 +714,9 @@ const PredictTheWinner = () => {
                                         <div style={{ display: 'inline-block' }}>
                                             <button 
                                                 style={
-                                                    predictionForThisMatchup.predictedOverUnder === "Over" && overUnderIsCorrect === false? buttonStyleWrong
-                                                    : predictionForThisMatchup.predictedOverUnder === "Over" && overUnderIsCorrect === true? buttonStyleCorrect
-                                                    : predictionForThisMatchup.predictedOverUnder === "Over" && overUnderIsCorrect === null? buttonStyleSelected 
+                                                    predictionForThisMatchup.predictedOverUnder === "Over" && predictionForThisMatchup.overUnderIsCorrect === "Yes" ? buttonStyleCorrect
+                                                    : predictionForThisMatchup.predictedOverUnder === "Over" && predictionForThisMatchup.overUnderIsCorrect === "No" ? buttonStyleWrong
+                                                    : predictionForThisMatchup.predictedOverUnder === "Over" && predictionForThisMatchup.overUnderIsCorrect === "N/A" ? buttonStyleSelected
                                                     : buttonStyle
                                                 }
                                                 onClick={() => handlePickOverUnder(matchup.gameId, localStorage.getItem("username"), "Over", matchup.status)}>
@@ -723,9 +726,9 @@ const PredictTheWinner = () => {
                                         <div style={{ display: 'inline-block', paddingLeft: '5px' }}>
                                             <button 
                                                 style={
-                                                    predictionForThisMatchup.predictedOverUnder === "Under" && overUnderIsCorrect === false? buttonStyleWrong
-                                                    : predictionForThisMatchup.predictedOverUnder === "Under" && overUnderIsCorrect === true? buttonStyleCorrect
-                                                    : predictionForThisMatchup.predictedOverUnder === "Under" && overUnderIsCorrect === null? buttonStyleSelected 
+                                                    predictionForThisMatchup.predictedOverUnder === "Under" && predictionForThisMatchup.overUnderIsCorrect === "Yes" ? buttonStyleCorrect
+                                                    : predictionForThisMatchup.predictedOverUnder === "Under" && predictionForThisMatchup.overUnderIsCorrect === "No" ? buttonStyleWrong
+                                                    : predictionForThisMatchup.predictedOverUnder === "Under" && predictionForThisMatchup.overUnderIsCorrect === "N/A" ? buttonStyleSelected
                                                     : buttonStyle
                                                 }
                                                 onClick={() => handlePickOverUnder(matchup.gameId, localStorage.getItem("username"), "Under", matchup.status)}>
@@ -744,12 +747,12 @@ const PredictTheWinner = () => {
                                                         </h4>
                                                     </div>
                                                     <div style={{ display: 'inline-block', paddingLeft: '7px' }}>
-                                                        {pointsForThisPrediction > 0 ? 
-                                                            <h4 style={{ color: 'lightgreen' }}>{pointsForThisPrediction}</h4>
-                                                        : pointsForThisPrediction < 0 ? 
-                                                            <h4 style={{ color: '#f4a0a0ff' }}>{pointsForThisPrediction}</h4>
+                                                        {predictionForThisMatchup.numPoints > 0 ? 
+                                                            <h4 style={{ color: 'lightgreen' }}>{predictionForThisMatchup.numPoints}</h4>
+                                                        : predictionForThisMatchup.numPoints < 0 ? 
+                                                            <h4 style={{ color: '#f4a0a0ff' }}>{predictionForThisMatchup.numPoints}</h4>
                                                         : 
-                                                            <h4>{pointsForThisPrediction}</h4>
+                                                            <h4>{predictionForThisMatchup.numPoints}</h4>
                                                         }   
                                                     </div>
                                                 </div>

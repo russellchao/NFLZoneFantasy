@@ -43,8 +43,29 @@ public class PredictionController {
         predictionService.updateOverUnderPrediction(gameId, username, overUnder);
     }
 
-    @PutMapping("/addPoints")
-    public void addPts(@RequestParam String gameId, @RequestParam String username, @RequestParam Integer points) {
-        predictionService.addPoints(gameId, username, points);
+    @PutMapping("/setPointsAdded")
+    public void markPts(@RequestParam String gameId, @RequestParam String username) {
+        predictionService.setPointsAdded(gameId, username);
     }
+
+    @PutMapping("/setWinnerIsCorrect")
+    public void setWinnerIsCorrect(@RequestParam String gameId, @RequestParam String username, @RequestParam String isCorrect) {
+        predictionService.setWinnerIsCorrect(gameId, username, isCorrect);
+    }
+
+    @PutMapping("/setSpreadIsCorrect")
+    public void setSpreadIsCorrect(@RequestParam String gameId, @RequestParam String username, @RequestParam String isCorrect) {
+        predictionService.setSpreadIsCorrect(gameId, username, isCorrect);
+    }
+
+    @PutMapping("/setOverUnderIsCorrect")
+    public void setOverUnderIsCorrect(@RequestParam String gameId, @RequestParam String username, @RequestParam String isCorrect) {
+        predictionService.setOverUnderIsCorrect(gameId, username, isCorrect);
+    }
+
+    @PutMapping("/setNumPoints")
+    public void setNumPoints(@RequestParam String gameId, @RequestParam String username, @RequestParam Integer numPoints) {
+        predictionService.setNumPoints(gameId, username, numPoints);
+    }
+
 }
