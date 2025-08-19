@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import { fetchScheduleByWeek, fetchUpdateScheduleDB } from '../../API/schedule_api';
 import { deleteOldMatchups, updateMatchups, getPredictions, updatePredictedWinner, updatePredictedSpread, updatePredictedOverUnder, markPointsAddedForPrediction, setWinnerIsCorrect, setSpreadIsCorrect, setOverUnderIsCorrect, setNumPoints } from '../../API/prediction_api';
 import { createNotification } from '../../API/notification_api';
-import { setPoints, getPoints } from '../../API/points_api';
+import { addPoints, getPoints } from '../../API/points_api';
 
 // Import all logo images
 const logoImages = require.context('../../logos/NFL Logos', false, /\.(png|jpe?g|svg)$/);
@@ -432,7 +432,7 @@ const PredictTheWinner = () => {
         }
 
         // Update the number of points the user currently has if necessary
-        await setPoints(localStorage.getItem("username"), totalPts);
+        await addPoints(localStorage.getItem("username"), totalPts);
     }
 
 
