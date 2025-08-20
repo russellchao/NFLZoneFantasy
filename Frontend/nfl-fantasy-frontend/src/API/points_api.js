@@ -18,7 +18,9 @@ export const getPoints = async (username) => {
 
 export const addPoints = async (username, pointsToBeAdded) => {
     const currentPoints = await getPoints(localStorage.getItem("username"));
-    const newPoints = currentPoints + pointsToBeAdded;
+    let newPoints = currentPoints + pointsToBeAdded;
+
+    if (newPoints < 0) { newPoints = 0; }
 
     console.log(`Updating points for user ${username}. Adding ${pointsToBeAdded} to the ${currentPoints} current points.`);
 
