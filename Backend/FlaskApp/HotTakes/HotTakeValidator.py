@@ -1,7 +1,10 @@
 import os
 import json
 from openai import OpenAI
-open_ai_api_key = os.getenv("OPENAI_API_KEY") 
+from dotenv import load_dotenv
+
+load_dotenv()
+open_ai_api_key = os.getenv("OPENAI_API_KEY")
 
 
 def validate_hot_take(hotTake, listOfHotTakes):

@@ -4,6 +4,7 @@ from PlayerStatsData.PlayerStatsScraper import get_player_stats_data
 from ScheduleData.GetScheduleData import get_schedule_data
 from HotTakes.HotTakeValidator import validate_hot_take
 
+
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
