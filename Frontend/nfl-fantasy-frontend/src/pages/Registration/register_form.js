@@ -5,6 +5,8 @@ const RegisterForm = () => {
     const [form, setForm] = useState({ fullName: '', username: '', email: '', password: '' });
     const [message, setMessage] = useState(''); 
     const [confirmPassword, setConfirmPassword] = useState(''); 
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -75,23 +77,77 @@ const RegisterForm = () => {
                         required 
                     />
                     
-                    <input 
-                        name="password" 
-                        type="password" 
-                        placeholder="Password" 
-                        style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
-                        onChange={handleChange} 
-                        required 
-                    />
+                    <div style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
+                        <input 
+                            name="password" 
+                            type={showPassword ? 'text' : 'password'} 
+                            placeholder="Password" 
+                            style={{ flex: 1, padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
+                            onChange={handleChange} 
+                            required 
+                        />
+                        <span
+                            onClick={() => setShowPassword((prev) => !prev)}
+                            style={{
+                                position: 'absolute',
+                                right: '10px',
+                                cursor: 'pointer',
+                                width: '22px',
+                                height: '22px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                background: 'transparent',
+                                border: 'none',
+                                padding: 0
+                            }}
+                            aria-label={showPassword ? 'Hide password' : 'Show password'}
+                        >
+                            {showPassword ? (
+                                // Eye-slash SVG
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="gray"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.94 17.94A10.06 10.06 0 0 1 12 19c-5 0-9.27-3.11-10.44-7.44a1.99 1.99 0 0 1 0-1.12A10.06 10.06 0 0 1 6.06 6.06m3.53-1.53A9.97 9.97 0 0 1 12 5c5 0 9.27 3.11 10.44 7.44a1.99 1.99 0 0 1 0 1.12c-.41 1.47-1.18 2.82-2.22 3.94M3 3l18 18" /></svg>
+                            ) : (
+                                // Eye SVG
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="gray"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" /><circle cx="12" cy="12" r="3" stroke="gray" strokeWidth="2" /></svg>
+                            )}
+                        </span>
+                    </div>
 
-                    <input 
-                        name="confirmPassword" 
-                        type="password" 
-                        placeholder="Confirm Password" 
-                        style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
-                        onChange={e => setConfirmPassword(e.target.value)} 
-                        required 
-                    />
+                    <div style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
+                        <input 
+                            name="confirmPassword" 
+                            type={showConfirmPassword ? 'text' : 'password'} 
+                            placeholder="Confirm Password" 
+                            style={{ flex: 1, padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
+                            onChange={e => setConfirmPassword(e.target.value)} 
+                            required 
+                        />
+                        <span
+                            onClick={() => setShowConfirmPassword((prev) => !prev)}
+                            style={{
+                                position: 'absolute',
+                                right: '10px',
+                                cursor: 'pointer',
+                                width: '22px',
+                                height: '22px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                background: 'transparent',
+                                border: 'none',
+                                padding: 0
+                            }}
+                            aria-label={showConfirmPassword ? 'Hide confirm password' : 'Show confirm password'}
+                        >
+                            {showConfirmPassword ? (
+                                // Eye-slash SVG
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="gray"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.94 17.94A10.06 10.06 0 0 1 12 19c-5 0-9.27-3.11-10.44-7.44a1.99 1.99 0 0 1 0-1.12A10.06 10.06 0 0 1 6.06 6.06m3.53-1.53A9.97 9.97 0 0 1 12 5c5 0 9.27 3.11 10.44 7.44a1.99 1.99 0 0 1 0 1.12c-.41 1.47-1.18 2.82-2.22 3.94M3 3l18 18" /></svg>
+                            ) : (
+                                // Eye SVG
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="gray"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" /><circle cx="12" cy="12" r="3" stroke="gray" strokeWidth="2" /></svg>
+                            )}
+                        </span>
+                    </div>
                     
                     <button 
                         type="submit"

@@ -28,8 +28,8 @@ public class UserController {
         return userService.loginUser(loginRequest.username, loginRequest.password);
     }
 
-    @GetMapping("/verify")
-    public RedirectView verifyUser(@RequestParam String token) {
+    @PutMapping("/verify")
+    public String verifyUser(@RequestParam String token) {
         return userService.verifyUser(token);
     }
 
@@ -45,15 +45,12 @@ public class UserController {
 
     @GetMapping("/getPoints")
     public Integer getPoints(@RequestParam String username) {
-        User user = userRepository.findByUsername(username).get();
-        return user.getPoints();
+        return userService.getPoints(username);
     }
 
     @PutMapping("/setPoints")
     public void setPoints(@RequestParam String username, @RequestParam Integer points) {
-        User user = userRepository.findByUsername(username).get();
-        user.setPoints(points);
-        userRepository.save(user);
+        userService.setPoints(username, points);
     }
 }
 

@@ -1,10 +1,10 @@
 package com.nfl.nfl_zone.Auth;
 
+import jakarta.mail.internet.InternetAddress;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.*;
 
@@ -13,84 +13,73 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final JavaMailSender mailSender;
-
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-
 
     public UserService(UserRepository userRepository, JavaMailSender mailSender) {
         this.userRepository = userRepository;
         this.mailSender = mailSender;
     }
 
-
-    public String registerUser(User user) {
-        if (userRepository.findByUsername(user.getUsername()).isPresent()) {
-            return "Username already exists";
-        }
-
-        if (userRepository.findByEmail(user.getEmail()).isPresent()) {
-            return "Email already exists";
-        }
-
-        if (user.getUsername().length() < 3 || user.getUsername().length() > 32) {
-            return "Username must be between 3-32 characters long";
-        }
-
-        if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
-            return "Password must be between 8-32 characters long";
-        }
-
-        if (user.getPassword().equalsIgnoreCase(user.getUsername())) {
-            return "Username and password cannot be the same";
-        }
-        
-        // Proceed with the following steps if the username, email, and password are valid
-
-        // Step 1: Encode the password
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-
-        // Step 2: Generate and assign a verification token to the user
-        String token = UUID.randomUUID().toString();
-        user.setVerifToken(token);
-        user.setVerified(false); // initially mark that the email is unverified
-
-        // Step 3: Set the number of points for the user to 0
-        user.setPoints(0);
-
-        // Step 4: Save the user to the 'users' table in PostgreSQL
-        userRepository.save(user);
-
-        // Final Step: Send the verification email
-        sendVerificationEmail(user);
-
-        return "User registered successfully, check your email for a verification email";
-    }
-
-
     public String loginUser(String username, String rawPassword) {
         Optional<User> optionalUser = userRepository.findByUsername(username);
 
         if (optionalUser.isEmpty()) {
-            return "User not found";
+            return "User not found.";
         }
 
         User user = optionalUser.get();
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         if (!encoder.matches(rawPassword, user.getPassword())) {
-            return "Invalid password";
+            return "Invalid password.";
         }
 
         if (!user.isVerified()) {
-            return "Email not verified, please check your inbox for a verification email";
+            return "Email not verified, please check your inbox for a verification email.";
         }
 
-        return "Login successful";
+        return "Login successful.";
     }
 
+    public String registerUser(User user) {
+        if (userRepository.findByUsername(user.getUsername()).isPresent()) {
+            return "Username already exists.";
+        }
+
+        if (userRepository.findByEmail(user.getEmail()).isPresent()) {
+            return "Email already exists.";
+        }
+
+        if (user.getUsername().length() < 3 || user.getUsername().length() > 32) {
+            return "Username must be between 3-32 characters long.";
+        }
+
+        if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
+            return "Password must be between 8-32 characters long.";
+        }
+
+        if (user.getPassword().equalsIgnoreCase(user.getUsername())) {
+            return "Username and password cannot be the same.";
+        }
+
+        if (user.getPassword().equalsIgnoreCase(user.getEmail())) {
+            return "Email and password cannot be the same.";
+        }
+
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        String token = UUID.randomUUID().toString();
+        user.setVerifToken(token);
+        user.setVerified(false); // initially mark that the email is unverified
+        user.setPoints(0);
+        userRepository.save(user);
+
+        sendVerificationEmail(user);
+
+        return "User registered successfully, check your email for a verification link.";
+    }
 
     private void sendVerificationEmail(User user) {
         String token = user.getVerifToken();
-        String verificationLink = "http://localhost:8081/api/v1/auth/verify?token=" + token;
+        String verificationLink = String.format("http://localhost:3002/verify_user/%s",  token);
 
         String subject = "Confirm your NFL Zone account";
         String body = String.format(
@@ -105,18 +94,17 @@ public class UserService {
         message.setTo(user.getEmail());
         message.setSubject(subject);
         message.setText(body);
-        message.setFrom("NFL Zone <no-reply@nflzone.com>");
+        message.setFrom("no-reply@nflzone.com");
         message.setReplyTo("no-reply@nflzone.com");
 
         mailSender.send(message);
     }
 
-
-    public RedirectView verifyUser(String token) {
+    public String verifyUser(String token) {
         Optional<User> optionalUser = userRepository.findByVerifToken(token);
 
         if (optionalUser.isEmpty()) {
-            return new RedirectView("http://localhost:3002/verify_fail");
+            return "Verification failed. Please try again.";
         }
 
         User user = optionalUser.get();
@@ -125,16 +113,15 @@ public class UserService {
 
         userRepository.save(user);
 
-        return new RedirectView("http://localhost:3002/verify_success");
+        return "Verification successful. You may now log in.";
     }
-
 
     public String sendPasswordResetEmail(String username) {
 
         // Check if the user exists
         Optional<User> optionalUser = userRepository.findByUsername(username);
         if (optionalUser.isEmpty()) {
-            return "User not found";
+            return "User not found.";
         }
 
         User user = optionalUser.get();
@@ -162,16 +149,13 @@ public class UserService {
         message.setTo(user.getEmail());
         message.setSubject(subject);
         message.setText(body);
-        message.setFrom("NFL Zone <no-reply@nflzone.com>");
-
-        // make the verification email unrepliable by sending any reply attempts to a nonexistent email (NOT WORKING AS OF NOW)
+        message.setFrom("no-reply@nflzone.com");
         message.setReplyTo("no-reply@nflzone.com");
 
         mailSender.send(message);
 
         return "Password reset email sent to " + user.getEmail();
     }
-
 
     public String resetPassword(String username, String newPassword, String token) {
         Optional<User> optionalUser = userRepository.findByUsername(username);
@@ -207,6 +191,16 @@ public class UserService {
         return "Password reset successfully, you may now log in.";
     }
 
+    public Integer getPoints(String username) {
+        User user = userRepository.findByUsername(username).get();
+        return user.getPoints();
+    }
+
+    public void setPoints(String username, Integer points) {
+        User user = userRepository.findByUsername(username).get();
+        user.setPoints(points);
+        userRepository.save(user);
+    }
 
 }
 

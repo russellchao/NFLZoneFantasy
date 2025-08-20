@@ -11,12 +11,12 @@ import Search from './pages/Search/search';
 import FullSchedule from './pages/FullSchedule/full_schedule';
 import RegisterForm from './pages/Registration/register_form';
 import LoginForm from './pages/Login/login_form';
-import VerifyFail from './pages/Verification/verify_fail';
-import VerifySuccess from './pages/Verification/verify_success';
+import VerifyUser from './pages/Verification/verify_user';
 import ResetPassword from './pages/ResetPassword/reset_password';
 import CreateNewPassword from './pages/ResetPassword/create_new_password';
 import HotTakes from './pages/HotTakes/hot_takes';
 import PredictTheWinner from './pages/PredictTheWinner/predict_the_winner';
+import Notifications from './pages/Notifications/notifications';
 
 
 function App() {
@@ -42,12 +42,12 @@ function App() {
           <Route path="/full_schedule" element={<FullSchedule />} />
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/login" element={<LoginForm />} />
-          <Route path="/verify_fail" element={<VerifyFail />} />
-          <Route path="/verify_success" element={<VerifySuccess />} />
+          <Route path="/verify_user/:token" element={<VerifyUser />} />
           <Route path="/reset_password" element={<ResetPassword />} />
           <Route path="/create_new_password/:username/:token" element={<CreateNewPassword />} />
           <Route path="/hot_takes" element={<HotTakes />} />
           <Route path="/predict_the_winner" element={<PredictTheWinner />} />
+          <Route path="/notifications" element={<Notifications />} />
         </Routes>
       </div>
     </Router>
