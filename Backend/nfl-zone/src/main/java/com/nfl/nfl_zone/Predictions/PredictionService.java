@@ -18,8 +18,8 @@ public class PredictionService {
     }
 
     public void updateMatchupInfo(Prediction incomingPrediction) {
-        if (predictionRepository.findByGameIdAndUsername(incomingPrediction.getGameId(), incomingPrediction.getUsername()).isEmpty()) {
-            // Add the matchup if it doesn't already exist (based on gameId and username)
+        if (predictionRepository.findByPredictionId(incomingPrediction.getPredictionId()).isEmpty()) {
+            // Add the matchup if it doesn't already exist
 
             incomingPrediction.setPredictedWinner("N/A");
             incomingPrediction.setPredictedSpread("N/A");

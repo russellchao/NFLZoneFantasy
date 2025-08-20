@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 @Table(name="prediction")
 public class Prediction {
 
-    @Id
     @Column(name = "gameid")
     private String gameId;
 
@@ -57,6 +56,10 @@ public class Prediction {
 
     @Column(name = "numpoints")
     private Integer numPoints;
+
+    @Id
+    @Column(name = "predictionid")
+    private String predictionId;
 
 
     public String getGameId() {
@@ -193,5 +196,13 @@ public class Prediction {
 
     public void setNumPoints(Integer numPoints) {
         this.numPoints = numPoints;
+    }
+
+    public String getPredictionId() {
+        return predictionId;
+    }
+
+    public void setPredictionId(String predictionId) {
+        this.predictionId = predictionId;
     }
 }

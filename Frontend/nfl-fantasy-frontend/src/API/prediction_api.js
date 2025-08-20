@@ -24,7 +24,8 @@ export const updateMatchups = async (matchups, spreads, overUnders) => {
                 winnerIsCorrect: "N/A",
                 spreadIsCorrect: "N/A",
                 overUnderIsCorrect: "N/A",
-                numPoints: 0
+                numPoints: 0,
+                predictionId: `${matchup.gameId}-${localStorage.getItem("username")}`
             })
         });
 
