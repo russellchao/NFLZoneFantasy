@@ -6,6 +6,8 @@ const CreateNewPassword = () => {
     const [newPassword, setNewPassword] = useState(''); 
     const [confirmNewPassword, setConfirmNewPassword] = useState(''); 
     const [message, setMessage] = useState(''); 
+    const [showNewPassword, setShowNewPassword] = useState(false);
+    const [showConfirmNewPassword, setShowConfirmNewPassword] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault(); 
@@ -33,48 +35,102 @@ const CreateNewPassword = () => {
             </h2>
 
             <form 
-                    style={{ 
-                        paddingLeft: '30px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '20px',
-                        maxWidth: '300px'
-                    }}
-                    onSubmit={handleSubmit}
-                >
+                style={{ 
+                    paddingLeft: '30px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '20px',
+                    maxWidth: '300px'
+                }}
+                onSubmit={handleSubmit}
+            >
+                <div style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
                     <input 
                         name="newPassword" 
                         placeholder="New Password" 
-                        type="password" 
-                        style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
+                        type={showNewPassword ? 'text' : 'password'} 
+                        style={{ flex: 1, padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
                         onChange={e => setNewPassword(e.target.value)} 
                         required 
                     />
+                    <span
+                        onClick={() => setShowNewPassword((prev) => !prev)}
+                        style={{
+                            position: 'absolute',
+                            right: '10px',
+                            cursor: 'pointer',
+                            width: '22px',
+                            height: '22px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            background: 'transparent',
+                            border: 'none',
+                            padding: 0
+                        }}
+                        aria-label={showNewPassword ? 'Hide new password' : 'Show new password'}
+                    >
+                        {showNewPassword ? (
+                            // Eye-slash SVG
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="gray"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.94 17.94A10.06 10.06 0 0 1 12 19c-5 0-9.27-3.11-10.44-7.44a1.99 1.99 0 0 1 0-1.12A10.06 10.06 0 0 1 6.06 6.06m3.53-1.53A9.97 9.97 0 0 1 12 5c5 0 9.27 3.11 10.44 7.44a1.99 1.99 0 0 1 0 1.12c-.41 1.47-1.18 2.82-2.22 3.94M3 3l18 18" /></svg>
+                        ) : (
+                            // Eye SVG
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="gray"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" /><circle cx="12" cy="12" r="3" stroke="gray" strokeWidth="2" /></svg>
+                        )}
+                    </span>
+                </div>
 
+                <div style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
                     <input 
                         name="confirmNewPassword" 
                         placeholder="Confirm New Password" 
-                        type="password" 
-                        style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
+                        type={showConfirmNewPassword ? 'text' : 'password'} 
+                        style={{ flex: 1, padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
                         onChange={e => setConfirmNewPassword(e.target.value)} 
                         required 
                     />
-
-                    <button 
-                        type="submit"
+                    <span
+                        onClick={() => setShowConfirmNewPassword((prev) => !prev)}
                         style={{
-                            padding: '10px',
-                            backgroundColor: '#007bff',
-                            color: 'white',
+                            position: 'absolute',
+                            right: '10px',
+                            cursor: 'pointer',
+                            width: '22px',
+                            height: '22px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            background: 'transparent',
                             border: 'none',
-                            borderRadius: '4px',
-                            cursor: 'pointer'
+                            padding: 0
                         }}
+                        aria-label={showConfirmNewPassword ? 'Hide confirm new password' : 'Show confirm new password'}
                     >
-                        Submit
-                    </button>
-                </form>
-                {message && <p style={{ paddingLeft: '30px' }}>{message}</p>}
+                        {showConfirmNewPassword ? (
+                            // Eye-slash SVG
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="gray"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.94 17.94A10.06 10.06 0 0 1 12 19c-5 0-9.27-3.11-10.44-7.44a1.99 1.99 0 0 1 0-1.12A10.06 10.06 0 0 1 6.06 6.06m3.53-1.53A9.97 9.97 0 0 1 12 5c5 0 9.27 3.11 10.44 7.44a1.99 1.99 0 0 1 0 1.12c-.41 1.47-1.18 2.82-2.22 3.94M3 3l18 18" /></svg>
+                        ) : (
+                            // Eye SVG
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="gray"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" /><circle cx="12" cy="12" r="3" stroke="gray" strokeWidth="2" /></svg>
+                        )}
+                    </span>
+                </div>
+
+                <button 
+                    type="submit"
+                    style={{
+                        padding: '10px',
+                        backgroundColor: '#007bff',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '4px',
+                        cursor: 'pointer'
+                    }}
+                >
+                    Submit
+                </button>
+            </form>
+            {message && <p style={{ paddingLeft: '30px' }}>{message}</p>}
         </div>
     )
 }
