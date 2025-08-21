@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import { getPoints } from '../../API/points_api';
 
@@ -14,6 +14,11 @@ const LoginForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault(); 
+
+        if (message !== '') {
+            setMessage('');
+        }
+
         const response = await fetch("http://localhost:8081/api/v1/auth/login", {
             method: "POST", 
             headers: { "Content-Type": "application/json" }, 
@@ -47,6 +52,17 @@ const LoginForm = () => {
     const handleResetPassword = () => {
         navigate(`/reset_password`); 
     };
+
+    useEffect(() => {
+        // If the message changes, and it's not an empty string, only display it for 5 seconds
+        if (message && message !== '') {
+            const timer = setTimeout(() => {
+                setMessage('');
+            }, 5000);
+
+            return () => clearTimeout(timer);
+        }
+    }, [message]);
 
     return (
         <>
@@ -121,7 +137,7 @@ const LoginForm = () => {
                     </button>
 
                 </form>
-                {message && <p style={{ paddingLeft: '30px' }}>{message}</p>}
+                {message && <h3 style={{ paddingLeft: '30px', color: 'yellow' }}>{message}</h3>}
             </div>
 
             <p>&nbsp;</p>

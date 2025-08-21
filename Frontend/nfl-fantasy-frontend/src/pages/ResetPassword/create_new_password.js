@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 import { useParams } from 'react-router-dom';
 
 const CreateNewPassword = () => {
@@ -11,6 +11,10 @@ const CreateNewPassword = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault(); 
+
+        if (message !== '') {
+            setMessage('');
+        }
 
         if (newPassword !== confirmNewPassword) {
             setMessage("Passwords do not match"); 
@@ -27,6 +31,17 @@ const CreateNewPassword = () => {
         const text = await response.text(); 
         setMessage(text);
     };
+
+    useEffect(() => {
+        // If the message changes, and it's not an empty string, only display it for 5 seconds
+        if (message && message !== '') {
+            const timer = setTimeout(() => {
+                setMessage('');
+            }, 5000);
+
+            return () => clearTimeout(timer);
+        }
+    }, [message]);
 
     return (
         <div>
@@ -130,7 +145,7 @@ const CreateNewPassword = () => {
                     Submit
                 </button>
             </form>
-            {message && <p style={{ paddingLeft: '30px' }}>{message}</p>}
+            {message && <h3 style={{ paddingLeft: '30px', color: 'yellow' }}>{message}</h3>}
         </div>
     )
 }

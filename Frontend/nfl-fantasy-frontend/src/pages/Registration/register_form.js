@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const RegisterForm = () => {
@@ -14,6 +14,10 @@ const RegisterForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault(); 
+
+        if (message !== '') {
+            setMessage('');
+        }
 
         console.log(`Password: ${form.password}`);
         console.log(`Confirm password: ${confirmPassword}`); 
@@ -37,6 +41,17 @@ const RegisterForm = () => {
     const handleLoginInstead = () => {
         navigate(`/login`); 
     };
+
+    useEffect(() => {
+        // If the message changes, and it's not an empty string, only display it for 5 seconds
+        if (message && message !== '') {
+            const timer = setTimeout(() => {
+                setMessage('');
+            }, 5000);
+
+            return () => clearTimeout(timer);
+        }
+    }, [message]);
     
     return (
         <>
@@ -164,7 +179,7 @@ const RegisterForm = () => {
                     </button>
 
                 </form>
-                {message && <p style={{ paddingLeft: '30px' }}>{message}</p>}
+                {message && <h3 style={{ paddingLeft: '30px', color: 'yellow' }}>{message}</h3>}
             </div>
 
             <p>&nbsp;</p>

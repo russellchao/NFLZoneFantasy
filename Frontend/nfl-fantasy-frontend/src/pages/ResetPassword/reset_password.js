@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 
 const ResetPassword = () => {
@@ -12,10 +12,26 @@ const ResetPassword = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault(); 
+
+        if (message !== '') {
+            setMessage('');
+        }
+
         const response = await fetch(`http://localhost:8081/api/v1/auth/confirmPwReset?username=${form.username}`);
         const text = await response.text(); 
         setMessage(text);
     };
+
+    useEffect(() => {
+        // If the message changes, and it's not an empty string, only display it for 5 seconds
+        if (message && message !== '') {
+            const timer = setTimeout(() => {
+                setMessage('');
+            }, 5000);
+
+            return () => clearTimeout(timer);
+        }
+    }, [message]);
 
     return (
         <> 
@@ -54,7 +70,7 @@ const ResetPassword = () => {
                         Reset
                     </button>
                 </form>
-                {message && <p style={{ paddingLeft: '30px' }}>{message}</p>}
+                {message && <h3 style={{ paddingLeft: '30px', color: 'yellow' }}>{message}</h3>}
             
             </div>
         </>
