@@ -53,6 +53,10 @@ const Navbar = () => {
         console.log("Logged out successfully");
     };
 
+    const handleNotificationsClick = () => {
+        navigate("/notifications");
+    };
+
     return (
         <nav style={{ 
             padding: "20px",
@@ -177,6 +181,17 @@ const Navbar = () => {
                                 onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}
                             />
                         </Link>
+
+                        <Link to="/leaderboard" style={{ marginRight: "30px", color: "#ffffff" }}>
+                            <img 
+                                src={navbarLogos["Leaderboard"]} 
+                                style={logoStyle}
+                                alt="Leaderboard"
+                                onMouseEnter={() => setHoveredLogo("Leaderboard")}
+                                onMouseLeave={() => setHoveredLogo(null)}
+                                onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}
+                            />
+                        </Link>
                     </div>
                 ) : (
                     null
@@ -187,9 +202,15 @@ const Navbar = () => {
                 <div style={{ marginLeft: "auto", marginRight: "50px" }}>
                     {isLoggedIn ? (
                         <>
-                        <span style={{ color: "#d2e859ff" }}>Points: {points}</span>
-                        <span style={{ color: "#ffffff", paddingLeft: "30px" }}>Welcome, {username}!</span>
-                        <div style={{ display: "inline-block" }}>
+                        <span style={{ color: "#d2e859ff", fontWeight: 'bold' }}>{username}</span>
+                        <span style={{ color: "#d2e859ff", paddingLeft: "15px" }}>Points: {points}</span>
+                        <div style={{ display: "inline-block", paddingLeft: "7.5px" }}>
+                            <button 
+                                onClick={handleNotificationsClick}
+                                style={buttonStyle}
+                            >
+                                Notifications
+                            </button>
                             <button 
                                 onClick={handleLogoutClick}
                                 style={buttonStyle}

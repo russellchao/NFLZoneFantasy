@@ -1,6 +1,5 @@
 package com.nfl.nfl_zone.Auth;
 
-import jakarta.mail.internet.InternetAddress;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.mail.SimpleMailMessage;
@@ -79,7 +78,7 @@ public class UserService {
 
     private void sendVerificationEmail(User user) {
         String token = user.getVerifToken();
-        String verificationLink = String.format("http://localhost:3002/verify_user/%s",  token);
+        String verificationLink = String.format("http://localhost:3002/verify_user/%s", token);
 
         String subject = "Confirm your NFL Zone account";
         String body = String.format(
@@ -108,9 +107,13 @@ public class UserService {
         }
 
         User user = optionalUser.get();
+
+        if (user.isVerified()) {
+            return "Verification failed. Please try again.";
+        }
+
         user.setVerified(true);
         user.setVerifToken(null); // if verification is successful, clear the verification token to prevent reuse
-
         userRepository.save(user);
 
         return "Verification successful. You may now log in.";
@@ -131,11 +134,7 @@ public class UserService {
         user.setVerifToken(token);
         userRepository.save(user);
 
-        String passwordResetLink = String.format(
-            "http://localhost:3002/create_new_password/%s/%s",
-            username, token
-        );
-
+        String passwordResetLink = String.format("http://localhost:3002/create_new_password/%s/%s", username, token);
         String subject = "Reset your NFL Zone password";
         String body = String.format(
                 "Hi %s (%s), \n\n" + "Please reset your password by clicking the link below: "
@@ -200,6 +199,17 @@ public class UserService {
         User user = userRepository.findByUsername(username).get();
         user.setPoints(points);
         userRepository.save(user);
+    }
+
+    public HashMap<String, Integer> getLeaderboard() {
+        HashMap<String, Integer> leaderboard = new HashMap<>();
+        List<User> allUsers = userRepository.findAll();
+
+        for (User user : allUsers) {
+            leaderboard.put(user.getUsername(), user.getPoints());
+        }
+
+        return leaderboard;
     }
 
 }

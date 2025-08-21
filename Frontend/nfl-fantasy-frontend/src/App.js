@@ -17,6 +17,7 @@ import CreateNewPassword from './pages/ResetPassword/create_new_password';
 import HotTakes from './pages/HotTakes/hot_takes';
 import PredictTheWinner from './pages/PredictTheWinner/predict_the_winner';
 import Notifications from './pages/Notifications/notifications';
+import Leaderboard from './pages/Leaderboard/leaderboard';
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
           <Route path="/hot_takes" element={<HotTakes />} />
           <Route path="/predict_the_winner" element={<PredictTheWinner />} />
           <Route path="/notifications" element={<Notifications />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
         </Routes>
       </div>
     </Router>

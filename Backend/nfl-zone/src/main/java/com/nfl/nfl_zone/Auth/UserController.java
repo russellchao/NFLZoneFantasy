@@ -52,6 +52,11 @@ public class UserController {
     public void setPoints(@RequestParam String username, @RequestParam Integer points) {
         userService.setPoints(username, points);
     }
+
+    @GetMapping("/leaderboard")
+    public HashMap<String, Integer> getLeaderboard() {
+        return userService.getLeaderboard();
+    }
 }
 
 

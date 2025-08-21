@@ -109,6 +109,9 @@ const Home = () => {
                 <button style={buttonStyle} onClick={() => isLoggedIn ? navigate("/predict_the_winner") : navigate("/login")}>
                     Predict The Winner
                 </button>
+                <button style={buttonStyle} onClick={() => isLoggedIn ? navigate("/leaderboard") : navigate("/login")}>
+                    Leaderboard
+                </button>
             </div>
             
         </div>
