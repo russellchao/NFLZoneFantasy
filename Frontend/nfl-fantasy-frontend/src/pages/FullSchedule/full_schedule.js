@@ -17,7 +17,10 @@ const rowStyle = {
 
 
 const FullSchedule = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    useEffect(() => {
+        // Scroll to the top of the page when it loads for the first time
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
 
     const [schedule, setSchedule] = useState([]);
     const [teamSeason, setSeason] = useState("2025"); 

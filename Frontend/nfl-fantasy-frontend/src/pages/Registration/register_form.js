@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const RegisterForm = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    useEffect(() => {
+        // Scroll to the top of the page when it loads for the first time
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
 
     const [form, setForm] = useState({ fullName: '', username: '', email: '', password: '' });
     const [message, setMessage] = useState(''); 

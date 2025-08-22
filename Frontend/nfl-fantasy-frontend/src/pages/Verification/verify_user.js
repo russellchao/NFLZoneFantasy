@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const VerifyUser = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    useEffect(() => {
+        // Scroll to the top of the page when it loads for the first time
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
 
     const { token } = useParams();
     const [result, setResult] = useState(''); 

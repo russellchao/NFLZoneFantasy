@@ -5,7 +5,10 @@ import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
 
 
 export const Search = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    useEffect(() => {
+        // Scroll to the top of the page when it loads for the first time
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
 
     const [name, setName] = useState(""); 
     const [nameData, setNameData] = useState([]); 

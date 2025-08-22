@@ -1,3 +1,4 @@
+import React, {useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import { useAuth } from '../../hooks/use_auth';
 
@@ -73,7 +74,10 @@ const gridStyle = {
 }
 
 const Home = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    useEffect(() => {
+        // Scroll to the top of the page when it loads for the first time
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
 
     const { isLoggedIn, username, points } = useAuth(); 
     const navigate = useNavigate();

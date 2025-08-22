@@ -1,7 +1,10 @@
 import {useState, useEffect} from 'react';
 
 const Leaderboard = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    useEffect(() => {
+        // Scroll to the top of the page when it loads for the first time
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
     
     const [data, setData] = useState([]);
 

@@ -171,7 +171,10 @@ const datesForEachWeek = {
 
 
 const PredictTheWinner = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    useEffect(() => {
+        // Scroll to the top of the page when it loads for the first time
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
 
     const currentSeason = "2025"; 
     const today = new Date();
@@ -427,9 +430,9 @@ const PredictTheWinner = () => {
                 // Mark the number of points that have been added for this prediction (to be reflected in GUI)
                 await setNumPoints(matchup.gameId, localStorage.getItem("username"), pointsForThisPrediction);
 
-                // Create a notification that the points have been added
-                const notifMessage = `You earned ${pointsForThisPrediction} points for your predictions in the ${predictionForThisMatchup.awayTeam} vs. ${predictionForThisMatchup.homeTeam} matchup for ${currentPredictionWeek}, ${currentSeason}.`;
-                await createNotification(localStorage.getItem("username"), notifMessage); 
+                // // Create a notification that the points have been added
+                // const notifMessage = `You earned ${pointsForThisPrediction} points for your predictions in the ${predictionForThisMatchup.awayTeam} vs. ${predictionForThisMatchup.homeTeam} matchup for ${currentPredictionWeek}, ${currentSeason}.`;
+                // await createNotification(localStorage.getItem("username"), notifMessage); 
             }
         }
 

@@ -17,7 +17,10 @@ const boxStyle = {
 };
 
 const HotTakes = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    useEffect(() => {
+        // Scroll to the top of the page when it loads for the first time
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
 
     // Get the current time 
     const currentTime = new Date();

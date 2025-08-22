@@ -32,7 +32,10 @@ const rowStyle = {
 };
 
 const TeamPage = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    useEffect(() => {
+        // Scroll to the top of the page when it loads for the first time
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
 
     const { teamName } = useParams(); 
     const [section, setSection] = useState("Schedule"); // Default section is Schedule

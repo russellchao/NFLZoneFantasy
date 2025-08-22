@@ -1,8 +1,11 @@
-import React from 'react'; 
+import React, {useEffect} from 'react'; 
 import PositionGrid from './PositionGrid/position_grid';
 
 const AllPositions = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    useEffect(() => {
+        // Scroll to the top of the page when it loads for the first time
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
 
     return (
         <div>
