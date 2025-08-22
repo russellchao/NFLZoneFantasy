@@ -42,13 +42,23 @@ const Leaderboard = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {Object.entries(data).map(([username, points], index) => (
-                        <tr key={index} style={{ textAlign: 'center', background: index % 2 === 0 ? '#e9ecef' : '#fff' }}>
-                            <td style={{ padding: '10px', border: '1px solid #dee2e6', fontWeight: 'bold', color: '#122858ff' }}>{index + 1}</td>
-                            <td style={{ padding: '10px', border: '1px solid #dee2e6', fontWeight: 'bold', color: '#122858ff' }}>{username}</td>
-                            <td style={{ padding: '10px', border: '1px solid #dee2e6', fontWeight: 'bold', color: '#122858ff' }}>{points}</td>
-                        </tr>
-                    ))}
+                    {Object.entries(data).map(([username, points], index) => {
+                        const currentUser = localStorage.getItem("username");
+                        const isCurrentUser = username === currentUser;
+                        return (
+                            <tr
+                                key={index}
+                                style={{
+                                    textAlign: 'center',
+                                    background: isCurrentUser ? '#55e455ff' : (index % 2 === 0 ? '#e9ecef' : '#fff')
+                                }}
+                            >
+                                <td style={{ padding: '10px', border: '1px solid #dee2e6', fontWeight: 'bold', color: '#122858ff' }}>{index + 1}</td>
+                                <td style={{ padding: '10px', border: '1px solid #dee2e6', fontWeight: 'bold', color: '#122858ff' }}>{username}</td>
+                                <td style={{ padding: '10px', border: '1px solid #dee2e6', fontWeight: 'bold', color: '#122858ff' }}>{points}</td>
+                            </tr>
+                        );
+                    })}
                 </tbody>
             </table>
         </div>
