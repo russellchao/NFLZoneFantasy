@@ -72,7 +72,6 @@ const TeamGrid = () => {
     const navigate = useNavigate(); 
 
     const handleTeamClick = (teamName) => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
         navigate(`/all_teams/${teamName}`); 
     };
 

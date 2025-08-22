@@ -1,6 +1,8 @@
 import {useState, useEffect} from 'react';
 
 const Leaderboard = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
     const [data, setData] = useState([]);
 
     useEffect(() => {

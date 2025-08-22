@@ -73,6 +73,8 @@ const gridStyle = {
 }
 
 const Home = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     const { isLoggedIn, username, points } = useAuth(); 
     const navigate = useNavigate();
 

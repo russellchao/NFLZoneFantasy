@@ -32,6 +32,8 @@ const rowStyle = {
 };
 
 const TeamPage = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     const { teamName } = useParams(); 
     const [section, setSection] = useState("Schedule"); // Default section is Schedule
     const allSections = ["Schedule", "Player Stats"];

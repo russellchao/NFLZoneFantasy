@@ -141,36 +141,38 @@ const datesForEachWeek = {
         Current Season: 2025-26
     */ 
 
-    "Hall of Fame Week": new Date("2025-07-24"),
-    "Preseason Week 1": new Date("2025-08-02"),
-    "Preseason Week 2": new Date("2025-08-14"), 
-    "Preseason Week 3": new Date("2025-08-20"),
-    "Week 1": new Date("2025-08-28"), 
-    "Week 2": new Date("2025-09-10"), 
-    "Week 3": new Date("2025-09-17"),
-    "Week 4": new Date("2025-09-24"),
-    "Week 5": new Date("2025-10-01"),
-    "Week 6": new Date("2025-10-08"),
-    "Week 7": new Date("2025-10-15"),
-    "Week 8": new Date("2025-10-22"),
-    "Week 9": new Date("2025-10-29"),
-    "Week 10": new Date("2025-11-05"), 
-    "Week 11": new Date("2025-11-12"),
-    "Week 12": new Date("2025-11-19"),
-    "Week 13": new Date("2025-11-26"),
-    "Week 14": new Date("2025-12-03"),
-    "Week 15": new Date("2025-12-10"),
-    "Week 16": new Date("2025-12-17"),
-    "Week 17": new Date("2025-12-24"),
-    "Week 18": new Date("2026-01-02"),
-    "Wild Card Round": new Date("2026-01-09"),
-    "Divisional Round": new Date("2026-01-16"),
-    "Conference Championships": new Date("2026-01-24"),
-    "Super Bowl": new Date("2026-02-07"),
+    "Hall of Fame Week": new Date("2025-07-24T00:00:00-04:00"),
+    "Preseason Week 1": new Date("2025-08-02T00:00:00-04:00"),
+    "Preseason Week 2": new Date("2025-08-14T00:00:00-04:00"), 
+    "Preseason Week 3": new Date("2025-08-20T00:00:00-04:00"),
+    "Week 1": new Date("2025-08-28T00:00:00-04:00"), 
+    "Week 2": new Date("2025-09-10T00:00:00-04:00"), 
+    "Week 3": new Date("2025-09-17T00:00:00-04:00"),
+    "Week 4": new Date("2025-09-24T00:00:00-04:00"),
+    "Week 5": new Date("2025-10-01T00:00:00-04:00"),
+    "Week 6": new Date("2025-10-08T00:00:00-04:00"),
+    "Week 7": new Date("2025-10-15T00:00:00-04:00"),
+    "Week 8": new Date("2025-10-22T00:00:00-04:00"),
+    "Week 9": new Date("2025-10-29T00:00:00-04:00"),
+    "Week 10": new Date("2025-11-05T00:00:00-04:00"), 
+    "Week 11": new Date("2025-11-12T00:00:00-04:00"),
+    "Week 12": new Date("2025-11-19T00:00:00-04:00"),
+    "Week 13": new Date("2025-11-26T00:00:00-04:00"),
+    "Week 14": new Date("2025-12-03T00:00:00-04:00"),
+    "Week 15": new Date("2025-12-10T00:00:00-04:00"),
+    "Week 16": new Date("2025-12-17T00:00:00-04:00"),
+    "Week 17": new Date("2025-12-24T00:00:00-04:00"),
+    "Week 18": new Date("2026-01-02T00:00:00-04:00"),
+    "Wild Card Round": new Date("2026-01-09T00:00:00-04:00"),
+    "Divisional Round": new Date("2026-01-16T00:00:00-04:00"),
+    "Conference Championships": new Date("2026-01-24T00:00:00-04:00"),
+    "Super Bowl": new Date("2026-02-07T00:00:00-04:00"),
 };
 
 
 const PredictTheWinner = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     const currentSeason = "2025"; 
     const today = new Date();
     const [currentPredictionWeek, setCurrentPredictionWeek] = useState(""); 
@@ -425,9 +427,9 @@ const PredictTheWinner = () => {
                 // Mark the number of points that have been added for this prediction (to be reflected in GUI)
                 await setNumPoints(matchup.gameId, localStorage.getItem("username"), pointsForThisPrediction);
 
-                // // Create a notification that the points have been added
-                // const notifMessage = `You earned ${pointsForThisPrediction} points for your predictions in the ${predictionForThisMatchup.week} matchup for ${predictionForThisMatchup.awayTeam} vs. ${predictionForThisMatchup.homeTeam}`;
-                // await createNotification(localStorage.getItem("username"), notifMessage); 
+                // Create a notification that the points have been added
+                const notifMessage = `You earned ${pointsForThisPrediction} points for your predictions in the ${predictionForThisMatchup.awayTeam} vs. ${predictionForThisMatchup.homeTeam} matchup for ${currentPredictionWeek}, ${currentSeason}.`;
+                await createNotification(localStorage.getItem("username"), notifMessage); 
             }
         }
 

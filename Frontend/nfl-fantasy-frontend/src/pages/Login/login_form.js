@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { getPoints } from '../../API/points_api';
 
 const LoginForm = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     const [form, setForm] = useState({ username: '', password: '', points: '' }); 
     const [message, setMessage] = useState(''); 
     const [showPassword, setShowPassword] = useState(false);

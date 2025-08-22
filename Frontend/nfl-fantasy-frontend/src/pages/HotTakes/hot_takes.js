@@ -17,6 +17,8 @@ const boxStyle = {
 };
 
 const HotTakes = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     // Get the current time 
     const currentTime = new Date();
     const formattedTime = currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 const CreateNewPassword = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     const { username, token } = useParams(); 
     const [newPassword, setNewPassword] = useState(''); 
     const [confirmNewPassword, setConfirmNewPassword] = useState(''); 

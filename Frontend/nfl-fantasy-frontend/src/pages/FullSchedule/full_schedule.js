@@ -17,6 +17,8 @@ const rowStyle = {
 
 
 const FullSchedule = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     const [schedule, setSchedule] = useState([]);
     const [teamSeason, setSeason] = useState("2025"); 
     const [week, setWeek] = useState("Week 1");

@@ -11,6 +11,8 @@ const allPositions = [
 
 
 const PositionPage = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     const location = useLocation();
     const navigate = useNavigate();
 
