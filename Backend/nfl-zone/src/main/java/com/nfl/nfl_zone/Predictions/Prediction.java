@@ -61,6 +61,15 @@ public class Prediction {
     @Column(name = "predictionid")
     private String predictionId;
 
+    @Column(name = "status")
+    private String status;
+
+    @Column(name = "date")
+    private String date;
+
+    @Column(name = "starttime")
+    private String startTime;
+
 
     public String getGameId() {
         return gameId;
@@ -204,5 +213,29 @@ public class Prediction {
 
     public void setPredictionId(String predictionId) {
         this.predictionId = predictionId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 }

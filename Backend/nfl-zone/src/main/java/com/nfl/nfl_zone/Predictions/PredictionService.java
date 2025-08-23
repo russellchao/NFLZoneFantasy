@@ -28,13 +28,16 @@ public class PredictionService {
             predictionRepository.save(incomingPrediction);
 
         } else {
-            // Update the awayTeamScore, homeTeamScore, spreadValue, and overUnderValue if it already exists
+            // Update the awayTeamScore, homeTeamScore, spreadValue, overUnderValue, status, date, and start time if it already exists
 
             Prediction existingPrediction = predictionRepository.findByGameIdAndUsername(incomingPrediction.getGameId(), incomingPrediction.getUsername()).get();
             existingPrediction.setAwayTeamScore(incomingPrediction.getAwayTeamScore());
             existingPrediction.setHomeTeamScore(incomingPrediction.getHomeTeamScore());
             existingPrediction.setSpreadValue(incomingPrediction.getSpreadValue());
             existingPrediction.setOverUnderValue(incomingPrediction.getOverUnderValue());
+            existingPrediction.setStatus(incomingPrediction.getStatus());
+            existingPrediction.setDate(incomingPrediction.getDate());
+            existingPrediction.setStartTime(incomingPrediction.getStartTime());
 
             predictionRepository.save(existingPrediction);
         }
