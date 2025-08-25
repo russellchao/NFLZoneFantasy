@@ -427,9 +427,11 @@ const PredictTheWinner = () => {
                 // Mark the number of points that have been added for this prediction (to be reflected in GUI)
                 await setNumPoints(prediction.gameId, localStorage.getItem("username"), pointsForThisPrediction);
 
-                // // Create a notification that the points have been added
-                // const notifMessage = `You earned ${pointsForThisPrediction} points for your predictions in the ${predictionForThisMatchup.awayTeam} vs. ${predictionForThisMatchup.homeTeam} matchup for ${currentPredictionWeek}, ${currentSeason}.`;
-                // await createNotification(localStorage.getItem("username"), notifMessage); 
+                // Create a notification that the points have been added if pointsForThisPrediction is not 0
+                if (pointsForThisPrediction !== 0) {
+                    const notifMessage = `You ${pointsForThisPrediction > 0 ? "earned" : "lost"} ${Math.abs(pointsForThisPrediction)} points for your predictions in the ${prediction.awayTeam} vs. ${prediction.homeTeam} matchup for ${currentPredictionWeek}, ${currentSeason}. (Before: ${localStorage.getItem("points")}, After: ${parseInt(localStorage.getItem("points")) + pointsForThisPrediction})`;
+                    await createNotification(localStorage.getItem("username"), notifMessage);
+                }
             }
         }
 
@@ -498,6 +500,7 @@ const PredictTheWinner = () => {
                 // Fetch the user's predictions again to get the updated points which would then be reflected in the GUI
                 const predictionsAfterAddingPoints = await getPredictions(localStorage.getItem("username"));
 
+                /* ONLY KEEPING TEMPORARILY - The matchups array is always in order, but the updateMatchups() function randomizes it */
                 // Sort the predictions in the following order: status (Scheduled -> Final -> everything else), date, start time, away team
                 predictionsAfterAddingPoints.sort((a, b) => {
                     const statusOrder = { "Scheduled": 0, "Final": 1 };
@@ -792,4 +795,4 @@ const PredictTheWinner = () => {
     ); 
 };
 
-export default PredictTheWinner; 
+export default PredictTheWinner;
