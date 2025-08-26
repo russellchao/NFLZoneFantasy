@@ -1,8 +1,7 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect } from 'react';
 import { fetchScheduleByWeek, fetchUpdateScheduleDB } from '../../API/schedule_api';
-import { deleteOldMatchups, updateMatchups, getPredictions, updatePredictedWinner, updatePredictedSpread, updatePredictedOverUnder, markPointsAddedForPrediction, setWinnerIsCorrect, setSpreadIsCorrect, setOverUnderIsCorrect, setNumPoints } from '../../API/prediction_api';
-import { createNotification } from '../../API/notification_api';
-import { addPoints, getPoints } from '../../API/points_api';
+import { deleteOldMatchups, updateMatchupsForPredictions, getPredictions, updatePredictedWinner, updatePredictedSpread, updatePredictedOverUnder } from '../../API/prediction_api';
+import { getPoints } from '../../API/points_api';
 
 // Import all logo images
 const logoImages = require.context('../../logos/NFL Logos', false, /\.(png|jpe?g|svg)$/);
@@ -99,7 +98,7 @@ const boxStyle = {
 };
 
 const teamAbbr = {
-    "Arizona Cardinals": "ARZ", 
+    "Arizona Cardinals": "ARI", 
     "Atlanta Falcons": "ATL", 
     "Baltimore Ravens": "BAL", 
     "Buffalo Bills": "BUF", 
@@ -136,7 +135,7 @@ const teamAbbr = {
 const datesForEachWeek = {
     /*
         The dates for each week when predictions can start being made for games being played that week.
-        (E.g. predictions for Week 1, 2025 games can start being made on 8/28/2025)
+        (E.g. predictions for Week 1, 2025 games can start being made on 8/26/2025)
 
         Current Season: 2025-26
     */ 
@@ -145,7 +144,7 @@ const datesForEachWeek = {
     "Preseason Week 1": new Date("2025-08-02T00:00:00-04:00"),
     "Preseason Week 2": new Date("2025-08-14T00:00:00-04:00"), 
     "Preseason Week 3": new Date("2025-08-20T00:00:00-04:00"),
-    "Week 1": new Date("2025-08-28T00:00:00-04:00"), 
+    "Week 1": new Date("2025-08-26T00:00:00-04:00"), 
     "Week 2": new Date("2025-09-10T00:00:00-04:00"), 
     "Week 3": new Date("2025-09-17T00:00:00-04:00"),
     "Week 4": new Date("2025-09-24T00:00:00-04:00"),
@@ -162,11 +161,11 @@ const datesForEachWeek = {
     "Week 15": new Date("2025-12-10T00:00:00-04:00"),
     "Week 16": new Date("2025-12-17T00:00:00-04:00"),
     "Week 17": new Date("2025-12-24T00:00:00-04:00"),
-    "Week 18": new Date("2026-01-02T00:00:00-04:00"),
-    "Wild Card Round": new Date("2026-01-09T00:00:00-04:00"),
-    "Divisional Round": new Date("2026-01-16T00:00:00-04:00"),
-    "Conference Championships": new Date("2026-01-24T00:00:00-04:00"),
-    "Super Bowl": new Date("2026-02-07T00:00:00-04:00"),
+    "Week 18": new Date("2025-12-31T00:00:00-04:00"),
+    "Wild Card Round": new Date("2026-01-06T00:00:00-04:00"),
+    "Divisional Round": new Date("2026-01-14T00:00:00-04:00"),
+    "Conference Championships": new Date("2026-01-20T00:00:00-04:00"),
+    "Super Bowl": new Date("2026-01-27T00:00:00-04:00"),
 };
 
 
@@ -188,17 +187,14 @@ const PredictTheWinner = () => {
     const [loading, setLoading] = useState(true); 
     const [loadError, throwLoadError] = useState(false); 
 
-
     useEffect(() => {
-        // Automatically refresh the page every 10 minutes
-
+        // Automatically refresh the page every 5 minutes
         const interval = setInterval(() => {
             window.location.reload();
         }, 5 * 60 * 1000); // 5 minutes in milliseconds
 
         return () => clearInterval(interval); // Cleanup on unmount
     }, []);
-
 
     async function getCurrentPredictionWeek() {
         // Get the current week where predictions for games that week could start being made
@@ -315,131 +311,6 @@ const PredictTheWinner = () => {
         }
     }
 
-    function checkCorrectWinner(prediction) {
-        if (prediction.predictedWinner === "N/A") {
-            return "N/A"; 
-
-        } else if (prediction.predictedWinner === prediction.awayTeam) {
-            return prediction.awayTeamScore > prediction.homeTeamScore;
-
-        } else if (prediction.predictedWinner === prediction.homeTeam) {
-            return prediction.awayTeamScore < prediction.homeTeamScore;
-
-        } else if (prediction.predictedWinner === "Tie") {
-            return prediction.awayTeamScore === prediction.homeTeamScore;
-        }
-    }
-
-    function checkCorrectSpread(prediction) {
-        if (prediction.spreadValue === "EVEN" || prediction.predictedSpread === "N/A" || prediction.spreadValue === undefined) {
-            return "N/A"; 
-        } 
-
-        const spreadTeam = (prediction.spreadValue).replace(/-?\d+(\.\d+)?/, '').trim(); // e.g. "BUF -3.5" => "BUF"
-        const spreadNumber =  parseFloat((prediction.spreadValue).replace(/^[A-Z]{2,3}\s-?/, ''));
-
-        console.log(`Spread Team: ${spreadTeam}, Spread Number: ${spreadNumber}`);
-
-        // get the full team name based on the spreadTeam (e.g. BUF becomes Buffalo Bills)
-        const favoredTeam = Object.keys(teamAbbr).find(teamName => teamAbbr[teamName] === spreadTeam);
-
-        if (prediction.predictedSpread === 'Minus') {
-            /**
-             * If the user picked the 'Minus' spread (picked the favored team), the team favored to win must not only win, 
-             * but also win by at least the number of points they are favored to win by for the prediction to be correct. 
-             */ 
-
-            if (favoredTeam === prediction.awayTeam) {
-                return prediction.awayTeamScore - prediction.homeTeamScore >= spreadNumber; 
-
-            } else if (favoredTeam === prediction.homeTeam) {
-                return prediction.homeTeamScore - prediction.awayTeamScore >= spreadNumber; 
-            }
-
-        } else if (prediction.predictedSpread === 'Plus') {
-            /**
-             * If the user picked the 'Plus' spread (picked the underdog), a correct prediction falls under 3 conditions:
-             * 
-             * 1. The underdog wins
-             * 2. The favored team wins by less than the number of points they were favored to win by
-             * 3. The game ends in a tie
-             */
-
-            if (favoredTeam === prediction.awayTeam) {
-                return prediction.awayTeamScore - prediction.homeTeamScore < spreadNumber; 
-
-            } else if (favoredTeam === prediction.homeTeam) {
-                return prediction.homeTeamScore - prediction.awayTeamScore < spreadNumber; 
-            }
-        }
-    }
-
-    function checkCorrectOverUnder(prediction) {
-        if (prediction.predictedOverUnder === "N/A" || prediction.overUnderValue === undefined) {
-            return "N/A";
-
-        } else if (prediction.predictedOverUnder === "Over") {
-            return prediction.awayTeamScore + prediction.homeTeamScore >= prediction.overUnderValue;
-
-        } else if (prediction.predictedOverUnder === "Under") {
-            return prediction.awayTeamScore + prediction.homeTeamScore < prediction.overUnderValue;
-        }
-    }
-
-    async function awardPointsForPredictions(currentPredictions) {
-        let totalPts = 0;
-
-        for (const prediction of currentPredictions) {
-            if (prediction.status === 'Final' && prediction.pointsAdded === false) {
-                // Determine whether the user's predictions were correct/incorrect/NA when the matchup finishes
-                let pointsForThisPrediction = 0;
-                const winnerIsCorrect = checkCorrectWinner(prediction);
-                const spreadIsCorrect = checkCorrectSpread(prediction);
-                const overUnderIsCorrect = checkCorrectOverUnder(prediction);
-
-                // Calculate the number of points earned based on the predictions
-                if (winnerIsCorrect === true) {
-                    if (prediction.predictedWinner === "Tie") pointsForThisPrediction += 20;
-                    else pointsForThisPrediction++; 
-
-                } else if (winnerIsCorrect === false) {
-                    if (prediction.predictedWinner === "Tie") pointsForThisPrediction -= 20;
-                    else pointsForThisPrediction--;
-                }
-
-                if (spreadIsCorrect === true) pointsForThisPrediction++;
-                else if (spreadIsCorrect === false) pointsForThisPrediction--;
-
-                if (overUnderIsCorrect === true) pointsForThisPrediction++;
-                else if (overUnderIsCorrect === false) pointsForThisPrediction--;
-
-                // Add the points for this prediction to the total prediction points for this week
-                totalPts += pointsForThisPrediction; 
-
-                // Mark the flag that the points for a specific prediction has been added to true
-                await markPointsAddedForPrediction(prediction.gameId, localStorage.getItem("username"));
-
-                // Mark whether the winner, spread, and over/under for this prediction is correct
-                await setWinnerIsCorrect(prediction.gameId, localStorage.getItem("username"), winnerIsCorrect === true ? "Yes" : winnerIsCorrect === false ? "No" : "N/A");
-                await setSpreadIsCorrect(prediction.gameId, localStorage.getItem("username"), spreadIsCorrect === true ? "Yes" : spreadIsCorrect === false ? "No" : "N/A");
-                await setOverUnderIsCorrect(prediction.gameId, localStorage.getItem("username"), overUnderIsCorrect === true ? "Yes" : overUnderIsCorrect === false ? "No" : "N/A");
-
-                // Mark the number of points that have been added for this prediction (to be reflected in GUI)
-                await setNumPoints(prediction.gameId, localStorage.getItem("username"), pointsForThisPrediction);
-
-                // Create a notification that the points have been added if pointsForThisPrediction is not 0
-                if (pointsForThisPrediction !== 0) {
-                    const notifMessage = `You ${pointsForThisPrediction > 0 ? "earned" : "lost"} ${Math.abs(pointsForThisPrediction)} points for your predictions in the ${prediction.awayTeam} vs. ${prediction.homeTeam} matchup for ${currentPredictionWeek}, ${currentSeason}. (Before: ${localStorage.getItem("points")}, After: ${parseInt(localStorage.getItem("points")) + pointsForThisPrediction})`;
-                    await createNotification(localStorage.getItem("username"), notifMessage);
-                }
-            }
-        }
-
-        // Update the number of points the user currently has if necessary
-        await addPoints(localStorage.getItem("username"), totalPts);
-    }
-
-
     useEffect(() => {
         // Set the current prediction week on mount
         const fetchWeek = async () => {
@@ -448,7 +319,6 @@ const PredictTheWinner = () => {
         };
         fetchWeek();
     }, []);
-
 
     useEffect(() => {
         // Update the schedule database and fetch the matchups for the current prediction week for this season
@@ -462,7 +332,6 @@ const PredictTheWinner = () => {
             updateAndFetchMatchups();
         }
     }, [currentPredictionWeek]);
-
 
     useEffect(() => {
         // Get the spreads and over/unders of each matchup 
@@ -485,42 +354,27 @@ const PredictTheWinner = () => {
         fetchSpreadsAndOverUnders();
     }, [matchups]);
 
-
     useEffect(() => {
         if (currentPredictionWeek !== "") {
             (async () => {
-                // Delete old matchups from the DB and update with new ones when the user opens the page with a new prediction week for the first time
+                /**
+                 *  Delete all old matchups from the prediction database (if necessary),
+                 *  and update it with the matchups for the current week, adding points (if necessary).
+                 */
                 await deleteOldMatchups(currentPredictionWeek);
-                await updateMatchups(matchups, spreads, overUnders);
+                await updateMatchupsForPredictions(matchups, spreads, overUnders);
 
-                // Add points for predictions in case the user opens the page with a finished matchup for the first time
+                // Get the predictions for the current week
                 const predictions = await getPredictions(localStorage.getItem("username"));
-                await awardPointsForPredictions(predictions);
+                setCurrentPredictions(predictions);
 
-                // Fetch the user's predictions again to get the updated points which would then be reflected in the GUI
-                const predictionsAfterAddingPoints = await getPredictions(localStorage.getItem("username"));
-
-                /* ONLY KEEPING TEMPORARILY - The matchups array is always in order, but the updateMatchups() function randomizes it */
-                // Sort the predictions in the following order: status (Scheduled -> Final -> everything else), date, start time, away team
-                predictionsAfterAddingPoints.sort((a, b) => {
-                    const statusOrder = { "Scheduled": 0, "Final": 1 };
-                    const statusComparison = statusOrder[a.status] - statusOrder[b.status];
-                    if (statusComparison !== 0) return statusComparison;
-
-                    const dateComparison = new Date(a.date) - new Date(b.date);
-                    if (dateComparison !== 0) return dateComparison;
-
-                    const timeComparison = a.startTime.localeCompare(b.startTime);
-                    if (timeComparison !== 0) return timeComparison;
-
-                    return a.awayTeam.localeCompare(b.awayTeam);
-                });
-
-                setCurrentPredictions(predictionsAfterAddingPoints);
+                // Get the updated points for the user and dispatch an event to update the points in the navbar without having to refresh
+                const updatedPoints = await getPoints(localStorage.getItem("username"));
+                localStorage.setItem("points", updatedPoints);
+                window.dispatchEvent(new Event("pointsUpdated"));
             })();
         }
     }, [spreads, overUnders]);
-
 
     if (loading) {
         return (
@@ -538,7 +392,6 @@ const PredictTheWinner = () => {
         );
     }
 
-
     if (loadError) {
         return (
             <>
@@ -554,7 +407,6 @@ const PredictTheWinner = () => {
             </>   
         );
     }
-
 
     return (
         <>
@@ -598,11 +450,14 @@ const PredictTheWinner = () => {
                 <p>&nbsp;</p>
 
                 <div style={{ textAlign: 'center' }}>
-                    {/* Show predictions for the current week and give the user an option to pick one team or a tie*/}
+                    {/* Show predictions for the current week and give the user the options to pick their winners, spreads, and over/unders */}
                     
-                    {currentPredictions.length > 0 ? (
+                    {matchups.length > 0 ? (
                         <div style={gridStyle}>
-                            {currentPredictions.map((predictionForThisMatchup, index) => {
+                            {matchups.map((matchup, index) => {
+                                // Get the array in currentPredictions that is based on the gameId for this matchup
+                                const predictionForThisMatchup = currentPredictions.find(pred => pred.gameId === matchup.gameId) || {};
+
                                 return (
                                     <div key={index} style={{ margin: '10px 0' }}>
                                         <div>
@@ -783,8 +638,7 @@ const PredictTheWinner = () => {
                     ) : (
                         <p>No matchups available for this week.</p>
                     )}
-                </div>
-                
+                </div>  
             </div>
 
             <br></br>

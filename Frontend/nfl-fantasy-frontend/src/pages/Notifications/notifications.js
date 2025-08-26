@@ -11,17 +11,6 @@ const Notifications = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Automatically refresh the page every 10 minutes
-
-        const interval = setInterval(() => {
-            window.location.reload();
-        }, 10 * 60 * 1000); // 10 minutes in milliseconds
-
-        return () => clearInterval(interval); // Cleanup on unmount
-    }, []);
-
-
-    useEffect(() => {
         (async () => {
             await deleteOldNotifications(localStorage.getItem("username")); 
 
@@ -32,12 +21,10 @@ const Notifications = () => {
         })();
     }, [])
 
-
     if (loading) {
         return <div>Loading...</div>;
     }
 
-    
     return (
         <>
             <div style={{ padding: "20px" }}>

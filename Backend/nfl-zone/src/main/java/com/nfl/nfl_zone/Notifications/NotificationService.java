@@ -14,7 +14,7 @@ public class NotificationService {
     }
 
     public List<Notification> getNotificationsByUsername(String username) {
-        return notificationRepository.findAllByUsername(username);
+        return notificationRepository.findAllByUsername(username).reversed(); // reverse so the newer notifications are at the top of the list
     }
 
     public void createNotification(String username, String message) {

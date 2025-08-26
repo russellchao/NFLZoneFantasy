@@ -1,4 +1,4 @@
-export const updateMatchups = async (matchups, spreads, overUnders) => {
+export const updateMatchupsForPredictions = async (matchups, spreads, overUnders) => {
     /**
     * Adds new matchups (based on gameID and username)
     * or updates the away & home score, spread, and over/under for existing matchups in the prediction database.
@@ -119,91 +119,5 @@ export const updatePredictedOverUnder = async (gameId, username, overUnder) => {
 
     if (!response.ok) {
         console.error("Failed to update predicted over/under:", response.statusText);
-    }
-};
-
-export const markPointsAddedForPrediction = async (gameId, username) => {
-
-    console.log(`Marking flag that the points for: Game ID: ${gameId}, Username: ${username}, have been added`);
-
-    const response = await fetch(
-        `http://localhost:8081/api/v1/predictions/setPointsAdded?gameId=${gameId}&username=${username}`, 
-    {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    });
-
-    if (!response.ok) {
-        console.error("Failed to mark points added for prediction:", response.statusText);
-    }
-};
-
-export const setWinnerIsCorrect = async (gameId, username, isCorrect) => {
-    console.log(`Setting winner is correct for Game ID: ${gameId}, Username: ${username}, Is Correct: ${isCorrect}`);
-
-    const response = await fetch(
-        `http://localhost:8081/api/v1/predictions/setWinnerIsCorrect?gameId=${gameId}&username=${username}&isCorrect=${isCorrect}`,
-        {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-
-    if (!response.ok) {
-        console.error("Failed to set winner is correct:", response.statusText);
-    }
-};
-
-export const setSpreadIsCorrect = async (gameId, username, isCorrect) => {
-    console.log(`Setting spread is correct for Game ID: ${gameId}, Username: ${username}, Is Correct: ${isCorrect}`);
-
-    const response = await fetch(
-        `http://localhost:8081/api/v1/predictions/setSpreadIsCorrect?gameId=${gameId}&username=${username}&isCorrect=${isCorrect}`,
-        {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-
-    if (!response.ok) {
-        console.error("Failed to set spread is correct:", response.statusText);
-    }
-};
-
-export const setOverUnderIsCorrect = async (gameId, username, isCorrect) => {
-    console.log(`Setting over/under is correct for Game ID: ${gameId}, Username: ${username}, Is Correct: ${isCorrect}`);
-
-    const response = await fetch(
-        `http://localhost:8081/api/v1/predictions/setOverUnderIsCorrect?gameId=${gameId}&username=${username}&isCorrect=${isCorrect}`,
-        {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-
-    if (!response.ok) {
-        console.error("Failed to set over/under is correct:", response.statusText);
-    }
-};
-
-export const setNumPoints = async (gameId, username, numPoints) => {
-    console.log(`Setting numPoints for Game ID: ${gameId}, Username: ${username}, Num Points: ${numPoints}`);
-
-    const response = await fetch(
-        `http://localhost:8081/api/v1/predictions/setNumPoints?gameId=${gameId}&username=${username}&numPoints=${numPoints}`,
-        {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-
-    if (!response.ok) {
-        console.error("Failed to set numPoints:", response.statusText);
     }
 };
