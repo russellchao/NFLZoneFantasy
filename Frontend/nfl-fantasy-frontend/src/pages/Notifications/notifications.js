@@ -53,14 +53,16 @@ const Notifications = () => {
 
                 <br></br>
 
-                <div style={{ display: 'inline-block', paddingLeft: '10px' }}>
-                    <button 
-                        style={{ backgroundColor: 'red', color: 'white', padding: '10px 20px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
-                        onClick={() => deleteAllNotifs()}>
-                            Delete All Notifications
-                    </button>
-                </div>
-
+                {notifications.length > 0 && (
+                    <div style={{ display: 'inline-block', paddingLeft: '10px' }}>
+                        <button 
+                            style={{ backgroundColor: 'red', color: 'white', padding: '10px 20px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
+                            onClick={() => deleteAllNotifs()}>
+                                Delete All Notifications
+                        </button>
+                    </div>
+                )}
+                
                 <p>&nbsp;</p>
 
                 <div style={{ paddingLeft: '20px' }}>
