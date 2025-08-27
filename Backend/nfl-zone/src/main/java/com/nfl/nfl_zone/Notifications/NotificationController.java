@@ -23,18 +23,18 @@ public class NotificationController {
         notificationService.createNotification(username, message);
     }
 
+    @DeleteMapping("/delete")
+    public void deleteNotification(@RequestParam String notif_id) {
+        notificationService.deleteNotification(notif_id);
+    }
+
+    @DeleteMapping("/deleteAll")
+    public void deleteAllNotifications(@RequestParam String username) {
+        notificationService.deleteAllNotifications(username);
+    }
+
     @DeleteMapping("/deleteOld")
     public void deleteOldNotifications(@RequestParam String username) {
         notificationService.deleteOldNotifications(username);
-    }
-
-    @PutMapping("/markAsRead")
-    public void markAsRead(@RequestParam String notif_id) {
-        notificationService.markNotificationAsRead(notif_id);
-    }
-
-    @PutMapping("/markAllAsRead")
-    public void markAllAsRead(@RequestParam String username) {
-        notificationService.markAllNotifsAsRead(username);
     }
 }

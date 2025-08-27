@@ -23,9 +23,6 @@ public class Notification {
     @Column(name = "message")
     private String message;
 
-    @Column(name = "read")
-    private Boolean read;
-
 
     public String getNotifId() {
         return notifId;
@@ -65,13 +62,5 @@ public class Notification {
 
     public void setMessage(String message) {
         this.message = message;
-    }
-
-    public Boolean getRead() {
-        return read;
-    }
-
-    public void setRead(Boolean read) {
-        this.read = read;
     }
 }

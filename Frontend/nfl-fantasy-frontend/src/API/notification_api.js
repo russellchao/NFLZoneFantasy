@@ -17,20 +17,6 @@ export const fetchNotifications = async (username) => {
     return data; 
 };
 
-export const deleteOldNotifications = async (username) => {
-    console.log(`Deleting old notifications for user: ${username}`);
-
-    const response = await fetch(
-        `http://localhost:8081/api/v1/notifications/deleteOld?username=${username}`, {
-            method: "DELETE"
-        }
-    );
-    
-    if (!response.ok) {
-        throw new Error('Failed to delete notifications', response.statusText);
-    };
-}
-
 export const createNotification = async (username, message) => {
     console.log(`Creating notification for username ${username}`);
 
@@ -48,36 +34,44 @@ export const createNotification = async (username, message) => {
     };
 }
 
-export const markNotifAsRead = async (notif_id) => {
-    console.log(`Marking the notification with ID: ${notif_id} as read`);
+export const deleteNotification = async (notifId) => {
+    console.log(`Deleting notification with ID: ${notifId}`);
 
     const response = await fetch(
-        `http://localhost:8081/api/v1/notifications/markAsRead?notif_id=${notif_id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            }
+        `http://localhost:8081/api/v1/notifications/delete?notif_id=${notifId}`, {
+            method: "DELETE"
         }
-    )
+    );
 
     if (!response.ok) {
-        throw new Error('Failed to mark notification as read', response.statusText);
-    };
-}
+        throw new Error('Failed to delete notification', response.statusText);
+    }
+};
 
-export const markAllNotifsAsRead = async (username) => {
-    console.log(`Marking all notifications for user ${username} as read`);
+export const deleteAllNotifications = async (username) => {
+    console.log(`Deleting all notifications for user: ${username}`);
 
     const response = await fetch(
-        `http://localhost:8081/api/v1/notifications/markAllAsRead?username=${username}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            }
+        `http://localhost:8081/api/v1/notifications/deleteAll?username=${username}`, {
+            method: "DELETE"
         }
-    )
+    );
 
     if (!response.ok) {
-        throw new Error('Failed to mark notification as read', response.statusText);
+        throw new Error('Failed to delete all notifications', response.statusText);
+    }
+};
+
+export const deleteOldNotifications = async (username) => {
+    console.log(`Deleting old notifications for user: ${username}`);
+
+    const response = await fetch(
+        `http://localhost:8081/api/v1/notifications/deleteOld?username=${username}`, {
+            method: "DELETE"
+        }
+    );
+    
+    if (!response.ok) {
+        throw new Error('Failed to delete notifications', response.statusText);
     };
 }
