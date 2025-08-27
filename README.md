@@ -10,7 +10,6 @@ A dynamic Full-Stack web application that brings NFL fans an interactive experie
 - [About the Project](#about-the-project)
 - [Tech Stack](#tech-stack)
 - [Features](#features)
-- [Future Roadmap](#future-roadmap)
 
 ---
 
