@@ -1,13 +1,22 @@
-import os
 import json
 from openai import OpenAI
-from dotenv import load_dotenv
-
-load_dotenv()
-open_ai_api_key = os.getenv("OPENAI_API_KEY")
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from GetSecretFromGcloud import get_secret_from_gcloud
 
 
 def validate_hot_take(hotTake, listOfHotTakes):
+    # Get the OpenAI API key from the Google Cloud Secret Manager
+    try:
+        open_ai_api_key = get_secret_from_gcloud("openai-api-key")
+        print("Successfully loaded OpenAI API key:")
+    except Exception as e:
+        print(f"Error getting OpenAI API key: {e}")
+        open_ai_api_key = None
+
+    if not open_ai_api_key:
+        return "Error: OpenAI API key not available"
 
     specific_examples = [
         "The Philadelphia Eagles will win the Super Bowl is valid since it's specific and measurable,"
@@ -96,9 +105,7 @@ def validate_hot_take(hotTake, listOfHotTakes):
     response_json = json.loads(response.json())
     print(f"Response: {response_json.get('output')[0].get('content')[0].get('text')}")
 
-
     return "This hot take is valid"
-
 
 
 if __name__ == '__main__':
@@ -113,7 +120,6 @@ if __name__ == '__main__':
 
     while True:
         hotTake = input("Enter your hot take: ")
-
         validate_hot_take(hotTake, listOfHotTakes)
 
         

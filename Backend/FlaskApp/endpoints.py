@@ -37,7 +37,7 @@ def update_schedule(year):
 
 @app.route("/validateHotTake/<hotTake>/<stringOfHotTakes>")
 def validate(hotTake, stringOfHotTakes):
-    # Endpoint that a string indicating whether the hot take is valid or not
+    # Endpoint that returns a string indicating whether the hot take is valid or not
 
     try:
         listOfHotTakes = stringOfHotTakes.split(",")
