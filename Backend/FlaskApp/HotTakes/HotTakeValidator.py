@@ -3,6 +3,7 @@ import os
 import json
 from dotenv import load_dotenv
 from openai import OpenAI
+from SecretManager import get_secret_from_gcloud
 
 
 def get_openai_api_key():
@@ -19,7 +20,6 @@ def get_openai_api_key():
         
         # Production Mode
         sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        from GetSecretFromGcloud import get_secret_from_gcloud
         api_key = get_secret_from_gcloud("openai-api-key")
         print("Using OpenAI API key from Google Cloud Secret Manager")
         return api_key
