@@ -3,23 +3,23 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'build',
-      '-t', 'gcr.io/$PROJECT_ID/nfl-zone-backend:$COMMIT_SHA',
-      '-t', 'gcr.io/$PROJECT_ID/nfl-zone-backend:latest',
+      '-t', 'gcr.io/nfl-zone-470604/nfl-zone-backend:$COMMIT_SHA',
+      '-t', 'gcr.io/nfl-zone-470604/nfl-zone-backend:latest',
       '.'
     ]
     dir: 'Backend/nfl-zone'
 
   # Push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/nfl-zone-backend:$COMMIT_SHA']
+    args: ['push', 'gcr.io/nfl-zone-470604/nfl-zone-backend:$COMMIT_SHA']
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/nfl-zone-backend:latest']
+    args: ['push', 'gcr.io/nfl-zone-470604/nfl-zone-backend:latest']
 
 # Store images in Container Registry
 images:
-  - 'gcr.io/$PROJECT_ID/nfl-zone-backend:$COMMIT_SHA'
-  - 'gcr.io/$PROJECT_ID/nfl-zone-backend:latest'
+  - 'gcr.io/nfl-zone-470604/nfl-zone-backend:$COMMIT_SHA'
+  - 'gcr.io/nfl-zone-470604/nfl-zone-backend:latest'
 
 # Build options
 options:
