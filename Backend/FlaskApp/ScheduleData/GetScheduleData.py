@@ -64,10 +64,6 @@ def get_matches_this_week(year, week, seasonType):
     content = data.get("content", {})
     schedule = content.get("schedule", {})
 
-    # Write the schedule to a .json file
-    with open("ScheduleOutput.json", "w") as file:
-        json.dump(schedule, file, indent=4)
-
 
     # Week numbers mapped to their respective rounds for the preseason and playoffs
     preseasonKeys = {1: "Hall of Fame Week", 2: "Preseason Week 1", 3: "Preseason Week 2", 4: "Preseason Week 3"}

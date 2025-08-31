@@ -6,7 +6,7 @@ from HotTakes.HotTakeValidator import validate_hot_take
 
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "*"}})
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 
 @app.route("/playerData/<nflSeason>")

@@ -1,6 +1,9 @@
 from google.cloud import secretmanager
+import os
 
 def get_secret_from_gcloud(secret):
+    print(f"PRODUCTION MODE LOG: The Flask App's get_secret_from_gcloud() function has been called for the secret: {secret}")
+
     # Get a secret (e.g. an API Key) from the Google Cloud Secret Manager for the NFL Zone project in Google Cloud
     try:
         project_id = "nfl-zone-470604"

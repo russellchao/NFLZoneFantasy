@@ -1,20 +1,36 @@
-import json
-from openai import OpenAI
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from GetSecretFromGcloud import get_secret_from_gcloud
+import json
+from dotenv import load_dotenv
+from openai import OpenAI
+
+
+def get_openai_api_key():
+    # Get the OpenAI API Key from either .env (Development Mode) or Google Cloud Secret Manager (Production Mode)
+    try:
+        environment = os.getenv("ENVIRONMENT", "development")
+
+        # Development Mode
+        if environment == "development":
+            load_dotenv()
+            api_key = os.getenv("OPENAI_API_KEY")
+            print("Using OpenAI API key from .env file")
+            return api_key
+        
+        # Production Mode
+        sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        from GetSecretFromGcloud import get_secret_from_gcloud
+        api_key = get_secret_from_gcloud("openai-api-key")
+        print("Using OpenAI API key from Google Cloud Secret Manager")
+        return api_key
+    
+    except Exception as e:
+        print(f"Error getting API key from Google Cloud: {e}")
+        return None
 
 
 def validate_hot_take(hotTake, listOfHotTakes):
-    # Get the OpenAI API key from the Google Cloud Secret Manager
-    try:
-        open_ai_api_key = get_secret_from_gcloud("openai-api-key")
-        print("Successfully loaded OpenAI API key:")
-    except Exception as e:
-        print(f"Error getting OpenAI API key: {e}")
-        open_ai_api_key = None
-
+    open_ai_api_key = get_openai_api_key()
     if not open_ai_api_key:
         return "Error: OpenAI API key not available"
 
