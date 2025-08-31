@@ -1,0 +1,30 @@
+steps:
+  # Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'build',
+      '-t', 'gcr.io/$PROJECT_ID/nfl-zone-backend:$COMMIT_SHA',
+      '-t', 'gcr.io/$PROJECT_ID/nfl-zone-backend:latest',
+      '.'
+    ]
+    dir: 'Backend/nfl-zone'
+
+  # Push the container image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/nfl-zone-backend:$COMMIT_SHA']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/nfl-zone-backend:latest']
+
+# Store images in Container Registry
+images:
+  - 'gcr.io/$PROJECT_ID/nfl-zone-backend:$COMMIT_SHA'
+  - 'gcr.io/$PROJECT_ID/nfl-zone-backend:latest'
+
+# Build options
+options:
+  machineType: 'E2_HIGHCPU_8'
+  diskSizeGb: 100
+
+# Timeout for the entire build
+timeout: '1200s'
