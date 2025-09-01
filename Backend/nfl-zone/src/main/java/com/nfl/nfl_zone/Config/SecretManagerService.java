@@ -5,22 +5,28 @@ import com.google.cloud.secretmanager.v1.SecretPayload;
 import com.google.cloud.secretmanager.v1.SecretVersionName;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.*;
 
 @Service
-@Profile("production")
+@Profile("prod")
 public class SecretManagerService {
 
     private static final Logger logger = LoggerFactory.getLogger(SecretManagerService.class);
 
     @Value("${google.cloud.project-id:}")
     private String projectId;
+
+    @Autowired
+    private Environment environment;
 
     // Cache secrets to avoid repeated API calls
     private final ConcurrentHashMap<String, String> secretCache = new ConcurrentHashMap<>();
