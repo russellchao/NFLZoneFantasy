@@ -19,7 +19,7 @@ import java.util.concurrent.CompletableFuture;
 
 @RestController
 @RequestMapping(path="api/v1/updatePlayerStats")
-public class PlayerStatsUpdaterController {
+public class UpdatePlayerStatsController {
     // This endpoint updates all player stats tables in the PostgreSQL database based on the season requested
 
     @Autowired
