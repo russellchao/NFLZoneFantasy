@@ -1,6 +1,5 @@
 package com.nfl.nfl_zone.Notifications;
 
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 import java.util.*;
 
@@ -14,7 +13,10 @@ public class NotificationService {
     }
 
     public List<Notification> getNotificationsByUsername(String username) {
-        return notificationRepository.findAllByUsername(username).reversed(); // reverse so the newer notifications are at the top of the list
+        // reverse so the newer notifications are at the top of the list
+        List<Notification> notifList =  notificationRepository.findAllByUsername(username);
+        Collections.reverse(notifList);
+        return notifList;
     }
 
     public void createNotification(String username, String message) {

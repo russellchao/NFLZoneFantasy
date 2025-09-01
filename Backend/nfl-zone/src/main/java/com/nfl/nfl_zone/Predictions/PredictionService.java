@@ -179,13 +179,10 @@ public class PredictionService {
     public void updateMatchupInfo(Prediction incomingPrediction) {
         if (predictionRepository.findByPredictionId(incomingPrediction.getPredictionId()).isEmpty()) {
             // Add the matchup if it doesn't already exist
-
             incomingPrediction.setPredictedWinner("N/A");
             incomingPrediction.setPredictedSpread("N/A");
             incomingPrediction.setPredictedOverUnder("N/A");
-
             predictionRepository.save(incomingPrediction);
-
         } else {
             // Update the awayTeamScore, homeTeamScore, spreadValue, overUnderValue, status, date, and start time if it already exists,
             Prediction existingPrediction = predictionRepository.findByGameIdAndUsername(incomingPrediction.getGameId(), incomingPrediction.getUsername()).get();

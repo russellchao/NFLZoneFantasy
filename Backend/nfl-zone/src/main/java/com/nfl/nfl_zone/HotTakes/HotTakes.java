@@ -9,6 +9,7 @@ public class HotTakes {
 
     @Id
     private String username;
+
     private List<String> hotTakes;
 
     public String getUsername() {
