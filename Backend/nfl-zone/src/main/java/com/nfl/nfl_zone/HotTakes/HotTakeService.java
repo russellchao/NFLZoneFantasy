@@ -47,7 +47,7 @@ public class HotTakeService {
         System.out.println("Existing hot takes for user \"" + username + "\": " + existingHotTakesString);
 
         // Create the Flask endpoint that validates the hot take
-        String flaskURL = String.format("http://localhost:5000/validateHotTake/%s/%s", hotTake, existingHotTakesString);
+        String flaskURL = String.format("http://flask-app:5000/validateHotTake/%s/%s", hotTake, existingHotTakesString);
         RestTemplate restTemplate = new RestTemplate();
 
         try {

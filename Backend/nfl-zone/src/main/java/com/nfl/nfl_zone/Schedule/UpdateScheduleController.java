@@ -23,7 +23,7 @@ public class UpdateScheduleController {
     public String updateScheduleCSVs(@RequestParam() String year) {
         // Call the Python Flask Endpoint to Update the CSV file containing the matchups from the given week, year, and season type
 
-        String flaskURL = String.format("http://localhost:5000/scheduleData/%s", year);
+        String flaskURL = String.format("http://flask-app:5000/scheduleData/%s", year);
         RestTemplate restTemplate = new RestTemplate();
 
         try {
