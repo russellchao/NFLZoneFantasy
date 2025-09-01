@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: nfl_data
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - nfl-network
+
+  # Flask API (Development)
+  flask-app:
+    build:
+      context: ./Backend/FlaskApp
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5000:5000"
+    environment:
+      - ENVIRONMENT=development
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+    volumes:
+      - ./Backend/FlaskApp:/app
+    depends_on:
+      - postgres
+    networks:
+      - nfl-network
+
+  # Spring Boot API (Development)
+  spring-app:
+    build:
+      context: ./Backend/nfl-zone
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/nfl_data
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SERVER_PORT=8081
+      - SPRING_PROFILES_ACTIVE=dev
+    volumes:
+      - ./Backend/nfl-zone:/app
+    depends_on:
+      - postgres
+      - flask-app
+    networks:
+      - nfl-network
+
+  # React Frontend (Development)
+  frontend:
+    build:
+      context: ./Frontend/nfl-fantasy-frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3002:3002"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    volumes:
+      - ./Frontend/nfl-fantasy-frontend:/app
+      - /app/node_modules
+    depends_on:
+      - spring-app
+      - flask-app
+    networks:
+      - nfl-network
+
+volumes:
+  postgres_data:
+
+networks:
+  nfl-network:
+    driver: bridge
