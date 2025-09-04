@@ -4,10 +4,6 @@ services:
   # PostgreSQL Database
   postgres:
     image: postgres:17
-    environment:
-      POSTGRES_DB: nfl_data
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
     ports:
       - "5432:5432"
     volumes:
@@ -28,8 +24,6 @@ services:
       - FLASK_DEBUG=1
     volumes:
       - ./Backend/FlaskApp:/app
-    depends_on:
-      - postgres
     networks:
       - nfl-network
 
@@ -40,14 +34,9 @@ services:
       dockerfile: Dockerfile.dev
     ports:
       - "8081:8081"
-    environment:
-      - DB_URL=jdbc:postgresql://postgres:5432/nfl_data
-      - DB_USERNAME=postgres
-      - DB_PASSWORD=password
-      - SERVER_PORT=8081
-      - SPRING_PROFILES_ACTIVE=dev
     volumes:
       - ./Backend/nfl-zone:/app
+      - ./Backend/FlaskApp:/flask-app
     depends_on:
       - postgres
       - flask-app
