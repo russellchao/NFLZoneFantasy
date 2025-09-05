@@ -60,27 +60,32 @@ const HotTakes = () => {
 
         e.preventDefault(); 
 
-        console.log("Hot Take Submitted:", form.hotTakeText);
+        if (hotTakeValidationMessage === "") {
+            // While validating the hot take, prevent the user from pressing the hot take again
 
-        // Validate the hot take and process it 
-        const validationResponse = await fetch(`http://localhost:8081/api/v1/hotTakes/validate?username=${localStorage.getItem("username")}&hotTake=${form.hotTakeText}`, {
-            method: "GET"
-        });
-        const validationText = await validationResponse.text();
-        console.log(validationText); 
-        setHotTakeValidationMessage(validationText); 
+            console.log("Hot Take Submitted:", form.hotTakeText);
+            setHotTakeValidationMessage("Validating hot take...");
 
-        // If the hot take is valid, save it to the hot_takes table in the database with the respective username
-        if (validationText === "This hot take is valid") {
-            console.log("Hot take is valid, saving to database");
-            const saveResponse = await fetch(`http://localhost:8081/api/v1/hotTakes/save?username=${localStorage.getItem("username")}&hotTake=${form.hotTakeText}`, {
-                method: "POST"
+            // Validate the hot take and process it 
+            const validationResponse = await fetch(`http://localhost:8081/api/v1/hotTakes/validate?username=${localStorage.getItem("username")}&hotTake=${form.hotTakeText}`, {
+                method: "GET"
             });
-            const saveText = await saveResponse.text();
-            console.log(saveText);
+            const validationText = await validationResponse.text();
+            console.log(validationText); 
+            setHotTakeValidationMessage(validationText); 
 
-            // Reload the page to show the updated hot takes
-            window.location.reload(); 
+            // If the hot take is valid, save it to the hot_takes table in the database with the respective username
+            if (validationText === "This hot take is valid") {
+                console.log("Hot take is valid, saving to database");
+                const saveResponse = await fetch(`http://localhost:8081/api/v1/hotTakes/save?username=${localStorage.getItem("username")}&hotTake=${form.hotTakeText}`, {
+                    method: "POST"
+                });
+                const saveText = await saveResponse.text();
+                console.log(saveText);
+
+                // Reload the page to show the updated hot takes
+                window.location.reload(); 
+            }
         }
     };
 
