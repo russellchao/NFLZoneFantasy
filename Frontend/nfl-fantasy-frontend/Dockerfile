@@ -13,8 +13,8 @@ RUN npm install
 # Copy source code
 COPY . .
 
-# Build the app
-RUN npm run build
+# # Build the app (production only)
+# RUN npm run build
 
 # Expose port 3002 (as defined in package.json)
 EXPOSE 3002

@@ -7,18 +7,8 @@ from SecretManager import get_secret_from_gcloud
 
 
 def get_openai_api_key():
-    # Get the OpenAI API Key from either .env (Development Mode) or Google Cloud Secret Manager (Production Mode)
+    # Get the OpenAI API Key from the Google Cloud Secret Manager
     try:
-        environment = os.getenv("ENVIRONMENT", "development")
-
-        # Development Mode
-        if environment == "development":
-            load_dotenv()
-            api_key = os.getenv("OPENAI_API_KEY")
-            print("Using OpenAI API key from .env file")
-            return api_key
-        
-        # Production Mode
         sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         api_key = get_secret_from_gcloud("openai-api-key")
         print("Using OpenAI API key from Google Cloud Secret Manager")

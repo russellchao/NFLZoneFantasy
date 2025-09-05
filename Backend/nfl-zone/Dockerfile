@@ -1,7 +1,5 @@
-# Use OpenJDK 17 (matching your pom.xml)
 FROM openjdk:17-jdk-slim
 
-# Set working directory
 WORKDIR /app
 
 # Copy Maven wrapper and pom.xml
@@ -18,11 +16,11 @@ RUN ./mvnw dependency:go-offline -B
 # Copy source code
 COPY src ./src
 
-# Build the application
-RUN ./mvnw clean package -DskipTests
-
-# Expose port 8081 (your custom port)
+# Expose port 8081
 EXPOSE 8081
 
-# Run the jar file
-CMD ["java", "-jar", "-Dserver.port=8081", "target/nfl-zone-0.0.1-SNAPSHOT.jar"]
+# Set development profile and enable hot reloadings
+ENV SERVER_PORT=8081
+
+# Run with Spring Boot DevTools for hot reloading
+CMD ["./mvnw", "spring-boot:run", "-Dspring-boot.run.jvmArguments=-Dserver.port=8081"]

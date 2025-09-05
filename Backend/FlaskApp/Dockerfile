@@ -1,7 +1,5 @@
-# Use Python official image
 FROM python:3.12.4-slim
 
-# Set working directory
 WORKDIR /app
 
 # Install system dependencies
@@ -15,18 +13,18 @@ COPY requirements.txt .
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy source code
-COPY . .
-
 # Create directories for data files
 RUN mkdir -p PlayerStatsData ScheduleData
 
-# Expose port 5000 (Flask default)
+# Copy source code
+COPY . .
+
+# Expose port 5000
 EXPOSE 5000
 
-# Set environment variables
+# Set environment variables for development
 ENV FLASK_APP=endpoints.py
-ENV FLASK_ENV=production
+ENV FLASK_DEBUG=1
 
-# Start the Flask application
-CMD ["python", "endpoints.py"]
+# Start Flask in development mode with auto-reload
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5000", "--reload"]

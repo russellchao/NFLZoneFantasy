@@ -34,29 +34,7 @@
 		<java.version>17</java.version>
 		<spring-cloud.version>2023.0.0</spring-cloud.version>
 	</properties>
-
-	<!-- This section only manages versions -->
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-
-			<dependency>
-				<groupId>com.google.cloud</groupId>
-				<artifactId>spring-cloud-gcp-dependencies</artifactId>
-				<version>4.1.1</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
-
-	<!-- Actual project dependencies go here -->
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -107,30 +85,6 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<groupId>org.springframework.boot</groupId>
 			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.cloud</groupId>
-			<artifactId>google-cloud-secretmanager</artifactId>
-			<version>2.23.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.cloud</groupId>
-			<artifactId>spring-cloud-gcp-starter-secretmanager</artifactId>
-			<!-- No version needed as it's managed by dependencyManagement -->
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.auth</groupId>
-			<artifactId>google-auth-library-oauth2-http</artifactId>
-			<version>1.19.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.api</groupId>
-			<artifactId>gax</artifactId>
-			<version>2.23.1</version>
 		</dependency>
 	</dependencies>
 

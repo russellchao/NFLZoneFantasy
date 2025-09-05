@@ -90,9 +90,8 @@ public class UpdatePlayerStatsController {
 
     public void update_database(String playerCategory) {
         try {
-            // First, clear the table for each player category (passing, rushing, receiving, defense, kicking)
-            Path basePath = Paths.get(System.getProperty("user.dir"));
-            Path csvFilePath = basePath.resolve("../FlaskApp/PlayerStatsData/" + playerCategory + "_stats.csv").normalize(); // normalize() resolves '..'
+            // Since we're running in a contaierized environment, we need to get the CSV file from the flask-app container volume
+            Path csvFilePath = Paths.get("/flask-app/PlayerStatsData/" + playerCategory + "_stats.csv");
             String tableName = playerCategory + "_stats";
 
             CSVReader reader = new CSVReader(new FileReader(csvFilePath.toFile()));

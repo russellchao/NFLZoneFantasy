@@ -57,8 +57,8 @@ public class UpdateScheduleController {
         // Update the schedule table in PostgreSQL
 
         try {
-            Path basePath = Paths.get(System.getProperty("user.dir"));
-            Path csvFilePath = basePath.resolve("../FlaskApp/ScheduleData/schedule_data.csv").normalize(); // normalize() resolves '..'
+            // Since we're running in a contaierized environment, we need to get the CSV file from the flask-app container volume
+            Path csvFilePath = Paths.get("/flask-app/ScheduleData/schedule_data.csv");
 
             CSVReader reader = new CSVReader(new FileReader(csvFilePath.toFile()));
             jdbcTemplate.execute("TRUNCATE TABLE schedule");
