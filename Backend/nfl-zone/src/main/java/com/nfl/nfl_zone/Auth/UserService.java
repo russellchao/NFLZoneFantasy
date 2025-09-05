@@ -206,7 +206,9 @@ public class UserService {
         List<User> allUsers = userRepository.findAll();
 
         for (User user : allUsers) {
-            leaderboard.put(user.getUsername(), user.getPoints());
+            if (user.isVerified()) {
+                leaderboard.put(user.getUsername(), user.getPoints());
+            }
         }
 
         return leaderboard;
