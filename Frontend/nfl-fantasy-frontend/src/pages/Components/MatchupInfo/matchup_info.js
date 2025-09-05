@@ -296,26 +296,26 @@ const MatchupInfo = ({ game }) => {
                                     {leaders?.[0]?.leaders?.[2]?.leaders?.[0]?.displayValue ?? 'N/A'}
                                 </div>
                             
-                                {/* Tackles */}
+                                {/* Sacks */}
                                 <div>
                                     {leaders[1]?.leaders?.[3]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
                                     {": "} 
                                     {leaders[1]?.leaders?.[3]?.leaders?.[0]?.displayValue ?? 'N/A'}
                                 </div>
-                                <div style={{ textAlign: 'center' }}>Tackles</div>
+                                <div style={{ textAlign: 'center' }}>Sacks</div>
                                 <div style={{ textAlign: 'right' }}>
                                     {leaders?.[0]?.leaders?.[3]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
                                     {": "} 
                                     {leaders?.[0]?.leaders?.[3]?.leaders?.[0]?.displayValue ?? 'N/A'}
                                 </div>
 
-                                {/* Sacks */}
+                                {/* Tackles */}
                                 <div>
                                     {leaders[1]?.leaders?.[4]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
                                     {": "} 
                                     {leaders[1]?.leaders?.[4]?.leaders?.[0]?.displayValue ?? 'N/A'}
                                 </div>
-                                <div style={{ textAlign: 'center' }}>Sacks</div>
+                                <div style={{ textAlign: 'center' }}>Tackles</div>
                                 <div style={{ textAlign: 'right' }}>
                                     {leaders?.[0]?.leaders?.[4]?.leaders?.[0]?.athlete?.displayName ?? 'N/A'} 
                                     {": "} 
