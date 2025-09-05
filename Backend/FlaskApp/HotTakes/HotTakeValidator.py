@@ -3,27 +3,8 @@ import os
 import json
 from dotenv import load_dotenv
 from openai import OpenAI
-from SecretManager import get_secret_from_gcloud
-
-
-def get_openai_api_key():
-    # Get the OpenAI API Key from the Google Cloud Secret Manager
-    try:
-        sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        api_key = get_secret_from_gcloud("openai-api-key")
-        print("Using OpenAI API key from Google Cloud Secret Manager")
-        return api_key
-    
-    except Exception as e:
-        print(f"Error getting API key from Google Cloud: {e}")
-        return None
-
 
 def validate_hot_take(hotTake, listOfHotTakes):
-    open_ai_api_key = get_openai_api_key()
-    if not open_ai_api_key:
-        return "Error: OpenAI API key not available"
-
     specific_examples = [
         "The Philadelphia Eagles will win the Super Bowl is valid since it's specific and measurable,"
         "but the Eagles will be good is invalid since it's not specific.",
@@ -95,6 +76,9 @@ def validate_hot_take(hotTake, listOfHotTakes):
         "Hot takes that involve predicting injuries and suspensions won't be accepted.",
     ]
 
+    # Get OpenAI API Key and Initialize OpenAI client
+    load_dotenv()
+    open_ai_api_key = os.getenv("OPENAI_API_KEY")
     client = OpenAI(api_key=open_ai_api_key)
 
     response = client.responses.create(
