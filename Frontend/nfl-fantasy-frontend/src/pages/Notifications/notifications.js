@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { fetchNotifications, deleteNotification, deleteAllNotifications, deleteOldNotifications, markNotifAsRead, markAllNotifsAsRead } from '../../API/notification_api';
+import { fetchNotifications, deleteNotification, deleteAllNotifications, deleteOldNotifications } from '../../API/notification_api';
 
 const Notifications = () => {
     useEffect(() => {
