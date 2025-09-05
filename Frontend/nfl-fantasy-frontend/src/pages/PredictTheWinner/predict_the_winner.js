@@ -26,7 +26,7 @@ const gridStyle = {
     gridTemplateColumns: 'repeat(4, 1fr)',
     gap: '10px',
     padding: '20px',
-    rowGap: '80px'
+    rowGap: '70px'
 };
 
 const buttonStyle = {
@@ -167,6 +167,8 @@ const datesForEachWeek = {
     "Conference Championships": new Date("2026-01-20T00:00:00-04:00"),
     "Super Bowl": new Date("2026-01-27T00:00:00-04:00"),
 };
+
+const playoffWeeks = ["Wild Card Round", "Divisional Round", "Conference Championships", "Super Bowl"]; 
 
 
 const PredictTheWinner = () => {
@@ -459,26 +461,33 @@ const PredictTheWinner = () => {
                                 const predictionForThisMatchup = currentPredictions.find(pred => pred.gameId === matchup.gameId) || {};
 
                                 return (
-                                    <div key={index} style={{ margin: '10px 0' }}>
-                                        <div>
-                                        <div style={{ display: 'inline-block'}}>
-                                            <img 
-                                                src={teamLogos[predictionForThisMatchup.awayTeam]} 
-                                                alt={`${predictionForThisMatchup.awayTeam} logo`} 
-                                                style={logoStyle}
-                                            /> 
+                                    <div
+                                        key={index}
+                                        style={{
+                                            margin: '10px 0',
+                                            border: predictionForThisMatchup.status === 'Scheduled' ? '4px solid aqua' : 'none',
+                                            borderRadius: predictionForThisMatchup.status === 'Scheduled' ? '12px' : undefined,
+                                            padding: predictionForThisMatchup.status === 'Scheduled' ? '20px 8px' : undefined,
+                                            boxSizing: 'border-box',
+                                        }}
+                                    >
+                                        <div style={{ position: 'relative' }}>
+                                            <div style={{ display: 'inline-block'}}>
+                                                <img 
+                                                    src={teamLogos[predictionForThisMatchup.awayTeam]} 
+                                                    alt={`${predictionForThisMatchup.awayTeam} logo`} 
+                                                    style={logoStyle}
+                                                /> 
+                                            </div>
+                                            <h4 style={{ display: 'inline-block', paddingLeft: '5px' }}>vs.</h4>
+                                            <div style={{ display: 'inline-block', paddingLeft: '15px' }}>
+                                                <img 
+                                                    src={teamLogos[predictionForThisMatchup.homeTeam]} 
+                                                    alt={`${predictionForThisMatchup.homeTeam} logo`} 
+                                                    style={logoStyle}
+                                                /> 
+                                            </div> 
                                         </div>
-                                        
-                                        <h4 style={{ display: 'inline-block', paddingLeft: '5px' }}>vs.</h4>
-                                        
-                                        <div style={{ display: 'inline-block', paddingLeft: '15px' }}>
-                                            <img 
-                                                src={teamLogos[predictionForThisMatchup.homeTeam]} 
-                                                alt={`${predictionForThisMatchup.homeTeam} logo`} 
-                                                style={logoStyle}
-                                            /> 
-                                        </div> 
-                                    </div>
 
                                     {/* Only give the options to pick a winner, spread, and over/under if the game is Scheduled */}
                                     {/* Display the results if the game is 'Final' */}
@@ -531,18 +540,21 @@ const PredictTheWinner = () => {
                                                     {teamAbbr[predictionForThisMatchup.homeTeam]}
                                             </button>
                                         </div>
-                                        <div style={{ display: 'inline-block', paddingLeft: '5px' }}>
-                                            <button 
-                                                style={
-                                                    predictionForThisMatchup.predictedWinner === "Tie" && predictionForThisMatchup.winnerIsCorrect === "Yes" ? buttonStyleCorrect
-                                                    : predictionForThisMatchup.predictedWinner === "Tie" && predictionForThisMatchup.winnerIsCorrect === "No" ? buttonStyleWrong
-                                                    : predictionForThisMatchup.predictedWinner === "Tie" && predictionForThisMatchup.winnerIsCorrect === "N/A" ? buttonStyleSelected
-                                                    : buttonStyle
-                                                }
-                                                onClick={() => handlePickWinner(predictionForThisMatchup.gameId, localStorage.getItem("username"), "Tie", predictionForThisMatchup.status)}>
-                                                    Tie
-                                            </button>
-                                        </div>
+                                        {!playoffWeeks.includes(currentPredictionWeek) && (
+                                            // Hide the "Tie" button during the playoffs 
+                                            <div style={{ display: 'inline-block', paddingLeft: '5px' }}>
+                                                <button 
+                                                    style={
+                                                        predictionForThisMatchup.predictedWinner === "Tie" && predictionForThisMatchup.winnerIsCorrect === "Yes" ? buttonStyleCorrect
+                                                        : predictionForThisMatchup.predictedWinner === "Tie" && predictionForThisMatchup.winnerIsCorrect === "No" ? buttonStyleWrong
+                                                        : predictionForThisMatchup.predictedWinner === "Tie" && predictionForThisMatchup.winnerIsCorrect === "N/A" ? buttonStyleSelected
+                                                        : buttonStyle
+                                                    }
+                                                    onClick={() => handlePickWinner(predictionForThisMatchup.gameId, localStorage.getItem("username"), "Tie", predictionForThisMatchup.status)}>
+                                                        Tie
+                                                </button>
+                                            </div>
+                                        )}
                                     </div>
 
                                     <div>
