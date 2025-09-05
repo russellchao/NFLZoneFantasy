@@ -28,7 +28,7 @@ const HotTakes = () => {
 
     // NFL Kickoff Date and Season
     const currentSeason = "2025-26";
-    const kickoffDate = new Date('2025-09-04T20:20:00-04:00'); // September 4, 2025 at 8:20 PM ET
+    const kickoffDate = new Date('2025-11-04T20:20:00-04:00'); // November 4, 2025 at 8:20 PM ET
 
     // Variable to track if hot takes are being accepted
     const [acceptingHotTakes, setAcceptingHotTakes] = useState(true);
@@ -207,8 +207,7 @@ const HotTakes = () => {
                                     Submit
                                 </button>
                             </form>
-                            <br></br>
-                            {hotTakeValidationMessage}
+                            {<h3 style={{ color: 'yellow' }}>{hotTakeValidationMessage}</h3>}
                         </div>
                     ) : (
                         <h4 style={{ color:'maroon' }}>Sorry, hot takes are no longer being accepted.</h4>
