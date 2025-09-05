@@ -397,7 +397,7 @@ const FullSchedule = () => {
                                         setMatchToViewInfo(game);
                                     }}
                                 />
-                            : game.status === 'In Progress'
+                            : game.status === 'In Progress' || game.status === 'End of Period' || game.status === 'Halftime' || game.status === 'Delayed' 
                                 ?
                                 <GameInProgress
                                     key = {game.gameId || idx} 
@@ -408,7 +408,8 @@ const FullSchedule = () => {
                                         setMatchToViewInfo(game);
                                     }}
                                 />
-                            : <></>
+                            :
+                                <></>
                         ))}
                     </div>
 
