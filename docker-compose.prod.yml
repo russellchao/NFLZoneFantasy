@@ -8,8 +8,6 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    networks:
-      - nfl-network
 
   # Flask App
   flask-app:
@@ -21,8 +19,6 @@ services:
     environment:
       - FLASK_ENV=production
       - FLASK_DEBUG=0
-    networks:
-      - nfl-network
 
   # Spring Boot App
   spring-app:
@@ -35,8 +31,6 @@ services:
       - SPRING_PROFILES_ACTIVE=prod
     depends_on:
       - postgres
-    networks:
-      - nfl-network
 
   # React App
   frontend:
@@ -48,13 +42,6 @@ services:
     depends_on:
       - spring-app
       - flask-app
-    networks:
-      - nfl-network
 
 volumes:
   postgres_data:
-
-networks:
-  nfl-network:
-    driver: bridge
-    
