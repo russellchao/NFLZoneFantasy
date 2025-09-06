@@ -16,11 +16,20 @@ RUN ./mvnw dependency:go-offline -B
 # Copy source code
 COPY src ./src
 
-# Expose port 8081
-EXPOSE 8081
+# Build the application
+RUN ./mvnw clean package -DskipTests
 
-# Set development profile and enable hot reloadings
-ENV SERVER_PORT=8081
+# Create non-root user
+RUN useradd --create-home --shell /bin/bash app \
+    && chown -R app:app /app
+USER app
 
-# Run with Spring Boot DevTools for hot reloading
-CMD ["./mvnw", "spring-boot:run", "-Dspring-boot.run.jvmArguments=-Dserver.port=8081"]
+# Expose port 8080 (Cloud Run standard)
+EXPOSE 8080
+
+# Production environment variables
+ENV SERVER_PORT=8080
+ENV SPRING_PROFILES_ACTIVE=prod
+
+# Run the JAR file instead of mvn spring-boot:run
+CMD ["java", "-jar", "-Dserver.port=8080", "target/*.jar"]

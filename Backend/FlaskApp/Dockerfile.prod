@@ -19,12 +19,18 @@ RUN mkdir -p PlayerStatsData ScheduleData
 # Copy source code
 COPY . .
 
-# Expose port 5000
-EXPOSE 5000
+# Create non-root user for security
+RUN useradd --create-home --shell /bin/bash app \
+    && chown -R app:app /app
+USER app
 
-# Set environment variables for development
+# Expose port (Cloud Run will override this)
+EXPOSE 8080
+
+# Production environment variables
 ENV FLASK_APP=endpoints.py
-ENV FLASK_DEBUG=1
+ENV FLASK_ENV=production
+ENV FLASK_DEBUG=0
 
-# Start Flask in development mode with auto-reload
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5000", "--reload"]
+# Use Gunicorn for production WSGI server
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "4", "--timeout", "120", "endpoints:app"]
