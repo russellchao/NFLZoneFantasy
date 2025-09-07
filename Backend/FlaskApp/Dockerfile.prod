@@ -13,6 +13,9 @@ COPY requirements.txt .
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Add gunicorn for production
+RUN pip install --no-cache-dir gunicorn
+
 # Create directories for data files
 RUN mkdir -p PlayerStatsData ScheduleData
 
@@ -20,17 +23,12 @@ RUN mkdir -p PlayerStatsData ScheduleData
 COPY . .
 
 # Create non-root user for security
-RUN useradd --create-home --shell /bin/bash app \
-    && chown -R app:app /app
+RUN useradd --create-home --shell /bin/bash app
+RUN chown -R app:app /app
 USER app
 
-# Expose port (Cloud Run will override this)
-EXPOSE 8080
+# Expose port 5000
+EXPOSE 5000
 
-# Production environment variables
-ENV FLASK_APP=endpoints.py
-ENV FLASK_ENV=production
-ENV FLASK_DEBUG=0
-
-# Use Gunicorn for production WSGI server
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "4", "--timeout", "120", "endpoints:app"]
+# Use gunicorn for production deployment
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "2", "--threads", "2", "--timeout", "120", "endpoints:app"]

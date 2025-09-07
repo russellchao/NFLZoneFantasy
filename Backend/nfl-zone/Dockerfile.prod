@@ -1,4 +1,5 @@
-FROM openjdk:17-jdk-slim
+# Multi-stage build for production optimization
+FROM openjdk:17-jdk-slim as builder
 
 WORKDIR /app
 
@@ -10,26 +11,31 @@ COPY pom.xml .
 # Make mvnw executable
 RUN chmod +x ./mvnw
 
-# Download dependencies
+# Download dependencies (cached layer)
 RUN ./mvnw dependency:go-offline -B
 
-# Copy source code
+# Copy source code and build
 COPY src ./src
-
-# Build the application
 RUN ./mvnw clean package -DskipTests
 
+# Production stage
+FROM openjdk:17-jre-slim
+
+WORKDIR /app
+
 # Create non-root user
-RUN useradd --create-home --shell /bin/bash app \
-    && chown -R app:app /app
+RUN useradd --create-home --shell /bin/bash app
+RUN chown -R app:app /app
 USER app
 
-# Expose port 8080 (Cloud Run standard)
-EXPOSE 8080
+# Copy the jar file from builder stage
+COPY --from=builder /app/target/*.jar app.jar
 
-# Production environment variables
-ENV SERVER_PORT=8080
-ENV SPRING_PROFILES_ACTIVE=prod
+# Expose port 8081
+EXPOSE 8081
 
-# Run the JAR file instead of mvn spring-boot:run
-CMD ["java", "-jar", "-Dserver.port=8080", "target/*.jar"]
+# Set production JVM options
+ENV JAVA_OPTS="-Xmx512m -Xms256m -server"
+
+# Run the application
+CMD ["sh", "-c", "java $JAVA_OPTS -jar app.jar --server.port=8081"]
