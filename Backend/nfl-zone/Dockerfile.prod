@@ -3,29 +3,23 @@ FROM openjdk:17-jdk-slim as builder
 
 WORKDIR /app
 
-# Copy Maven wrapper and pom.xml
-COPY mvnw .
-COPY .mvn .mvn
-COPY pom.xml .
+# Copy all project files at once, which ensures src directory is included
+COPY . .
 
 # Make mvnw executable
 RUN chmod +x ./mvnw
 
-# Download dependencies (cached layer)
-RUN ./mvnw dependency:go-offline -B
-
-# Copy source code and build
-COPY src ./src
+# Download dependencies and build
 RUN ./mvnw clean package -DskipTests
 
 # Production stage
-FROM openjdk:17
+FROM openjdk:17-jdk-slim
 
 WORKDIR /app
 
 # Create non-root user
-RUN useradd --create-home --shell /bin/bash app
-RUN chown -R app:app /app
+RUN useradd --create-home --shell /bin/bash app \
+    && chown -R app:app /app
 USER app
 
 # Copy the jar file from builder stage
