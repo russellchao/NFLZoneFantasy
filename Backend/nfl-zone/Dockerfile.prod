@@ -1,35 +1,16 @@
-# Multi-stage build for production optimization
-FROM openjdk:17-jdk-slim as builder
+# This specialized Dockerfile is used when deploying the Spring Boot App on Render
 
-WORKDIR /app
-
-# Copy all project files at once, which ensures src directory is included
+#
+# Build Stage
+#
+FROM maven:3.8.3-openjdk-17 AS build
 COPY . .
+RUN mvn clean install
 
-# Make mvnw executable
-RUN chmod +x ./mvnw
-
-# Download dependencies and build
-RUN ./mvnw clean package -DskipTests
-
-# Production stage
-FROM openjdk:17-jdk-slim
-
-WORKDIR /app
-
-# Create non-root user
-RUN useradd --create-home --shell /bin/bash app \
-    && chown -R app:app /app
-USER app
-
-# Copy the jar file from builder stage
-COPY --from=builder /app/target/*.jar app.jar
-
-# Expose port 8081
+#
+# Package stage
+#
+FROM eclipse-temurin:17-jdk
+COPY --from=build /target/familyhub-0.0.1-SNAPSHOT.jar demo.jar
 EXPOSE 8081
-
-# Set production JVM options
-ENV JAVA_OPTS="-Xmx512m -Xms256m -server"
-
-# Run the application
-CMD ["sh", "-c", "java $JAVA_OPTS -jar app.jar --server.port=8081"]
+ENTRYPOINT ["java", "-jar", "demo.jar"]
