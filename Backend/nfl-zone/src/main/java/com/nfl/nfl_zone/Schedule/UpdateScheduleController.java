@@ -1,6 +1,7 @@
 package com.nfl.nfl_zone.Schedule;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,11 +20,14 @@ import java.util.List;
 @RequestMapping(path="api/v1/updateSchedule")
 public class UpdateScheduleController {
 
+    @Value("${FLASK_URL}")
+    private String flaskUrl;
+
     @GetMapping
     public String updateScheduleCSVs(@RequestParam() String year) {
         // Call the Python Flask Endpoint to Update the CSV file containing the matchups from the given week, year, and season type
 
-        String flaskURL = String.format("http://flask-app:5000/scheduleData/%s", year);
+        String flaskURL = String.format("%s/scheduleData/%s", flaskUrl, year);
         RestTemplate restTemplate = new RestTemplate();
 
         try {

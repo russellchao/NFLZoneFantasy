@@ -1,11 +1,15 @@
 package com.nfl.nfl_zone.HotTakes;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import java.util.*;
 
 @Service
 public class HotTakeService {
+
+    @Value("${FLASK_URL}")
+    private String flaskUrl;
 
     private final HotTakeRepository hotTakeRepository;
 
@@ -47,7 +51,7 @@ public class HotTakeService {
         System.out.println("Existing hot takes for user \"" + username + "\": " + existingHotTakesString);
 
         // Create the Flask endpoint that validates the hot take
-        String flaskURL = String.format("http://flask-app:5000/validateHotTake/%s/%s", hotTake, existingHotTakesString);
+        String flaskURL = String.format("%s/validateHotTake/%s/%s", flaskUrl, hotTake, existingHotTakesString);
         RestTemplate restTemplate = new RestTemplate();
 
         try {

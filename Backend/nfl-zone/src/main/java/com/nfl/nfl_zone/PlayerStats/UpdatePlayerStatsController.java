@@ -1,6 +1,7 @@
 package com.nfl.nfl_zone.PlayerStats;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,9 @@ import java.util.concurrent.CompletableFuture;
 @RequestMapping(path="api/v1/updatePlayerStats")
 public class UpdatePlayerStatsController {
     // This endpoint updates all player stats tables in the PostgreSQL database based on the season requested
+
+    @Value("${FLASK_URL}")
+    private String flaskUrl;
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -45,7 +49,7 @@ public class UpdatePlayerStatsController {
     public String updateStatsCSVs(@RequestParam() String season) {
         // Call the Python Flask Endpoint to update the CSV based on the season
 
-        String flaskURL = String.format("http://flask-app:5000/playerData/%s", season);
+        String flaskURL = String.format("%s/playerData/%s", flaskUrl, season);
         RestTemplate restTemplate = new RestTemplate();
 
         try {
