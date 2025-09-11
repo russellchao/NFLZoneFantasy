@@ -27,7 +27,7 @@ const CreateNewPassword = () => {
         }
 
         const response = await fetch(
-            `http://localhost:8081/api/v1/auth/resetPw?username=${username}&newPassword=${newPassword}&token=${token}`, 
+            `${process.env.SPRING_URL}/api/v1/auth/resetPw?username=${username}&newPassword=${newPassword}&token=${token}`, 
         {
             method: "POST", 
             headers: { "Content-Type": "application/json" },

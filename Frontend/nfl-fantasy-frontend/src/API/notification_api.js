@@ -2,7 +2,7 @@ export const fetchNotifications = async (username) => {
     console.log(`Getting notifications for user: ${username}`);
 
     const response = await fetch(
-        `http://localhost:8081/api/v1/notifications/getByUsername?username=${username}`, {
+        `${process.env.SPRING_URL}/api/v1/notifications/getByUsername?username=${username}`, {
             method: "GET"
         }
     );
@@ -21,7 +21,7 @@ export const createNotification = async (username, message) => {
     console.log(`Creating notification for username ${username}`);
 
     const response = await fetch(
-        `http://localhost:8081/api/v1/notifications/create?username=${username}&message=${message}`, {
+        `${process.env.SPRING_URL}/api/v1/notifications/create?username=${username}&message=${message}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -38,7 +38,7 @@ export const deleteNotification = async (notifId) => {
     console.log(`Deleting notification with ID: ${notifId}`);
 
     const response = await fetch(
-        `http://localhost:8081/api/v1/notifications/delete?notif_id=${notifId}`, {
+        `${process.env.SPRING_URL}/api/v1/notifications/delete?notif_id=${notifId}`, {
             method: "DELETE"
         }
     );
@@ -52,7 +52,7 @@ export const deleteAllNotifications = async (username) => {
     console.log(`Deleting all notifications for user: ${username}`);
 
     const response = await fetch(
-        `http://localhost:8081/api/v1/notifications/deleteAll?username=${username}`, {
+        `${process.env.SPRING_URL}/api/v1/notifications/deleteAll?username=${username}`, {
             method: "DELETE"
         }
     );
@@ -66,7 +66,7 @@ export const deleteOldNotifications = async (username) => {
     console.log(`Deleting old notifications for user: ${username}`);
 
     const response = await fetch(
-        `http://localhost:8081/api/v1/notifications/deleteOld?username=${username}`, {
+        `${process.env.SPRING_URL}/api/v1/notifications/deleteOld?username=${username}`, {
             method: "DELETE"
         }
     );

@@ -52,6 +52,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3002:3002"
+    env_file:
+      - ./Frontend/nfl-fantasy-frontend/.env
     environment:
       - CHOKIDAR_USEPOLLING=true
       - WATCHPACK_POLLING=true

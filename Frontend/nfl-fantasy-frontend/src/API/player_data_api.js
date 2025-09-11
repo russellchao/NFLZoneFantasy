@@ -5,7 +5,7 @@ import posAbbr from "../pages/AllPositions/PositionGrid/PositionAbbreviations";
 export const fetchPlayerDataByTeam = async (category, teamName) => {
     try {
         const response = await fetch(
-           `http://localhost:8081/api/v1/${encodeURIComponent(category)}?team=${encodeURIComponent(teamAbbr[teamName])}`
+           `${process.env.SPRING_URL}/api/v1/${encodeURIComponent(category)}?team=${encodeURIComponent(teamAbbr[teamName])}`
         );
 
         if (!response.ok) {
@@ -34,7 +34,7 @@ export const fetchPlayerDataByPosition = async (positionName) => {
         else if (positionName === "Kicker") category = "kicker";
 
         const response = await fetch(
-            `http://localhost:8081/api/v1/${encodeURIComponent(category)}?pos=${encodeURIComponent(posAbbr[positionName])}`
+            `${process.env.SPRING_URL}/api/v1/${encodeURIComponent(category)}?pos=${encodeURIComponent(posAbbr[positionName])}`
         );
 
         if (!response.ok) {
@@ -55,7 +55,7 @@ export const fetchPlayerDataByPosition = async (positionName) => {
 export const fetchPlayerDataByName = async (playerName) => {
     try {
         const response = await fetch(
-            `http://localhost:8081/api/v1/playerName?name=${encodeURIComponent(playerName)}`
+            `${process.env.SPRING_URL}/api/v1/playerName?name=${encodeURIComponent(playerName)}`
         );
 
         if (!response.ok) {
@@ -75,7 +75,7 @@ export const fetchPlayerDataByName = async (playerName) => {
 
 export const fetchUpdatePlayerStatsDB = async (teamSeason) => {
     try { 
-        const response = await fetch(`http://localhost:8081/api/v1/updatePlayerStats?season=${encodeURIComponent(teamSeason)}`);
+        const response = await fetch(`${process.env.SPRING_URL}/api/v1/updatePlayerStats?season=${encodeURIComponent(teamSeason)}`);
         console.log("Finished updating player stats database");
 
         const csv_result = await response.text(); 

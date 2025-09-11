@@ -12,7 +12,7 @@ const Leaderboard = () => {
         // Fetch leaderboard data from API
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:8081/api/v1/auth/leaderboard');
+                const response = await fetch('${process.env.SPRING_URL}/api/v1/auth/leaderboard');
                 const result = await response.json();
                 console.log(result);
 

@@ -1,7 +1,7 @@
 export const fetchScheduleByTeam = async (teamName) => {
     try {
         const response = await fetch(
-           `http://localhost:8081/api/v1/schedule?teamName=${encodeURIComponent(teamName)}`
+           `${process.env.SPRING_URL}/api/v1/schedule?teamName=${encodeURIComponent(teamName)}`
         );
 
         if (!response.ok) {
@@ -44,7 +44,7 @@ export const fetchScheduleByTeam = async (teamName) => {
 export const fetchScheduleByWeek = async (weekNum) => {
     try {
         const response = await fetch(
-            `http://localhost:8081/api/v1/schedule?weekNum=${encodeURIComponent(weekNum)}`
+            `${process.env.SPRING_URL}/api/v1/schedule?weekNum=${encodeURIComponent(weekNum)}`
         );
 
         if (!response.ok) {
@@ -65,7 +65,7 @@ export const fetchScheduleByWeek = async (weekNum) => {
 export const fetchScheduleByMatchup = async (team1, team2) => {
     try {
         const response = await fetch(
-            `http://localhost:8081/api/v1/schedule/specific?team1=${encodeURIComponent(team1)}&team2=${encodeURIComponent(team2)}`
+            `${process.env.SPRING_URL}/api/v1/schedule/specific?team1=${encodeURIComponent(team1)}&team2=${encodeURIComponent(team2)}`
         );
 
         if (!response.ok) {
@@ -85,7 +85,7 @@ export const fetchScheduleByMatchup = async (team1, team2) => {
 
 export const fetchUpdateScheduleDB = async (teamSeason) => {
     try { 
-        const response = await fetch(`http://localhost:8081/api/v1/updateSchedule?year=${encodeURIComponent(teamSeason)}`);
+        const response = await fetch(`${process.env.SPRING_URL}/api/v1/updateSchedule?year=${encodeURIComponent(teamSeason)}`);
         console.log("Finished updating schedule database");
 
         const csv_result = await response.text(); 

@@ -5,7 +5,7 @@ export const updateMatchupsForPredictions = async (matchups, spreads, overUnders
     */
 
     for (const matchup of matchups) {
-        const response = await fetch("http://localhost:8081/api/v1/predictions/updateMatchups", {
+        const response = await fetch("${process.env.SPRING_URL}/api/v1/predictions/updateMatchups", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -47,7 +47,7 @@ export const deleteOldMatchups = async (currentPredictionWeek) => {
 
     console.log(`Deleting old matchups for week: ${currentPredictionWeek}`)
 
-    const response = await fetch(`http://localhost:8081/api/v1/predictions/deleteOldMatchups?currentWeek=${currentPredictionWeek}`, {
+    const response = await fetch(`${process.env.SPRING_URL}/api/v1/predictions/deleteOldMatchups?currentWeek=${currentPredictionWeek}`, {
         method: "DELETE"
     });
 
@@ -60,7 +60,7 @@ export const getPredictions = async (username) => {
 
     console.log(`Getting predictions for username: ${username}`)
 
-    const response = await fetch(`http://localhost:8081/api/v1/predictions/getPredictions?username=${username}`, {
+    const response = await fetch(`${process.env.SPRING_URL}/api/v1/predictions/getPredictions?username=${username}`, {
         method: "GET"
     });
 
@@ -77,7 +77,7 @@ export const getPredictions = async (username) => {
 export const updatePredictedWinner = async (gameId, username, winner) => {
 
     const response = await fetch(
-        `http://localhost:8081/api/v1/predictions/updatePredictedWinner?gameId=${gameId}&username=${username}&winner=${winner}`, 
+        `${process.env.SPRING_URL}/api/v1/predictions/updatePredictedWinner?gameId=${gameId}&username=${username}&winner=${winner}`, 
     {
         method: "PATCH",
         headers: {
@@ -93,7 +93,7 @@ export const updatePredictedWinner = async (gameId, username, winner) => {
 export const updatePredictedSpread = async (gameId, username, spread) => {
 
     const response = await fetch(
-        `http://localhost:8081/api/v1/predictions/updatePredictedSpread?gameId=${gameId}&username=${username}&spread=${spread}`, 
+        `${process.env.SPRING_URL}/api/v1/predictions/updatePredictedSpread?gameId=${gameId}&username=${username}&spread=${spread}`, 
     {
         method: "PATCH",
         headers: {
@@ -109,7 +109,7 @@ export const updatePredictedSpread = async (gameId, username, spread) => {
 export const updatePredictedOverUnder = async (gameId, username, overUnder) => {
 
     const response = await fetch(
-        `http://localhost:8081/api/v1/predictions/updatePredictedOverUnder?gameId=${gameId}&username=${username}&overUnder=${overUnder}`, 
+        `${process.env.SPRING_URL}/api/v1/predictions/updatePredictedOverUnder?gameId=${gameId}&username=${username}&overUnder=${overUnder}`, 
     {
         method: "PATCH",
         headers: {

@@ -1,6 +1,6 @@
 export const getPoints = async (username) => {
     const response = await fetch(
-        `http://localhost:8081/api/v1/auth/getPoints?username=${username}`, 
+        `${process.env.SPRING_URL}/api/v1/auth/getPoints?username=${username}`, 
     {
         method: "GET"
     });
@@ -25,7 +25,7 @@ export const addPoints = async (username, pointsToBeAdded) => {
     console.log(`Updating points for user ${username}. Adding ${pointsToBeAdded} to the ${currentPoints} current points.`);
 
     const response = await fetch(
-        `http://localhost:8081/api/v1/auth/setPoints?username=${username}&points=${newPoints}`, 
+        `${process.env.SPRING_URL}/api/v1/auth/setPoints?username=${username}&points=${newPoints}`, 
     {
         method: "PUT",
         headers: {
