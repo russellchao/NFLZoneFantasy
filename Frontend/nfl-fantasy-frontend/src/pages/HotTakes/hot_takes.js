@@ -67,7 +67,7 @@ const HotTakes = () => {
             setHotTakeValidationMessage("Validating hot take...");
 
             // Validate the hot take and process it 
-            const validationResponse = await fetch(`${process.env.SPRING_URL}/api/v1/hotTakes/validate?username=${localStorage.getItem("username")}&hotTake=${form.hotTakeText}`, {
+            const validationResponse = await fetch(`${process.env.REACT_APP_SPRING_URL}/api/v1/hotTakes/validate?username=${localStorage.getItem("username")}&hotTake=${form.hotTakeText}`, {
                 method: "GET"
             });
             const validationText = await validationResponse.text();
@@ -77,7 +77,7 @@ const HotTakes = () => {
             // If the hot take is valid, save it to the hot_takes table in the database with the respective username
             if (validationText === "This hot take is valid") {
                 console.log("Hot take is valid, saving to database");
-                const saveResponse = await fetch(`${process.env.SPRING_URL}/api/v1/hotTakes/save?username=${localStorage.getItem("username")}&hotTake=${form.hotTakeText}`, {
+                const saveResponse = await fetch(`${process.env.REACT_APP_SPRING_URL}/api/v1/hotTakes/save?username=${localStorage.getItem("username")}&hotTake=${form.hotTakeText}`, {
                     method: "POST"
                 });
                 const saveText = await saveResponse.text();
@@ -94,7 +94,7 @@ const HotTakes = () => {
         // Handles the deletion of a hot take
 
         // Delete the requested hot take from the database
-        const deletionResponse = await fetch(`${process.env.SPRING_URL}/api/v1/hotTakes/delete?username=${localStorage.getItem("username")}&hotTake=${hotTake}`, {
+        const deletionResponse = await fetch(`${process.env.REACT_APP_SPRING_URL}/api/v1/hotTakes/delete?username=${localStorage.getItem("username")}&hotTake=${hotTake}`, {
             method: "DELETE"
         });
         const deletionText = await deletionResponse.text();
@@ -112,7 +112,7 @@ const HotTakes = () => {
 
         const fetchHotTakes = async () => {
             try {  
-                const response = await fetch(`${process.env.SPRING_URL}/api/v1/hotTakes/get?username=${localStorage.getItem("username")}`, {
+                const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/api/v1/hotTakes/get?username=${localStorage.getItem("username")}`, {
                     method: "GET"
                 });
 

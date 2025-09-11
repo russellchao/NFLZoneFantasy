@@ -22,7 +22,7 @@ const ResetPassword = () => {
             setMessage('');
         }
 
-        const response = await fetch(`${process.env.SPRING_URL}/api/v1/auth/confirmPwReset?username=${form.username}`);
+        const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/api/v1/auth/confirmPwReset?username=${form.username}`);
         const text = await response.text(); 
         setMessage(text);
     };
