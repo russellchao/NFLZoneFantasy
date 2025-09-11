@@ -5,7 +5,7 @@ export const updateMatchupsForPredictions = async (matchups, spreads, overUnders
     */
 
     for (const matchup of matchups) {
-        const response = await fetch("${process.env.REACT_APP_SPRING_URL}/api/v1/predictions/updateMatchups", {
+        const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/api/v1/predictions/updateMatchups`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
