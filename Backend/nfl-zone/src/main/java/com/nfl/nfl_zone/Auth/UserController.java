@@ -7,7 +7,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import java.util.*;
 
 @RestController
-@RequestMapping("/api/v1/auth")
+@RequestMapping("api/v1/auth")
 public class UserController {
 
     private final UserService userService;

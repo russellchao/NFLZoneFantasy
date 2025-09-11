@@ -19,12 +19,12 @@ public class SecurityConfig {
                     "/api/v1/defender/**",
                     "/api/v1/kicker/**",
                     "/api/v1/playerName/**",
-                    "api/v1/updateSchedule",
-                    "api/v1/updatePlayerStats",
+                    "/api/v1/updateSchedule",
+                    "/api/v1/updatePlayerStats",
                     "/api/v1/auth/**",
                     "/api/v1/hotTakes/**",
                     "/api/v1/predictions/**",
-                        "api/v1/notifications/**"
+                        "/api/v1/notifications/**"
                 ).permitAll()
                 .anyRequest().authenticated()
             )

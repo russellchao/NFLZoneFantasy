@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
-@RequestMapping("/api/v1/predictions")
+@RequestMapping("api/v1/predictions")
 public class PredictionController {
 
     private final PredictionService predictionService;
