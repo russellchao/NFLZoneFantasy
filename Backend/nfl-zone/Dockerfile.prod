@@ -2,26 +2,22 @@ FROM maven:3.8.5-openjdk-17 AS build
 
 WORKDIR /app
 
-# Copy project files
-COPY pom.xml .
-COPY src ./src
-COPY .mvn ./.mvn
-COPY mvnw .
+# Copy everything
+COPY . .
 
 # Make Maven wrapper executable
 RUN chmod +x ./mvnw
 
-# Build the application
-RUN ./mvnw clean package -DskipTests
+# Build the application and list what's in the target directory
+RUN ./mvnw clean package -DskipTests && ls -la target/
 
 # Runtime stage
 FROM openjdk:17-jdk-slim
 
 WORKDIR /app
 
-# Copy the JAR from the build stage
-# Make sure this matches your actual JAR filename from pom.xml
-COPY --from=build /app/target/familyhub-0.0.1-SNAPSHOT.jar app.jar
+# Copy the JAR from the build stage - we'll use a wildcard to get any JAR file
+COPY --from=build /app/target/*.jar app.jar
 
 # Expose port 8081
 EXPOSE 8081
