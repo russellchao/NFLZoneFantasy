@@ -13,7 +13,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:3002", "https://nflzone.vercel.app", "http://flask-app:5000", "https://nflzone-flaskapp.onrender.com")
+                        .allowedOrigins("http://localhost:3002", "http://flask-app:5000", "https://nflzone.vercel.app", "https://nflzone-springapp.onrender.com", "https://nflzone-flaskapp.onrender.com")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH")
                         .allowedHeaders("*")
                         .allowCredentials(true);
