@@ -1,9 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchPlayerDataByTeam, fetchUpdatePlayerStatsDB } from '../../API/player_data_api';
 import { fetchScheduleByTeam, fetchUpdateScheduleDB } from '../../API/schedule_api';
 import Schedule from './Schedule/tp_schedule';
-import PlayerStats from './PlayerStats/tp_player_stats';
 import SeasonDropdownMenu from '../Components/SeasonDropdown/season_dropdown';
 import MatchupInfo from '../Components/MatchupInfo/matchup_info';
 
@@ -39,51 +37,23 @@ const TeamPage = () => {
 
     const { teamName } = useParams(); 
     const [section, setSection] = useState("Schedule"); // Default section is Schedule
-    const allSections = ["Schedule", "Player Stats"];
+    const allSections = ["Schedule"];
     const [teamSeason, setSeason] = useState("2025"); 
     const [loading, setLoading] = useState(true);
 
     // Track if the initial fetch has been done
     const initialFetchRef = useRef(false);
 
-    // For schedule section
     const [schedule, setSchedule] = useState([]);
     const [preseasonSchedule, setPreseasonSchedule] = useState([]); 
     const [showPreseason, setShowPreseason] = useState(false); 
     const [scheduleError, setScheduleError] = useState(false); 
     const [viewingMatchupInfo, setViewingMatchupInfo] = useState(false); 
     const [matchToViewInfo, setMatchToViewInfo] = useState(); // The game which the user wants to view info
-    
-
-    // For player stats section
-    const [passers, setPassers] = useState([]); 
-    const [rushers, setRushers] = useState([]); 
-    const [receivers, setReceivers] = useState([]); 
-    const [defenders, setDefenders] = useState([]); 
-    const [kickers, setKickers] = useState([]); 
-    const [playerStatsError, setPlayerStatsError] = useState(false); 
      
-
     const handleSectionChange = (section) => {
         // Section switch
         setSection(section); 
-    };
-
-
-    async function updatePlayerStatsDB() {
-        // This function updates the player stats database for the given team season
-
-        if (!loading) {
-            setLoading(true); 
-        }
-
-        const response = await fetchUpdatePlayerStatsDB(teamSeason); 
-
-        if (response === "Failure updating CSVs") {
-            setPlayerStatsError(true); 
-            setLoading(false); 
-            return; 
-        }
     };
 
     async function updateScheduleDB() {
@@ -95,7 +65,7 @@ const TeamPage = () => {
 
         const response = await fetchUpdateScheduleDB(teamSeason); 
 
-        if (response === "Failure updating CSVs") {
+        if (response === "Failure updating schedule data") {
             setScheduleError(true); 
             setLoading(false); 
             return; 
@@ -125,53 +95,7 @@ const TeamPage = () => {
     }; 
 
 
-    async function getPlayerStatsData() {
-        // This function retrieves the player stats data for the given team season
-
-        console.log(`Retreiving player stats from ${teamSeason}`); 
-        if (teamName) {
-            // Fetch Passing data
-            const loadPassers = async () => {
-                const passingData = await fetchPlayerDataByTeam("passer", teamName); 
-                setPassers(passingData); 
-            };
-            loadPassers(); 
-
-            // Fetch Rushing data
-            const loadRushers = async () => {
-                const rushingData = await fetchPlayerDataByTeam("rusher", teamName); 
-                setRushers(rushingData); 
-            };
-            loadRushers(); 
-
-            // Fetch Receiving data
-            const loadReceivers = async () => {
-                const receivingData = await fetchPlayerDataByTeam("receiver", teamName); 
-                setReceivers(receivingData); 
-            };
-            loadReceivers(); 
-
-            // Fetch Defense data
-            const loadDefenders = async () => {
-                const defenseData = await fetchPlayerDataByTeam("defender", teamName); 
-                setDefenders(defenseData); 
-            };
-            loadDefenders(); 
-
-            // Fetch Kicking data
-            const loadKickers = async () => {
-                const kickingData = await fetchPlayerDataByTeam("kicker", teamName); 
-                setKickers(kickingData); 
-            };
-            loadKickers(); 
-
-            setLoading(false); 
-        }; 
-    }; 
-
-
     useEffect(() => {
-        setPlayerStatsError(false);
         setScheduleError(false);
 
         // Only update the databases on initial load or if the season changes
@@ -183,9 +107,7 @@ const TeamPage = () => {
 
         (async () => {
             await updateScheduleDB(); 
-            await updatePlayerStatsDB(); 
             await getScheduleData(); 
-            await getPlayerStatsData(); 
         })();
 
     }, [teamSeason, teamName]);
@@ -350,25 +272,6 @@ const TeamPage = () => {
                                 setViewingMatchupInfo={setViewingMatchupInfo}
                                 setMatchToViewInfo={setMatchToViewInfo}
                             /> 
-                        </>
-                    )}
-                </>
-
-            ) : section === "Player Stats" ? (
-                <>
-                    {playerStatsError ? (
-                        <p style={{ paddingLeft: '20px' }}>Error, could not load the player stats for the {teamSeason} season.</p>
-                    ) : (
-                        <>
-                            <h2 style={{ paddingLeft: '20px' }}>{teamSeason} {teamName} Player Stats</h2>
-                            <p>&nbsp;</p>
-                            <PlayerStats 
-                                passers = {passers}
-                                rushers = {rushers}
-                                receivers = {receivers}
-                                defenders = {defenders}
-                                kickers = {kickers}
-                            />
                         </>
                     )}
                 </>

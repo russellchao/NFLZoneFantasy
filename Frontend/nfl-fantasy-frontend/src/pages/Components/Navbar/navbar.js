@@ -1,7 +1,5 @@
 import React, { useState } from 'react'; 
 import {Link, useNavigate} from 'react-router-dom';
-import { useAuth } from '../../../hooks/use_auth';
-import VerifyLogout from '../Logout/verify_logout';
 
 // Import all Navbar logo images
 const logoImages = require.context('../../../logos/Navbar Logos', false, /\.(png|jpe?g|svg)$/);
@@ -33,29 +31,9 @@ const buttonStyle = {
 
 
 const Navbar = () => {
-    const { isLoggedIn, username, points } = useAuth(); 
-    const [showVerifyLogout, setShowVerifyLogout] = useState(false);
     const [hoveredLogo, setHoveredLogo] = useState(null);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const navigate = useNavigate();
-
-    // If the user clicks 'Log Out', show the logout confirmation modal
-    const handleLogoutClick = () => setShowVerifyLogout(true);
-
-    // If the user clicks 'No' when being asked to Log out
-    const handleCancelLogout = () => setShowVerifyLogout(false);
-
-    // If the user clicks 'Yes' when being asked to Log out, clear auth info and redirect to home page
-    const handleConfirmLogout = () => {
-        localStorage.clear();
-        navigate("/");
-        window.location.reload(); // reload the page to reflect the logout state
-        console.log("Logged out successfully");
-    };
-
-    const handleNotificationsClick = () => {
-        navigate("/notifications");
-    };
 
     return (
         <nav style={{ 
@@ -94,7 +72,7 @@ const Navbar = () => {
                     </div>
                 )}
                 
-                <Link to="/" style={{ marginRight: "30px", color: "#ffffff" }}>
+                <Link to="/" style={{ marginRight: "50px", color: "#ffffff" }}>
                     <img 
                         src={navbarLogos["Home"]} 
                         style={logoStyle}
@@ -105,7 +83,7 @@ const Navbar = () => {
                     />
                 </Link>
 
-                <Link to="/full_schedule" style={{ marginRight: "30px", color: "#ffffff" }}>
+                <Link to="/full_schedule" style={{ marginRight: "50px", color: "#ffffff" }}>
                     <img 
                         src={navbarLogos["Schedule"]} 
                         style={logoStyle}
@@ -116,7 +94,7 @@ const Navbar = () => {
                     />
                 </Link>
 
-                <Link to="/all_teams" style={{ marginRight: "30px", color: "#ffffff" }}>
+                <Link to="/all_teams" style={{ marginRight: "50px", color: "#ffffff" }}>
                     <img 
                         src={navbarLogos["Teams"]} 
                         style={logoStyle}
@@ -126,116 +104,6 @@ const Navbar = () => {
                         onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}
                     />
                 </Link>
-
-                <Link to="/all_positions" style={{ marginRight: "30px", color: "#ffffff" }}>
-                    <img 
-                        src={navbarLogos["Positions"]} 
-                        style={logoStyle}
-                        alt="Positions"
-                        onMouseEnter={() => setHoveredLogo("Positions")}
-                        onMouseLeave={() => setHoveredLogo(null)}
-                        onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}
-                    />
-                </Link>
-
-                <Link to="/search" style={{ marginRight: "30px", color: "#ffffff" }}>
-                    <img 
-                        src={navbarLogos["Player Search"]} 
-                        style={logoStyle}
-                        alt="Player Search"
-                        onMouseEnter={() => setHoveredLogo("Player Search")}
-                        onMouseLeave={() => setHoveredLogo(null)}
-                        onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}
-                    />
-                </Link>
-
-                {/* Render the confirm logout modal if the user clicks 'Log Out' */}
-                {showVerifyLogout && (
-                    <VerifyLogout 
-                        onConfirm={handleConfirmLogout}
-                        onCancel={handleCancelLogout}
-                    />
-                )}
-        
-                {/* Conditionally render certain section links based on login status */}
-                {isLoggedIn ? (
-                    <div>
-                        <Link to="/hot_takes" style={{ marginRight: "30px", color: "#ffffffff" }}>
-                            <img 
-                                src={navbarLogos["Hot Takes"]} 
-                                style={logoStyle}
-                                alt="Hot Takes"
-                                onMouseEnter={() => setHoveredLogo("Hot Takes")}
-                                onMouseLeave={() => setHoveredLogo(null)}
-                                onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}
-                            />
-                        </Link>
-
-                        <Link to="/predict_the_winner" style={{ marginRight: "30px", color: "#ffffff" }}>
-                            <img 
-                                src={navbarLogos["Predict The Winner"]} 
-                                style={logoStyle}
-                                alt="Predict The Winner"
-                                onMouseEnter={() => setHoveredLogo("Predict The Winner")}
-                                onMouseLeave={() => setHoveredLogo(null)}
-                                onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}
-                            />
-                        </Link>
-
-                        <Link to="/leaderboard" style={{ marginRight: "30px", color: "#ffffff" }}>
-                            <img 
-                                src={navbarLogos["Leaderboard"]} 
-                                style={logoStyle}
-                                alt="Leaderboard"
-                                onMouseEnter={() => setHoveredLogo("Leaderboard")}
-                                onMouseLeave={() => setHoveredLogo(null)}
-                                onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}
-                            />
-                        </Link>
-                    </div>
-                ) : (
-                    null
-                )}
-                </div>
-        
-                {/* Login section */}
-                <div style={{ marginLeft: "auto", marginRight: "50px" }}>
-                    {isLoggedIn ? (
-                        <>
-                        <span style={{ color: "#d2e859ff", fontWeight: 'bold' }}>{username}</span>
-                        <span style={{ color: "#d2e859ff", paddingLeft: "15px" }}>Points: {points}</span>
-                        <div style={{ display: "inline-block", paddingLeft: "7.5px" }}>
-                            <button 
-                                onClick={handleNotificationsClick}
-                                style={buttonStyle}
-                            >
-                                Notifications
-                            </button>
-                            <button 
-                                onClick={handleLogoutClick}
-                                style={buttonStyle}
-                            >
-                                Log Out
-                            </button>
-                        </div>
-                    </>
-                ) : (
-                    <>
-                        <button 
-                            onClick={() => navigate('/login')}
-                            style={buttonStyle}
-                        >
-                            Login
-                        </button>
-
-                        <button 
-                            onClick={() => navigate('/register')}
-                            style={buttonStyle}
-                        >
-                            Register
-                        </button>
-                    </>
-                )}
             </div>
         </nav>
     );

@@ -85,16 +85,14 @@ export const fetchScheduleByMatchup = async (team1, team2) => {
 
 export const fetchUpdateScheduleDB = async (teamSeason) => {
     try { 
-        const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/api/v1/updateSchedule?year=${encodeURIComponent(teamSeason)}`);
-        console.log("Finished updating schedule database");
+        const response = await fetch(`${process.env.REACT_APP_FLASK_URL}/scheduleData/${encodeURIComponent(teamSeason)}`);
 
-        const csv_result = await response.text(); 
-        console.log(csv_result);
+        const result = await response.text(); 
+        console.log(result);
 
         // could not fetch player data for the specified season
-        if (csv_result === "Failure updating CSVs") {
-            console.log("Error fetching schedule");
-            return csv_result; 
+        if (result === "Failure updating schedule data") {
+            return result; 
         } 
 
     } catch (error) {

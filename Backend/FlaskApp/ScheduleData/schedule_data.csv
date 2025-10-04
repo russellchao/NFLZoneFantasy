@@ -1,207 +1,207 @@
 Date,WeekNum,Status,AwayTeam,AwayTeamRecord,HomeTeam,HomeTeamRecord,Venue,Broadcast,SeasonType,WeekId,GameId,AwayTeamScore,HomeTeamScore,Overtime,StartTime
-"July 31, 2025",Hall of Fame Week,Scheduled,Los Angeles Chargers,0-0,Detroit Lions,0-0,"Tom Benson Hall of Fame Stadium, Canton, OH, USA",NBC/Peacock,1,1,401772971,-1,-1,false,8:00 PM EDT
-"August 7, 2025",Preseason Week 1,Scheduled,Indianapolis Colts,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",NFL Net,1,2,401773001,-1,-1,false,7:00 PM EDT
-"August 7, 2025",Preseason Week 1,Scheduled,Cincinnati Bengals,0-0,Philadelphia Eagles,0-0,"Lincoln Financial Field, Philadelphia, PA, USA",TBD,1,2,401773005,-1,-1,false,7:30 PM EDT
-"August 7, 2025",Preseason Week 1,Scheduled,Las Vegas Raiders,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",NFL Net,1,2,401774568,-1,-1,false,10:00 PM EDT
-"August 8, 2025",Preseason Week 1,Scheduled,Detroit Lions,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",TBD,1,2,401773016,-1,-1,false,7:00 PM EDT
-"August 8, 2025",Preseason Week 1,Scheduled,Cleveland Browns,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",NFL Net,1,2,401773018,-1,-1,false,7:00 PM EDT
-"August 8, 2025",Preseason Week 1,Scheduled,Washington Commanders,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",TBD,1,2,401772996,-1,-1,false,7:30 PM EDT
-"August 9, 2025",Preseason Week 1,Scheduled,New York Giants,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",NFL Net,1,2,401776263,-1,-1,false,1:00 PM EDT
-"August 9, 2025",Preseason Week 1,Scheduled,Houston Texans,0-0,Minnesota Vikings,0-0,"U.S. Bank Stadium, Minneapolis, MN, USA",NFL Net,1,2,401773012,-1,-1,false,4:00 PM EDT
-"August 9, 2025",Preseason Week 1,Scheduled,Dallas Cowboys,0-0,Los Angeles Rams,0-0,"SoFi Stadium, Inglewood, CA, USA",TBD,1,2,401773020,-1,-1,false,7:00 PM EDT
-"August 9, 2025",Preseason Week 1,Scheduled,Pittsburgh Steelers,0-0,Jacksonville Jaguars,0-0,"EverBank Stadium, Jacksonville, FL, USA",TBD,1,2,401773002,-1,-1,false,7:00 PM EDT
-"August 9, 2025",Preseason Week 1,Scheduled,Tennessee Titans,0-0,Tampa Bay Buccaneers,0-0,"Raymond James Stadium, Tampa, FL, USA",TBD,1,2,401774029,-1,-1,false,7:30 PM EDT
-"August 9, 2025",Preseason Week 1,Scheduled,New York Jets,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",NFL Net,1,2,401773010,-1,-1,false,8:00 PM EDT
-"August 9, 2025",Preseason Week 1,Scheduled,Kansas City Chiefs,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",TBD,1,2,401774636,-1,-1,false,8:00 PM EDT
-"August 9, 2025",Preseason Week 1,Scheduled,Denver Broncos,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",TBD,1,2,401776566,-1,-1,false,8:30 PM EDT
-"August 10, 2025",Preseason Week 1,Scheduled,Miami Dolphins,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",NFL Net,1,2,401776564,-1,-1,false,1:00 PM EDT
-"August 10, 2025",Preseason Week 1,Scheduled,New Orleans Saints,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",NFL Net,1,2,401773026,-1,-1,false,4:00 PM EDT
-"August 15, 2025",Preseason Week 2,Scheduled,Tennessee Titans,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",NFL Net,1,3,401773017,-1,-1,false,7:00 PM EDT
-"August 15, 2025",Preseason Week 2,Scheduled,Kansas City Chiefs,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",NFL Net,1,3,401774591,-1,-1,false,10:00 PM EDT
-"August 16, 2025",Preseason Week 2,Scheduled,Miami Dolphins,0-0,Detroit Lions,0-0,"Ford Field, Detroit, MI, USA",TBD,1,3,401776264,-1,-1,false,1:00 PM EDT
-"August 16, 2025",Preseason Week 2,Scheduled,Green Bay Packers,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",TBD,1,3,401773003,-1,-1,false,1:00 PM EDT
-"August 16, 2025",Preseason Week 2,Scheduled,New England Patriots,0-0,Minnesota Vikings,0-0,"U.S. Bank Stadium, Minneapolis, MN, USA",TBD,1,3,401773013,-1,-1,false,1:00 PM EDT
-"August 16, 2025",Preseason Week 2,Scheduled,Cleveland Browns,0-0,Philadelphia Eagles,0-0,"Lincoln Financial Field, Philadelphia, PA, USA",NFL Net,1,3,401773006,-1,-1,false,1:00 PM EDT
-"August 16, 2025",Preseason Week 2,Scheduled,Carolina Panthers,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",TBD,1,3,401773027,-1,-1,false,1:00 PM EDT
-"August 16, 2025",Preseason Week 2,Scheduled,San Francisco 49ers,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",NFL Net,1,3,401774569,-1,-1,false,4:00 PM EDT
-"August 16, 2025",Preseason Week 2,Scheduled,Baltimore Ravens,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",TBD,1,3,401773007,-1,-1,false,7:00 PM EDT
-"August 16, 2025",Preseason Week 2,Scheduled,Los Angeles Chargers,0-0,Los Angeles Rams,0-0,"SoFi Stadium, Inglewood, CA, USA",TBD,1,3,401773021,-1,-1,false,7:00 PM EDT
-"August 16, 2025",Preseason Week 2,Scheduled,New York Jets,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",NFL Net,1,3,401773009,-1,-1,false,7:00 PM EDT
-"August 16, 2025",Preseason Week 2,Scheduled,Tampa Bay Buccaneers,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",TBD,1,3,401773000,-1,-1,false,7:00 PM EDT
-"August 16, 2025",Preseason Week 2,Scheduled,Arizona Cardinals,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",NFL Net,1,3,401774637,-1,-1,false,9:30 PM EDT
-"August 17, 2025",Preseason Week 2,Scheduled,Jacksonville Jaguars,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",NFL Net,1,3,401773014,-1,-1,false,1:00 PM EDT
-"August 17, 2025",Preseason Week 2,Scheduled,Buffalo Bills,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",FOX,1,3,401772972,-1,-1,false,8:00 PM EDT
-"August 18, 2025",Preseason Week 2,Scheduled,Cincinnati Bengals,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",ESPN,1,3,401772973,-1,-1,false,8:00 PM EDT
-"August 21, 2025",Preseason Week 3,Scheduled,Pittsburgh Steelers,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",NFL Net,1,4,401773019,-1,-1,false,7:00 PM EDT
-"August 21, 2025",Preseason Week 3,Scheduled,New England Patriots,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",Prime Video,1,4,401772974,-1,-1,false,8:00 PM EDT
-"August 22, 2025",Preseason Week 3,Scheduled,Philadelphia Eagles,0-0,New York Jets,0-0,"MetLife Stadium, East Rutherford, NJ, USA",TBD,1,4,401772997,-1,-1,false,7:30 PM EDT
-"August 22, 2025",Preseason Week 3,Scheduled,Atlanta Falcons,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",NFL Net,1,4,401773008,-1,-1,false,8:00 PM EDT
-"August 22, 2025",Preseason Week 3,Scheduled,Minnesota Vikings,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",CBS,1,4,401772975,-1,-1,false,8:00 PM EDT
-"August 22, 2025",Preseason Week 3,Scheduled,Chicago Bears,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",TBD,1,4,401773004,-1,-1,false,8:20 PM EDT
-"August 23, 2025",Preseason Week 3,Scheduled,Baltimore Ravens,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",TBD,1,4,401777124,-1,-1,false,12:00 PM EDT
-"August 23, 2025",Preseason Week 3,Scheduled,Indianapolis Colts,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",TBD,1,4,401772998,-1,-1,false,1:00 PM EDT
-"August 23, 2025",Preseason Week 3,Scheduled,Los Angeles Rams,0-0,Cleveland Browns,0-0,"Huntington Bank Field, Cleveland, OH, USA",NFL Net,1,4,401772999,-1,-1,false,1:00 PM EDT
-"August 23, 2025",Preseason Week 3,Scheduled,Houston Texans,0-0,Detroit Lions,0-0,"Ford Field, Detroit, MI, USA",TBD,1,4,401776265,-1,-1,false,1:00 PM EDT
-"August 23, 2025",Preseason Week 3,Scheduled,Denver Broncos,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",TBD,1,4,401773015,-1,-1,false,1:00 PM EDT
-"August 23, 2025",Preseason Week 3,Scheduled,Seattle Seahawks,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",NFL Net,1,4,401773011,-1,-1,false,4:00 PM EDT
-"August 23, 2025",Preseason Week 3,Scheduled,Jacksonville Jaguars,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",NFL Net,1,4,401776565,-1,-1,false,7:00 PM EDT
-"August 23, 2025",Preseason Week 3,Scheduled,Buffalo Bills,0-0,Tampa Bay Buccaneers,0-0,"Raymond James Stadium, Tampa, FL, USA",TBD,1,4,401774030,-1,-1,false,7:30 PM EDT
-"August 23, 2025",Preseason Week 3,Scheduled,Los Angeles Chargers,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",TBD,1,4,401776567,-1,-1,false,8:30 PM EDT
-"August 23, 2025",Preseason Week 3,Scheduled,Las Vegas Raiders,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",NFL Net,1,4,401774590,-1,-1,false,10:00 PM EDT
-"September 4, 2025",Week 1,Scheduled,Dallas Cowboys,0-0,Philadelphia Eagles,0-0,"Lincoln Financial Field, Philadelphia, PA, USA",NBC/Peacock,2,1,401772510,-1,-1,false,8:20 PM EDT
-"September 5, 2025",Week 1,Scheduled,Kansas City Chiefs,0-0,Los Angeles Chargers,0-0,"Corinthians Arena, Sao Paulo, None, Brazil",YouTube,2,1,401772714,-1,-1,false,8:00 PM EDT
-"September 7, 2025",Week 1,Scheduled,Tampa Bay Buccaneers,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",FOX,2,1,401772830,-1,-1,false,1:00 PM EDT
-"September 7, 2025",Week 1,Scheduled,Cincinnati Bengals,0-0,Cleveland Browns,0-0,"Huntington Bank Field, Cleveland, OH, USA",FOX,2,1,401772829,-1,-1,false,1:00 PM EDT
-"September 7, 2025",Week 1,Scheduled,Miami Dolphins,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",CBS,2,1,401772719,-1,-1,false,1:00 PM EDT
-"September 7, 2025",Week 1,Scheduled,Las Vegas Raiders,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",CBS,2,1,401772720,-1,-1,false,1:00 PM EDT
-"September 7, 2025",Week 1,Scheduled,Arizona Cardinals,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",CBS,2,1,401772718,-1,-1,false,1:00 PM EDT
-"September 7, 2025",Week 1,Scheduled,Pittsburgh Steelers,0-0,New York Jets,0-0,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,1,401772721,-1,-1,false,1:00 PM EDT
-"September 7, 2025",Week 1,Scheduled,New York Giants,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",FOX,2,1,401772827,-1,-1,false,1:00 PM EDT
-"September 7, 2025",Week 1,Scheduled,Carolina Panthers,0-0,Jacksonville Jaguars,0-0,"EverBank Stadium, Jacksonville, FL, USA",FOX,2,1,401772828,-1,-1,false,1:00 PM EDT
-"September 7, 2025",Week 1,Scheduled,Tennessee Titans,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",FOX,2,1,401772832,-1,-1,false,4:05 PM EDT
-"September 7, 2025",Week 1,Scheduled,San Francisco 49ers,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",FOX,2,1,401772831,-1,-1,false,4:05 PM EDT
-"September 7, 2025",Week 1,Scheduled,Detroit Lions,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",CBS,2,1,401772722,-1,-1,false,4:25 PM EDT
-"September 7, 2025",Week 1,Scheduled,Houston Texans,0-0,Los Angeles Rams,0-0,"SoFi Stadium, Inglewood, CA, USA",CBS,2,1,401772723,-1,-1,false,4:25 PM EDT
-"September 7, 2025",Week 1,Scheduled,Baltimore Ravens,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",NBC,2,1,401772918,-1,-1,false,8:20 PM EDT
-"September 8, 2025",Week 1,Scheduled,Minnesota Vikings,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",ABC/ESPN,2,1,401772810,-1,-1,false,8:15 PM EDT
-"September 11, 2025",Week 2,Scheduled,Washington Commanders,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",Prime Video,2,2,401772936,-1,-1,false,8:15 PM EDT
-"September 14, 2025",Week 2,Scheduled,Jacksonville Jaguars,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",CBS,2,2,401772725,-1,-1,false,1:00 PM EDT
-"September 14, 2025",Week 2,Scheduled,New York Giants,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",FOX,2,2,401772834,-1,-1,false,1:00 PM EDT
-"September 14, 2025",Week 2,Scheduled,Chicago Bears,0-0,Detroit Lions,0-0,"Ford Field, Detroit, MI, USA",FOX,2,2,401772835,-1,-1,false,1:00 PM EDT
-"September 14, 2025",Week 2,Scheduled,Los Angeles Rams,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",CBS,2,2,401772724,-1,-1,false,1:00 PM EDT
-"September 14, 2025",Week 2,Scheduled,New England Patriots,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",CBS,2,2,401772728,-1,-1,false,1:00 PM EDT
-"September 14, 2025",Week 2,Scheduled,San Francisco 49ers,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",FOX,2,2,401772833,-1,-1,false,1:00 PM EDT
-"September 14, 2025",Week 2,Scheduled,Buffalo Bills,0-0,New York Jets,0-0,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,2,401772727,-1,-1,false,1:00 PM EDT
-"September 14, 2025",Week 2,Scheduled,Seattle Seahawks,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",FOX,2,2,401772836,-1,-1,false,1:00 PM EDT
-"September 14, 2025",Week 2,Scheduled,Cleveland Browns,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",CBS,2,2,401772726,-1,-1,false,1:00 PM EDT
-"September 14, 2025",Week 2,Scheduled,Denver Broncos,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",CBS,2,2,401772729,-1,-1,false,4:05 PM EDT
-"September 14, 2025",Week 2,Scheduled,Carolina Panthers,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",CBS,2,2,401772730,-1,-1,false,4:05 PM EDT
-"September 14, 2025",Week 2,Scheduled,Philadelphia Eagles,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",FOX,2,2,401772837,-1,-1,false,4:25 PM EDT
-"September 14, 2025",Week 2,Scheduled,Atlanta Falcons,0-0,Minnesota Vikings,0-0,"U.S. Bank Stadium, Minneapolis, MN, USA",NBC,2,2,401772919,-1,-1,false,8:20 PM EDT
-"September 15, 2025",Week 2,Scheduled,Tampa Bay Buccaneers,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",ABC/ESPN,2,2,401772715,-1,-1,false,7:00 PM EDT
-"September 15, 2025",Week 2,Scheduled,Los Angeles Chargers,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",ESPN,2,2,401772811,-1,-1,false,10:00 PM EDT
-"September 18, 2025",Week 3,Scheduled,Miami Dolphins,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",Prime Video,2,3,401772937,-1,-1,false,8:15 PM EDT
-"September 21, 2025",Week 3,Scheduled,Green Bay Packers,0-0,Cleveland Browns,0-0,"Huntington Bank Field, Cleveland, OH, USA",FOX,2,3,401772842,-1,-1,false,1:00 PM EDT
-"September 21, 2025",Week 3,Scheduled,Indianapolis Colts,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",CBS,2,3,401772733,-1,-1,false,1:00 PM EDT
-"September 21, 2025",Week 3,Scheduled,Cincinnati Bengals,0-0,Minnesota Vikings,0-0,"U.S. Bank Stadium, Minneapolis, MN, USA",CBS,2,3,401772731,-1,-1,false,1:00 PM EDT
-"September 21, 2025",Week 3,Scheduled,Pittsburgh Steelers,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",CBS,2,3,401772732,-1,-1,false,1:00 PM EDT
-"September 21, 2025",Week 3,Scheduled,Los Angeles Rams,0-0,Philadelphia Eagles,0-0,"Lincoln Financial Field, Philadelphia, PA, USA",FOX,2,3,401772839,-1,-1,false,1:00 PM EDT
-"September 21, 2025",Week 3,Scheduled,New York Jets,0-0,Tampa Bay Buccaneers,0-0,"Raymond James Stadium, Tampa, FL, USA",FOX,2,3,401772840,-1,-1,false,1:00 PM EDT
-"September 21, 2025",Week 3,Scheduled,Las Vegas Raiders,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",FOX,2,3,401772841,-1,-1,false,1:00 PM EDT
-"September 21, 2025",Week 3,Scheduled,Atlanta Falcons,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,3,401772838,-1,-1,false,1:00 PM EDT
-"September 21, 2025",Week 3,Scheduled,Houston Texans,0-0,Jacksonville Jaguars,0-0,"EverBank Stadium, Jacksonville, FL, USA",CBS,2,3,401772734,-1,-1,false,1:00 PM EDT
-"September 21, 2025",Week 3,Scheduled,Denver Broncos,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",CBS,2,3,401772735,-1,-1,false,4:05 PM EDT
-"September 21, 2025",Week 3,Scheduled,New Orleans Saints,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",CBS,2,3,401772736,-1,-1,false,4:05 PM EDT
-"September 21, 2025",Week 3,Scheduled,Dallas Cowboys,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",FOX,2,3,401772844,-1,-1,false,4:25 PM EDT
-"September 21, 2025",Week 3,Scheduled,Arizona Cardinals,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",FOX,2,3,401772843,-1,-1,false,4:25 PM EDT
-"September 21, 2025",Week 3,Scheduled,Kansas City Chiefs,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",NBC,2,3,401772920,-1,-1,false,8:20 PM EDT
-"September 22, 2025",Week 3,Scheduled,Detroit Lions,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",ABC/ESPN,2,3,401772812,-1,-1,false,8:15 PM EDT
-"September 25, 2025",Week 4,Scheduled,Seattle Seahawks,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",Prime Video,2,4,401772938,-1,-1,false,8:15 PM EDT
-"September 28, 2025",Week 4,Scheduled,Minnesota Vikings,0-0,Pittsburgh Steelers,0-0,"Croke Park, Dublin, None, Ireland",NFL Net/NFL+,2,4,401772632,-1,-1,false,9:30 AM EDT
-"September 28, 2025",Week 4,Scheduled,Washington Commanders,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",CBS,2,4,401772739,-1,-1,false,1:00 PM EDT
-"September 28, 2025",Week 4,Scheduled,New Orleans Saints,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",CBS,2,4,401772740,-1,-1,false,1:00 PM EDT
-"September 28, 2025",Week 4,Scheduled,Cleveland Browns,0-0,Detroit Lions,0-0,"Ford Field, Detroit, MI, USA",FOX,2,4,401772846,-1,-1,false,1:00 PM EDT
-"September 28, 2025",Week 4,Scheduled,Carolina Panthers,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",FOX,2,4,401772847,-1,-1,false,1:00 PM EDT
-"September 28, 2025",Week 4,Scheduled,Los Angeles Chargers,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,4,401772737,-1,-1,false,1:00 PM EDT
-"September 28, 2025",Week 4,Scheduled,Philadelphia Eagles,0-0,Tampa Bay Buccaneers,0-0,"Raymond James Stadium, Tampa, FL, USA",FOX,2,4,401772845,-1,-1,false,1:00 PM EDT
-"September 28, 2025",Week 4,Scheduled,Tennessee Titans,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",CBS,2,4,401772738,-1,-1,false,1:00 PM EDT
-"September 28, 2025",Week 4,Scheduled,Indianapolis Colts,0-0,Los Angeles Rams,0-0,"SoFi Stadium, Inglewood, CA, USA",FOX,2,4,401772849,-1,-1,false,4:05 PM EDT
-"September 28, 2025",Week 4,Scheduled,Jacksonville Jaguars,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",FOX,2,4,401772848,-1,-1,false,4:05 PM EDT
-"September 28, 2025",Week 4,Scheduled,Baltimore Ravens,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",CBS,2,4,401772741,-1,-1,false,4:25 PM EDT
-"September 28, 2025",Week 4,Scheduled,Chicago Bears,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",CBS,2,4,401772742,-1,-1,false,4:25 PM EDT
-"September 28, 2025",Week 4,Scheduled,Green Bay Packers,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",NBC,2,4,401772921,-1,-1,false,8:20 PM EDT
-"September 29, 2025",Week 4,Scheduled,New York Jets,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",ESPN,2,4,401772813,-1,-1,false,7:15 PM EDT
-"September 29, 2025",Week 4,Scheduled,Cincinnati Bengals,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",ABC,2,4,401772716,-1,-1,false,8:15 PM EDT
-"October 2, 2025",Week 5,Scheduled,San Francisco 49ers,0-0,Los Angeles Rams,0-0,"SoFi Stadium, Inglewood, CA, USA",Prime Video,2,5,401772939,-1,-1,false,8:15 PM EDT
-"October 5, 2025",Week 5,Scheduled,Minnesota Vikings,0-0,Cleveland Browns,0-0,"Tottenham Hotspur Stadium, London, None, England",NFL Net/NFL+,2,5,401772633,-1,-1,false,9:30 AM EDT
-"October 5, 2025",Week 5,Scheduled,Las Vegas Raiders,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",FOX,2,5,401772851,-1,-1,false,1:00 PM EDT
-"October 5, 2025",Week 5,Scheduled,New York Giants,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",CBS,2,5,401772744,-1,-1,false,1:00 PM EDT
-"October 5, 2025",Week 5,Scheduled,Dallas Cowboys,0-0,New York Jets,0-0,"MetLife Stadium, East Rutherford, NJ, USA",FOX,2,5,401772850,-1,-1,false,1:00 PM EDT
-"October 5, 2025",Week 5,Scheduled,Denver Broncos,0-0,Philadelphia Eagles,0-0,"Lincoln Financial Field, Philadelphia, PA, USA",CBS,2,5,401772745,-1,-1,false,1:00 PM EDT
-"October 5, 2025",Week 5,Scheduled,Miami Dolphins,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,5,401772852,-1,-1,false,1:00 PM EDT
-"October 5, 2025",Week 5,Scheduled,Houston Texans,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",CBS,2,5,401772743,-1,-1,false,1:00 PM EDT
-"October 5, 2025",Week 5,Scheduled,Tennessee Titans,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",CBS,2,5,401772747,-1,-1,false,4:05 PM EDT
-"October 5, 2025",Week 5,Scheduled,Tampa Bay Buccaneers,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",CBS,2,5,401772746,-1,-1,false,4:05 PM EDT
-"October 5, 2025",Week 5,Scheduled,Detroit Lions,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",FOX,2,5,401772854,-1,-1,false,4:25 PM EDT
-"October 5, 2025",Week 5,Scheduled,Washington Commanders,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",FOX,2,5,401772853,-1,-1,false,4:25 PM EDT
-"October 5, 2025",Week 5,Scheduled,New England Patriots,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",NBC,2,5,401772922,-1,-1,false,8:20 PM EDT
-"October 6, 2025",Week 5,Scheduled,Kansas City Chiefs,0-0,Jacksonville Jaguars,0-0,"EverBank Stadium, Jacksonville, FL, USA",ABC/ESPN,2,5,401772814,-1,-1,false,8:15 PM EDT
+"September 25, 2025",Week 4,Final,Seattle Seahawks,3-1,Arizona Cardinals,2-2,"State Farm Stadium, Glendale, AZ, USA",Prime Video,2,4,401772938,23,20,false,N/A
+"September 4, 2025",Week 1,Final,Dallas Cowboys,0-1,Philadelphia Eagles,1-0,"Lincoln Financial Field, Philadelphia, PA, USA",NBC/Peacock,2,1,401772510,20,24,false,N/A
+"September 28, 2025",Week 4,Final,Minnesota Vikings,2-2,Pittsburgh Steelers,3-1,"Croke Park, Dublin, None, Ireland",NFL Net/NFL+,2,4,401772632,21,24,false,N/A
+"September 28, 2025",Week 4,Final,Washington Commanders,2-2,Atlanta Falcons,2-2,"Mercedes-Benz Stadium, Atlanta, GA, USA",CBS,2,4,401772739,27,34,false,N/A
+"September 5, 2025",Week 1,Final,Kansas City Chiefs,0-1,Los Angeles Chargers,1-0,"Corinthians Arena, Sao Paulo, None, Brazil",YouTube,2,1,401772714,21,27,false,N/A
+"September 18, 2025",Week 3,Final,Miami Dolphins,0-3,Buffalo Bills,3-0,"Highmark Stadium, Orchard Park, NY, USA",Prime Video,2,3,401772937,21,31,false,N/A
+"September 7, 2025",Week 1,Final,Tampa Bay Buccaneers,1-0,Atlanta Falcons,0-1,"Mercedes-Benz Stadium, Atlanta, GA, USA",FOX,2,1,401772830,23,20,false,N/A
+"September 28, 2025",Week 4,Final,New Orleans Saints,0-4,Buffalo Bills,4-0,"Highmark Stadium, Orchard Park, NY, USA",CBS,2,4,401772740,19,31,false,N/A
+"September 21, 2025",Week 3,Final,Green Bay Packers,2-1,Cleveland Browns,1-2,"Huntington Bank Field, Cleveland, OH, USA",FOX,2,3,401772842,10,13,false,N/A
+"September 7, 2025",Week 1,Final,Cincinnati Bengals,1-0,Cleveland Browns,0-1,"Huntington Bank Field, Cleveland, OH, USA",FOX,2,1,401772829,17,16,false,N/A
+"September 21, 2025",Week 3,Final,Indianapolis Colts,3-0,Tennessee Titans,0-3,"Nissan Stadium, Nashville, TN, USA",CBS,2,3,401772733,41,20,false,N/A
+"September 28, 2025",Week 4,Final,Cleveland Browns,1-3,Detroit Lions,3-1,"Ford Field, Detroit, MI, USA",FOX,2,4,401772846,10,34,false,N/A
+"September 11, 2025",Week 2,Final,Washington Commanders,1-1,Green Bay Packers,2-0,"Lambeau Field, Green Bay, WI, USA",Prime Video,2,2,401772936,18,27,false,N/A
+"September 7, 2025",Week 1,Final,Miami Dolphins,0-1,Indianapolis Colts,1-0,"Lucas Oil Stadium, Indianapolis, IN, USA",CBS,2,1,401772719,8,33,false,N/A
+"September 21, 2025",Week 3,Final,Cincinnati Bengals,2-1,Minnesota Vikings,2-1,"U.S. Bank Stadium, Minneapolis, MN, USA",CBS,2,3,401772731,10,48,false,N/A
+"September 28, 2025",Week 4,Final,Carolina Panthers,1-3,New England Patriots,2-2,"Gillette Stadium, Foxborough, MA, USA",FOX,2,4,401772847,13,42,false,N/A
+"September 14, 2025",Week 2,Final,Jacksonville Jaguars,1-1,Cincinnati Bengals,2-0,"Paycor Stadium, Cincinnati, OH, USA",CBS,2,2,401772725,27,31,false,N/A
+"September 7, 2025",Week 1,Final,Las Vegas Raiders,1-3,New England Patriots,2-2,"Gillette Stadium, Foxborough, MA, USA",CBS,2,1,401772720,20,13,false,N/A
+"September 21, 2025",Week 3,Final,Pittsburgh Steelers,2-1,New England Patriots,1-2,"Gillette Stadium, Foxborough, MA, USA",CBS,2,3,401772732,21,14,false,N/A
+"September 28, 2025",Week 4,Final,Los Angeles Chargers,3-1,New York Giants,1-3,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,4,401772737,18,21,false,N/A
+"September 14, 2025",Week 2,Final,New York Giants,0-2,Dallas Cowboys,1-1,"AT&T Stadium, Arlington, TX, USA",FOX,2,2,401772834,37,40,true,N/A
+"September 21, 2025",Week 3,Final,Los Angeles Rams,2-1,Philadelphia Eagles,3-0,"Lincoln Financial Field, Philadelphia, PA, USA",FOX,2,3,401772839,26,33,false,N/A
+"September 7, 2025",Week 1,Final,Arizona Cardinals,1-0,New Orleans Saints,0-1,"Caesars Superdome, New Orleans, LA, USA",CBS,2,1,401772718,20,13,false,N/A
+"September 28, 2025",Week 4,Final,Philadelphia Eagles,4-0,Tampa Bay Buccaneers,3-1,"Raymond James Stadium, Tampa, FL, USA",FOX,2,4,401772845,31,25,false,N/A
+"September 14, 2025",Week 2,Final,Chicago Bears,0-2,Detroit Lions,1-1,"Ford Field, Detroit, MI, USA",FOX,2,2,401772835,21,52,false,N/A
+"September 7, 2025",Week 1,Final,Pittsburgh Steelers,1-0,New York Jets,0-1,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,1,401772721,34,32,false,N/A
+"September 21, 2025",Week 3,Final,New York Jets,0-3,Tampa Bay Buccaneers,3-0,"Raymond James Stadium, Tampa, FL, USA",FOX,2,3,401772840,27,29,false,N/A
+"September 14, 2025",Week 2,Final,Los Angeles Rams,2-0,Tennessee Titans,0-2,"Nissan Stadium, Nashville, TN, USA",CBS,2,2,401772724,33,19,false,N/A
+"September 28, 2025",Week 4,Final,Tennessee Titans,0-4,Houston Texans,1-3,"NRG Stadium, Houston, TX, USA",CBS,2,4,401772738,0,26,false,N/A
+"September 7, 2025",Week 1,Final,New York Giants,0-1,Washington Commanders,1-0,"Northwest Stadium, Landover, MD, USA",FOX,2,1,401772827,6,21,false,N/A
+"September 21, 2025",Week 3,Final,Las Vegas Raiders,1-2,Washington Commanders,2-1,"Northwest Stadium, Landover, MD, USA",FOX,2,3,401772841,24,41,false,N/A
+"September 14, 2025",Week 2,Final,New England Patriots,1-1,Miami Dolphins,0-2,"Hard Rock Stadium, Miami Gardens, FL, USA",CBS,2,2,401772728,33,27,false,N/A
+"September 28, 2025",Week 4,Final,Indianapolis Colts,3-1,Los Angeles Rams,3-1,"SoFi Stadium, Inglewood, CA, USA",FOX,2,4,401772849,20,27,false,N/A
+"September 7, 2025",Week 1,Final,Carolina Panthers,0-1,Jacksonville Jaguars,1-0,"EverBank Stadium, Jacksonville, FL, USA",FOX,2,1,401772828,10,26,false,N/A
+"September 21, 2025",Week 3,Final,Atlanta Falcons,1-2,Carolina Panthers,1-2,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,3,401772838,0,30,false,N/A
+"September 14, 2025",Week 2,Final,San Francisco 49ers,2-0,New Orleans Saints,0-2,"Caesars Superdome, New Orleans, LA, USA",FOX,2,2,401772833,26,21,false,N/A
+"September 28, 2025",Week 4,Final,Jacksonville Jaguars,3-1,San Francisco 49ers,3-1,"Levi's Stadium, Santa Clara, CA, USA",FOX,2,4,401772848,26,21,false,N/A
+"September 7, 2025",Week 1,Final,Tennessee Titans,0-1,Denver Broncos,1-0,"Empower Field at Mile High, Denver, CO, USA",FOX,2,1,401772832,12,20,false,N/A
+"September 21, 2025",Week 3,Final,Houston Texans,0-3,Jacksonville Jaguars,2-1,"EverBank Stadium, Jacksonville, FL, USA",CBS,2,3,401772734,10,17,false,N/A
+"September 14, 2025",Week 2,Final,Buffalo Bills,2-0,New York Jets,0-2,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,2,401772727,30,10,false,N/A
+"September 28, 2025",Week 4,Final,Baltimore Ravens,1-3,Kansas City Chiefs,2-2,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",CBS,2,4,401772741,20,37,false,N/A
+"September 7, 2025",Week 1,Final,San Francisco 49ers,1-0,Seattle Seahawks,0-1,"Lumen Field, Seattle, WA, USA",FOX,2,1,401772831,17,13,false,N/A
+"September 21, 2025",Week 3,Final,Denver Broncos,1-2,Los Angeles Chargers,3-0,"SoFi Stadium, Inglewood, CA, USA",CBS,2,3,401772735,20,23,false,N/A
+"September 14, 2025",Week 2,Final,Seattle Seahawks,1-1,Pittsburgh Steelers,1-1,"Acrisure Stadium, Pittsburgh, PA, USA",FOX,2,2,401772836,31,17,false,N/A
+"September 28, 2025",Week 4,Final,Chicago Bears,2-2,Las Vegas Raiders,1-3,"Allegiant Stadium, Las Vegas, NV, USA",CBS,2,4,401772742,25,24,false,N/A
+"September 7, 2025",Week 1,Final,Detroit Lions,0-1,Green Bay Packers,1-0,"Lambeau Field, Green Bay, WI, USA",CBS,2,1,401772722,13,27,false,N/A
+"September 21, 2025",Week 3,Final,New Orleans Saints,0-3,Seattle Seahawks,2-1,"Lumen Field, Seattle, WA, USA",CBS,2,3,401772736,13,44,false,N/A
+"September 14, 2025",Week 2,Final,Cleveland Browns,0-2,Baltimore Ravens,1-1,"M&T Bank Stadium, Baltimore, MD, USA",CBS,2,2,401772726,17,41,false,N/A
+"September 28, 2025",Week 4,Final,Green Bay Packers,2-1-1,Dallas Cowboys,1-2-1,"AT&T Stadium, Arlington, TX, USA",NBC,2,4,401772921,40,40,true,N/A
+"September 7, 2025",Week 1,Final,Houston Texans,0-1,Los Angeles Rams,1-0,"SoFi Stadium, Inglewood, CA, USA",CBS,2,1,401772723,9,14,false,N/A
+"September 21, 2025",Week 3,Final,Dallas Cowboys,1-2,Chicago Bears,1-2,"Soldier Field, Chicago, IL, USA",FOX,2,3,401772844,14,31,false,N/A
+"September 14, 2025",Week 2,Final,Denver Broncos,1-1,Indianapolis Colts,2-0,"Lucas Oil Stadium, Indianapolis, IN, USA",CBS,2,2,401772729,28,29,false,N/A
+"September 29, 2025",Week 4,Final,New York Jets,0-4,Miami Dolphins,1-3,"Hard Rock Stadium, Miami Gardens, FL, USA",ESPN,2,4,401772813,21,27,false,N/A
+"September 7, 2025",Week 1,Final,Baltimore Ravens,0-1,Buffalo Bills,1-0,"Highmark Stadium, Orchard Park, NY, USA",NBC,2,1,401772918,40,41,false,N/A
+"September 21, 2025",Week 3,Final,Arizona Cardinals,2-1,San Francisco 49ers,3-0,"Levi's Stadium, Santa Clara, CA, USA",FOX,2,3,401772843,15,16,false,N/A
+"September 14, 2025",Week 2,Final,Carolina Panthers,0-2,Arizona Cardinals,2-0,"State Farm Stadium, Glendale, AZ, USA",CBS,2,2,401772730,22,27,false,N/A
+"September 29, 2025",Week 4,Final,Cincinnati Bengals,2-2,Denver Broncos,2-2,"Empower Field at Mile High, Denver, CO, USA",ABC,2,4,401772716,3,28,false,N/A
+"September 8, 2025",Week 1,Final,Minnesota Vikings,1-0,Chicago Bears,0-1,"Soldier Field, Chicago, IL, USA",ABC/ESPN,2,1,401772810,27,24,false,N/A
+"September 21, 2025",Week 3,Final,Kansas City Chiefs,1-2,New York Giants,0-3,"MetLife Stadium, East Rutherford, NJ, USA",NBC,2,3,401772920,22,9,false,N/A
+"September 14, 2025",Week 2,Final,Philadelphia Eagles,2-0,Kansas City Chiefs,0-2,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",FOX,2,2,401772837,20,17,false,N/A
+"September 22, 2025",Week 3,Final,Detroit Lions,2-1,Baltimore Ravens,1-2,"M&T Bank Stadium, Baltimore, MD, USA",ABC/ESPN,2,3,401772812,38,30,false,N/A
+"September 14, 2025",Week 2,Final,Atlanta Falcons,1-1,Minnesota Vikings,1-1,"U.S. Bank Stadium, Minneapolis, MN, USA",NBC,2,2,401772919,22,6,false,N/A
+"September 15, 2025",Week 2,Final,Tampa Bay Buccaneers,2-0,Houston Texans,0-2,"NRG Stadium, Houston, TX, USA",ABC/ESPN,2,2,401772715,20,19,false,N/A
+"September 15, 2025",Week 2,Final,Los Angeles Chargers,2-0,Las Vegas Raiders,1-1,"Allegiant Stadium, Las Vegas, NV, USA",ESPN,2,2,401772811,20,9,false,N/A
+"August 15, 2025",Preseason Week 2,Final,Tennessee Titans,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",NFL Net,1,3,401773017,23,20,false,N/A
+"July 31, 2025",Hall of Fame Week,Final,Los Angeles Chargers,0-0,Detroit Lions,0-0,"Tom Benson Hall of Fame Stadium, Canton, OH, USA",NBC/Peacock,1,1,401772971,34,7,false,N/A
+"August 15, 2025",Preseason Week 2,Final,Kansas City Chiefs,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",NFL Net,1,3,401774591,16,33,false,N/A
+"August 16, 2025",Preseason Week 2,Final,Miami Dolphins,0-0,Detroit Lions,0-0,"Ford Field, Detroit, MI, USA",TBD,1,3,401776264,24,17,false,N/A
+"August 16, 2025",Preseason Week 2,Final,Green Bay Packers,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",TBD,1,3,401773003,23,19,false,N/A
+"August 16, 2025",Preseason Week 2,Final,New England Patriots,0-0,Minnesota Vikings,0-0,"U.S. Bank Stadium, Minneapolis, MN, USA",TBD,1,3,401773013,20,12,false,N/A
+"August 16, 2025",Preseason Week 2,Final,Cleveland Browns,0-0,Philadelphia Eagles,0-0,"Lincoln Financial Field, Philadelphia, PA, USA",NFL Net,1,3,401773006,22,13,false,N/A
+"August 16, 2025",Preseason Week 2,Final,Carolina Panthers,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",TBD,1,3,401773027,3,20,false,N/A
+"August 16, 2025",Preseason Week 2,Final,San Francisco 49ers,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",NFL Net,1,3,401774569,22,19,false,N/A
+"August 16, 2025",Preseason Week 2,Final,Baltimore Ravens,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",TBD,1,3,401773007,31,13,false,N/A
+"August 16, 2025",Preseason Week 2,Final,Los Angeles Chargers,0-0,Los Angeles Rams,0-0,"SoFi Stadium, Inglewood, CA, USA",TBD,1,3,401773021,22,23,false,N/A
+"August 16, 2025",Preseason Week 2,Final,New York Jets,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",NFL Net,1,3,401773009,12,31,false,N/A
+"August 16, 2025",Preseason Week 2,Final,Tampa Bay Buccaneers,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",TBD,1,3,401773000,17,14,false,N/A
+"August 16, 2025",Preseason Week 2,Final,Arizona Cardinals,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",NFL Net,1,3,401774637,7,27,false,N/A
+"August 17, 2025",Preseason Week 2,Final,Jacksonville Jaguars,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",NFL Net,1,3,401773014,17,17,false,N/A
+"August 17, 2025",Preseason Week 2,Final,Buffalo Bills,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",FOX,1,3,401772972,0,38,false,N/A
+"August 18, 2025",Preseason Week 2,Final,Cincinnati Bengals,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",ESPN,1,3,401772973,31,17,false,N/A
+"August 21, 2025",Preseason Week 3,Final,Pittsburgh Steelers,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",NFL Net,1,4,401773019,19,10,false,N/A
+"August 21, 2025",Preseason Week 3,Final,New England Patriots,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",Prime Video,1,4,401772974,10,42,false,N/A
+"August 22, 2025",Preseason Week 3,Final,Philadelphia Eagles,0-0,New York Jets,0-0,"MetLife Stadium, East Rutherford, NJ, USA",TBD,1,4,401772997,19,17,false,N/A
+"August 22, 2025",Preseason Week 3,Final,Atlanta Falcons,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",NFL Net,1,4,401773008,13,31,false,N/A
+"August 22, 2025",Preseason Week 3,Final,Minnesota Vikings,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",CBS,1,4,401772975,13,23,false,N/A
+"August 22, 2025",Preseason Week 3,Final,Chicago Bears,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",TBD,1,4,401773004,29,27,false,N/A
+"August 23, 2025",Preseason Week 3,Final,Baltimore Ravens,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",ESPN Unlmtd,1,4,401777124,30,3,false,N/A
+"August 23, 2025",Preseason Week 3,Final,Indianapolis Colts,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",ESPN Unlmtd,1,4,401772998,41,14,false,N/A
+"August 23, 2025",Preseason Week 3,Final,Los Angeles Rams,0-0,Cleveland Browns,0-0,"Huntington Bank Field, Cleveland, OH, USA",NFL Net,1,4,401772999,17,19,false,N/A
+"August 23, 2025",Preseason Week 3,Final,Houston Texans,0-0,Detroit Lions,0-0,"Ford Field, Detroit, MI, USA",ESPN Unlmtd,1,4,401776265,26,7,false,N/A
+"August 23, 2025",Preseason Week 3,Final,Denver Broncos,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",TBD,1,4,401773015,28,19,false,N/A
+"August 23, 2025",Preseason Week 3,Final,Seattle Seahawks,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",NFL Net,1,4,401773011,7,20,false,N/A
+"August 23, 2025",Preseason Week 3,Final,Jacksonville Jaguars,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",NFL Net,1,4,401776565,6,14,false,N/A
+"August 23, 2025",Preseason Week 3,Final,Buffalo Bills,0-0,Tampa Bay Buccaneers,0-0,"Raymond James Stadium, Tampa, FL, USA",ESPN Unlmtd,1,4,401774030,23,19,false,N/A
+"August 23, 2025",Preseason Week 3,Final,Los Angeles Chargers,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",ESPN Unlmtd,1,4,401776567,23,30,false,N/A
+"August 23, 2025",Preseason Week 3,Final,Las Vegas Raiders,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",NFL Net,1,4,401774590,10,20,false,N/A
+"August 7, 2025",Preseason Week 1,Final,Indianapolis Colts,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",NFL Net,1,2,401773001,16,24,false,N/A
+"August 7, 2025",Preseason Week 1,Final,Cincinnati Bengals,0-0,Philadelphia Eagles,0-0,"Lincoln Financial Field, Philadelphia, PA, USA",TBD,1,2,401773005,27,34,false,N/A
+"August 7, 2025",Preseason Week 1,Final,Las Vegas Raiders,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",NFL Net,1,2,401774568,23,23,false,N/A
+"August 8, 2025",Preseason Week 1,Final,Detroit Lions,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",TBD,1,2,401773016,17,10,false,N/A
+"August 8, 2025",Preseason Week 1,Final,Cleveland Browns,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",NFL Net,1,2,401773018,30,10,false,N/A
+"August 8, 2025",Preseason Week 1,Final,Washington Commanders,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",TBD,1,2,401772996,18,48,false,N/A
+"August 9, 2025",Preseason Week 1,Final,New York Giants,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",NFL Net,1,2,401776263,34,25,false,N/A
+"August 9, 2025",Preseason Week 1,Final,Houston Texans,0-0,Minnesota Vikings,0-0,"U.S. Bank Stadium, Minneapolis, MN, USA",NFL Net,1,2,401773012,10,20,false,N/A
+"August 9, 2025",Preseason Week 1,Final,Dallas Cowboys,0-0,Los Angeles Rams,0-0,"SoFi Stadium, Inglewood, CA, USA",TBD,1,2,401773020,21,31,false,N/A
+"August 9, 2025",Preseason Week 1,Final,Pittsburgh Steelers,0-0,Jacksonville Jaguars,0-0,"EverBank Stadium, Jacksonville, FL, USA",TBD,1,2,401773002,31,25,false,N/A
+"August 9, 2025",Preseason Week 1,Final,Tennessee Titans,0-0,Tampa Bay Buccaneers,0-0,"Raymond James Stadium, Tampa, FL, USA",TBD,1,2,401774029,7,29,false,N/A
+"August 9, 2025",Preseason Week 1,Final,New York Jets,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",NFL Net,1,2,401773010,30,10,false,N/A
+"August 9, 2025",Preseason Week 1,Final,Kansas City Chiefs,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",TBD,1,2,401774636,17,20,false,N/A
+"August 9, 2025",Preseason Week 1,Final,Denver Broncos,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",TBD,1,2,401776566,30,9,false,N/A
+"August 10, 2025",Preseason Week 1,Final,Miami Dolphins,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",NFL Net,1,2,401776564,24,24,false,N/A
+"August 10, 2025",Preseason Week 1,Final,New Orleans Saints,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",NFL Net,1,2,401773026,13,27,false,N/A
 "October 9, 2025",Week 6,Scheduled,Philadelphia Eagles,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",Prime Video,2,6,401772940,-1,-1,false,8:15 PM EDT
 "October 12, 2025",Week 6,Scheduled,Denver Broncos,0-0,New York Jets,0-0,"Tottenham Hotspur Stadium, London, None, England",NFL Net/NFL+,2,6,401772634,-1,-1,false,9:30 AM EDT
 "October 12, 2025",Week 6,Scheduled,Arizona Cardinals,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",FOX,2,6,401772856,-1,-1,false,1:00 PM EDT
 "October 12, 2025",Week 6,Scheduled,Los Angeles Chargers,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",CBS,2,6,401772750,-1,-1,false,1:00 PM EDT
+"October 12, 2025",Week 6,Scheduled,New England Patriots,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",CBS,2,6,401772751,-1,-1,false,1:00 PM EDT
 "October 12, 2025",Week 6,Scheduled,Cleveland Browns,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",CBS,2,6,401772748,-1,-1,false,1:00 PM EDT
-"October 12, 2025",Week 6,Scheduled,San Francisco 49ers,0-0,Tampa Bay Buccaneers,0-0,"Raymond James Stadium, Tampa, FL, USA",CBS,2,6,401772749,-1,-1,false,1:00 PM EDT
 "October 12, 2025",Week 6,Scheduled,Dallas Cowboys,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,6,401772858,-1,-1,false,1:00 PM EDT
 "October 12, 2025",Week 6,Scheduled,Seattle Seahawks,0-0,Jacksonville Jaguars,0-0,"EverBank Stadium, Jacksonville, FL, USA",FOX,2,6,401772857,-1,-1,false,1:00 PM EDT
+"October 23, 2025",Week 8,Scheduled,Minnesota Vikings,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",Prime Video,2,8,401772942,-1,-1,false,8:15 PM EDT
 "October 12, 2025",Week 6,Scheduled,Los Angeles Rams,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",FOX,2,6,401772855,-1,-1,false,1:00 PM EDT
-"October 12, 2025",Week 6,Scheduled,Tennessee Titans,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",FOX,2,6,401772859,-1,-1,false,4:05 PM EDT
-"October 12, 2025",Week 6,Scheduled,Cincinnati Bengals,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",CBS,2,6,401772752,-1,-1,false,4:25 PM EDT
-"October 12, 2025",Week 6,Scheduled,New England Patriots,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",CBS,2,6,401772751,-1,-1,false,4:25 PM EDT
-"October 12, 2025",Week 6,Scheduled,Detroit Lions,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",NBC,2,6,401772923,-1,-1,false,8:20 PM EDT
-"October 13, 2025",Week 6,Scheduled,Buffalo Bills,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",ESPN,2,6,401772815,-1,-1,false,7:15 PM EDT
-"October 13, 2025",Week 6,Scheduled,Chicago Bears,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",ABC,2,6,401772717,-1,-1,false,8:15 PM EDT
 "October 16, 2025",Week 7,Scheduled,Pittsburgh Steelers,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",Prime Video,2,7,401772941,-1,-1,false,8:15 PM EDT
+"October 26, 2025",Week 8,Scheduled,Miami Dolphins,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",CBS,2,8,401772760,-1,-1,false,1:00 PM EDT
+"October 12, 2025",Week 6,Scheduled,Tennessee Titans,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",FOX,2,6,401772859,-1,-1,false,4:05 PM EDT
 "October 19, 2025",Week 7,Scheduled,Los Angeles Rams,0-0,Jacksonville Jaguars,0-0,"Wembley Stadium, London, None, England",NFL Net/NFL+,2,7,401772635,-1,-1,false,9:30 AM EDT
+"October 26, 2025",Week 8,Scheduled,New York Jets,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",CBS,2,8,401772758,-1,-1,false,1:00 PM EDT
+"October 12, 2025",Week 6,Scheduled,Cincinnati Bengals,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",CBS,2,6,401772752,-1,-1,false,4:25 PM EDT
 "October 19, 2025",Week 7,Scheduled,New Orleans Saints,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",FOX,2,7,401772861,-1,-1,false,1:00 PM EDT
+"October 26, 2025",Week 8,Scheduled,Cleveland Browns,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",FOX,2,8,401772868,-1,-1,false,1:00 PM EDT
+"October 12, 2025",Week 6,Scheduled,San Francisco 49ers,0-0,Tampa Bay Buccaneers,0-0,"Raymond James Stadium, Tampa, FL, USA",CBS,2,6,401772749,-1,-1,false,4:25 PM EDT
 "October 19, 2025",Week 7,Scheduled,Miami Dolphins,0-0,Cleveland Browns,0-0,"Huntington Bank Field, Cleveland, OH, USA",CBS,2,7,401772754,-1,-1,false,1:00 PM EDT
+"October 26, 2025",Week 8,Scheduled,New York Giants,0-0,Philadelphia Eagles,0-0,"Lincoln Financial Field, Philadelphia, PA, USA",FOX,2,8,401772867,-1,-1,false,1:00 PM EDT
+"October 12, 2025",Week 6,Scheduled,Detroit Lions,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",NBC,2,6,401772923,-1,-1,false,8:20 PM EDT
+"October 26, 2025",Week 8,Scheduled,Buffalo Bills,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,8,401772865,-1,-1,false,1:00 PM EDT
 "October 19, 2025",Week 7,Scheduled,New England Patriots,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",CBS,2,7,401772755,-1,-1,false,1:00 PM EDT
+"October 13, 2025",Week 6,Scheduled,Buffalo Bills,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",ESPN,2,6,401772815,-1,-1,false,7:15 PM EDT
+"October 26, 2025",Week 8,Scheduled,Chicago Bears,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",CBS,2,8,401772759,-1,-1,false,1:00 PM EDT
 "October 19, 2025",Week 7,Scheduled,Las Vegas Raiders,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",CBS,2,7,401772753,-1,-1,false,1:00 PM EDT
+"October 13, 2025",Week 6,Scheduled,Chicago Bears,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",ABC,2,6,401772717,-1,-1,false,8:15 PM EDT
+"October 26, 2025",Week 8,Scheduled,San Francisco 49ers,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",FOX,2,8,401772866,-1,-1,false,1:00 PM EDT
 "October 19, 2025",Week 7,Scheduled,Philadelphia Eagles,0-0,Minnesota Vikings,0-0,"U.S. Bank Stadium, Minneapolis, MN, USA",FOX,2,7,401772862,-1,-1,false,1:00 PM EDT
+"October 26, 2025",Week 8,Scheduled,Tampa Bay Buccaneers,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",FOX,2,8,401772869,-1,-1,false,4:05 PM EDT
 "October 19, 2025",Week 7,Scheduled,Carolina Panthers,0-0,New York Jets,0-0,"MetLife Stadium, East Rutherford, NJ, USA",FOX,2,7,401772860,-1,-1,false,1:00 PM EDT
+"October 26, 2025",Week 8,Scheduled,Dallas Cowboys,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",CBS,2,8,401772762,-1,-1,false,4:25 PM EDT
 "October 19, 2025",Week 7,Scheduled,New York Giants,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",CBS,2,7,401772757,-1,-1,false,4:05 PM EDT
+"October 26, 2025",Week 8,Scheduled,Tennessee Titans,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",CBS,2,8,401772761,-1,-1,false,4:25 PM EDT
 "October 19, 2025",Week 7,Scheduled,Indianapolis Colts,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",CBS,2,7,401772756,-1,-1,false,4:05 PM EDT
+"October 26, 2025",Week 8,Scheduled,Green Bay Packers,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",NBC,2,8,401772925,-1,-1,false,8:20 PM EDT
 "October 19, 2025",Week 7,Scheduled,Washington Commanders,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",FOX,2,7,401772864,-1,-1,false,4:25 PM EDT
+"October 27, 2025",Week 8,Scheduled,Washington Commanders,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",ABC/ESPN,2,8,401772817,-1,-1,false,8:15 PM EDT
 "October 19, 2025",Week 7,Scheduled,Green Bay Packers,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",FOX,2,7,401772863,-1,-1,false,4:25 PM EDT
 "October 19, 2025",Week 7,Scheduled,Atlanta Falcons,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",NBC,2,7,401772924,-1,-1,false,8:20 PM EDT
 "October 20, 2025",Week 7,Scheduled,Tampa Bay Buccaneers,0-0,Detroit Lions,0-0,"Ford Field, Detroit, MI, USA",ABC/ESPN,2,7,401772816,-1,-1,false,7:00 PM EDT
-"October 20, 2025",Week 7,Scheduled,Houston Texans,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",ESPN+,2,7,401772826,-1,-1,false,10:00 PM EDT
-"October 23, 2025",Week 8,Scheduled,Minnesota Vikings,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",Prime Video,2,8,401772942,-1,-1,false,8:15 PM EDT
-"October 26, 2025",Week 8,Scheduled,Miami Dolphins,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",CBS,2,8,401772760,-1,-1,false,1:00 PM EDT
-"October 26, 2025",Week 8,Scheduled,New York Jets,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",CBS,2,8,401772758,-1,-1,false,1:00 PM EDT
-"October 26, 2025",Week 8,Scheduled,Cleveland Browns,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",FOX,2,8,401772868,-1,-1,false,1:00 PM EDT
-"October 26, 2025",Week 8,Scheduled,New York Giants,0-0,Philadelphia Eagles,0-0,"Lincoln Financial Field, Philadelphia, PA, USA",FOX,2,8,401772867,-1,-1,false,1:00 PM EDT
-"October 26, 2025",Week 8,Scheduled,Buffalo Bills,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,8,401772865,-1,-1,false,1:00 PM EDT
-"October 26, 2025",Week 8,Scheduled,Chicago Bears,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",CBS,2,8,401772759,-1,-1,false,1:00 PM EDT
-"October 26, 2025",Week 8,Scheduled,San Francisco 49ers,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",FOX,2,8,401772866,-1,-1,false,1:00 PM EDT
-"October 26, 2025",Week 8,Scheduled,Tampa Bay Buccaneers,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",FOX,2,8,401772869,-1,-1,false,4:05 PM EDT
-"October 26, 2025",Week 8,Scheduled,Dallas Cowboys,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",CBS,2,8,401772762,-1,-1,false,4:25 PM EDT
-"October 26, 2025",Week 8,Scheduled,Tennessee Titans,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",CBS,2,8,401772761,-1,-1,false,4:25 PM EDT
-"October 26, 2025",Week 8,Scheduled,Green Bay Packers,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",NBC,2,8,401772925,-1,-1,false,8:20 PM EDT
-"October 27, 2025",Week 8,Scheduled,Washington Commanders,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",ABC/ESPN,2,8,401772817,-1,-1,false,8:15 PM EDT
-"October 30, 2025",Week 9,Scheduled,Baltimore Ravens,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",Prime Video,2,9,401772943,-1,-1,false,8:15 PM EDT
-"November 2, 2025",Week 9,Scheduled,Chicago Bears,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",CBS,2,9,401772765,-1,-1,false,1:00 PM EST
-"November 2, 2025",Week 9,Scheduled,Minnesota Vikings,0-0,Detroit Lions,0-0,"Ford Field, Detroit, MI, USA",FOX,2,9,401772871,-1,-1,false,1:00 PM EST
-"November 2, 2025",Week 9,Scheduled,Carolina Panthers,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",FOX,2,9,401772872,-1,-1,false,1:00 PM EST
-"November 2, 2025",Week 9,Scheduled,Los Angeles Chargers,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",CBS,2,9,401772764,-1,-1,false,1:00 PM EST
-"November 2, 2025",Week 9,Scheduled,Atlanta Falcons,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",CBS,2,9,401772763,-1,-1,false,1:00 PM EST
-"November 2, 2025",Week 9,Scheduled,San Francisco 49ers,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,9,401772767,-1,-1,false,1:00 PM EST
-"November 2, 2025",Week 9,Scheduled,Indianapolis Colts,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",CBS,2,9,401772766,-1,-1,false,1:00 PM EST
-"November 2, 2025",Week 9,Scheduled,Denver Broncos,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",FOX,2,9,401772870,-1,-1,false,1:00 PM EST
-"November 2, 2025",Week 9,Scheduled,Jacksonville Jaguars,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",FOX,2,9,401772873,-1,-1,false,4:05 PM EST
-"November 2, 2025",Week 9,Scheduled,New Orleans Saints,0-0,Los Angeles Rams,0-0,"SoFi Stadium, Inglewood, CA, USA",FOX,2,9,401772874,-1,-1,false,4:05 PM EST
-"November 2, 2025",Week 9,Scheduled,Kansas City Chiefs,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",CBS,2,9,401772768,-1,-1,false,4:25 PM EST
-"November 2, 2025",Week 9,Scheduled,Seattle Seahawks,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",NBC,2,9,401772926,-1,-1,false,8:20 PM EST
-"November 3, 2025",Week 9,Scheduled,Arizona Cardinals,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",ABC/ESPN,2,9,401772818,-1,-1,false,8:15 PM EST
+"October 20, 2025",Week 7,Scheduled,Houston Texans,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",ESPN,2,7,401772826,-1,-1,false,10:00 PM EDT
+"October 2, 2025",Week 5,Final,San Francisco 49ers,4-1,Los Angeles Rams,3-2,"SoFi Stadium, Inglewood, CA, USA",Prime Video,2,5,401772939,26,23,true,N/A
 "November 6, 2025",Week 10,Scheduled,Las Vegas Raiders,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",Prime Video,2,10,401772944,-1,-1,false,8:15 PM EST
+"October 30, 2025",Week 9,Scheduled,Baltimore Ravens,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",Prime Video,2,9,401772943,-1,-1,false,8:15 PM EDT
+"October 5, 2025",Week 5,Scheduled,Minnesota Vikings,0-0,Cleveland Browns,0-0,"Tottenham Hotspur Stadium, London, None, England",NFL Net/NFL+,2,5,401772633,-1,-1,false,9:30 AM EDT
 "November 9, 2025",Week 10,Scheduled,Atlanta Falcons,0-0,Indianapolis Colts,0-0,"Olympic Stadium Berlin, Berlin, None, Germany",NFL Net/NFL+,2,10,401772636,-1,-1,false,9:30 AM EST
+"November 2, 2025",Week 9,Scheduled,Chicago Bears,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",CBS,2,9,401772765,-1,-1,false,1:00 PM EST
+"October 5, 2025",Week 5,Scheduled,Las Vegas Raiders,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",FOX,2,5,401772851,-1,-1,false,1:00 PM EDT
 "November 9, 2025",Week 10,Scheduled,New York Giants,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",FOX,2,10,401772875,-1,-1,false,1:00 PM EST
+"November 2, 2025",Week 9,Scheduled,Minnesota Vikings,0-0,Detroit Lions,0-0,"Ford Field, Detroit, MI, USA",FOX,2,9,401772871,-1,-1,false,1:00 PM EST
+"October 5, 2025",Week 5,Scheduled,New York Giants,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",CBS,2,5,401772744,-1,-1,false,1:00 PM EDT
 "November 9, 2025",Week 10,Scheduled,Buffalo Bills,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",CBS,2,10,401772771,-1,-1,false,1:00 PM EST
+"November 2, 2025",Week 9,Scheduled,Carolina Panthers,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",FOX,2,9,401772872,-1,-1,false,1:00 PM EST
+"October 5, 2025",Week 5,Scheduled,Dallas Cowboys,0-0,New York Jets,0-0,"MetLife Stadium, East Rutherford, NJ, USA",FOX,2,5,401772850,-1,-1,false,1:00 PM EDT
 "November 9, 2025",Week 10,Scheduled,Baltimore Ravens,0-0,Minnesota Vikings,0-0,"U.S. Bank Stadium, Minneapolis, MN, USA",FOX,2,10,401772876,-1,-1,false,1:00 PM EST
+"November 2, 2025",Week 9,Scheduled,Los Angeles Chargers,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",CBS,2,9,401772764,-1,-1,false,1:00 PM EST
+"October 5, 2025",Week 5,Scheduled,Denver Broncos,0-0,Philadelphia Eagles,0-0,"Lincoln Financial Field, Philadelphia, PA, USA",CBS,2,5,401772745,-1,-1,false,1:00 PM EDT
 "November 9, 2025",Week 10,Scheduled,Cleveland Browns,0-0,New York Jets,0-0,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,10,401772769,-1,-1,false,1:00 PM EST
+"November 2, 2025",Week 9,Scheduled,Atlanta Falcons,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",CBS,2,9,401772763,-1,-1,false,1:00 PM EST
+"October 5, 2025",Week 5,Scheduled,Miami Dolphins,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,5,401772852,-1,-1,false,1:00 PM EDT
 "November 9, 2025",Week 10,Scheduled,New England Patriots,0-0,Tampa Bay Buccaneers,0-0,"Raymond James Stadium, Tampa, FL, USA",CBS,2,10,401772772,-1,-1,false,1:00 PM EST
+"November 2, 2025",Week 9,Scheduled,San Francisco 49ers,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,9,401772767,-1,-1,false,1:00 PM EST
+"October 5, 2025",Week 5,Scheduled,Houston Texans,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",CBS,2,5,401772743,-1,-1,false,1:00 PM EDT
 "November 9, 2025",Week 10,Scheduled,New Orleans Saints,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,10,401772877,-1,-1,false,1:00 PM EST
+"November 2, 2025",Week 9,Scheduled,Indianapolis Colts,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",CBS,2,9,401772766,-1,-1,false,1:00 PM EST
+"October 5, 2025",Week 5,Scheduled,Tennessee Titans,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",CBS,2,5,401772747,-1,-1,false,4:05 PM EDT
 "November 9, 2025",Week 10,Scheduled,Jacksonville Jaguars,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",CBS,2,10,401772770,-1,-1,false,1:00 PM EST
-"November 9, 2025",Week 10,Scheduled,Arizona Cardinals,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",CBS,2,10,401772773,-1,-1,false,4:05 PM EST
-"November 9, 2025",Week 10,Scheduled,Los Angeles Rams,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",FOX,2,10,401772879,-1,-1,false,4:25 PM EST
-"November 9, 2025",Week 10,Scheduled,Detroit Lions,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",FOX,2,10,401772878,-1,-1,false,4:25 PM EST
-"November 9, 2025",Week 10,Scheduled,Pittsburgh Steelers,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",NBC,2,10,401772927,-1,-1,false,8:20 PM EST
-"November 10, 2025",Week 10,Scheduled,Philadelphia Eagles,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",ABC/ESPN,2,10,401772630,-1,-1,false,8:15 PM EST
+"November 2, 2025",Week 9,Scheduled,Denver Broncos,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",FOX,2,9,401772870,-1,-1,false,1:00 PM EST
 "November 13, 2025",Week 11,Scheduled,New York Jets,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",Prime Video,2,11,401772945,-1,-1,false,8:15 PM EST
+"November 9, 2025",Week 10,Scheduled,Arizona Cardinals,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",CBS,2,10,401772773,-1,-1,false,4:05 PM EST
+"October 5, 2025",Week 5,Scheduled,Tampa Bay Buccaneers,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",CBS,2,5,401772746,-1,-1,false,4:05 PM EDT
+"November 2, 2025",Week 9,Scheduled,Jacksonville Jaguars,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",FOX,2,9,401772873,-1,-1,false,4:05 PM EST
 "November 16, 2025",Week 11,Scheduled,Washington Commanders,0-0,Miami Dolphins,0-0,"Santiago Bernabéu, Madrid, None, Spain",NFL Net/NFL+,2,11,401772631,-1,-1,false,9:30 AM EST
+"November 9, 2025",Week 10,Scheduled,Los Angeles Rams,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",FOX,2,10,401772879,-1,-1,false,4:25 PM EST
+"October 5, 2025",Week 5,Scheduled,Detroit Lions,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",FOX,2,5,401772854,-1,-1,false,4:25 PM EDT
+"November 2, 2025",Week 9,Scheduled,New Orleans Saints,0-0,Los Angeles Rams,0-0,"SoFi Stadium, Inglewood, CA, USA",FOX,2,9,401772874,-1,-1,false,4:05 PM EST
 "November 16, 2025",Week 11,Scheduled,Carolina Panthers,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",FOX,2,11,401772882,-1,-1,false,1:00 PM EST
+"November 9, 2025",Week 10,Scheduled,Detroit Lions,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",FOX,2,10,401772878,-1,-1,false,4:25 PM EST
+"October 5, 2025",Week 5,Scheduled,Washington Commanders,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",FOX,2,5,401772853,-1,-1,false,4:25 PM EDT
+"November 2, 2025",Week 9,Scheduled,Kansas City Chiefs,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",CBS,2,9,401772768,-1,-1,false,4:25 PM EST
 "November 16, 2025",Week 11,Scheduled,Tampa Bay Buccaneers,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",CBS,2,11,401772776,-1,-1,false,1:00 PM EST
+"November 9, 2025",Week 10,Scheduled,Pittsburgh Steelers,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",NBC,2,10,401772927,-1,-1,false,8:20 PM EST
+"October 5, 2025",Week 5,Scheduled,New England Patriots,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",NBC,2,5,401772922,-1,-1,false,8:20 PM EDT
+"November 2, 2025",Week 9,Scheduled,Seattle Seahawks,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",NBC,2,9,401772926,-1,-1,false,8:20 PM EST
 "November 16, 2025",Week 11,Scheduled,Houston Texans,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",FOX,2,11,401772881,-1,-1,false,1:00 PM EST
+"November 10, 2025",Week 10,Scheduled,Philadelphia Eagles,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",ABC/ESPN,2,10,401772630,-1,-1,false,8:15 PM EST
+"October 6, 2025",Week 5,Scheduled,Kansas City Chiefs,0-0,Jacksonville Jaguars,0-0,"EverBank Stadium, Jacksonville, FL, USA",ABC/ESPN,2,5,401772814,-1,-1,false,8:15 PM EDT
+"November 3, 2025",Week 9,Scheduled,Arizona Cardinals,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",ABC/ESPN,2,9,401772818,-1,-1,false,8:15 PM EST
 "November 16, 2025",Week 11,Scheduled,Chicago Bears,0-0,Minnesota Vikings,0-0,"U.S. Bank Stadium, Minneapolis, MN, USA",FOX,2,11,401772880,-1,-1,false,1:00 PM EST
 "November 16, 2025",Week 11,Scheduled,Green Bay Packers,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",FOX,2,11,401772883,-1,-1,false,1:00 PM EST
 "November 16, 2025",Week 11,Scheduled,Cincinnati Bengals,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",CBS,2,11,401772774,-1,-1,false,1:00 PM EST
@@ -255,8 +255,8 @@ Date,WeekNum,Status,AwayTeam,AwayTeamRecord,HomeTeam,HomeTeamRecord,Venue,Broadc
 "December 7, 2025",Week 14,Scheduled,Cincinnati Bengals,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",FOX,2,14,401772902,-1,-1,false,4:25 PM EST
 "December 7, 2025",Week 14,Scheduled,Los Angeles Rams,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",FOX,2,14,401772901,-1,-1,false,4:25 PM EST
 "December 7, 2025",Week 14,Scheduled,Houston Texans,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",NBC,2,14,401772932,-1,-1,false,8:20 PM EST
-"December 8, 2025",Week 14,Scheduled,Philadelphia Eagles,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",ABC/ESPN,2,14,401772822,-1,-1,false,8:15 PM EST
 "December 11, 2025",Week 15,Scheduled,Atlanta Falcons,0-0,Tampa Bay Buccaneers,0-0,"Raymond James Stadium, Tampa, FL, USA",Prime Video,2,15,401772948,-1,-1,false,8:15 PM EST
+"December 8, 2025",Week 14,Scheduled,Philadelphia Eagles,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",ABC/ESPN,2,14,401772822,-1,-1,false,8:15 PM EST
 "December 14, 2025",Week 15,Scheduled,Cleveland Browns,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",FOX,2,15,401772904,-1,-1,false,1:00 PM EST
 "December 14, 2025",Week 15,Scheduled,Baltimore Ravens,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",CBS,2,15,401772796,-1,-1,false,1:00 PM EST
 "December 14, 2025",Week 15,Scheduled,Los Angeles Chargers,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",CBS,2,15,401772798,-1,-1,false,1:00 PM EST
@@ -272,64 +272,64 @@ Date,WeekNum,Status,AwayTeam,AwayTeamRecord,HomeTeam,HomeTeamRecord,Venue,Broadc
 "December 14, 2025",Week 15,Scheduled,Indianapolis Colts,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",CBS,2,15,401772799,-1,-1,false,4:25 PM EST
 "December 14, 2025",Week 15,Scheduled,Minnesota Vikings,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",NBC,2,15,401772933,-1,-1,false,8:20 PM EST
 "December 15, 2025",Week 15,Scheduled,Miami Dolphins,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",ESPN,2,15,401772823,-1,-1,false,8:15 PM EST
-"December 18, 2025",Week 16,Scheduled,Los Angeles Rams,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",Prime Video,2,16,401772949,-1,-1,false,8:15 PM EST
-"December 20, 2025",Week 16,Scheduled,Green Bay Packers,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",FOX,2,16,401772613,-1,-1,false,TBD
-"December 20, 2025",Week 16,Scheduled,Philadelphia Eagles,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",FOX,2,16,401772612,-1,-1,false,TBD
-"December 21, 2025",Week 16,Scheduled,Buffalo Bills,0-0,Cleveland Browns,0-0,"Huntington Bank Field, Cleveland, OH, USA",CBS,2,16,401772802,-1,-1,false,1:00 PM EST
-"December 21, 2025",Week 16,Scheduled,Los Angeles Chargers,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",FOX,2,16,401772910,-1,-1,false,1:00 PM EST
-"December 21, 2025",Week 16,Scheduled,Kansas City Chiefs,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",CBS,2,16,401772803,-1,-1,false,1:00 PM EST
-"December 21, 2025",Week 16,Scheduled,New York Jets,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",CBS,2,16,401772801,-1,-1,false,1:00 PM EST
-"December 21, 2025",Week 16,Scheduled,Minnesota Vikings,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",FOX,2,16,401772911,-1,-1,false,1:00 PM EST
-"December 21, 2025",Week 16,Scheduled,Tampa Bay Buccaneers,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,16,401772912,-1,-1,false,1:00 PM EST
-"December 21, 2025",Week 16,Scheduled,New England Patriots,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",CBS,2,16,401772804,-1,-1,false,1:00 PM EST
-"December 21, 2025",Week 16,Scheduled,Jacksonville Jaguars,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",FOX,2,16,401772913,-1,-1,false,4:05 PM EST
-"December 21, 2025",Week 16,Scheduled,Atlanta Falcons,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",FOX,2,16,401772914,-1,-1,false,4:05 PM EST
-"December 21, 2025",Week 16,Scheduled,Pittsburgh Steelers,0-0,Detroit Lions,0-0,"Ford Field, Detroit, MI, USA",CBS,2,16,401772806,-1,-1,false,4:25 PM EST
-"December 21, 2025",Week 16,Scheduled,Las Vegas Raiders,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",CBS,2,16,401772805,-1,-1,false,4:25 PM EST
-"December 21, 2025",Week 16,Scheduled,Cincinnati Bengals,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",NBC,2,16,401772934,-1,-1,false,8:20 PM EST
-"December 22, 2025",Week 16,Scheduled,San Francisco 49ers,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",ESPN,2,16,401772824,-1,-1,false,8:15 PM EST
 "December 25, 2025",Week 17,Scheduled,Dallas Cowboys,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",Netflix,2,17,401772710,-1,-1,false,1:00 PM EST
 "December 25, 2025",Week 17,Scheduled,Detroit Lions,0-0,Minnesota Vikings,0-0,"U.S. Bank Stadium, Minneapolis, MN, USA",Netflix,2,17,401772711,-1,-1,false,4:30 PM EST
 "December 25, 2025",Week 17,Scheduled,Denver Broncos,0-0,Kansas City Chiefs,0-0,"GEHA Field at Arrowhead Stadium, Kansas City, MO, USA",Prime Video,2,17,401772622,-1,-1,false,8:15 PM EST
 "December 27, 2025",Week 17,Scheduled,Arizona Cardinals,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",TBD,2,17,401772954,-1,-1,false,TBD
+"December 18, 2025",Week 16,Scheduled,Los Angeles Rams,0-0,Seattle Seahawks,0-0,"Lumen Field, Seattle, WA, USA",Prime Video,2,16,401772949,-1,-1,false,8:15 PM EST
 "December 27, 2025",Week 17,Scheduled,Baltimore Ravens,0-0,Green Bay Packers,0-0,"Lambeau Field, Green Bay, WI, USA",TBD,2,17,401772953,-1,-1,false,TBD
+"December 20, 2025",Week 16,Scheduled,Green Bay Packers,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",FOX,2,16,401772613,-1,-1,false,TBD
 "December 27, 2025",Week 17,Scheduled,New York Giants,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",TBD,2,17,401772950,-1,-1,false,TBD
 "December 27, 2025",Week 17,Scheduled,Houston Texans,0-0,Los Angeles Chargers,0-0,"SoFi Stadium, Inglewood, CA, USA",TBD,2,17,401772951,-1,-1,false,TBD
+"December 20, 2025",Week 16,Scheduled,Philadelphia Eagles,0-0,Washington Commanders,0-0,"Northwest Stadium, Landover, MD, USA",FOX,2,16,401772612,-1,-1,false,TBD
+"January 10, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,1,401772976,-1,-1,false,TBD
+"December 21, 2025",Week 16,Scheduled,Buffalo Bills,0-0,Cleveland Browns,0-0,"Huntington Bank Field, Cleveland, OH, USA",CBS,2,16,401772802,-1,-1,false,1:00 PM EST
 "December 27, 2025",Week 17,Scheduled,Seattle Seahawks,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",TBD,2,17,401772952,-1,-1,false,TBD
-"December 28, 2025",Week 17,Scheduled,Pittsburgh Steelers,0-0,Cleveland Browns,0-0,"Huntington Bank Field, Cleveland, OH, USA",CBS,2,17,401772807,-1,-1,false,1:00 PM EST
-"December 28, 2025",Week 17,Scheduled,New Orleans Saints,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",CBS,2,17,401772809,-1,-1,false,1:00 PM EST
-"December 28, 2025",Week 17,Scheduled,Jacksonville Jaguars,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",FOX,2,17,401772915,-1,-1,false,1:00 PM EST
-"December 28, 2025",Week 17,Scheduled,Tampa Bay Buccaneers,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",FOX,2,17,401772916,-1,-1,false,1:00 PM EST
-"December 28, 2025",Week 17,Scheduled,New England Patriots,0-0,New York Jets,0-0,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,17,401772808,-1,-1,false,1:00 PM EST
-"December 28, 2025",Week 17,Scheduled,Philadelphia Eagles,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",FOX,2,17,401772917,-1,-1,false,4:25 PM EST
-"December 28, 2025",Week 17,Scheduled,Chicago Bears,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",NBC,2,17,401772935,-1,-1,false,8:20 PM EST
-"December 29, 2025",Week 17,Scheduled,Los Angeles Rams,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",ESPN,2,17,401772825,-1,-1,false,8:15 PM EST
+"January 10, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,1,401772977,-1,-1,false,TBD
 "January 4, 2026",Week 18,Scheduled,New Orleans Saints,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",TBD,2,18,401772966,-1,-1,false,TBD
+"December 21, 2025",Week 16,Scheduled,Los Angeles Chargers,0-0,Dallas Cowboys,0-0,"AT&T Stadium, Arlington, TX, USA",FOX,2,16,401772910,-1,-1,false,1:00 PM EST
+"December 28, 2025",Week 17,Scheduled,Pittsburgh Steelers,0-0,Cleveland Browns,0-0,"Huntington Bank Field, Cleveland, OH, USA",CBS,2,17,401772807,-1,-1,false,1:00 PM EST
+"January 11, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,1,401772978,-1,-1,false,TBD
 "January 4, 2026",Week 18,Scheduled,New York Jets,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",TBD,2,18,401772967,-1,-1,false,TBD
+"December 21, 2025",Week 16,Scheduled,Kansas City Chiefs,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",CBS,2,16,401772803,-1,-1,false,1:00 PM EST
+"December 28, 2025",Week 17,Scheduled,New Orleans Saints,0-0,Tennessee Titans,0-0,"Nissan Stadium, Nashville, TN, USA",CBS,2,17,401772809,-1,-1,false,1:00 PM EST
+"January 11, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,1,401772979,-1,-1,false,TBD
 "January 4, 2026",Week 18,Scheduled,Detroit Lions,0-0,Chicago Bears,0-0,"Soldier Field, Chicago, IL, USA",TBD,2,18,401772965,-1,-1,false,TBD
+"December 21, 2025",Week 16,Scheduled,New York Jets,0-0,New Orleans Saints,0-0,"Caesars Superdome, New Orleans, LA, USA",CBS,2,16,401772801,-1,-1,false,1:00 PM EST
+"December 28, 2025",Week 17,Scheduled,Jacksonville Jaguars,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",FOX,2,17,401772915,-1,-1,false,1:00 PM EST
+"January 11, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,1,401772980,-1,-1,false,TBD
 "January 4, 2026",Week 18,Scheduled,Cleveland Browns,0-0,Cincinnati Bengals,0-0,"Paycor Stadium, Cincinnati, OH, USA",TBD,2,18,401772964,-1,-1,false,TBD
+"December 21, 2025",Week 16,Scheduled,Minnesota Vikings,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",FOX,2,16,401772911,-1,-1,false,1:00 PM EST
+"December 28, 2025",Week 17,Scheduled,Tampa Bay Buccaneers,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",FOX,2,17,401772916,-1,-1,false,1:00 PM EST
+"January 12, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,ESPN/ABC,3,1,401772981,-1,-1,false,8:15 PM EST
 "January 4, 2026",Week 18,Scheduled,Los Angeles Chargers,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",TBD,2,18,401772956,-1,-1,false,TBD
+"December 21, 2025",Week 16,Scheduled,Tampa Bay Buccaneers,0-0,Carolina Panthers,0-0,"Bank of America Stadium, Charlotte, NC, USA",FOX,2,16,401772912,-1,-1,false,1:00 PM EST
+"December 28, 2025",Week 17,Scheduled,New England Patriots,0-0,New York Jets,0-0,"MetLife Stadium, East Rutherford, NJ, USA",CBS,2,17,401772808,-1,-1,false,1:00 PM EST
 "January 4, 2026",Week 18,Scheduled,Kansas City Chiefs,0-0,Las Vegas Raiders,0-0,"Allegiant Stadium, Las Vegas, NV, USA",TBD,2,18,401772957,-1,-1,false,TBD
+"December 21, 2025",Week 16,Scheduled,New England Patriots,0-0,Baltimore Ravens,0-0,"M&T Bank Stadium, Baltimore, MD, USA",CBS,2,16,401772804,-1,-1,false,1:00 PM EST
+"December 28, 2025",Week 17,Scheduled,Philadelphia Eagles,0-0,Buffalo Bills,0-0,"Highmark Stadium, Orchard Park, NY, USA",FOX,2,17,401772917,-1,-1,false,4:25 PM EST
 "January 4, 2026",Week 18,Scheduled,Arizona Cardinals,0-0,Los Angeles Rams,0-0,"SoFi Stadium, Inglewood, CA, USA",TBD,2,18,401772955,-1,-1,false,TBD
+"December 21, 2025",Week 16,Scheduled,Jacksonville Jaguars,0-0,Denver Broncos,0-0,"Empower Field at Mile High, Denver, CO, USA",FOX,2,16,401772913,-1,-1,false,4:05 PM EST
+"December 28, 2025",Week 17,Scheduled,Chicago Bears,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",NBC,2,17,401772935,-1,-1,false,8:20 PM EST
 "January 4, 2026",Week 18,Scheduled,Green Bay Packers,0-0,Minnesota Vikings,0-0,"U.S. Bank Stadium, Minneapolis, MN, USA",TBD,2,18,401772968,-1,-1,false,TBD
+"December 21, 2025",Week 16,Scheduled,Atlanta Falcons,0-0,Arizona Cardinals,0-0,"State Farm Stadium, Glendale, AZ, USA",FOX,2,16,401772914,-1,-1,false,4:05 PM EST
+"December 29, 2025",Week 17,Scheduled,Los Angeles Rams,0-0,Atlanta Falcons,0-0,"Mercedes-Benz Stadium, Atlanta, GA, USA",ESPN,2,17,401772825,-1,-1,false,8:15 PM EST
 "January 4, 2026",Week 18,Scheduled,Miami Dolphins,0-0,New England Patriots,0-0,"Gillette Stadium, Foxborough, MA, USA",TBD,2,18,401772958,-1,-1,false,TBD
+"December 21, 2025",Week 16,Scheduled,Pittsburgh Steelers,0-0,Detroit Lions,0-0,"Ford Field, Detroit, MI, USA",CBS,2,16,401772806,-1,-1,false,4:25 PM EST
 "January 4, 2026",Week 18,Scheduled,Dallas Cowboys,0-0,New York Giants,0-0,"MetLife Stadium, East Rutherford, NJ, USA",TBD,2,18,401772963,-1,-1,false,TBD
+"December 21, 2025",Week 16,Scheduled,Las Vegas Raiders,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",CBS,2,16,401772805,-1,-1,false,4:25 PM EST
 "January 4, 2026",Week 18,Scheduled,Washington Commanders,0-0,Philadelphia Eagles,0-0,"Lincoln Financial Field, Philadelphia, PA, USA",TBD,2,18,401772959,-1,-1,false,TBD
+"December 21, 2025",Week 16,Scheduled,Cincinnati Bengals,0-0,Miami Dolphins,0-0,"Hard Rock Stadium, Miami Gardens, FL, USA",NBC,2,16,401772934,-1,-1,false,8:20 PM EST
 "January 4, 2026",Week 18,Scheduled,Baltimore Ravens,0-0,Pittsburgh Steelers,0-0,"Acrisure Stadium, Pittsburgh, PA, USA",TBD,2,18,401772960,-1,-1,false,TBD
+"December 22, 2025",Week 16,Scheduled,San Francisco 49ers,0-0,Indianapolis Colts,0-0,"Lucas Oil Stadium, Indianapolis, IN, USA",ESPN,2,16,401772824,-1,-1,false,8:15 PM EST
 "January 4, 2026",Week 18,Scheduled,Seattle Seahawks,0-0,San Francisco 49ers,0-0,"Levi's Stadium, Santa Clara, CA, USA",TBD,2,18,401772961,-1,-1,false,TBD
 "January 4, 2026",Week 18,Scheduled,Carolina Panthers,0-0,Tampa Bay Buccaneers,0-0,"Raymond James Stadium, Tampa, FL, USA",TBD,2,18,401772969,-1,-1,false,TBD
 "January 4, 2026",Week 18,Scheduled,Tennessee Titans,0-0,Jacksonville Jaguars,0-0,"EverBank Stadium, Jacksonville, FL, USA",TBD,2,18,401772970,-1,-1,false,TBD
-"January 4, 2026",Week 18,Scheduled,Indianapolis Colts,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",TBD,2,18,401772962,-1,-1,false,TBD
-"January 10, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,1,401772976,-1,-1,false,TBD
-"January 10, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,1,401772977,-1,-1,false,TBD
-"January 11, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,1,401772978,-1,-1,false,TBD
-"January 11, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,1,401772979,-1,-1,false,TBD
-"January 11, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,1,401772980,-1,-1,false,TBD
-"January 12, 2026",Wild Card Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,ESPN/ABC,3,1,401772981,-1,-1,false,8:15 PM EST
 "January 17, 2026",Divisional Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,2,401772982,-1,-1,false,TBD
+"January 4, 2026",Week 18,Scheduled,Indianapolis Colts,0-0,Houston Texans,0-0,"NRG Stadium, Houston, TX, USA",TBD,2,18,401772962,-1,-1,false,TBD
 "January 17, 2026",Divisional Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,2,401772983,-1,-1,false,TBD
-"January 18, 2026",Divisional Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,2,401772984,-1,-1,false,TBD
-"January 18, 2026",Divisional Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,2,401772985,-1,-1,false,TBD
 "January 25, 2026",Conference Championships,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,3,401772986,-1,-1,false,TBD
+"January 18, 2026",Divisional Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,2,401772984,-1,-1,false,TBD
 "January 25, 2026",Conference Championships,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,3,401772987,-1,-1,false,TBD
+"January 18, 2026",Divisional Round,Scheduled,TBD TBD,0-0,TBD TBD,0-0,TBD,TBD,3,2,401772985,-1,-1,false,TBD
 "February 8, 2026",Super Bowl,Scheduled,TBD TBD,0-0,TBD TBD,0-0,"Levi's Stadium, Santa Clara, CA, USA",NBC,3,5,401772988,-1,-1,false,TBD

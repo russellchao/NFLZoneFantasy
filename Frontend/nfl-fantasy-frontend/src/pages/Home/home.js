@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
-import { useAuth } from '../../hooks/use_auth';
 
 // Import all logo images
 const logoImages = require.context('../../logos/NFL Logos', false, /\.(png|jpe?g|svg)$/);
@@ -79,7 +78,6 @@ const Home = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
 
-    const { isLoggedIn, username, points } = useAuth(); 
     const navigate = useNavigate();
 
     return (
@@ -98,28 +96,7 @@ const Home = () => {
                 <button style={buttonStyle} onClick={() => navigate("/all_teams")}>
                     Teams
                 </button>
-                <button style={buttonStyle} onClick={() => navigate("/all_positions")}>
-                    Positions
-                </button>
-                <button style={buttonStyle} onClick={() => navigate("/search")}>
-                    Player Search
-                </button>
             </div>
-
-            <h3 style={subtitleStyle}>Below features for logged in users only</h3>
-
-            <div style={gridStyle}>
-                <button style={buttonStyle} onClick={() => isLoggedIn ? navigate("/hot_takes") : navigate("/login")}>
-                    Hot Takes
-                </button>
-                <button style={buttonStyle} onClick={() => isLoggedIn ? navigate("/predict_the_winner") : navigate("/login")}>
-                    Predict The Winner
-                </button>
-                <button style={buttonStyle} onClick={() => isLoggedIn ? navigate("/leaderboard") : navigate("/login")}>
-                    Leaderboard
-                </button>
-            </div>
-            
         </div>
     );
 };

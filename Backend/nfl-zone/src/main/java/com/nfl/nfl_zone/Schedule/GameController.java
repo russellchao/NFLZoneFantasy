@@ -14,11 +14,9 @@ public class GameController {
 
     private final GameService gameService;
 
-
     public GameController(GameService gameService) {
         this.gameService = gameService;
     }
-
 
     @GetMapping
     public List<Game> getGames(
@@ -39,8 +37,7 @@ public class GameController {
 
         }
     }
-
-
+    
     @GetMapping("/specific")
     public List<Game> getSpecificGames(
         @RequestParam() String team1,

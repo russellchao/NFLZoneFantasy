@@ -6,3 +6,4 @@ python-dotenv
 google-cloud-secret-manager
 beautifulsoup4
 requests
+supabase
