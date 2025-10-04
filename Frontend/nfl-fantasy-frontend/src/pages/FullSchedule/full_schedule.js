@@ -56,9 +56,9 @@ const FullSchedule = () => {
         console.log(`Database Loading: ${loading}`);
 
         // In case updating the schedule CSV is unsuccessful, the function will return such a response
-        const csv_result = await fetchUpdateScheduleDB(teamSeason); 
+        const result = await fetchUpdateScheduleDB(teamSeason); 
 
-        if (csv_result === "Failure updating CSVs") { throwLoadError(true); }
+        if (result === "Failure updating schedule data") { throwLoadError(true); }
     };
 
 

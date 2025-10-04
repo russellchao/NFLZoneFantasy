@@ -2,24 +2,12 @@ from flask import Flask
 from flask_cors import CORS
 from PlayerStatsData.PlayerStatsScraper import get_player_stats_data
 from ScheduleData.GetScheduleData import get_schedule_data
+from ScheduleData.UpdateScheduleDB import update_schedule_database
 from HotTakes.HotTakeValidator import validate_hot_take
 
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
-
-
-@app.route("/playerData/<nflSeason>")
-def update_player_stats(nflSeason): 
-    # Endpoint called from Spring Boot App that updates the player stats CSVs
-
-    try:
-        get_player_stats_data(nflSeason)
-        return "Success updating player stats data"
-
-    except Exception as e:
-        print(f"Failure, {e}")
-        return "Failure updating player stats data"
 
 
 @app.route("/scheduleData/<year>")
@@ -28,25 +16,12 @@ def update_schedule(year):
 
     try:
         get_schedule_data(year)
+        update_schedule_database()
         return "Success updating schedule data"
     
     except Exception as e:
         print(f"Failure, {e}")
         return "Failure updating schedule data"
-        
-
-@app.route("/validateHotTake/<hotTake>/<stringOfHotTakes>")
-def validate(hotTake, stringOfHotTakes):
-    # Endpoint that returns a string indicating whether the hot take is valid or not
-
-    try:
-        listOfHotTakes = stringOfHotTakes.split(",")
-        result = validate_hot_take(hotTake, listOfHotTakes)
-        return result
-    
-    except Exception as e:
-        print(f"Failure, {e}")
-        return "Failure validating hot take"
 
     
 if __name__ == "__main__":
