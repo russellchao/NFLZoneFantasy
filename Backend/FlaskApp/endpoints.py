@@ -1,9 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
-from PlayerStatsData.PlayerStatsScraper import get_player_stats_data
 from ScheduleData.GetScheduleData import get_schedule_data
 from ScheduleData.UpdateScheduleDB import update_schedule_database
-from HotTakes.HotTakeValidator import validate_hot_take
 
 
 app = Flask(__name__)
