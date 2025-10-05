@@ -37,7 +37,7 @@ public class GameController {
 
         }
     }
-    
+
     @GetMapping("/specific")
     public List<Game> getSpecificGames(
         @RequestParam() String team1,

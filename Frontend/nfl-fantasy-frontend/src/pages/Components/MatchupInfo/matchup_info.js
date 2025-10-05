@@ -753,7 +753,7 @@ const MatchupInfo = ({ game }) => {
         // Odds - spread and over/under
         let spread = "N/A";
         let overUnder = "N/A";
-        if (matchupInfoData["pickcenter"]) {
+        if (matchupInfoData["pickcenter"] != []) {
             spread = matchupInfoData["pickcenter"][0]["details"]; 
             overUnder = matchupInfoData["pickcenter"][0]["overUnder"];
         }
